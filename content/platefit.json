@@ -1,0 +1,41 @@
+{
+  "slug": "platefit",
+  "tab": "clinical-tools",
+  "title": "Menu ranking for people on GLP-1 medication",
+  "status": "in progress",
+  "hook": "People taking GLP-1 weight-loss drugs feel full fast and can get sick from greasy food, which makes eating out stressful. PlateFit ranks chain restaurant menu items by how well they fit that way of eating, and explains why.",
+  "question": "Can restaurant menu items be ranked in a transparent, evidence-informed way by how well they suit someone on a GLP-1 medication?",
+  "why_it_matters": "GLP-1 medications such as semaglutide and tirzepatide slow digestion and cut appetite, so each small meal needs enough protein to protect muscle and should avoid fried, fatty food that can cause nausea. Generic calorie trackers were not built around these needs, and people are left guessing at restaurants.",
+  "what_i_did": [
+    "Wrote a deterministic 0-100 scoring engine that weighs protein amount and density, fiber, fat, portion size, sugar, and sodium, with penalties for fried and oversized items.",
+    "Shrinks scores toward neutral when nutrition data is missing, so incomplete data cannot earn a top rating.",
+    "Documented the clinical rationale for each factor with citations, and stated plainly where the evidence is guidance-level rather than from trials.",
+    "Compiled a menu dataset from published nutrition information and built a Next.js site with search, filters, per-restaurant pages, and a methodology page.",
+    "Made the site installable on phones as a progressive web app."
+  ],
+  "what_i_found": [
+    "Available evidence supports clear priorities (protein first, fiber, avoiding fried food) but not precise per-meal cutoffs, so the scores are best treated as a ranking aid.",
+    "US chains publish total sugar rather than added sugar, which forced a documented compromise in the sugar score."
+  ],
+  "limits": [
+    "Not deployed yet, and not medical or nutrition advice.",
+    "Nutrition values reflect standard builds and vary by location and customization; some items are estimated.",
+    "Thresholds rest on dietitian guidance and drug mechanism, not trials of specific menu items."
+  ],
+  "tools": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "PWA"
+  ],
+  "links": [],
+  "figures": [],
+  "host_file": "",
+  "sources": [
+    "/Users/dominiero/Documents/GitHub/platefit-glp1/README.md",
+    "/Users/dominiero/Documents/GitHub/platefit-glp1/docs/SPEC.md",
+    "/Users/dominiero/Documents/GitHub/platefit-glp1/lib/scoring.ts",
+    "/Users/dominiero/Documents/GitHub/platefit-glp1/content/rubric/glp1-scoring-rubric.md"
+  ]
+}

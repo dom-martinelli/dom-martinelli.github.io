@@ -1,0 +1,65 @@
+{
+  "slug": "growth-medqa",
+  "tab": "medical-ai",
+  "title": "A pediatric growth benchmark for language models",
+  "status": "in progress",
+  "hook": "Doctors judge a child's health partly by how they grow, and AI chatbots are starting to answer medical questions. This benchmark checks whether those models actually understand growth, instead of trusting one overall test score.",
+  "question": "When a large language model does well on medical exam questions, is it actually competent at the specific growth-assessment tasks a pediatrician would rely on it for?",
+  "why_it_matters": "Poor growth is often the first visible sign of illness in a child, from hormone problems to celiac disease. Medical AI is usually judged by a single accuracy number on broad exam-style question sets, and that number can hide weak spots in exactly the skills a clinician would lean on. Growth questions are scattered across existing medical question banks but have never been organized so this skill can be tested on its own.",
+  "what_i_did": [
+    "Screened public medical question-answering datasets for postnatal pediatric questions, then used a broad, high-recall screen to find ones touching on growth.",
+    "Built a manually adjudicated reference set and compiled a classifier from it to label each question: what role growth plays in the reasoning, which growth topic it tests, and which physician competency it exercises.",
+    "Crosswalked labels to established frameworks: USMLE physician competencies and pediatric-endocrinology (ICPED/ABP) growth categories.",
+    "Kept only questions where growth was part of the tested reasoning, then evaluated eight language models at temperature zero with confidence intervals on accuracy.",
+    "Released the labeled benchmark as a public dataset with an interactive explorer for filtering by label and comparing models on any slice."
+  ],
+  "what_i_found": [
+    "A model's overall score can hide large differences in specific skills, such as ordering and interpreting lab tests or estimating prognosis.",
+    "Models disagreed most on anthropometric measurement and on calculating z-scores and percentiles, the arithmetic core of reading a growth chart.",
+    "Lower-ranked models changed order depending on which slice of questions was examined, so a single leaderboard can mislead."
+  ],
+  "limits": [
+    "Pre-publication work: detailed results are held back until the manuscript is reviewed.",
+    "Multiple-choice questions do not show whether a model is safe to use in clinical care, and the benchmark does not test reasoning over a child's measurements across many visits.",
+    "One source dataset has no stated license, so only its labels and identifiers are shared, not its question text."
+  ],
+  "tools": [
+    "Python",
+    "DSPy",
+    "OpenRouter",
+    "LLM evaluation",
+    "Hugging Face",
+    "LaTeX"
+  ],
+  "links": [
+    {
+      "label": "Code on GitHub",
+      "url": "https://github.com/dom-martinelli/Growth-MedQA"
+    },
+    {
+      "label": "Interactive explorer (Hugging Face Space)",
+      "url": "https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer"
+    },
+    {
+      "label": "Dataset on Hugging Face",
+      "url": "https://huggingface.co/datasets/dmartinelli/growth-medqa"
+    }
+  ],
+  "figures": [
+    {
+      "file": "assets/fig/growth-medqa-1.png",
+      "caption": "What the benchmark contains: questions broken down by the role growth plays in the reasoning, by pediatric-endocrinology growth topic, and by the physician competency each question tests."
+    }
+  ],
+  "host_file": "",
+  "sources": [
+    "/Users/dominiero/Documents/GitHub/Growth-MedQA/README.md",
+    "/Users/dominiero/Documents/GitHub/Growth-MedQA/data_notes/project_ground_truth.md",
+    "/Users/dominiero/Documents/GitHub/benchmark-fresh/manuscript/README.md",
+    "/Users/dominiero/Documents/GitHub/benchmark-fresh/manuscript/shared/frontmatter/abstract.tex",
+    "/Users/dominiero/Documents/GitHub/benchmark-fresh/manuscript/shared/frontmatter/title.tex",
+    "/Users/dominiero/Documents/GitHub/benchmark-fresh/manuscript/shared/backmatter/declarations.tex",
+    "/Users/dominiero/Documents/GitHub/benchmark-fresh/manuscript/shared/figures/figure-benchmark-composition.png",
+    "/Users/dominiero/Documents/GitHub/benchmark-fresh/manuscript/shared/figures/figure-study-workflow.png"
+  ]
+}

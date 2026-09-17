@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A pediatric growth benchmark for language models · Dom Martinelli</title>
+<meta name="description" content="Doctors judge a child&#x27;s health partly by how they grow, and AI chatbots are starting to answer medical questions. This benchmark checks whether those models actually understand growth, instead of trusting one overall test score.">
+<meta property="og:title" content="A pediatric growth benchmark for language models · Dom Martinelli">
+<meta property="og:description" content="Doctors judge a child&#x27;s health partly by how they grow, and AI chatbots are starting to answer medical questions. This benchmark checks whether those models actually understand growth, instead of trusting one overall test score.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#medical-ai">&larr; Evaluating medical AI</a>
+  <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
+  <h1>A pediatric growth benchmark for language models</h1>
+  <p class="lede">Doctors judge a child&#x27;s health partly by how they grow, and AI chatbots are starting to answer medical questions. This benchmark checks whether those models actually understand growth, instead of trusting one overall test score.</p>
+  <div class="actions"><a class="btn btn-primary" href="https://github.com/dom-martinelli/Growth-MedQA">Code on GitHub</a><a class="btn" href="https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer">Interactive explorer (Hugging Face Space)</a><a class="btn" href="https://huggingface.co/datasets/dmartinelli/growth-medqa">Dataset on Hugging Face</a></div>
+  <section class="block"><h2>The question</h2><p>When a large language model does well on medical exam questions, is it actually competent at the specific growth-assessment tasks a pediatrician would rely on it for?</p></section>
+  <section class="block"><h2>Why it matters</h2><p>Poor growth is often the first visible sign of illness in a child, from hormone problems to celiac disease. Medical AI is usually judged by a single accuracy number on broad exam-style question sets, and that number can hide weak spots in exactly the skills a clinician would lean on. Growth questions are scattered across existing medical question banks but have never been organized so this skill can be tested on its own.</p></section>
+  <div class="figs"><figure><div class="panel"><img src="../assets/fig/growth-medqa-1.png" alt="What the benchmark contains: questions broken down by the role growth plays in the reasoning, by pediatric-endocrinology growth topic, and by the physician competency each question tests." loading="lazy"></div><figcaption>What the benchmark contains: questions broken down by the role growth plays in the reasoning, by pediatric-endocrinology growth topic, and by the physician competency each question tests.</figcaption></figure></div>
+  <section class="block"><h2>What I did</h2><ul><li>Screened public medical question-answering datasets for postnatal pediatric questions, then used a broad, high-recall screen to find ones touching on growth.</li><li>Built a manually adjudicated reference set and compiled a classifier from it to label each question: what role growth plays in the reasoning, which growth topic it tests, and which physician competency it exercises.</li><li>Crosswalked labels to established frameworks: USMLE physician competencies and pediatric-endocrinology (ICPED/ABP) growth categories.</li><li>Kept only questions where growth was part of the tested reasoning, then evaluated eight language models at temperature zero with confidence intervals on accuracy.</li><li>Released the labeled benchmark as a public dataset with an interactive explorer for filtering by label and comparing models on any slice.</li></ul></section>
+  <section class="block"><h2>What I found</h2><ul><li>A model&#x27;s overall score can hide large differences in specific skills, such as ordering and interpreting lab tests or estimating prognosis.</li><li>Models disagreed most on anthropometric measurement and on calculating z-scores and percentiles, the arithmetic core of reading a growth chart.</li><li>Lower-ranked models changed order depending on which slice of questions was examined, so a single leaderboard can mislead.</li></ul></section>
+  <section class="block"><h2>Limits</h2><ul><li>Pre-publication work: detailed results are held back until the manuscript is reviewed.</li><li>Multiple-choice questions do not show whether a model is safe to use in clinical care, and the benchmark does not test reasoning over a child&#x27;s measurements across many visits.</li><li>One source dataset has no stated license, so only its labels and identifiers are shared, not its question text.</li></ul></section>
+  <section class="block"><h2>Tools</h2><ul class="tags"><li>Python</li><li>DSPy</li><li>OpenRouter</li><li>LLM evaluation</li><li>Hugging Face</li><li>LaTeX</li></ul></section>
+</main>
+<footer class="wrap foot">Dom Martinelli · built by hand, figures made with matplotlib</footer>
+</body>
+</html>

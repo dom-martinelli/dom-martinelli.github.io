@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDA-authorized AI devices · Dom Martinelli</title>
+<meta name="description" content="The FDA has authorized a long and growing list of AI medical devices. This interactive registry lets anyone explore that list, and shows what it never records: whether a device was shown to help patients.">
+<meta property="og:title" content="FDA-authorized AI devices · Dom Martinelli">
+<meta property="og:description" content="The FDA has authorized a long and growing list of AI medical devices. This interactive registry lets anyone explore that list, and shows what it never records: whether a device was shown to help patients.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#medical-ai">&larr; Evaluating medical AI</a>
+  <div class="tile-meta"><span class="status status-finished">finished</span></div>
+  <h1>FDA-authorized AI devices</h1>
+  <p class="lede">The FDA has authorized a long and growing list of AI medical devices. This interactive registry lets anyone explore that list, and shows what it never records: whether a device was shown to help patients.</p>
+  <div class="actions"><a class="btn btn-primary" href="../tools/fda-ai-devices.html">Open it</a></div>
+  <section class="block"><h2>The question</h2><p>What does the FDA&#x27;s public list of AI-enabled medical devices tell us, and what evidence about patient benefit is missing from it?</p></section>
+  <section class="block"><h2>Why it matters</h2><p>Hospitals, clinicians, and patients may assume that an FDA-authorized AI device has been proven to work in patient care. Most of these devices reach the market by showing they resemble a device already sold, which does not require a new clinical trial. The official list records who made a device and when it was cleared, but not the clinical evidence behind it.</p></section>
+  
+  <section class="block"><h2>What I did</h2><ul><li>Downloaded the FDA&#x27;s official list of AI-enabled medical devices and built a single self-contained web page around it.</li><li>Added search and filters by device, company, specialty, clearance pathway, and year, with charts that update as you filter.</li><li>Linked each submission number to its record in the FDA database.</li><li>Summarized published peer-reviewed studies of this list to show, in aggregate, what the authorization summaries report about clinical validation, with each figure cited to its source.</li></ul></section>
+  <section class="block"><h2>What I found</h2><ul><li>Nearly all devices on the list reached the market through the 510(k) pathway, which asks about similarity to an existing device rather than new clinical evidence.</li><li>Published reviews of the authorization summaries report that prospective real-world studies, demographic details of validation populations, and linked peer-reviewed publications are rare.</li></ul></section>
+  <section class="block"><h2>Limits</h2><ul><li>The evidence summary comes from other researchers&#x27; published studies of the list as a whole, not from per-device review.</li><li>A snapshot of the FDA list at one download date; it does not update automatically.</li></ul></section>
+  <section class="block"><h2>Tools</h2><ul class="tags"><li>HTML</li><li>JavaScript</li><li>CSV</li><li>FDA public data</li></ul></section>
+</main>
+<footer class="wrap foot">Dom Martinelli · built by hand, figures made with matplotlib</footer>
+</body>
+</html>

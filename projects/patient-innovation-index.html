@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measuring patient involvement in published research · Dom Martinelli</title>
+<meta name="description" content="Patients increasingly help shape medical research as co-authors, funders and organizers, but there is no standard way to measure that involvement. This project builds one and asks whether research made with patients differs from comparable research made without them.">
+<meta property="og:title" content="Measuring patient involvement in published research · Dom Martinelli">
+<meta property="og:description" content="Patients increasingly help shape medical research as co-authors, funders and organizers, but there is no standard way to measure that involvement. This project builds one and asks whether research made with patients differs from comparable research made without them.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#trials">&larr; Trials and evidence</a>
+  <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
+  <h1>Measuring patient involvement in published research</h1>
+  <p class="lede">Patients increasingly help shape medical research as co-authors, funders and organizers, but there is no standard way to measure that involvement. This project builds one and asks whether research made with patients differs from comparable research made without them.</p>
+  
+  <section class="block"><h2>The question</h2><p>Can patient involvement in how research is produced be measured from published papers, and does involved research differ in scientific impact from comparable papers?</p></section>
+  <section class="block"><h2>Why it matters</h2><p>Funders and research groups are asked to involve patients, but there is little large-scale evidence about what that involvement changes. Without a measure, involvement is hard to track or study. This is an advisor-supervised independent study, and its results have not yet been reviewed.</p></section>
+  
+  <section class="block"><h2>What I did</h2><ul><li>Retrieved PubMed papers matching patient-involvement terms, pulled year by year to avoid favoring recent work.</li><li>Built an index that combines several signals of involvement found in titles, abstracts, author lists, affiliations, acknowledgements and funding records, such as patient authors or patient organizations as funders.</li><li>Built comparison sets of papers from the NIH iCite database, including random, journal-matched and topic-matched controls.</li><li>Compared papers using a field-normalized citation measure (the Relative Citation Ratio) and matched papers on characteristics such as publication year and team size.</li></ul></section>
+  
+  <section class="block"><h2>Limits</h2><ul><li>The weights given to each involvement signal are judgment-based and not yet externally validated.</li><li>Matching on a few characteristics cannot rule out other differences between papers.</li></ul></section>
+  <section class="block"><h2>Tools</h2><ul class="tags"><li>Python</li><li>PubMed</li><li>NIH iCite</li><li>text signal extraction</li><li>coarsened exact matching</li></ul></section>
+</main>
+<footer class="wrap foot">Dom Martinelli · built by hand, figures made with matplotlib</footer>
+</body>
+</html>

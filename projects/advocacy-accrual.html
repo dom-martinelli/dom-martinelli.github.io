@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patient advocacy partners and trial enrollment failure · Dom Martinelli</title>
+<meta name="description" content="Many clinical trials stop early because they cannot find enough patients, and a stopped trial can take a promising drug off the table for good. This project asks whether trials that partner with patient advocacy groups are less likely to fail that way.">
+<meta property="og:title" content="Patient advocacy partners and trial enrollment failure · Dom Martinelli">
+<meta property="og:description" content="Many clinical trials stop early because they cannot find enough patients, and a stopped trial can take a promising drug off the table for good. This project asks whether trials that partner with patient advocacy groups are less likely to fail that way.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#trials">&larr; Trials and evidence</a>
+  <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
+  <h1>Patient advocacy partners and trial enrollment failure</h1>
+  <p class="lede">Many clinical trials stop early because they cannot find enough patients, and a stopped trial can take a promising drug off the table for good. This project asks whether trials that partner with patient advocacy groups are less likely to fail that way.</p>
+  <div class="actions"><a class="btn btn-primary" href="https://github.com/dom-martinelli/advocacy-and-accrual">Code on GitHub</a></div>
+  <section class="block"><h2>The question</h2><p>Do interventional clinical trials that partner with a patient advocacy organization stop less often because of poor enrollment?</p></section>
+  <section class="block"><h2>Why it matters</h2><p>Enrollment is among the most common reasons trials stop early, and a stopped trial wastes money and years. Drug companies fund patient advocacy teams, but those teams have little evidence that they change outcomes that matter to a trial finishing. Most earlier work measured patient involvement against citations; this project measures it against whether the trial actually finished.</p></section>
+  <div class="figs"><figure><div class="panel"><img src="../assets/fig/advocacy-accrual-1.png" alt="Novel compounds dropped after a single failed trial, grouped by why the trial stopped. Failures that said nothing about the molecule, led by trials that could not enroll patients, outnumber failures on safety or efficacy." loading="lazy"></div><figcaption>Novel compounds dropped after a single failed trial, grouped by why the trial stopped. Failures that said nothing about the molecule, led by trials that could not enroll patients, outnumber failures on safety or efficacy.</figcaption></figure><figure><div class="panel"><img src="../assets/fig/advocacy-accrual-2.png" alt="Share of compounds tested again in a different disease area, by the reason their first trial stopped, before adjusting for other factors." loading="lazy"></div><figcaption>Share of compounds tested again in a different disease area, by the reason their first trial stopped, before adjusting for other factors.</figcaption></figure></div>
+  <section class="block"><h2>What I did</h2><ul><li>Pulled every registered study from ClinicalTrials.gov through its public API and built a cohort of interventional trials started after registration became mandatory.</li><li>Found trials with a patient advocacy organization as sponsor or collaborator using a broad name screen followed by an LLM classifier working from a written definition.</li><li>Classified the free-text reason each stopped trial gave, and checked that rule set against hand-labeled examples.</li><li>Compared advocacy-partnered trials with matched control trials of the same phase, disease area, sponsor type, start year and target size (coarsened exact matching), with bootstrap confidence intervals.</li><li>Wrote down the open analysis choices that could change the answer, such as what a blank stop reason means and where a patient organization&#x27;s boundary sits.</li><li>In a side analysis, followed novel compounds after their first failed trial to see whether the reason for failure predicts whether the compound is ever tested again.</li></ul></section>
+  <section class="block"><h2>What I found</h2><ul><li>Advocacy-partnered trials stopped for enrollment failure less often than matched controls, but the confidence interval reaches no difference, so the repo describes this as a consistent trend in the expected direction rather than a significant result.</li><li>Two planned outcomes, enrollment shortfall and schedule slip, are not yet measured because they require each trial&#x27;s original registered targets from version history.</li><li>In the side analysis, most novel compounds never return after a first failed trial, and many more are abandoned after failures that said nothing about the drug, such as not finding patients, than after safety or efficacy failures.</li></ul></section>
+  <section class="block"><h2>Limits</h2><ul><li>Reverse causation is the largest threat: advocacy groups may partner with trials that were already well resourced, and matching narrows this without closing it.</li><li>Several analysis decisions remain open and each can move the estimate.</li><li>The stop-reason classifier has been validated for the enrollment category only; other failure categories have no hand-labeled check yet.</li></ul></section>
+  <section class="block"><h2>Tools</h2><ul class="tags"><li>Python</li><li>pandas</li><li>ClinicalTrials.gov API</li><li>LLM classification</li><li>coarsened exact matching</li><li>bootstrap</li><li>matplotlib</li></ul></section>
+</main>
+<footer class="wrap foot">Dom Martinelli · built by hand, figures made with matplotlib</footer>
+</body>
+</html>

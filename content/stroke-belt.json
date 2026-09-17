@@ -1,0 +1,64 @@
+{
+ "slug": "stroke-belt",
+ "tab": "population",
+ "title": "Hypertension, obesity and treatment gaps in the Stroke Belt",
+ "status": "finished",
+ "hook": "A band of Southeastern states has long had more strokes than the rest of the country. In a four-person group project, we mapped stroke, high blood pressure, insurance, medical debt and food insecurity to ask who develops high blood pressure there and who gets treated for it.",
+ "question": "Within the Stroke Belt, is high blood pressure more common where obesity is higher, and are people with diagnosed high blood pressure less likely to be on medication in tracts with a larger share of Black residents?",
+ "why_it_matters": "High blood pressure is the main modifiable risk factor for stroke, and Deep South states have some of the highest rates and some of the poorest control. Knowing whether the burden tracks with obesity, and whether treatment differs by neighborhood, points to where prevention and access to care fall short.",
+ "what_i_did": [
+  "Group project for Cornell's INFO 2950 (Introduction to Data Science) with three classmates.",
+  "Merged census-tract estimates from the CDC PLACES project with American Community Survey demographic and income data.",
+  "Started with Chicago, then widened the scope to the Stroke Belt states for more statistical power.",
+  "Made county and tract maps of stroke, hypertension, insurance by age group, medical debt and food insecurity.",
+  "Preregistered two hypotheses and tested them with linear regression and permutation tests (shuffling the data many times to see how often a result arises by chance)."
+ ],
+ "what_i_found": [
+  "Tracts with more obesity had clearly higher high blood pressure prevalence, even after adjusting for income, insurance and age.",
+  "Tracts with a larger share of Black residents had slightly lower medication coverage among diagnosed patients at similar insurance levels, but the model explained almost none of the variation, so most of the gap likely comes from factors we did not measure."
+ ],
+ "limits": [
+  "CDC PLACES values are modeled survey estimates, not direct measurements.",
+  "The data are cross-sectional and area-level, so the results are associations about places, not causes or individuals.",
+  "Data sources cover slightly different years."
+ ],
+ "tools": [
+  "Python",
+  "pandas",
+  "GeoPandas",
+  "matplotlib",
+  "seaborn",
+  "CDC PLACES",
+  "American Community Survey",
+  "linear regression",
+  "permutation tests"
+ ],
+ "links": [],
+ "figures": [
+  {
+   "file": "assets/fig/stroke-belt-1.png",
+   "caption": "County-level stroke prevalence across the continental US, with the Stroke Belt states outlined in white."
+  },
+  {
+   "file": "assets/fig/stroke-belt-2.png",
+   "caption": "Share of adults with health insurance in Stroke Belt counties, ages 19 to 64 on the left and 65 and older on the right."
+  },
+  {
+   "file": "assets/fig/stroke-belt-3.png",
+   "caption": "County-level share of people with medical debt across the continental US, with the Stroke Belt states outlined."
+  },
+  {
+   "file": "assets/fig/stroke-belt-4.png",
+   "caption": "County-level food insecurity across the continental US, with the Stroke Belt states outlined."
+  }
+ ],
+ "sources": [
+  "intro_datasci_project/README.md",
+  "intro_datasci_project/phase4 submission.ipynb",
+  "intro_datasci_project/preprocessing/data_preprocessing_geographic.ipynb",
+  "intro_datasci_project/preprocessing/us_stroke_prevalence.png",
+  "intro_datasci_project/preprocessing/stroke_belt_age_insurance_gap.png",
+  "intro_datasci_project/preprocessing/us_medical_debt.png",
+  "intro_datasci_project/preprocessing/us_food_insecurity.png"
+ ]
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "fda-ai-devices",
+  "tab": "medical-ai",
+  "title": "FDA-authorized AI devices",
+  "status": "finished",
+  "hook": "The FDA has authorized a long and growing list of AI medical devices. This interactive registry lets anyone explore that list, and shows what it never records: whether a device was shown to help patients.",
+  "question": "What does the FDA's public list of AI-enabled medical devices tell us, and what evidence about patient benefit is missing from it?",
+  "why_it_matters": "Hospitals, clinicians, and patients may assume that an FDA-authorized AI device has been proven to work in patient care. Most of these devices reach the market by showing they resemble a device already sold, which does not require a new clinical trial. The official list records who made a device and when it was cleared, but not the clinical evidence behind it.",
+  "what_i_did": [
+    "Downloaded the FDA's official list of AI-enabled medical devices and built a single self-contained web page around it.",
+    "Added search and filters by device, company, specialty, clearance pathway, and year, with charts that update as you filter.",
+    "Linked each submission number to its record in the FDA database.",
+    "Summarized published peer-reviewed studies of this list to show, in aggregate, what the authorization summaries report about clinical validation, with each figure cited to its source."
+  ],
+  "what_i_found": [
+    "Nearly all devices on the list reached the market through the 510(k) pathway, which asks about similarity to an existing device rather than new clinical evidence.",
+    "Published reviews of the authorization summaries report that prospective real-world studies, demographic details of validation populations, and linked peer-reviewed publications are rare."
+  ],
+  "limits": [
+    "The evidence summary comes from other researchers' published studies of the list as a whole, not from per-device review.",
+    "A snapshot of the FDA list at one download date; it does not update automatically."
+  ],
+  "tools": [
+    "HTML",
+    "JavaScript",
+    "CSV",
+    "FDA public data"
+  ],
+  "links": [],
+  "figures": [],
+  "host_file": "/Users/dominiero/Documents/medical-ai-evidence/fda-ai-registry.html",
+  "sources": [
+    "/Users/dominiero/Documents/medical-ai-evidence/fda-ai-registry.html",
+    "/Users/dominiero/Documents/medical-ai-evidence/fda_ai_devices_2026-03-30.csv"
+  ]
+}

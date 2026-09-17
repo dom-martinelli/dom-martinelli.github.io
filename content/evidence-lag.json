@@ -1,0 +1,75 @@
+{
+  "slug": "evidence-lag",
+  "tab": "trials",
+  "title": "How long evidence takes to reach practice",
+  "status": "in progress",
+  "hook": "When the evidence about a disease or drug changes, doctors and patients rely on guidelines, drug labels and published papers to catch up. This project tracks how long that catch-up takes, using cases from chronic fatigue syndrome, Ehlers-Danlos syndrome, GLP-1 weight-loss drugs and heart attacks in women.",
+  "question": "How long does it take for a change in evidence or a safety signal to show up in guidelines, drug labels and the research literature?",
+  "why_it_matters": "Guidelines and labels change only after evidence has piled up, so patients can be treated under outdated advice in the meantime. Several of these changes were pushed by patients years before they became official. Measuring the gap shows where the record lags and whether earlier signals were visible.",
+  "what_i_did": [
+    "Checked ClinicalTrials.gov first and documented why it was too thin for these questions.",
+    "Counted PubMed papers by year through NCBI's public E-utilities to track terms such as graded exercise therapy versus pacing for ME/CFS, and old versus new Ehlers-Danlos naming around the 2017 reclassification.",
+    "Pulled FDA adverse-event reports (FAERS) for seven GLP-1 diabetes drugs and compared when weight-related reports first appeared against obesity trials and weight-loss approvals.",
+    "Normalized weight reports as a share of each drug's total reports, since overall reporting grows every year.",
+    "Tracked how heart attack papers mention women or sex differences from 1975 onward, against the policies that required women in research."
+  ],
+  "what_i_found": [
+    "The Ehlers-Danlos naming change reached the literature within a few years: papers using the new terms overtook the old ones soon after the 2017 classification.",
+    "The ME/CFS treatment change is harder to read. Mentions of graded exercise therapy were already falling years before NICE's 2021 guideline, possibly tied to the earlier PACE trial controversy, and a treatment change does not force a vocabulary change the way a rename does.",
+    "For the GLP-1 drugs that later gained a weight-loss approval, weight-related safety reports appeared before the weight label. Newer molecules moved to obesity trials faster than older ones.",
+    "Heart attack papers began naming women before the 1993 NIH mandate and then stayed roughly flat, while the share describing women's symptoms as atypical barely changed."
+  ],
+  "limits": [
+    "Title and abstract term counts are a blunt proxy and have not been validated against hand-labeled papers.",
+    "Only a few cases per question, including seven GLP-1 drugs, so these are descriptions of dates rather than general patterns or causal claims.",
+    "FAERS reports are voluntary, matched by generic name only, and cannot separate an unwanted side effect from off-label use; approval dates were hand-entered and are marked as not yet verified."
+  ],
+  "tools": [
+    "Python",
+    "pandas",
+    "PubMed E-utilities",
+    "openFDA FAERS",
+    "ClinicalTrials.gov API",
+    "Jupyter",
+    "matplotlib"
+  ],
+  "links": [
+    {
+      "label": "Code on GitHub",
+      "url": "https://github.com/dom-martinelli/advocacy-and-accrual"
+    }
+  ],
+  "figures": [
+    {
+      "file": "assets/fig/evidence-lag-1.png",
+      "caption": "Share of Ehlers-Danlos papers each year using the old hypermobility terms versus the new hypermobile EDS and HSD terms, with the 2017 classification marked."
+    },
+    {
+      "file": "assets/fig/evidence-lag-2.png",
+      "caption": "Share of ME/CFS papers each year mentioning graded exercise therapy versus pacing, with NICE's October 2021 guideline marked."
+    },
+    {
+      "file": "assets/fig/evidence-lag-3.png",
+      "caption": "For seven GLP-1 drugs, the first adverse-event report mentioning weight, the first US diabetes approval, and any later approval for weight management."
+    },
+    {
+      "file": "assets/fig/evidence-lag-4.png",
+      "caption": "Share of heart attack papers that name women or sex differences, and share describing the presentation as atypical, from 1975 to 2025, with major research policy changes marked."
+    }
+  ],
+  "sources": [
+    "advocacy-and-accrual/notebooks/guideline_lag.ipynb",
+    "advocacy-and-accrual/notebooks/glp1_cascade.ipynb",
+    "advocacy-and-accrual/scripts/build_guideline_lag_figures.py",
+    "advocacy-and-accrual/scripts/build_glp1_faers_figure.py",
+    "advocacy-and-accrual/scripts/build_glp1_signal_vs_approval.py",
+    "advocacy-and-accrual/scripts/build_mi_sex_framing_figure.py",
+    "advocacy-and-accrual/scripts/06_pull_glp1_signals.py",
+    "advocacy-and-accrual/scripts/09_pull_guideline_lag_pubmed.py",
+    "advocacy-and-accrual/scripts/10_pull_mi_sex_framing.py",
+    "advocacy-and-accrual/outputs/figures/10_glp1_signal_vs_approval.png",
+    "advocacy-and-accrual/outputs/figures/11_eds_terminology_lag.png",
+    "advocacy-and-accrual/outputs/figures/12_cfs_get_pacing.png",
+    "advocacy-and-accrual/outputs/figures/13_mi_sex_framing.png"
+  ]
+}

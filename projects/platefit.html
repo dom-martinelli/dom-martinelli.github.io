@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu ranking for people on GLP-1 medication · Dom Martinelli</title>
+<meta name="description" content="People taking GLP-1 weight-loss drugs feel full fast and can get sick from greasy food, which makes eating out stressful. PlateFit ranks chain restaurant menu items by how well they fit that way of eating, and explains why.">
+<meta property="og:title" content="Menu ranking for people on GLP-1 medication · Dom Martinelli">
+<meta property="og:description" content="People taking GLP-1 weight-loss drugs feel full fast and can get sick from greasy food, which makes eating out stressful. PlateFit ranks chain restaurant menu items by how well they fit that way of eating, and explains why.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#clinical-tools">&larr; Clinical tools</a>
+  <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
+  <h1>Menu ranking for people on GLP-1 medication</h1>
+  <p class="lede">People taking GLP-1 weight-loss drugs feel full fast and can get sick from greasy food, which makes eating out stressful. PlateFit ranks chain restaurant menu items by how well they fit that way of eating, and explains why.</p>
+  
+  <section class="block"><h2>The question</h2><p>Can restaurant menu items be ranked in a transparent, evidence-informed way by how well they suit someone on a GLP-1 medication?</p></section>
+  <section class="block"><h2>Why it matters</h2><p>GLP-1 medications such as semaglutide and tirzepatide slow digestion and cut appetite, so each small meal needs enough protein to protect muscle and should avoid fried, fatty food that can cause nausea. Generic calorie trackers were not built around these needs, and people are left guessing at restaurants.</p></section>
+  
+  <section class="block"><h2>What I did</h2><ul><li>Wrote a deterministic 0-100 scoring engine that weighs protein amount and density, fiber, fat, portion size, sugar, and sodium, with penalties for fried and oversized items.</li><li>Shrinks scores toward neutral when nutrition data is missing, so incomplete data cannot earn a top rating.</li><li>Documented the clinical rationale for each factor with citations, and stated plainly where the evidence is guidance-level rather than from trials.</li><li>Compiled a menu dataset from published nutrition information and built a Next.js site with search, filters, per-restaurant pages, and a methodology page.</li><li>Made the site installable on phones as a progressive web app.</li></ul></section>
+  <section class="block"><h2>What I found</h2><ul><li>Available evidence supports clear priorities (protein first, fiber, avoiding fried food) but not precise per-meal cutoffs, so the scores are best treated as a ranking aid.</li><li>US chains publish total sugar rather than added sugar, which forced a documented compromise in the sugar score.</li></ul></section>
+  <section class="block"><h2>Limits</h2><ul><li>Not deployed yet, and not medical or nutrition advice.</li><li>Nutrition values reflect standard builds and vary by location and customization; some items are estimated.</li><li>Thresholds rest on dietitian guidance and drug mechanism, not trials of specific menu items.</li></ul></section>
+  <section class="block"><h2>Tools</h2><ul class="tags"><li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind CSS</li><li>PWA</li></ul></section>
+</main>
+<footer class="wrap foot">Dom Martinelli · built by hand, figures made with matplotlib</footer>
+</body>
+</html>

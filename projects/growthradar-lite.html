@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growth monitoring from the health record · Dom Martinelli</title>
+<meta name="description" content="A child who slowly drops off their growth curve can go unnoticed across many short clinic visits. This prototype pulls a child&#x27;s measurements from an electronic health record, flags worrying changes, and drafts a summary for the pediatrician.">
+<meta property="og:title" content="Growth monitoring from the health record · Dom Martinelli">
+<meta property="og:description" content="A child who slowly drops off their growth curve can go unnoticed across many short clinic visits. This prototype pulls a child&#x27;s measurements from an electronic health record, flags worrying changes, and drafts a summary for the pediatrician.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#clinical-tools">&larr; Clinical tools</a>
+  <div class="tile-meta"><span class="status status-live">live</span></div>
+  <h1>Growth monitoring from the health record</h1>
+  <p class="lede">A child who slowly drops off their growth curve can go unnoticed across many short clinic visits. This prototype pulls a child&#x27;s measurements from an electronic health record, flags worrying changes, and drafts a summary for the pediatrician.</p>
+  <div class="actions"><a class="btn btn-primary" href="https://dom-martinelli.github.io/growthradar-lite/">Live demo</a><a class="btn" href="https://github.com/dom-martinelli/growthradar-lite">Code on GitHub</a></div>
+  <section class="block"><h2>The question</h2><p>Can a lightweight app read a child&#x27;s growth data straight from an Epic health record and surface growth faltering a busy clinician might miss?</p></section>
+  <section class="block"><h2>Why it matters</h2><p>Growth faltering and short stature can signal underlying disease, but spotting them means comparing many measurements over years against reference charts, which is easy to skip in a short visit. Pulling that history automatically and flagging drops could help catch problems earlier.</p></section>
+  <div class="figs"><figure><div class="panel panel-dark"><img src="../assets/fig/growthradar-lite-1.png" alt="The prototype with the bundled sample patient loaded: parsed vitals from the health record, each measurement marked with how it is used on the chart." loading="lazy"></div><figcaption>The prototype with the bundled sample patient loaded: parsed vitals from the health record, each measurement marked with how it is used on the chart.</figcaption></figure></div>
+  <section class="block"><h2>What I did</h2><ul><li>Connected to the Epic FHIR sandbox using the SMART on FHIR login flow (with PKCE) to read patient, vitals, lab, medication, and condition data.</li><li>Placed height measurements on WHO (under 2 years) and CDC (2 years and up) reference percentiles and calculated height velocity between visits.</li><li>Flagged large percentile drops and heights at or below the 3rd percentile.</li><li>Collected optional family context such as parents&#x27; heights for a midparental target height.</li><li>Sent the structured growth history and flags to a language model through OpenRouter to draft a short clinical summary, using a key kept only in the browser session.</li><li>Included a synthetic sample patient so the app works without an Epic login.</li></ul></section>
+  <section class="block"><h2>What I found</h2><ul><li>Standard health record APIs provide enough structured growth data to run percentile tracking and velocity checks in the browser, without a backend.</li></ul></section>
+  <section class="block"><h2>Limits</h2><ul><li>Percentiles are approximated from a small built-in reference table for boys, not a validated LMS calculation.</li><li>Runs against the Epic sandbox and synthetic data only, not real patients.</li><li>The AI summary is for demonstration and is not a substitute for clinical judgment.</li></ul></section>
+  <section class="block"><h2>Tools</h2><ul class="tags"><li>JavaScript</li><li>HTML</li><li>SMART on FHIR</li><li>Epic sandbox</li><li>OpenRouter</li></ul></section>
+</main>
+<footer class="wrap foot">Dom Martinelli · built by hand, figures made with matplotlib</footer>
+</body>
+</html>

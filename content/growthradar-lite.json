@@ -1,0 +1,55 @@
+{
+  "slug": "growthradar-lite",
+  "tab": "clinical-tools",
+  "title": "Growth monitoring from the health record",
+  "status": "live",
+  "hook": "A child who slowly drops off their growth curve can go unnoticed across many short clinic visits. This prototype pulls a child's measurements from an electronic health record, flags worrying changes, and drafts a summary for the pediatrician.",
+  "question": "Can a lightweight app read a child's growth data straight from an Epic health record and surface growth faltering a busy clinician might miss?",
+  "why_it_matters": "Growth faltering and short stature can signal underlying disease, but spotting them means comparing many measurements over years against reference charts, which is easy to skip in a short visit. Pulling that history automatically and flagging drops could help catch problems earlier.",
+  "what_i_did": [
+    "Connected to the Epic FHIR sandbox using the SMART on FHIR login flow (with PKCE) to read patient, vitals, lab, medication, and condition data.",
+    "Placed height measurements on WHO (under 2 years) and CDC (2 years and up) reference percentiles and calculated height velocity between visits.",
+    "Flagged large percentile drops and heights at or below the 3rd percentile.",
+    "Collected optional family context such as parents' heights for a midparental target height.",
+    "Sent the structured growth history and flags to a language model through OpenRouter to draft a short clinical summary, using a key kept only in the browser session.",
+    "Included a synthetic sample patient so the app works without an Epic login."
+  ],
+  "what_i_found": [
+    "Standard health record APIs provide enough structured growth data to run percentile tracking and velocity checks in the browser, without a backend."
+  ],
+  "limits": [
+    "Percentiles are approximated from a small built-in reference table for boys, not a validated LMS calculation.",
+    "Runs against the Epic sandbox and synthetic data only, not real patients.",
+    "The AI summary is for demonstration and is not a substitute for clinical judgment."
+  ],
+  "tools": [
+    "JavaScript",
+    "HTML",
+    "SMART on FHIR",
+    "Epic sandbox",
+    "OpenRouter"
+  ],
+  "links": [
+    {
+      "label": "Live demo",
+      "url": "https://dom-martinelli.github.io/growthradar-lite/"
+    },
+    {
+      "label": "Code on GitHub",
+      "url": "https://github.com/dom-martinelli/growthradar-lite"
+    }
+  ],
+  "figures": [
+    {
+      "file": "assets/fig/growthradar-lite-1.png",
+      "caption": "The prototype with the bundled sample patient loaded: parsed vitals from the health record, each measurement marked with how it is used on the chart.",
+      "dark": true
+    }
+  ],
+  "host_file": "",
+  "sources": [
+    "/Users/dominiero/Documents/GitHub/growthradar-lite/README.md",
+    "/Users/dominiero/Documents/GitHub/growthradar-lite/index.html",
+    "/Users/dominiero/Documents/GitHub/growthradar-lite/config.js"
+  ]
+}

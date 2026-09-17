@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A family-facing growth chart · Dom Martinelli</title>
+<meta name="description" content="Parents rarely see their child&#x27;s growth chart between checkups. This demo app lets a family view the growth history stored in their health record and add measurements taken at home.">
+<meta property="og:title" content="A family-facing growth chart · Dom Martinelli">
+<meta property="og:description" content="Parents rarely see their child&#x27;s growth chart between checkups. This demo app lets a family view the growth history stored in their health record and add measurements taken at home.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#clinical-tools">&larr; Clinical tools</a>
+  <div class="tile-meta"><span class="status status-live">live</span></div>
+  <h1>A family-facing growth chart</h1>
+  <p class="lede">Parents rarely see their child&#x27;s growth chart between checkups. This demo app lets a family view the growth history stored in their health record and add measurements taken at home.</p>
+  <div class="actions"><a class="btn btn-primary" href="https://dom-martinelli.github.io/growthbridge-demo/">Live demo</a><a class="btn" href="https://github.com/dom-martinelli/growthbridge-demo">Code on GitHub</a></div>
+  <section class="block"><h2>The question</h2><p>What would it look like for families to see and understand their child&#x27;s growth data from the health record, between doctor visits?</p></section>
+  <section class="block"><h2>Why it matters</h2><p>Growth problems are often caught late because measurements are only reviewed at scheduled visits. Giving families a clear view of the trend, with conservative flags when something looks off, could prompt earlier conversations with their pediatrician.</p></section>
+  
+  <section class="block"><h2>What I did</h2><ul><li>Built a patient-facing SMART on FHIR web app that reads patient and measurement data from the Epic sandbox, read-only.</li><li>Drew a combined interactive height and weight chart with details for each measurement date.</li><li>Added growth velocity, a midparental target height from parents&#x27; heights, corrected age for children born early, and a flag when a height z-score falls below -2.</li><li>Let families enter home measurements, stored only in their own browser.</li><li>Created mock scenarios, including a Turner syndrome teaching case, and deployed the app to GitHub Pages.</li></ul></section>
+  <section class="block"><h2>What I found</h2><ul><li>A small browser-only app can handle the full Epic sandbox launch flow and present growth data in a family-friendly way without any backend.</li></ul></section>
+  <section class="block"><h2>Limits</h2><ul><li>A demonstration, not a clinical product: it does not use a validated CDC or WHO percentile engine and does not write data back to the record.</li><li>Not yet tested with a real Epic sandbox client, and has no unit tests or accessibility review yet.</li><li>Home measurements live in the browser only, and the midparental height formula still needs documented sources.</li></ul></section>
+  <section class="block"><h2>Tools</h2><ul class="tags"><li>TypeScript</li><li>Vite</li><li>SMART on FHIR</li><li>fhirclient</li><li>Epic sandbox</li><li>GitHub Pages</li></ul></section>
+</main>
+<footer class="wrap foot">Dom Martinelli · built by hand, figures made with matplotlib</footer>
+</body>
+</html>

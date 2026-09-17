@@ -1,0 +1,51 @@
+{
+  "slug": "growthbridge",
+  "tab": "clinical-tools",
+  "title": "A family-facing growth chart",
+  "status": "live",
+  "hook": "Parents rarely see their child's growth chart between checkups. This demo app lets a family view the growth history stored in their health record and add measurements taken at home.",
+  "question": "What would it look like for families to see and understand their child's growth data from the health record, between doctor visits?",
+  "why_it_matters": "Growth problems are often caught late because measurements are only reviewed at scheduled visits. Giving families a clear view of the trend, with conservative flags when something looks off, could prompt earlier conversations with their pediatrician.",
+  "what_i_did": [
+    "Built a patient-facing SMART on FHIR web app that reads patient and measurement data from the Epic sandbox, read-only.",
+    "Drew a combined interactive height and weight chart with details for each measurement date.",
+    "Added growth velocity, a midparental target height from parents' heights, corrected age for children born early, and a flag when a height z-score falls below -2.",
+    "Let families enter home measurements, stored only in their own browser.",
+    "Created mock scenarios, including a Turner syndrome teaching case, and deployed the app to GitHub Pages."
+  ],
+  "what_i_found": [
+    "A small browser-only app can handle the full Epic sandbox launch flow and present growth data in a family-friendly way without any backend."
+  ],
+  "limits": [
+    "A demonstration, not a clinical product: it does not use a validated CDC or WHO percentile engine and does not write data back to the record.",
+    "Not yet tested with a real Epic sandbox client, and has no unit tests or accessibility review yet.",
+    "Home measurements live in the browser only, and the midparental height formula still needs documented sources."
+  ],
+  "tools": [
+    "TypeScript",
+    "Vite",
+    "SMART on FHIR",
+    "fhirclient",
+    "Epic sandbox",
+    "GitHub Pages"
+  ],
+  "links": [
+    {
+      "label": "Live demo",
+      "url": "https://dom-martinelli.github.io/growthbridge-demo/"
+    },
+    {
+      "label": "Code on GitHub",
+      "url": "https://github.com/dom-martinelli/growthbridge-demo"
+    }
+  ],
+  "figures": [],
+  "host_file": "",
+  "sources": [
+    "/Users/dominiero/Documents/GitHub/growthbridge-demo/README.md",
+    "/Users/dominiero/Documents/GitHub/growthbridge-demo/TODO.md",
+    "/Users/dominiero/Documents/GitHub/growthbridge-demo/src/lib/growthAnalysis.ts",
+    "/Users/dominiero/Documents/GitHub/growthbridge-demo/src/lib/personalization.ts",
+    "/Users/dominiero/Documents/GitHub/growthbridge-demo/src/lib/storage.ts"
+  ]
+}

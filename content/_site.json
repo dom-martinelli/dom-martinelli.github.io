@@ -1,0 +1,19 @@
+{
+  "name": "Dom Martinelli",
+  "title": "Dom Martinelli · Biomedical informatics",
+  "headline": "Health systems and health AI are governed by numbers that look decisive and are not. I measure the gap.",
+  "intro": "Biomedical informatics at Cornell, working in Zak Kohane's lab at Harvard Medical School. Projects below, sorted by subject. Each card opens a longer write-up.",
+  "footer": "Dom Martinelli · built by hand, figures made with matplotlib",
+  "elsewhere": [
+    {"label": "GitHub", "url": "https://github.com/dom-martinelli"},
+    {"label": "Hugging Face", "url": "https://huggingface.co/dmartinelli"}
+  ],
+  "tabs": [
+    {"id": "medical-ai", "label": "Evaluating medical AI", "blurb": "Whether the tests we use to certify medical AI measure what happens at the bedside."},
+    {"id": "clinical-tools", "label": "Clinical tools", "blurb": "Software a clinician or patient can open and use."},
+    {"id": "trials", "label": "Trials and evidence", "blurb": "How clinical evidence gets made, stalls, and reaches practice."},
+    {"id": "population", "label": "Population health", "blurb": "Where disease sits on the map, and what travels with it."},
+    {"id": "molecules", "label": "Molecules and food", "blurb": "What chemical structure can and cannot tell you about a drug or a flavour."}
+  ],
+  "order": ["growth-medqa", "growth-zscore", "fda-ai-devices", "growthradar-lite", "growthbridge", "platefit", "advocacy-accrual", "evidence-lag", "patient-innovation-index", "stroke-belt", "sweetspace", "wakespace", "sirna"]
+}

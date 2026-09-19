@@ -16,7 +16,16 @@
       "url": "https://github.com/dom-martinelli/growthradar-zscore"
     }
   ],
-  "figures": [],
+  "figures": [
+    {
+      "file": "assets/fig/growth-zscore-1.png",
+      "note": "left: placement accuracy by how short the child is. right: the three conditions, no help, plus the formula, plus the CDC values for that age. 6 of 13 models shown, 40 children each."
+    },
+    {
+      "file": "assets/fig/growth-zscore-2.png",
+      "note": "green: asked for the CDC median height at an age, accurate to about a centimetre. red: asked to place a specific child with no reference given."
+    }
+  ],
   "host_file": "",
   "line": "CLI benchmark scoring models against the referral threshold",
   "question": "Can a model compute a child's height-for-age z-score from the CDC reference and land on the right side of the referral line?",
@@ -44,6 +53,12 @@
     "the Google direct API silently drops the reproducibility parameters the rest of the harness sets."
   ],
   "not_shown": [
-    "tied to a paper in progress, so per-model results are not posted here"
+    "results here are the ones from the lab walkthrough figures; the fuller model set sits with a paper in progress"
+  ],
+  "found": [
+    "placement collapses exactly where a screener has to be right: very short and borderline children. average-height kids are easy for everyone.",
+    "handing over the CDC values for that age lifts every model, and does not rescue the weakest ones.",
+    "the formula on its own does almost nothing. the reference values are what move it.",
+    "they can recite the median height for an age to about a centimetre, then fail to place a specific child on the chart. the knowledge is there; the processing is not."
   ]
 }

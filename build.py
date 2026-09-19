@@ -10,6 +10,7 @@ Per-project fields the pages use:
   title, tab, status, line        plain title + one fragment, no sentence
   skills, tools, data             lists, shown first on tile and page
   question                        one sentence, the only full sentence up top
+  found                           results, only where they are cleared to show
   calls                           judgment calls, notes voice: "x over y. why"
   broke                           what failed or had to be redone
   tried                           one rejected approach, only if documented
@@ -185,6 +186,7 @@ def build_project(site, p, tab_label):
   {f'<div class="actions">{link_html}</div>' if link_html else ''}
   {row('question', f"<p>{esc(p['question'])}</p>" if p.get('question') else '')}
   {f'<div class="figs">{figs}</div>' if figs else ''}
+  {row('what came out', ul(p.get('found')))}
   {row('calls made', ul(p.get('calls')))}
   {row('what broke', ul(p.get('broke')))}
   {row('what i tried', f"<p>{esc(p['tried'])}</p>" if p.get('tried') else '')}

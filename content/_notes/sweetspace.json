@@ -1,0 +1,75 @@
+{
+  "slug": "sweetspace",
+  "one_line": "cheminformatics study of flavour identity and sweetener potency",
+  "skills": [
+    "cheminformatics",
+    "molecular fingerprints and descriptors",
+    "dimensionality reduction (PCA, t-SNE, UMAP)",
+    "baseline-controlled modelling",
+    "feature attribution (SHAP)",
+    "reproducible data pipelines"
+  ],
+  "tools": ["Python", "RDKit", "pandas", "NumPy", "scikit-learn", "SHAP", "umap-learn", "SciPy", "matplotlib", "Jupyter", "Parquet/pyarrow", "uv"],
+  "data": ["Pyrfume (Leffingwell archive)", "Pyrfume (Goodscents archive)", "PubChem (PUG name resolution)", "hand-curated sweetener table (data/curated/sweeteners_curated.csv)", "hand-curated polyol physiology with citations (data/curated/references.csv)", "reconstructed commercial flavour profiles (data/curated/flavor_profiles.csv)"],
+  "decisions": [
+    {
+      "chose": "a class-mean baseline for the sweetener potency model",
+      "over": "a predict-the-mean baseline",
+      "because": "sugars and polyols sit at a completely different potency level from high-intensity sweeteners, so any feature that leaks class membership scores well without learning chemistry",
+      "evidence": "the honest baseline is not \"predict the mean\", it is \"predict the mean of your class\"",
+      "source": "/Users/dominiero/Documents/GitHub/sweetspace/notebooks/03-sweetspace.ipynb"
+    },
+    {
+      "chose": "neighbour lift (same-label share of nearest Tanimoto neighbours divided by the label's base rate)",
+      "over": "raw neighbour share",
+      "because": "raw share just ranks the commonest descriptors first, so it measures prevalence rather than structural coherence",
+      "evidence": "raw neighbour share was the first cut and got dropped",
+      "source": "/Users/dominiero/Documents/GitHub/sweetspace/src/build_odor_space_figures.py"
+    },
+    {
+      "chose": "running SHAP on the within-class descriptor model",
+      "over": "the flattering full-dataset model, and over fingerprint bits",
+      "because": "the attributions should answer the question actually asked, and descriptor axes stay readable where bit indices do not",
+      "evidence": "I run SHAP on the within-class model, not the full one",
+      "source": "/Users/dominiero/Documents/GitHub/sweetspace/notebooks/03-sweetspace.ipynb"
+    },
+    {
+      "chose": "a six-term dairy-type label that excludes coconut and cheesy",
+      "over": "the inclusive eight-term label",
+      "because": "coconut notes are heavily lactonic, so including them would bake the lactone hypothesis into the label meant to test it; both labels are carried through the pipeline so results can be reported either way",
+      "evidence": "Including coconut would partly bake the lactone hypothesis into the label it is meant to test",
+      "source": "/Users/dominiero/Documents/GitHub/sweetspace/SPEC-sweetspace.md"
+    },
+    {
+      "chose": "excluding polydisperse bulking agents from the sweetener table",
+      "over": "standing in a representative oligomer so the rows survive",
+      "because": "a stand-in structure silently files one molecule under another molecule's name",
+      "evidence": "Substituting a representative oligomer would put one molecule in the table under another molecule's name",
+      "source": "/Users/dominiero/Documents/GitHub/sweetspace/README.md"
+    }
+  ],
+  "broke": [
+    {
+      "what": "the lactone SMARTS pattern was wrong twice: an uppercase C matched aliphatic carbon only and missed every aromatic lactone including coumarin, and without a required ring carbon on the carbonyl it also matched cyclic carbonates",
+      "evidence": "the pattern matched aliphatic carbon only and missed every aromatic lactone, coumarin included",
+      "source": "/Users/dominiero/Documents/GitHub/sweetspace/README.md"
+    },
+    {
+      "what": "PubChem's synonym index resolved ribitol onto the CID for xylitol, a different pentitol, with a valid structure and the right formula so nothing looked broken; build.py now raises when two query names collapse to one CID instead of deduplicating it away",
+      "evidence": "PubChem resolved ribitol to xylitol",
+      "source": "/Users/dominiero/Documents/GitHub/sweetspace/README.md"
+    },
+    {
+      "what": "SuperSweet, the primary sweetener source named in the spec, went offline mid-project (its host refuses connections), forcing a hand-curated table resolved by name against PubChem and capping the potency analysis",
+      "evidence": "SuperSweet is gone. The spec named it as the primary sweetener source.",
+      "source": "/Users/dominiero/Documents/GitHub/sweetspace/README.md"
+    },
+    {
+      "what": "the distinctiveness axis did not behave as expected: a flavour can own a distinctive compound set with no single molecule carrying its identity, so distinctiveness and anchoring came apart",
+      "evidence": "I am keeping this failed expectation rather than dropping the distinctiveness axis",
+      "source": "/Users/dominiero/Documents/GitHub/sweetspace/notebooks/02-character-impact.ipynb"
+    }
+  ],
+  "question": "How much of a flavour's identity is carried by single molecules, and does a sweetener's structure predict how sweet it is and what the body pays for it?",
+  "rejected_line": "Ranked odour words by raw neighbour share first; dropped it because the commonest labels win that ranking on prevalence alone, and switched to lift over the base rate."
+}

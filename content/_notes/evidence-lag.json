@@ -1,0 +1,76 @@
+{
+  "slug": "evidence-lag",
+  "one_line": "case studies timing how fast evidence reaches guidelines, labels and literature",
+  "skills": [
+    "bibliometric trend analysis",
+    "pharmacovigilance signal analysis",
+    "API data pipelines with rate-limit handling",
+    "denominator normalization of count data",
+    "figure design for time-series narratives"
+  ],
+  "tools": [
+    "Python",
+    "pandas",
+    "urllib / requests",
+    "NCBI E-utilities (esearch)",
+    "openFDA /drug/event API",
+    "ClinicalTrials.gov API v2",
+    "Jupyter",
+    "matplotlib"
+  ],
+  "data": [
+    "PubMed title/abstract counts by year via NCBI E-utilities",
+    "openFDA FAERS (reaction and drugindication fields)",
+    "ClinicalTrials.gov API v2 (trial start years, MeSH-derived disease flags)",
+    "FDA approval history (hand-entered dates, marked unverified)"
+  ],
+  "decisions": [
+    {
+      "chose": "PubMed title/abstract term counts by year",
+      "over": "the ClinicalTrials.gov registry already pulled for this repo",
+      "because": "the registry holds only a handful of relevant trials for these conditions and terms, and NICE-governed UK practice is largely never registered on a US registry",
+      "evidence": "checked ClinicalTrials.gov first (already in this repo, no new pull needed) and it is too thin for this question",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/scripts/09_pull_guideline_lag_pubmed.py"
+    },
+    {
+      "chose": "weight-related FAERS reports as a share of all reports for the same drug",
+      "over": "raw counts of weight-related reports",
+      "because": "total FAERS volume grows every year on its own, so a raw count can ride that trend rather than show a drug-specific signal",
+      "evidence": "Total FAERS volume grows every year regardless of any specific drug effect, so signal 1 needs to be read as a share of signal 2, not as a raw count.",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/scripts/06_pull_glp1_signals.py"
+    },
+    {
+      "chose": "leaving patent evidence out of the GLP-1 cascade entirely",
+      "over": "pulling patent text as a third signal of when the weight effect was known",
+      "because": "there is no clean structured source for it and a weak proxy would be worse than an acknowledged gap",
+      "evidence": "Patent text was not pulled at all; there is no clean structured API for it, and pretending to have signal there would be worse than leaving it out.",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/notebooks/glp1_cascade.ipynb"
+    },
+    {
+      "chose": "one search term per script invocation, merged afterwards",
+      "over": "one run pulling every term and year",
+      "because": "a full sweep of fifty years by four terms at the unauthenticated NCBI rate does not finish inside a short shell timeout",
+      "evidence": "One term per invocation, so a single run finishes inside a short shell timeout.",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/scripts/10_pull_mi_sex_framing.py"
+    }
+  ],
+  "broke": [
+    {
+      "what": "the approval dates that carry the whole GLP-1 signal-versus-label figure were typed in by hand and are flagged as unverified against the labels",
+      "evidence": "Hand-entered from FDA approval history. VERIFY against the label before this figure goes anywhere public: these dates are the whole argument.",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/scripts/build_glp1_signal_vs_approval.py"
+    },
+    {
+      "what": "figure footnotes placed below the axes were flagged as clipped by the repo's own figure audit, because the canvas only expands at save time",
+      "evidence": "text placed below the axes trips audit()'s clipped check, because bbox=\"tight\" expands the canvas only at save time",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/scripts/build_glp1_signal_vs_approval.py"
+    },
+    {
+      "what": "the ME/CFS case does not separate the guideline change from an earlier controversy, and the notebook says so rather than reading the trend as guideline lag",
+      "evidence": "The GET/pacing decline may be confounded with the separate PACE-trial reanalysis controversy (from around 2016), which predates and may be doing more work than NG206 itself.",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/notebooks/guideline_lag.ipynb"
+    }
+  ],
+  "question": "How long does it take for a change in evidence or a safety signal to show up in guidelines, drug labels and the published literature?",
+  "rejected_line": "Tried the trial registry first for the ME/CFS and EDS guideline questions; too few registered trials use the terms at all, so switched to PubMed term counts by year."
+}

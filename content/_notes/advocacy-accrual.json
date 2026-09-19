@@ -1,0 +1,91 @@
+{
+  "slug": "advocacy-accrual",
+  "one_line": "matched registry study of trials that stop for enrollment failure",
+  "skills": [
+    "matched cohort design",
+    "coarsened exact matching",
+    "stratum bootstrap inference",
+    "registry API data pipelines",
+    "rule-based text classification scored against hand labels"
+  ],
+  "tools": [
+    "Python",
+    "pandas",
+    "pyarrow / parquet",
+    "numpy",
+    "requests",
+    "regex",
+    "Anthropic API (LLM classification)",
+    "pytest",
+    "matplotlib",
+    "SQL (AACT Postgres, cross-check)"
+  ],
+  "data": [
+    "ClinicalTrials.gov API v2 (601k studies, snapshot 2026-09-04)",
+    "ClinicalTrials.gov version-history endpoint (undocumented internal API)",
+    "ClinicalTrials.gov MeSH condition-browse ancestors",
+    "AACT / CTTI mirror (cross-check only)",
+    "hand-labeled gold sets in data/labels/"
+  ],
+  "decisions": [
+    {
+      "chose": "a transparent regex rule set for the free-text stop reason",
+      "over": "an opaque model deciding each label",
+      "because": "the field is short and formulaic, so every label can be traced to a pattern a reviewer can argue with",
+      "evidence": "a transparent rule set beats an opaque model here: every decision traces to a pattern, and a reviewer can argue with it",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/src/advocacy_accrual/accrual.py"
+    },
+    {
+      "chose": "three stop-reason classes, with an explicit ambiguous bucket",
+      "over": "a binary accrual / not-accrual label",
+      "because": "text that reports nobody enrolled without saying why is not evidence of accrual failure, so it is handled like a blank field",
+      "evidence": "Three classes, not two",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/src/advocacy_accrual/accrual.py"
+    },
+    {
+      "chose": "dropping trials with a blank stop reason from the accrual outcome by default",
+      "over": "counting a blank reason as stopped for some other reason",
+      "because": "counting blanks as non-accrual keeps the sample but biases toward the null if blank records are quietly accrual failures; both branches are coded and reported",
+      "evidence": "`missing` (current default). Blank trials are dropped from the accrual outcome. Honest, and it shrinks the sample.",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/docs/DECISIONS.md"
+    },
+    {
+      "chose": "bootstrapping whole matching strata",
+      "over": "resampling individual trials",
+      "because": "controls were drawn for a specific treated trial, so they are not independent of it",
+      "evidence": "Strata are resampled whole, because matched controls are not independent of the treated trial they were drawn for.",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/src/advocacy_accrual/analysis.py"
+    },
+    {
+      "chose": "reporting the effect in days of avoided delay",
+      "over": "converting it to dollars with the industry per-day cost of trial delay",
+      "because": "that figure circulates with a wide range and thin provenance, so nothing is monetized until a citable source with a stated method is written into the methods file",
+      "evidence": "Nothing gets converted into dollars until a citable source with a stated method sits in `docs/METHODS.md`, and the effect gets reported in days regardless.",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/docs/DECISIONS.md"
+    }
+  ],
+  "broke": [
+    {
+      "what": "the version-history endpoint started refusing the whole client address once the pull ran at speed, so the planned-enrollment and planned-date outcomes are still unmeasured",
+      "evidence": "this endpoint starts returning 403 to the whole client address after a few hundred rapid requests, and the block lasts for a while",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/src/advocacy_accrual/history.py"
+    },
+    {
+      "what": "the disease-area covariate was silently empty: the API field the cohort builder read comes back blank in this API version, so every trial fell into the unmapped bucket until MeSH ancestors were pulled instead",
+      "evidence": "The API's browseBranches field comes back empty in this version, which silently made every trial's disease area 'other/unmapped'.",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/scripts/07_pull_mesh.py"
+    },
+    {
+      "what": "the novel-compound filter had no registry-coverage floor, so ubiquitous old drugs were being treated as novel compounds",
+      "evidence": "without the year floor, dexamethasone and rituximab were being counted as novel compounds",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/notebooks/failed_drug_failed_information.ipynb"
+    },
+    {
+      "what": "the notebooks' input tables had been built ad hoc and never committed while the interim directory was gitignored, so a fresh clone could not rerun them and two definitions had to be reconstructed from the notebook prose",
+      "evidence": "These four were previously produced ad hoc and never committed, while data/interim/ is gitignored, so a fresh clone could not rerun the notebooks.",
+      "source": "/Users/dominiero/Documents/GitHub/advocacy-and-accrual/scripts/10_build_interim.py"
+    }
+  ],
+  "question": "Do clinical trials that partner with a patient advocacy organization stop early for poor enrollment less often than comparable trials that do not?",
+  "rejected_line": "Pulled trial version history with ten parallel workers and no delay; the endpoint 403'd the whole address after a few hundred requests, so it is throttled, cached and run overnight now."
+}

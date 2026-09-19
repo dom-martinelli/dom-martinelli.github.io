@@ -1,0 +1,93 @@
+{
+  "slug": "platefit",
+  "one_line": "chain-menu ranking tool for people on GLP-1 medication",
+  "skills": [
+    "rubric and scoring design",
+    "evidence review with explicit strength grading",
+    "dataset compilation and provenance flagging",
+    "Next.js / React product build",
+    "SEO content architecture and PWA delivery"
+  ],
+  "tools": [
+    "Next.js 15 (App Router)",
+    "React 19",
+    "TypeScript",
+    "Tailwind CSS 3",
+    "gray-matter",
+    "marked",
+    "service worker + web manifest (PWA)",
+    "versioned JSON seed data"
+  ],
+  "data": [
+    "published chain nutrition information under the FDA menu-labeling rule (21 CFR 101.11), 15 chains",
+    "MenuStat.org chain-menu nutrition database (cross-reference)",
+    "AHA added-sugar and sodium daily limits",
+    "GLP-1 body-composition and gastric-emptying literature cited in the rubric"
+  ],
+  "decisions": [
+    {
+      "chose": "a categorical penalty for fried or breaded items that also caps the tier",
+      "over": "letting fried items be handled by the fat-gram sub-score",
+      "because": "a fried item can look moderate on the label and still trigger nausea",
+      "evidence": "Fried is treated as a categorical penalty here (not just a fat-gram effect), because a fried item can carry moderate fat on the label yet still be a strong nausea trigger.",
+      "source": "/Users/dominiero/Documents/GitHub/platefit-glp1/content/rubric/glp1-scoring-rubric.md"
+    },
+    {
+      "chose": "shrinking the score toward a neutral 50 in proportion to missing nutrition fields",
+      "over": "simply renormalizing over whichever fields happen to be present",
+      "because": "otherwise one present field could carry an item to the top tier on almost no data",
+      "evidence": "the normalized value is then shrunk toward a neutral 0.5 in proportion to how much of the 100-point signal is missing",
+      "source": "/Users/dominiero/Documents/GitHub/platefit-glp1/content/rubric/glp1-scoring-rubric.md"
+    },
+    {
+      "chose": "accepting total carbohydrates but not scoring them",
+      "over": "adding a carbohydrate axis to catch refined starch",
+      "because": "a direct carb penalty would punish high-carb, high-fiber items that suit the eating pattern",
+      "evidence": "for now `carbs_g` is accepted but not scored on its own to avoid falsely penalizing legitimately high-carb, high-fiber items",
+      "source": "/Users/dominiero/Documents/GitHub/platefit-glp1/content/rubric/glp1-scoring-rubric.md"
+    },
+    {
+      "chose": "no calorie floor: small items are not penalized for being small",
+      "over": "a symmetric portion score around an ideal calorie target",
+      "because": "a small, protein-dense item is exactly what the GLP-1 eating pattern calls for",
+      "evidence": "Note the asymmetry: a low-calorie item is not penalized for being small, because a small high-protein item is exactly what suits GLP-1 users",
+      "source": "/Users/dominiero/Documents/GitHub/platefit-glp1/content/rubric/glp1-scoring-rubric.md"
+    },
+    {
+      "chose": "a web app with a PWA install and Stripe planned for payments",
+      "over": "shipping a native app through the App Store",
+      "because": "it avoids the store cut and validates the idea faster",
+      "evidence": "Freemium, web + Stripe first (keep 100 percent, no App Store cut, validate faster).",
+      "source": "/Users/dominiero/Documents/GitHub/platefit-glp1/docs/SPEC.md"
+    }
+  ],
+  "broke": [
+    {
+      "what": "the added-sugar axis cannot be scored as designed, because US chains publish total sugars only; the field carries total sugar as an upper bound and the compromise had to be documented on every item",
+      "evidence": "`sugarIsTotal: true` is set on every item, because U.S. restaurants publish **total sugars**, not added sugars.",
+      "source": "/Users/dominiero/Documents/GitHub/platefit-glp1/data/seed/SOURCES.md"
+    },
+    {
+      "what": "a chunk of the dataset could not be read off a single published item and had to be derived from per-ingredient values or comparable items, then flagged as estimated",
+      "evidence": "`estimated: true` marks any item whose numbers were derived rather than read off a single published SKU.",
+      "source": "/Users/dominiero/Documents/GitHub/platefit-glp1/data/seed/SOURCES.md"
+    },
+    {
+      "what": "the macro-consistency check fails on near-zero-calorie drinks, where the calories-from-macros ratio is meaningless",
+      "evidence": "The only large percentage gaps are on near-zero-calorie black coffees, where the ratio is not meaningful.",
+      "source": "/Users/dominiero/Documents/GitHub/platefit-glp1/data/seed/SOURCES.md"
+    },
+    {
+      "what": "the thresholds are not trial-backed, so the whole engine has to be presented as a ranking aid rather than a clinical instrument",
+      "evidence": "the nutrition guidance for people on GLP-1 receptor agonists ... is largely guidance-level and extrapolated from weight-loss physiology, dietitian practice, and drug mechanism, not from large randomized trials of specific menu-item macros",
+      "source": "/Users/dominiero/Documents/GitHub/platefit-glp1/content/rubric/glp1-scoring-rubric.md"
+    },
+    {
+      "what": "refined starch slips through the scoring; white rice or white bread carries no added sugar and is only caught indirectly",
+      "evidence": "refined starch (for example white rice or white bread that carries no \"added sugar\") is only captured indirectly, through low fiber and low protein density",
+      "source": "/Users/dominiero/Documents/GitHub/platefit-glp1/content/rubric/glp1-scoring-rubric.md"
+    }
+  ],
+  "question": "Can restaurant menu items be ranked transparently by how well they fit the way someone on a GLP-1 medication has to eat?",
+  "rejected_line": ""
+}

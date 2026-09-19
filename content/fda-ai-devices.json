@@ -2,35 +2,37 @@
   "slug": "fda-ai-devices",
   "tab": "medical-ai",
   "title": "FDA-authorized AI devices",
-  "status": "finished",
-  "hook": "The FDA has authorized a long and growing list of AI medical devices. This interactive registry lets anyone explore that list, and shows what it never records: whether a device was shown to help patients.",
-  "question": "What does the FDA's public list of AI-enabled medical devices tell us, and what evidence about patient benefit is missing from it?",
-  "why_it_matters": "Hospitals, clinicians, and patients may assume that an FDA-authorized AI device has been proven to work in patient care. Most of these devices reach the market by showing they resemble a device already sold, which does not require a new clinical trial. The official list records who made a device and when it was cleared, but not the clinical evidence behind it.",
-  "what_i_did": [
-    "Downloaded the FDA's official list of AI-enabled medical devices and built a single self-contained web page around it.",
-    "Added search and filters by device, company, specialty, clearance pathway, and year, with charts that update as you filter.",
-    "Linked each submission number to its record in the FDA database.",
-    "Summarized published peer-reviewed studies of this list to show, in aggregate, what the authorization summaries report about clinical validation, with each figure cited to its source."
-  ],
-  "what_i_found": [
-    "Nearly all devices on the list reached the market through the 510(k) pathway, which asks about similarity to an existing device rather than new clinical evidence.",
-    "Published reviews of the authorization summaries report that prospective real-world studies, demographic details of validation populations, and linked peer-reviewed publications are rare."
-  ],
-  "limits": [
-    "The evidence summary comes from other researchers' published studies of the list as a whole, not from per-device review.",
-    "A snapshot of the FDA list at one download date; it does not update automatically."
-  ],
+  "status": "live",
   "tools": [
     "HTML",
-    "JavaScript",
-    "CSV",
-    "FDA public data"
+    "CSS",
+    "vanilla JavaScript",
+    "CSV pipeline"
   ],
   "links": [],
   "figures": [],
-  "host_file": "",
-  "sources": [
-    "/Users/dominiero/Documents/medical-ai-evidence/fda-ai-registry.html",
-    "/Users/dominiero/Documents/medical-ai-evidence/fda_ai_devices_2026-03-30.csv"
-  ]
+  "host_file": "tools/fda-ai-devices.html",
+  "line": "filterable registry of every AI device the FDA has authorized",
+  "question": "What does the FDA's public list of AI-enabled devices record, and what does it leave out about whether those devices help patients?",
+  "skills": [
+    "public-data reporting",
+    "interactive data visualisation",
+    "front-end engineering without a framework",
+    "regulatory literature review"
+  ],
+  "data": [
+    "FDA AI-Enabled Medical Devices list (pulled 30 Mar 2026)",
+    "published reviews of that list"
+  ],
+  "calls": [
+    "per-device table and aggregate evidence findings kept in separate sections. the published studies report across the whole list, so no single device can carry one of those values.",
+    "framed as an evidence and transparency question, not as 510(k) clearance being wrongdoing. the pathway is legal and often appropriate.",
+    "missing fields reported as not reported, not as not done. a study may exist and simply be absent from the public summary, which is itself the finding.",
+    "says plainly that the list undercounts. it is assembled from AI terminology in public summaries, so devices can be missing."
+  ],
+  "broke": [
+    "v1 was a fixed essay whose headline figures came from an older snapshot and secondary sources of different vintages.",
+    "the page's own copy read as machine-written on a later teardown: adversative title, hero stats, closing aphorism. rewritten against my style rules."
+  ],
+  "tried": "v1 was a static evidence essay built on other people's summary figures. rebuilt as a filterable registry over the FDA's own downloaded list, so the per-device record and the aggregate evidence stay visibly separate."
 }

@@ -1,0 +1,63 @@
+{
+  "slug": "fda-ai-devices",
+  "one_line": "interactive registry of FDA-authorized AI medical devices",
+  "skills": [
+    "public-data journalism and evidence framing",
+    "interactive data visualization",
+    "front-end engineering without a framework",
+    "regulatory literature review",
+    "information design (light/dark, responsive)"
+  ],
+  "tools": [
+    "HTML",
+    "CSS custom properties",
+    "vanilla JavaScript",
+    "CSV",
+    "HTML template with a data-injection placeholder (__DEVICE_DATA__)"
+  ],
+  "data": [
+    "FDA Artificial Intelligence-Enabled Medical Devices list (CSV, downloaded 30 Mar 2026)",
+    "Muralidharan et al., npj Digital Medicine 2024",
+    "JAMA Network Open 2024 cross-sectional analysis",
+    "Dai et al., JAMA 2025 (recalls)"
+  ],
+  "decisions": [
+    {
+      "chose": "keeping the per-device table and the aggregate evidence findings in separate sections",
+      "over": "attaching evidence indicators to individual device rows",
+      "because": "the published studies report across the list as a whole, so no single device can carry one of those values",
+      "evidence": "The two are kept separate on purpose — no clinical-evidence value here is attributed to any single device.",
+      "source": "/Users/dominiero/Documents/medical-ai-evidence/fda-ai-registry.template.html"
+    },
+    {
+      "chose": "framing the gap as an evidence and transparency problem",
+      "over": "framing 510(k) clearance itself as wrongdoing",
+      "because": "the pathway is legal and often appropriate; the argument is about what the public record does and does not contain",
+      "evidence": "510(k) is legal and often sensible. This is an argument about evidence and transparency, not wrongdoing.",
+      "source": "/Users/dominiero/Documents/medical-ai-evidence/fda-ai-registry.template.html"
+    },
+    {
+      "chose": "reporting missing fields as not reported",
+      "over": "reporting them as not done",
+      "because": "a study may exist and simply be absent from the public summary, which is itself the finding",
+      "evidence": "\"Not reported\" is not \"not done.\" Evidence may exist but be absent from the public summary. That opacity is the point.",
+      "source": "/Users/dominiero/Documents/medical-ai-evidence/fda-ai-registry.template.html"
+    },
+    {
+      "chose": "saying plainly that the FDA list undercounts",
+      "over": "presenting it as a complete census of AI devices",
+      "because": "the list is assembled from AI terminology in public summaries, so devices can be missing from it",
+      "evidence": "The FDA calls its own list non-comprehensive. It reflects devices identified through AI-related terminology in public summaries, so it undercounts rather than over-counts.",
+      "source": "/Users/dominiero/Documents/medical-ai-evidence/fda-ai-registry.template.html"
+    }
+  ],
+  "broke": [
+    {
+      "what": "the first version was a fixed essay page whose headline figures were tied to an older list snapshot and to secondary sources of different vintages; it was rebuilt as a registry generated from the downloaded CSV",
+      "evidence": "v2 · registry build · data to 30 Mar 2026",
+      "source": "/Users/dominiero/Documents/medical-ai-evidence/fda-ai-registry.template.html"
+    }
+  ],
+  "question": "What does the FDA's public list of AI-enabled medical devices record, and what does it leave out about whether those devices help patients?",
+  "rejected_line": "v1 was a static evidence-audit essay built on other people's summary figures; rebuilt as a filterable registry over the FDA's own downloaded list so the per-device record and the aggregate evidence stay visibly separate"
+}

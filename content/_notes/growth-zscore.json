@@ -1,0 +1,85 @@
+{
+  "slug": "growth-zscore",
+  "one_line": "CLI benchmark for LLM height-for-age z-score computation",
+  "skills": [
+    "benchmark design",
+    "LLM evaluation",
+    "clinical safety metric design",
+    "prompt condition design (ablation)",
+    "reproducible CLI tooling"
+  ],
+  "tools": [
+    "Python",
+    "pandas",
+    "requests",
+    "python-dotenv",
+    "OpenRouter API",
+    "Anthropic / OpenAI / Google / Groq native APIs",
+    "CDC LMS method"
+  ],
+  "data": [
+    "CDC 2000 stature-for-age LMS table (cdc_statage.csv)",
+    "WHO 2006 length/height-for-age LMS table (embedded, months 0-60)"
+  ],
+  "decisions": [
+    {
+      "chose": "a clinically safe rate scored against the -2 SDS referral threshold",
+      "over": "numeric error metrics such as RMSE",
+      "because": "a small numeric miss across the referral line is a missed diagnosis, not a near miss",
+      "evidence": "A model returning z = −1.9 when the true value is −2.1 produces a **missed diagnosis**, not a near-miss. Standard numeric accuracy (RMSE) misses this.",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-zscore/README.md"
+    },
+    {
+      "chose": "height-for-age only",
+      "over": "weight and BMI charts",
+      "because": "growth-disorder screening keys off height-for-age; weight enters through a different chart used for a different question",
+      "evidence": "This benchmark targets growth disorder screening, where the clinical criterion is height-for-age z-score. Weight enters through BMI-for-age (a separate chart used for obesity/undernutrition screening, not growth disorders).",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-zscore/README.md"
+    },
+    {
+      "chose": "formula-provided as the default condition",
+      "over": "closed book or fully open (formula plus L/M/S values)",
+      "because": "it is the condition that matches how a model would actually be used, with the other two bracketing it as lower and upper bounds",
+      "evidence": "`formula_open` | + LMS formula | Recall LMS values + compute | **Default — mirrors real deployment**",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-zscore/README.md"
+    },
+    {
+      "chose": "WHO 2006 under 24 months and CDC 2000 from 24 months up, by default",
+      "over": "applying the CDC 2000 table at every age",
+      "because": "the CDC table is not valid below 24 months and the AAP recommends the split",
+      "evidence": "\"auto\"    = WHO 2006 for age < 24 months, CDC 2000 for age ≥ 24 months (AAP recommendation)",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-zscore/config.py"
+    },
+    {
+      "chose": "one OpenRouter key routing every model",
+      "over": "a separate native API key per provider",
+      "because": "it keeps the benchmark to one account and one code path, with the direct-provider route kept as an option",
+      "evidence": "The simplest setup uses a single **OpenRouter** key — one account for all models.",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-zscore/README.md"
+    }
+  ],
+  "broke": [
+    {
+      "what": "provider APIs would not accept the benchmark's own determinism settings, so temperature and seed handling had to be special-cased per model family",
+      "evidence": "Anthropic doesn't support temperature=0 for extended thinking models; skip it at 0 to use the default",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-zscore/api.py"
+    },
+    {
+      "what": "the Google direct API silently rejects the reproducibility parameters the rest of the harness sets",
+      "evidence": "Google direct API doesn't accept seed or top_p",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-zscore/api.py"
+    },
+    {
+      "what": "short token budgets truncated the model's JSON answer, which looked like a parsing failure rather than a length limit",
+      "evidence": "Keep ≥ 600 to avoid truncated JSON. Increase for `o4_mini` extended reasoning.",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-zscore/README.md"
+    },
+    {
+      "what": "a reasoning model refuses the deterministic setting the whole benchmark otherwise runs at",
+      "evidence": "`o4_mini` requires `--temperature 1.0`",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-zscore/README.md"
+    }
+  ],
+  "question": "Can a language model compute a child's height-for-age z-score from the CDC reference and land on the right side of the referral threshold?",
+  "rejected_line": ""
+}

@@ -3,31 +3,14 @@
   "tab": "clinical-tools",
   "title": "Growth monitoring from the health record",
   "status": "live",
-  "hook": "A child who slowly drops off their growth curve can go unnoticed across many short clinic visits. This prototype pulls a child's measurements from an electronic health record, flags worrying changes, and drafts a summary for the pediatrician.",
-  "question": "Can a lightweight app read a child's growth data straight from an Epic health record and surface growth faltering a busy clinician might miss?",
-  "why_it_matters": "Growth faltering and short stature can signal underlying disease, but spotting them means comparing many measurements over years against reference charts, which is easy to skip in a short visit. Pulling that history automatically and flagging drops could help catch problems earlier.",
-  "what_i_did": [
-    "Connected to the Epic FHIR sandbox using the SMART on FHIR login flow (with PKCE) to read patient, vitals, lab, medication, and condition data.",
-    "Placed height measurements on WHO (under 2 years) and CDC (2 years and up) reference percentiles and calculated height velocity between visits.",
-    "Flagged large percentile drops and heights at or below the 3rd percentile.",
-    "Collected optional family context such as parents' heights for a midparental target height.",
-    "Sent the structured growth history and flags to a language model through OpenRouter to draft a short clinical summary, using a key kept only in the browser session.",
-    "Included a synthetic sample patient so the app works without an Epic login."
-  ],
-  "what_i_found": [
-    "Standard health record APIs provide enough structured growth data to run percentile tracking and velocity checks in the browser, without a backend."
-  ],
-  "limits": [
-    "Percentiles are approximated from a small built-in reference table for boys, not a validated LMS calculation.",
-    "Runs against the Epic sandbox and synthetic data only, not real patients.",
-    "The AI summary is for demonstration and is not a substitute for clinical judgment."
-  ],
   "tools": [
-    "JavaScript",
-    "HTML",
-    "SMART on FHIR",
-    "Epic sandbox",
-    "OpenRouter"
+    "JavaScript (no build step)",
+    "Chart.js",
+    "Web Crypto",
+    "Epic FHIR R4",
+    "LOINC",
+    "HAPI FHIR",
+    "Docker"
   ],
   "links": [
     {
@@ -42,14 +25,39 @@
   "figures": [
     {
       "file": "assets/fig/growthradar-lite-1.png",
-      "caption": "The prototype with the bundled sample patient loaded: parsed vitals from the health record, each measurement marked with how it is used on the chart.",
-      "dark": true
+      "dark": true,
+      "note": "the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart."
     }
   ],
   "host_file": "",
-  "sources": [
-    "/Users/dominiero/Documents/GitHub/growthradar-lite/README.md",
-    "/Users/dominiero/Documents/GitHub/growthradar-lite/index.html",
-    "/Users/dominiero/Documents/GitHub/growthradar-lite/config.js"
+  "line": "single-file SMART on FHIR app reading a child's growth history",
+  "question": "Can a browser app read a child's growth history straight from a health record and surface faltering a short visit would miss?",
+  "skills": [
+    "SMART on FHIR integration",
+    "OAuth 2.0 / PKCE",
+    "FHIR querying and parsing",
+    "clinical rule design",
+    "LLM prompt design"
+  ],
+  "data": [
+    "Epic FHIR sandbox",
+    "WHO and CDC height references (embedded)",
+    "synthetic demo patients"
+  ],
+  "calls": [
+    "growth engine fenced off during the feature build. the percentile tables, interpolation and anomaly rules were the part already checked.",
+    "demo cases built around trajectory, velocity and delayed recognition, not population-specific expected growth. a subgroup-specific chart can make a remediable problem look typical.",
+    "model API key asked for at run time and held in sessionStorage. the app ships as static files, so anything in the repo ships with it.",
+    "self-hosted HAPI added as the custom-data lane, Epic kept as the interoperability lane. only the read source changes; the growth logic does not."
+  ],
+  "broke": [
+    "first scopes requested were user-level, which return no patient context. switched to patient-level and printed the granted scopes to debug it.",
+    "the sandbox patient came back with no vitals at all, so the chart had nothing to draw. synthetic measurements added as a fallback.",
+    "the plain category search for vital signs did not work; the query needs the full terminology system URI, and requests need an explicit FHIR JSON Accept header.",
+    "switching between demo patients and plotting the parental target line were both wrong after the feature build."
+  ],
+  "tried": "dropped the Epic OAuth launch in the follow-on build for a HAPI server with a patient dropdown, because the teaching vignettes had to be ones I could author and load myself.",
+  "not_shown": [
+    "percentiles come from a small embedded boys-only table, interpolated, not a validated LMS engine"
   ]
 }

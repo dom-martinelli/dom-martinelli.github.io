@@ -1,0 +1,85 @@
+{
+  "slug": "growthbridge",
+  "one_line": "patient-facing SMART on FHIR growth chart for the Epic sandbox",
+  "skills": [
+    "SMART on FHIR integration",
+    "OAuth 2.0 launch and redirect configuration",
+    "TypeScript front-end architecture",
+    "growth analysis implementation (z-score, velocity, corrected age)",
+    "static deployment and CI"
+  ],
+  "tools": [
+    "TypeScript",
+    "Vite",
+    "fhirclient (SMART client-js)",
+    "FHIR R4",
+    "LOINC codes",
+    "localStorage",
+    "GitHub Actions",
+    "GitHub Pages"
+  ],
+  "data": [
+    "Epic FHIR sandbox (Patient, Observation vital-signs)",
+    "mock demo scenarios including a Turner syndrome teaching case and a preterm catch-up case",
+    "family-entered home measurements (browser only)"
+  ],
+  "decisions": [
+    {
+      "chose": "computing the displayed flags from a height z-score threshold at render time",
+      "over": "hand-written trend annotations stored on each demo scenario",
+      "because": "the scripted annotations were presentation copy rather than anything the data produced, and they could not survive real record data",
+      "evidence": "Percentile labels in mock mode are demo annotations for presentation only.",
+      "source": "/Users/dominiero/Documents/GitHub/growthbridge-demo/src/main.ts (removed in commit 916fb06, \"Compute height flags from z-score threshold\")"
+    },
+    {
+      "chose": "a read-only browser app with no backend",
+      "over": "FHIR write-back and server-side auth services",
+      "because": "it is a demonstration of the family-facing view, not a clinical product",
+      "evidence": "Out of scope right now: - FHIR write-back - production auth/backend services - validated CDC/WHO percentile engine",
+      "source": "/Users/dominiero/Documents/GitHub/growthbridge-demo/README.md"
+    },
+    {
+      "chose": "keeping home-entered measurements in the family's own browser storage",
+      "over": "persisting them anywhere server-side",
+      "because": "there is no backend and the data never has to leave the device",
+      "evidence": "local browser storage for home-entered measurements",
+      "source": "/Users/dominiero/Documents/GitHub/growthbridge-demo/README.md"
+    },
+    {
+      "chose": "falling back to a mock scenario when the SMART launch fails",
+      "over": "showing a dead end when Epic context is missing",
+      "because": "the app has to be openable from a plain link, without a launch context",
+      "evidence": "console.error(\"SMART launch failed. Falling back to mock data.\", error);",
+      "source": "/Users/dominiero/Documents/GitHub/growthbridge-demo/src/lib/smart.ts"
+    }
+  ],
+  "broke": [
+    {
+      "what": "the Turner teaching case had been narrated as a percentile drop that the z-score rule would never flag, so the mock percentiles had to be moved down to values the computed rule actually catches",
+      "evidence": "-      { id: \"turner-h-8\", ... percentile: 9 },\n+      { id: \"turner-h-8\", ... percentile: 2 },",
+      "source": "/Users/dominiero/Documents/GitHub/growthbridge-demo/src/mockData.ts (commit 916fb06)"
+    },
+    {
+      "what": "the GitHub Pages deployment did not work as first written; the workflow needed explicit job permissions, Pages enablement, and newer action versions",
+      "evidence": "Fix GitHub Pages workflow",
+      "source": "/Users/dominiero/Documents/GitHub/growthbridge-demo/.github/workflows/deploy-pages.yml (commit 8a7e9a6)"
+    },
+    {
+      "what": "Epic's exact redirect matching makes the project-subpath URL a trap, since the site root and index.html are not the same registered value",
+      "evidence": "Epic requires exact redirect URI matching. - `/index.html` is different from `/`.",
+      "source": "/Users/dominiero/Documents/GitHub/growthbridge-demo/README.md"
+    },
+    {
+      "what": "percentiles are not from a validated engine, and the midparental height formula in the code still has no documented source",
+      "evidence": "Add documentation for the source and assumptions behind the mid-parental height formula.",
+      "source": "/Users/dominiero/Documents/GitHub/growthbridge-demo/TODO.md"
+    },
+    {
+      "what": "never exercised against a real Epic sandbox client, and the FHIR parsing and personalization utilities still have no tests",
+      "evidence": "Add a real Epic sandbox client ID in `.env`. ... Add unit tests for FHIR parsing and personalization utilities.",
+      "source": "/Users/dominiero/Documents/GitHub/growthbridge-demo/TODO.md"
+    }
+  ],
+  "question": "What would it look like for a family to see and understand their child's growth record between visits?",
+  "rejected_line": "the scripted per-scenario trend insights went away once flags were computed from the z-score threshold, since a hand-written percentile-drop story cannot follow real record data"
+}

@@ -3,31 +3,12 @@
   "tab": "medical-ai",
   "title": "Height z-score computation by language models",
   "status": "in progress",
-  "hook": "Whether a child gets referred for a short-stature workup can hinge on one calculated number. This project tests whether AI models can compute that number correctly, and where their math breaks down.",
-  "question": "Can large language models correctly compute a child's height-for-age z-score from the CDC growth reference, and land on the right side of the referral threshold?",
-  "why_it_matters": "A height z-score below -2 is the standard trigger for evaluating a child for conditions such as growth hormone deficiency, Turner syndrome, or hypothyroidism. A model that is only slightly off near that line can turn a referral into a missed diagnosis, which a typical average-error metric would treat as a near miss. If language models are going to help interpret growth, their errors need to be measured in clinical terms.",
-  "what_i_did": [
-    "Built a command-line tool that sends a child's age, sex, and height to a chosen model and compares its answer to ground truth computed from the public CDC 2000 reference table using the LMS method.",
-    "Scored each answer on whether the model and the ground truth agree about which side of the -2 threshold the child falls on (the clinically safe rate), not only on numeric error.",
-    "Designed three conditions that isolate failure modes: closed book, formula provided, and formula plus the reference parameters provided, so errors can be traced to formula recall, table lookup, or arithmetic.",
-    "Tagged cases by difficulty, including exact table ages, ages between table rows, cases near the threshold, extreme values, and the switch between WHO and CDC references.",
-    "Supported several model families through one OpenRouter key, with offline tests that run without an API key."
-  ],
-  "what_i_found": [
-    "Across the models reported, giving the model the reference parameters helped more than giving it the formula, so the main failure is recalling the reference values rather than knowing the equation.",
-    "Numeric error alone misses the clinically important mistakes, which cluster where a small miss changes the referral decision."
-  ],
-  "limits": [
-    "Pre-publication work: per-model results are not shown here.",
-    "Covers stature-for-age only, not weight or BMI charts.",
-    "This repository is the single-case and small-batch runner; the full benchmark lives separately."
-  ],
   "tools": [
     "Python",
-    "pandas",
     "OpenRouter",
-    "CDC growth reference",
-    "LLM evaluation"
+    "provider APIs",
+    "pandas",
+    "CDC LMS method"
   ],
   "links": [
     {
@@ -37,12 +18,32 @@
   ],
   "figures": [],
   "host_file": "",
-  "sources": [
-    "/Users/dominiero/Documents/GitHub/growthradar-zscore/README.md",
-    "/Users/dominiero/Documents/GitHub/growthradar-zscore/lms.py",
-    "/Users/dominiero/Documents/GitHub/growthradar-zscore/data/example_cases.csv",
-    "/Users/dominiero/Documents/GitHub/benchmark-fresh/manuscript/shared/figures/figure-zscore-conditions.tex",
-    "/Users/dominiero/Documents/GitHub/benchmark-fresh/manuscript/shared/figures/figure-zscore-gap-decomp.tex",
-    "/Users/dominiero/Documents/GitHub/benchmark-fresh/manuscript/shared/figures/figure-zscore-stratum-heatmap.tex"
+  "line": "CLI benchmark scoring models against the referral threshold",
+  "question": "Can a model compute a child's height-for-age z-score from the CDC reference and land on the right side of the referral line?",
+  "skills": [
+    "benchmark design",
+    "clinical safety metric design",
+    "prompt ablation design",
+    "LLM evaluation",
+    "reproducible CLI tooling"
+  ],
+  "data": [
+    "CDC 2000 stature-for-age LMS",
+    "WHO 2006 length/height-for-age LMS"
+  ],
+  "calls": [
+    "scored as a clinically safe rate against the -2 SDS referral threshold, not RMSE. a small numeric miss across that line is a missed diagnosis, not a near miss.",
+    "height-for-age only. growth-disorder screening keys off it; weight enters through a different chart answering a different question.",
+    "formula-provided as the default condition, with closed book and fully open bracketing it. that is the condition matching how a model would actually be used.",
+    "WHO under 24 months, CDC from 24 months up. the CDC table is not valid below 24 months and the AAP recommends the split.",
+    "one OpenRouter key routing every model, direct provider keys kept as an option. one account, one code path."
+  ],
+  "broke": [
+    "provider APIs would not accept the harness's determinism settings, so temperature and seed handling is special-cased per model family. one reasoning model refuses the deterministic setting outright.",
+    "short token budgets truncated the JSON answer, which looked like a parsing failure rather than a length limit.",
+    "the Google direct API silently drops the reproducibility parameters the rest of the harness sets."
+  ],
+  "not_shown": [
+    "tied to a paper in progress, so per-model results are not posted here"
   ]
 }

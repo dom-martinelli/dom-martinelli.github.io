@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Height z-score computation by language models · Dom Martinelli</title>
-<meta name="description" content="Whether a child gets referred for a short-stature workup can hinge on one calculated number. This project tests whether AI models can compute that number correctly, and where their math breaks down.">
+<meta name="description" content="CLI benchmark scoring models against the referral threshold">
 <meta property="og:title" content="Height z-score computation by language models · Dom Martinelli">
-<meta property="og:description" content="Whether a child gets referred for a short-stature workup can hinge on one calculated number. This project tests whether AI models can compute that number correctly, and where their math breaks down.">
+<meta property="og:description" content="CLI benchmark scoring models against the referral threshold">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -17,18 +17,17 @@
 
 <main class="wrap article">
   <a class="back" href="../index.html#medical-ai">&larr; Evaluating medical AI</a>
-  <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
   <h1>Height z-score computation by language models</h1>
-  <p class="lede">Whether a child gets referred for a short-stature workup can hinge on one calculated number. This project tests whether AI models can compute that number correctly, and where their math breaks down.</p>
+  <p class="line">CLI benchmark scoring models against the referral threshold</p>
+  <dl class="spec"><div><dt>skills</dt><dd>benchmark design · clinical safety metric design · prompt ablation design · LLM evaluation · reproducible CLI tooling</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>OpenRouter</li><li>provider APIs</li><li>pandas</li><li>CDC LMS method</li></ul></dd></div><div><dt>data</dt><dd>CDC 2000 stature-for-age LMS · WHO 2006 length/height-for-age LMS</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
   <div class="actions"><a class="btn btn-primary" href="https://github.com/dom-martinelli/growthradar-zscore">Code on GitHub</a></div>
-  <section class="block"><h2>The question</h2><p>Can large language models correctly compute a child&#x27;s height-for-age z-score from the CDC growth reference, and land on the right side of the referral threshold?</p></section>
-  <section class="block"><h2>Why it matters</h2><p>A height z-score below -2 is the standard trigger for evaluating a child for conditions such as growth hormone deficiency, Turner syndrome, or hypothyroidism. A model that is only slightly off near that line can turn a referral into a missed diagnosis, which a typical average-error metric would treat as a near miss. If language models are going to help interpret growth, their errors need to be measured in clinical terms.</p></section>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>Can a model compute a child&#x27;s height-for-age z-score from the CDC reference and land on the right side of the referral line?</p></div></div>
   
-  <section class="block"><h2>What I did</h2><ul><li>Built a command-line tool that sends a child&#x27;s age, sex, and height to a chosen model and compares its answer to ground truth computed from the public CDC 2000 reference table using the LMS method.</li><li>Scored each answer on whether the model and the ground truth agree about which side of the -2 threshold the child falls on (the clinically safe rate), not only on numeric error.</li><li>Designed three conditions that isolate failure modes: closed book, formula provided, and formula plus the reference parameters provided, so errors can be traced to formula recall, table lookup, or arithmetic.</li><li>Tagged cases by difficulty, including exact table ages, ages between table rows, cases near the threshold, extreme values, and the switch between WHO and CDC references.</li><li>Supported several model families through one OpenRouter key, with offline tests that run without an API key.</li></ul></section>
-  <section class="block"><h2>What I found</h2><ul><li>Across the models reported, giving the model the reference parameters helped more than giving it the formula, so the main failure is recalling the reference values rather than knowing the equation.</li><li>Numeric error alone misses the clinically important mistakes, which cluster where a small miss changes the referral decision.</li></ul></section>
-  <section class="block"><h2>Limits</h2><ul><li>Pre-publication work: per-model results are not shown here.</li><li>Covers stature-for-age only, not weight or BMI charts.</li><li>This repository is the single-case and small-batch runner; the full benchmark lives separately.</li></ul></section>
-  <section class="block"><h2>Tools</h2><ul class="tags"><li>Python</li><li>pandas</li><li>OpenRouter</li><li>CDC growth reference</li><li>LLM evaluation</li></ul></section>
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>scored as a clinically safe rate against the -2 SDS referral threshold, not RMSE. a small numeric miss across that line is a missed diagnosis, not a near miss.</li><li>height-for-age only. growth-disorder screening keys off it; weight enters through a different chart answering a different question.</li><li>formula-provided as the default condition, with closed book and fully open bracketing it. that is the condition matching how a model would actually be used.</li><li>WHO under 24 months, CDC from 24 months up. the CDC table is not valid below 24 months and the AAP recommends the split.</li><li>one OpenRouter key routing every model, direct provider keys kept as an option. one account, one code path.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>provider APIs would not accept the harness&#x27;s determinism settings, so temperature and seed handling is special-cased per model family. one reasoning model refuses the deterministic setting outright.</li><li>short token budgets truncated the JSON answer, which looked like a parsing failure rather than a length limit.</li><li>the Google direct API silently drops the reproducibility parameters the rest of the harness sets.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>tied to a paper in progress, so per-model results are not posted here</li></ul></div></div>
 </main>
-<footer class="wrap foot">Dom Martinelli · built by hand, figures made with matplotlib</footer>
+<footer class="wrap foot">figures made with matplotlib · site built from json by build.py</footer>
 </body>
 </html>

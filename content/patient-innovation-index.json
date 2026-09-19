@@ -1,34 +1,48 @@
 {
- "slug": "patient-innovation-index",
- "tab": "trials",
- "title": "Measuring patient involvement in published research",
- "status": "in progress",
- "hook": "Patients increasingly help shape medical research as co-authors, funders and organizers, but there is no standard way to measure that involvement. This project builds one and asks whether research made with patients differs from comparable research made without them.",
- "question": "Can patient involvement in how research is produced be measured from published papers, and does involved research differ in scientific impact from comparable papers?",
- "why_it_matters": "Funders and research groups are asked to involve patients, but there is little large-scale evidence about what that involvement changes. Without a measure, involvement is hard to track or study. This is an advisor-supervised independent study, and its results have not yet been reviewed.",
- "what_i_did": [
-  "Retrieved PubMed papers matching patient-involvement terms, pulled year by year to avoid favoring recent work.",
-  "Built an index that combines several signals of involvement found in titles, abstracts, author lists, affiliations, acknowledgements and funding records, such as patient authors or patient organizations as funders.",
-  "Built comparison sets of papers from the NIH iCite database, including random, journal-matched and topic-matched controls.",
-  "Compared papers using a field-normalized citation measure (the Relative Citation Ratio) and matched papers on characteristics such as publication year and team size."
- ],
- "what_i_found": [],
- "limits": [
-  "The weights given to each involvement signal are judgment-based and not yet externally validated.",
-  "Matching on a few characteristics cannot rule out other differences between papers."
- ],
- "tools": [
-  "Python",
-  "PubMed",
-  "NIH iCite",
-  "text signal extraction",
-  "coarsened exact matching"
- ],
- "links": [],
- "figures": [],
- "sources": [
-  "patient-innovation-index/README.md (design and limitations sections only)",
-  "patient-innovation-index/patient_signal_scan_data/figures/fig1_attrition_flowchart.png (viewed, not used)",
-  "patient-innovation-index/docs/figures/pii_signal_diagram.png (viewed, not used)"
- ]
+  "slug": "patient-innovation-index",
+  "tab": "trials",
+  "title": "Measuring patient involvement in research",
+  "status": "in progress",
+  "tools": [
+    "Python",
+    "statsmodels",
+    "scikit-learn",
+    "sentence-transformers",
+    "UMAP",
+    "Streamlit"
+  ],
+  "links": [],
+  "figures": [],
+  "line": "text-signal index of how much patients shaped a published study",
+  "question": "Can patient involvement in how research gets produced be measured from the papers themselves?",
+  "skills": [
+    "composite index construction",
+    "control-set design",
+    "coarsened exact matching",
+    "field-normalised citation analysis",
+    "embedding-based topic clustering"
+  ],
+  "data": [
+    "PubMed / E-utilities",
+    "NIH iCite",
+    "OpenAlex",
+    "MeSH headings"
+  ],
+  "calls": [
+    "corpus retrieved on involvement terms, chunked by year, not built around a disease. the object of study is a mode of production, and year chunks stop the pull favouring recent work.",
+    "three separately built control sets: stratified random, journal-matched, heading-matched. one random comparison leaves journal and disease area confounded with the exposure.",
+    "coarsened exact matching on year and team size, not propensity scores. bounds imbalance up front instead of checking balance afterwards.",
+    "relative citation ratio as the outcome, not raw counts. each paper is normalised to its own co-citation field baseline."
+  ],
+  "broke": [
+    "case-folding bug: the scorer lowercased the text but kept capitalised patterns, so every acronym signal could never fire.",
+    "substring matching on organisation names produced false hits on unrelated institutions.",
+    "the collective-author signal was tagging research consortia as patient collectives, which mislabeled a headline signal in the draft.",
+    "once patterns went case-insensitive, a bare sample-size notation started matching results-section text.",
+    "a figure and its signal table disagree because they came from different pipeline runs. reconciling to one canonical run is open."
+  ],
+  "tried": "wanted involvement scored from each paper's funding-statement text. the corpus carries PubMed grant lists only, so OpenAlex funder metadata stood in.",
+  "not_shown": [
+    "results held back until my advisor has read the draft"
+  ]
 }

@@ -3,31 +3,13 @@
   "tab": "clinical-tools",
   "title": "A family-facing growth chart",
   "status": "live",
-  "hook": "Parents rarely see their child's growth chart between checkups. This demo app lets a family view the growth history stored in their health record and add measurements taken at home.",
-  "question": "What would it look like for families to see and understand their child's growth data from the health record, between doctor visits?",
-  "why_it_matters": "Growth problems are often caught late because measurements are only reviewed at scheduled visits. Giving families a clear view of the trend, with conservative flags when something looks off, could prompt earlier conversations with their pediatrician.",
-  "what_i_did": [
-    "Built a patient-facing SMART on FHIR web app that reads patient and measurement data from the Epic sandbox, read-only.",
-    "Drew a combined interactive height and weight chart with details for each measurement date.",
-    "Added growth velocity, a midparental target height from parents' heights, corrected age for children born early, and a flag when a height z-score falls below -2.",
-    "Let families enter home measurements, stored only in their own browser.",
-    "Created mock scenarios, including a Turner syndrome teaching case, and deployed the app to GitHub Pages."
-  ],
-  "what_i_found": [
-    "A small browser-only app can handle the full Epic sandbox launch flow and present growth data in a family-friendly way without any backend."
-  ],
-  "limits": [
-    "A demonstration, not a clinical product: it does not use a validated CDC or WHO percentile engine and does not write data back to the record.",
-    "Not yet tested with a real Epic sandbox client, and has no unit tests or accessibility review yet.",
-    "Home measurements live in the browser only, and the midparental height formula still needs documented sources."
-  ],
   "tools": [
     "TypeScript",
     "Vite",
-    "SMART on FHIR",
     "fhirclient",
-    "Epic sandbox",
-    "GitHub Pages"
+    "FHIR R4",
+    "LOINC",
+    "GitHub Actions"
   ],
   "links": [
     {
@@ -41,11 +23,33 @@
   ],
   "figures": [],
   "host_file": "",
-  "sources": [
-    "/Users/dominiero/Documents/GitHub/growthbridge-demo/README.md",
-    "/Users/dominiero/Documents/GitHub/growthbridge-demo/TODO.md",
-    "/Users/dominiero/Documents/GitHub/growthbridge-demo/src/lib/growthAnalysis.ts",
-    "/Users/dominiero/Documents/GitHub/growthbridge-demo/src/lib/personalization.ts",
-    "/Users/dominiero/Documents/GitHub/growthbridge-demo/src/lib/storage.ts"
+  "line": "patient-facing SMART on FHIR demo, Epic sandbox",
+  "question": "What would it look like for a family to see and understand their child's growth record between visits?",
+  "skills": [
+    "SMART on FHIR integration",
+    "OAuth launch configuration",
+    "TypeScript front-end architecture",
+    "growth analysis implementation",
+    "static deployment and CI"
+  ],
+  "data": [
+    "Epic FHIR sandbox",
+    "mock teaching scenarios",
+    "family-entered measurements (browser only)"
+  ],
+  "calls": [
+    "flags computed from a z-score threshold at render time, not hand-written trend annotations per scenario. scripted copy cannot survive real record data.",
+    "read-only, no backend. this demonstrates the family-facing view; it is not a clinical product.",
+    "home-entered measurements stay in the family's own browser storage. there is no backend, and the data never has to leave the device.",
+    "falls back to a mock scenario when the SMART launch fails, so the app opens from a plain link without a launch context."
+  ],
+  "broke": [
+    "the Turner teaching case had been narrated as a percentile drop the z-score rule would never flag. the mock percentiles had to move to values the computed rule actually catches.",
+    "Pages deployment needed explicit job permissions and newer action versions before it worked.",
+    "Epic's exact redirect matching makes a project-subpath URL a trap: site root and index.html are not the same registered value."
+  ],
+  "tried": "scripted per-scenario trend insights went away once flags were computed from the threshold, since a hand-written percentile-drop story cannot follow real record data.",
+  "not_shown": [
+    "percentiles are not from a validated engine, the midparental formula has no documented source yet, and it has never been run against a real Epic client"
   ]
 }

@@ -1,0 +1,70 @@
+{
+  "slug": "sirna",
+  "one_line": "machine-learning classifier for chemically modified siRNA silencing activity",
+  "skills": [
+    "supervised classification",
+    "sequence feature engineering (positional one-hot encoding)",
+    "model comparison and cross-validation",
+    "imbalanced-data evaluation (ROC and precision-recall)",
+    "feature-weight interpretation against medicinal chemistry literature",
+    "web data mining and curation"
+  ],
+  "tools": ["Python", "scikit-learn", "pandas", "NumPy", "matplotlib", "seaborn", "scikit-plot", "requests", "Jupyter"],
+  "data": ["siRNAmod database (chemically modified siRNAs with reported inhibition)", "hand-assembled validation set extracted from primary literature not in siRNAmod (PubMed IDs listed in the Supplementary Information)"],
+  "decisions": [
+    {
+      "chose": "training three model families side by side (random forest, MLP, linear SVM)",
+      "over": "tuning one architecture as far as it would go",
+      "because": "on a task nobody had modelled before, which family of approach suits the data is itself the finding",
+      "evidence": "rather than attempting to optimize a single model architecture",
+      "source": "/Users/dominiero/Documents/Research/siRNA_preprint_REVISED_CLEAN.docx"
+    },
+    {
+      "chose": "ROC AUC and precision-recall AUC as the ranking metrics",
+      "over": "accuracy",
+      "because": "the classes are not balanced at any threshold, and a falsely optimistic call is the expensive mistake in drug development",
+      "evidence": "ROC AUC was preferred over accuracy",
+      "source": "/Users/dominiero/Documents/Research/siRNA_preprint_REVISED_CLEAN.docx"
+    },
+    {
+      "chose": "repeating the whole experiment at 60%, 70% and 80% inhibition cutoffs",
+      "over": "a single cutoff, and over a stricter one",
+      "because": "published definitions of an effective siRNA disagree, and a stricter cutoff leaves too few positives to learn from",
+      "evidence": "Classifying siRNAs based on a higher threshold would not yield predictive models",
+      "source": "/Users/dominiero/Documents/Research/siRNA_preprint_REVISED_CLEAN.docx"
+    },
+    {
+      "chose": "one-hot encoding base identity and modification at each position on both strands",
+      "over": "encoding the chemical structure of each modification with cheminformatics descriptors",
+      "because": "the categorical encoding was enough for a proof of concept, at the cost that a genuinely new modification chemistry cannot be scored without retraining",
+      "evidence": "such a featurization method satisfies the purpose of this proof-of-concept study",
+      "source": "/Users/dominiero/Documents/Research/siRNA_preprint_REVISED_CLEAN.docx"
+    },
+    {
+      "chose": "shrinking the MLP's hidden layers below the scikit-learn default",
+      "over": "leaving the default width in place",
+      "because": "the dataset is small enough that the default capacity was not warranted",
+      "evidence": "decreased from the default value of 100",
+      "source": "/Users/dominiero/Documents/Research/siRNA_preprint_REVISED_CLEAN.docx"
+    }
+  ],
+  "broke": [
+    {
+      "what": "the validation sequences the methods section pointed to were missing from the Supplementary Information at first submission, and a reviewer caught it",
+      "evidence": "The validation set sequences mentioned in Section 2.1 were not found in the Supplementary Information",
+      "source": "/Users/dominiero/Documents/Research/Response to Reviewers_REVISED.docx"
+    },
+    {
+      "what": "the supplementary spreadsheet still carried an earlier set of activity cutoffs that contradicted the ones in the manuscript; a reviewer spotted the mismatch and the file was corrected",
+      "evidence": "The thresholds in the supplementary data are inconsistent with the values stated in the article",
+      "source": "/Users/dominiero/Documents/Research/Response to Reviewers_REVISED.docx"
+    },
+    {
+      "what": "interpreting the learned weights turned out to need knowledge of how the modifications co-occur, because a high weight on one stabilising modification partly stands in for the other stabilising modifications that usually travel with it",
+      "evidence": "familiarity with the data and its limitations is a prerequisite for the effective interpretation of assigned weights",
+      "source": "/Users/dominiero/Documents/Research/siRNA_preprint_REVISED_CLEAN.docx"
+    }
+  ],
+  "question": "Can a model predict how well a chemically modified siRNA silences its target from base sequence and modification pattern alone?",
+  "rejected_line": "Ran the classifiers at a 90 percent inhibition cutoff too; dropped it because so few sequences clear that bar the classes go too lopsided to learn from."
+}

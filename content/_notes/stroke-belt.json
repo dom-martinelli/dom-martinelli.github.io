@@ -1,0 +1,79 @@
+{
+  "slug": "stroke-belt",
+  "one_line": "four-person course study of hypertension and treatment across Stroke Belt tracts",
+  "skills": [
+    "census-tract data merging and geospatial joins",
+    "choropleth mapping",
+    "multiple linear regression on area-level data",
+    "permutation testing of preregistered directional hypotheses",
+    "outlier rules for bounded, skewed measures"
+  ],
+  "tools": [
+    "Python",
+    "pandas",
+    "GeoPandas",
+    "folium / branca",
+    "scikit-learn (LinearRegression, StandardScaler, MinMaxScaler)",
+    "numpy",
+    "matplotlib",
+    "seaborn",
+    "census API client",
+    "Jupyter"
+  ],
+  "data": [
+    "CDC PLACES census-tract estimates (hypertension, medication coverage, obesity, smoking, inactivity, short sleep, cholesterol)",
+    "American Community Survey 5-year estimates via Cornell PolicyMap",
+    "Census TIGER tract geometries",
+    "Mapping Inequality HOLC redlining grades (HRI2020), Chicago phase",
+    "county-level files on stroke prevalence, insurance, medical debt and food insecurity"
+  ],
+  "decisions": [
+    {
+      "chose": "widening the analysis from one metro area to the Stroke Belt states",
+      "over": "keeping the preregistered analysis in the Chicago tracts already assembled",
+      "because": "the cleaned Chicago sample was a tiny fraction of US tracts, and the broader region gave the hypotheses statistical power in a place where the hypertension burden is documented",
+      "evidence": "As we designed our hypotheses, we decided to take this as an opportunity to increase statistical power.",
+      "source": "/Users/dominiero/Documents/GitHub/intro_datasci_project/phase2 copy.ipynb"
+    },
+    {
+      "chose": "medication coverage among adults already diagnosed as the treatment outcome",
+      "over": "comparing recorded hypertension prevalence across neighborhoods",
+      "because": "a low recorded prevalence can reflect less testing or worse record-keeping rather than less disease, while the diagnosed population has at least baseline access to care",
+      "evidence": "it may very well be the case that a \"lower prevalence\" of high blood pressure actually just reflects lower access to testing in the first place",
+      "source": "/Users/dominiero/Documents/GitHub/intro_datasci_project/phase2 copy.ipynb"
+    },
+    {
+      "chose": "an interquartile-range rule for flagging high-burden outlier tracts",
+      "over": "z-score cutoffs",
+      "because": "tract percentages are bounded and right-skewed, so quartile-based thresholds do not assume normality and are not distorted by a few extreme tracts",
+      "evidence": "we used an interquartile range (IQR)–based rule rather than z-scores to identify outliers",
+      "source": "/Users/dominiero/Documents/GitHub/intro_datasci_project/phase2 copy.ipynb"
+    },
+    {
+      "chose": "leaving the collinear behavioral risk measures out of the H2 model",
+      "over": "entering physical inactivity, smoking and short sleep as controls alongside obesity",
+      "because": "they are multicollinear with obesity, the predictor of interest, and would mostly add noise",
+      "evidence": "Therefore, we will not include these variables as predictors to \"control\" for; they would do little more than introduce noise when used in conjunction with obesity",
+      "source": "/Users/dominiero/Documents/GitHub/intro_datasci_project/phase2 copy.ipynb"
+    }
+  ],
+  "broke": [
+    {
+      "what": "tract IDs kept losing their leading zero when read as numbers, which silently breaks joins to the geometry and covariate files for states whose FIPS code starts with a zero",
+      "evidence": "Pandas consistently misinterprets the type of this column because Alabama's FIPS code has a leading zero.",
+      "source": "/Users/dominiero/Documents/GitHub/intro_datasci_project/preprocessing/data_preprocessing_geographic.ipynb"
+    },
+    {
+      "what": "the H1 model cell was committed in an erroring state because the medication column had been renamed, fixed in the 'correcting hypertension label' commit",
+      "evidence": "KeyError: \"['High Blood Pressure Medication'] not in index\"",
+      "source": "/Users/dominiero/Documents/GitHub/intro_datasci_project/phase2 copy.ipynb"
+    },
+    {
+      "what": "the source column name for the treatment measure implied a share of the whole tract population rather than of diagnosed adults, so it was renamed before analysis",
+      "evidence": "it seems to imply that the values represent the proportion of the *total* tract population taking antihypertensives",
+      "source": "/Users/dominiero/Documents/GitHub/intro_datasci_project/phase2 copy.ipynb"
+    }
+  ],
+  "question": "Within the Stroke Belt, is high blood pressure more common in tracts with more obesity, and are diagnosed adults less likely to be on medication in tracts with a larger Black population share?",
+  "rejected_line": "Built the first version around Chicago tracts and HOLC redlining grades; too few tracts survived cleaning, so the team moved to Stroke Belt states and dropped the redlining layer."
+}

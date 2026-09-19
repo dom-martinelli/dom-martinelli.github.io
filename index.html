@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dom Martinelli · Biomedical informatics</title>
-<meta name="description" content="Biomedical informatics at Cornell, working in Zak Kohane&#x27;s lab at Harvard Medical School. Projects below, sorted by subject. Each card opens a longer write-up.">
+<meta name="description" content="biomedical informatics · Cornell · Kohane lab, Harvard DBMI">
 <meta property="og:title" content="Dom Martinelli · Biomedical informatics">
-<meta property="og:description" content="Biomedical informatics at Cornell, working in Zak Kohane&#x27;s lab at Harvard Medical School. Projects below, sorted by subject. Each card opens a longer write-up.">
+<meta property="og:description" content="biomedical informatics · Cornell · Kohane lab, Harvard DBMI">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -17,145 +17,118 @@
 
 <main class="wrap">
   <section class="hero">
-    <h1>Health systems and health AI are governed by numbers that look decisive and are not. I measure the gap.</h1>
-    <p class="lede">Biomedical informatics at Cornell, working in Zak Kohane&#x27;s lab at Harvard Medical School. Projects below, sorted by subject. Each card opens a longer write-up.</p>
+    <h1>Dom Martinelli</h1>
+    <p class="affil">biomedical informatics · Cornell · Kohane lab, Harvard DBMI</p>
+    <div class="works"><span class="margin-note">works with</span><ul><li>Python</li><li>SMART on FHIR</li><li>RDKit</li><li>scikit-learn</li><li>GeoPandas</li><li>matched designs</li><li>LLM evaluation</li><li>ClinicalTrials.gov / AACT</li><li>PubMed / iCite</li><li>matplotlib</li></ul></div>
   </section>
-  <div class="tabs" role="tablist" aria-label="Subjects"><button role="tab" id="tab-medical-ai" aria-controls="panel-medical-ai" data-tab="medical-ai">Evaluating medical AI</button><button role="tab" id="tab-clinical-tools" aria-controls="panel-clinical-tools" data-tab="clinical-tools">Clinical tools</button><button role="tab" id="tab-trials" aria-controls="panel-trials" data-tab="trials">Trials and evidence</button><button role="tab" id="tab-population" aria-controls="panel-population" data-tab="population">Population health</button><button role="tab" id="tab-molecules" aria-controls="panel-molecules" data-tab="molecules">Molecules and food</button></div>
-  <section class="tabpanel" role="tabpanel" id="panel-medical-ai" aria-labelledby="tab-medical-ai">
-  <div class="panel-head"><h2>Evaluating medical AI</h2><p>Whether the tests we use to certify medical AI measure what happens at the bedside.</p></div>
-  <div class="grid"><a class="tile tile-wide" href="projects/growth-medqa.html">
-  <div class="panel"><img src="assets/fig/growth-medqa-1.png" alt="What the benchmark contains: questions broken down by the role growth plays in the reasoning, by pediatric-endocrinology growth topic, and by the physician competency each question tests." loading="lazy"></div>
+  <div class="tabs" role="tablist" aria-label="Subjects"><button role="tab" id="tab-medical-ai" aria-controls="panel-medical-ai" data-tab="medical-ai">Evaluating medical AI<span class="count">3</span></button><button role="tab" id="tab-clinical-tools" aria-controls="panel-clinical-tools" data-tab="clinical-tools">Clinical tools<span class="count">3</span></button><button role="tab" id="tab-trials" aria-controls="panel-trials" data-tab="trials">Trials and evidence<span class="count">3</span></button><button role="tab" id="tab-population" aria-controls="panel-population" data-tab="population">Population health<span class="count">1</span></button><button role="tab" id="tab-molecules" aria-controls="panel-molecules" data-tab="molecules">Molecules and food<span class="count">3</span></button></div>
+  <section class="tabpanel" role="tabpanel" id="panel-medical-ai" aria-labelledby="tab-medical-ai"><div class="grid"><a class="tile tile-wide" href="projects/growth-medqa.html">
+  <div class="panel"><img src="assets/fig/growth-medqa-1.png" alt="what the benchmark is made of: source datasets and how many items each contributes." loading="lazy"></div>
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
-    <h3>A pediatric growth benchmark for language models</h3>
-    <p>Doctors judge a child&#x27;s health partly by how they grow, and AI chatbots are starting to answer medical questions. This benchmark checks whether those models actually understand growth, instead of trusting one overall test score.</p>
-    <ul class="tags"><li>Python</li><li>DSPy</li><li>OpenRouter</li><li>LLM evaluation</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>A pediatric growth benchmark</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">growth-assessment items curated out of public medical QA sets</p>
+    <p class="skills">benchmark design · LLM evaluation · annotation schema design · provenance auditing</p>
+    <ul class="tags"><li>Python</li><li>DSPy</li><li>Hugging Face datasets</li><li>OpenRouter</li><li>Slurm / vLLM</li></ul>
   </div>
-</a><a class="tile" href="projects/growth-zscore.html">
-  <div class="panel panel-empty"></div>
+</a><a class="tile tile-text" href="projects/growth-zscore.html">
+  
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
-    <h3>Height z-score computation by language models</h3>
-    <p>Whether a child gets referred for a short-stature workup can hinge on one calculated number. This project tests whether AI models can compute that number correctly, and where their math breaks down.</p>
-    <ul class="tags"><li>Python</li><li>pandas</li><li>OpenRouter</li><li>CDC growth reference</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>Height z-score computation by language models</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">CLI benchmark scoring models against the referral threshold</p>
+    <p class="skills">benchmark design · clinical safety metric design · prompt ablation design · LLM evaluation</p>
+    <ul class="tags"><li>Python</li><li>OpenRouter</li><li>provider APIs</li><li>pandas</li><li>CDC LMS method</li></ul>
   </div>
-</a><a class="tile" href="projects/fda-ai-devices.html">
-  <div class="panel panel-empty"></div>
+</a><a class="tile tile-text" href="projects/fda-ai-devices.html">
+  
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-finished">finished</span></div>
-    <h3>FDA-authorized AI devices</h3>
-    <p>The FDA has authorized a long and growing list of AI medical devices. This interactive registry lets anyone explore that list, and shows what it never records: whether a device was shown to help patients.</p>
-    <ul class="tags"><li>HTML</li><li>JavaScript</li><li>CSV</li><li>FDA public data</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>FDA-authorized AI devices</h3><span class="status status-live">live</span></div>
+    <p class="line">filterable registry of every AI device the FDA has authorized</p>
+    <p class="skills">public-data reporting · interactive data visualisation · front-end engineering without a framework · regulatory literature review</p>
+    <ul class="tags"><li>HTML</li><li>CSS</li><li>vanilla JavaScript</li><li>CSV pipeline</li></ul>
   </div>
-</a></div>
-</section><section class="tabpanel" role="tabpanel" id="panel-clinical-tools" aria-labelledby="tab-clinical-tools">
-  <div class="panel-head"><h2>Clinical tools</h2><p>Software a clinician or patient can open and use.</p></div>
-  <div class="grid"><a class="tile tile-wide" href="projects/growthradar-lite.html">
-  <div class="panel panel-dark"><img src="assets/fig/growthradar-lite-1.png" alt="The prototype with the bundled sample patient loaded: parsed vitals from the health record, each measurement marked with how it is used on the chart." loading="lazy"></div>
+</a></div></section><section class="tabpanel" role="tabpanel" id="panel-clinical-tools" aria-labelledby="tab-clinical-tools"><div class="grid"><a class="tile tile-wide" href="projects/growthradar-lite.html">
+  <div class="panel panel-dark"><img src="assets/fig/growthradar-lite-1.png" alt="the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart." loading="lazy"></div>
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-live">live</span></div>
-    <h3>Growth monitoring from the health record</h3>
-    <p>A child who slowly drops off their growth curve can go unnoticed across many short clinic visits. This prototype pulls a child&#x27;s measurements from an electronic health record, flags worrying changes, and drafts a summary for the pediatrician.</p>
-    <ul class="tags"><li>JavaScript</li><li>HTML</li><li>SMART on FHIR</li><li>Epic sandbox</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>Growth monitoring from the health record</h3><span class="status status-live">live</span></div>
+    <p class="line">single-file SMART on FHIR app reading a child&#x27;s growth history</p>
+    <p class="skills">SMART on FHIR integration · OAuth 2.0 / PKCE · FHIR querying and parsing · clinical rule design</p>
+    <ul class="tags"><li>JavaScript (no build step)</li><li>Chart.js</li><li>Web Crypto</li><li>Epic FHIR R4</li><li>LOINC</li></ul>
   </div>
-</a><a class="tile" href="projects/growthbridge.html">
-  <div class="panel panel-empty"></div>
+</a><a class="tile tile-text" href="projects/growthbridge.html">
+  
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-live">live</span></div>
-    <h3>A family-facing growth chart</h3>
-    <p>Parents rarely see their child&#x27;s growth chart between checkups. This demo app lets a family view the growth history stored in their health record and add measurements taken at home.</p>
-    <ul class="tags"><li>TypeScript</li><li>Vite</li><li>SMART on FHIR</li><li>fhirclient</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>A family-facing growth chart</h3><span class="status status-live">live</span></div>
+    <p class="line">patient-facing SMART on FHIR demo, Epic sandbox</p>
+    <p class="skills">SMART on FHIR integration · OAuth launch configuration · TypeScript front-end architecture · growth analysis implementation</p>
+    <ul class="tags"><li>TypeScript</li><li>Vite</li><li>fhirclient</li><li>FHIR R4</li><li>LOINC</li></ul>
   </div>
-</a><a class="tile" href="projects/platefit.html">
-  <div class="panel panel-empty"></div>
+</a><a class="tile tile-text" href="projects/platefit.html">
+  
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
-    <h3>Menu ranking for people on GLP-1 medication</h3>
-    <p>People taking GLP-1 weight-loss drugs feel full fast and can get sick from greasy food, which makes eating out stressful. PlateFit ranks chain restaurant menu items by how well they fit that way of eating, and explains why.</p>
-    <ul class="tags"><li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind CSS</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>Menu ranking for people on GLP-1 medication</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">chain menus scored against a protein-first, small-portion pattern</p>
+    <p class="skills">rubric and scoring design · evidence review with strength grading · dataset compilation and provenance flagging · Next.js product build</p>
+    <ul class="tags"><li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Tailwind</li><li>PWA service worker</li></ul>
   </div>
-</a></div>
-</section><section class="tabpanel" role="tabpanel" id="panel-trials" aria-labelledby="tab-trials">
-  <div class="panel-head"><h2>Trials and evidence</h2><p>How clinical evidence gets made, stalls, and reaches practice.</p></div>
-  <div class="grid"><a class="tile tile-wide" href="projects/advocacy-accrual.html">
-  <div class="panel"><img src="assets/fig/advocacy-accrual-1.png" alt="Novel compounds dropped after a single failed trial, grouped by why the trial stopped. Failures that said nothing about the molecule, led by trials that could not enroll patients, outnumber failures on safety or efficacy." loading="lazy"></div>
+</a></div></section><section class="tabpanel" role="tabpanel" id="panel-trials" aria-labelledby="tab-trials"><div class="grid"><a class="tile tile-wide" href="projects/advocacy-accrual.html">
+  <div class="panel"><img src="assets/fig/advocacy-accrual-1.png" alt="abandoned compounds by the reason their first trial stopped." loading="lazy"></div>
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
-    <h3>Patient advocacy partners and trial enrollment failure</h3>
-    <p>Many clinical trials stop early because they cannot find enough patients, and a stopped trial can take a promising drug off the table for good. This project asks whether trials that partner with patient advocacy groups are less likely to fail that way.</p>
-    <ul class="tags"><li>Python</li><li>pandas</li><li>ClinicalTrials.gov API</li><li>LLM classification</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>Advocacy partners and trial enrollment failure</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">matched registry study of trials that stop for lack of patients</p>
+    <p class="skills">matched cohort design · coarsened exact matching · bootstrap inference · registry API pipelines</p>
+    <ul class="tags"><li>Python</li><li>pandas</li><li>requests</li><li>parquet</li><li>pytest</li></ul>
   </div>
 </a><a class="tile" href="projects/evidence-lag.html">
-  <div class="panel"><img src="assets/fig/evidence-lag-1.png" alt="Share of Ehlers-Danlos papers each year using the old hypermobility terms versus the new hypermobile EDS and HSD terms, with the 2017 classification marked." loading="lazy"></div>
+  <div class="panel"><img src="assets/fig/evidence-lag-1.png" alt="old and new naming for the same connective-tissue diagnosis, by year." loading="lazy"></div>
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
-    <h3>How long evidence takes to reach practice</h3>
-    <p>When the evidence about a disease or drug changes, doctors and patients rely on guidelines, drug labels and published papers to catch up. This project tracks how long that catch-up takes, using cases from chronic fatigue syndrome, Ehlers-Danlos syndrome, GLP-1 weight-loss drugs and heart attacks in women.</p>
-    <ul class="tags"><li>Python</li><li>pandas</li><li>PubMed E-utilities</li><li>openFDA FAERS</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>How long evidence takes to reach practice</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">four case studies timing guidelines, labels and the literature</p>
+    <p class="skills">bibliometric trend analysis · pharmacovigilance signal analysis · rate-limited API pipelines · denominator normalisation</p>
+    <ul class="tags"><li>Python</li><li>NCBI E-utilities</li><li>openFDA</li><li>pandas</li><li>matplotlib</li></ul>
   </div>
-</a><a class="tile" href="projects/patient-innovation-index.html">
-  <div class="panel panel-empty"></div>
+</a><a class="tile tile-text" href="projects/patient-innovation-index.html">
+  
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
-    <h3>Measuring patient involvement in published research</h3>
-    <p>Patients increasingly help shape medical research as co-authors, funders and organizers, but there is no standard way to measure that involvement. This project builds one and asks whether research made with patients differs from comparable research made without them.</p>
-    <ul class="tags"><li>Python</li><li>PubMed</li><li>NIH iCite</li><li>text signal extraction</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>Measuring patient involvement in research</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">text-signal index of how much patients shaped a published study</p>
+    <p class="skills">composite index construction · control-set design · coarsened exact matching · field-normalised citation analysis</p>
+    <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li><li>UMAP</li></ul>
   </div>
-</a></div>
-</section><section class="tabpanel" role="tabpanel" id="panel-population" aria-labelledby="tab-population">
-  <div class="panel-head"><h2>Population health</h2><p>Where disease sits on the map, and what travels with it.</p></div>
-  <div class="grid"><a class="tile tile-wide" href="projects/stroke-belt.html">
-  <div class="panel"><img src="assets/fig/stroke-belt-1.png" alt="County-level stroke prevalence across the continental US, with the Stroke Belt states outlined in white." loading="lazy"></div>
+</a></div></section><section class="tabpanel" role="tabpanel" id="panel-population" aria-labelledby="tab-population"><div class="grid"><a class="tile tile-wide" href="projects/stroke-belt.html">
+  <div class="panel"><img src="assets/fig/stroke-belt-1.png" alt="stroke prevalence by county. the belt is visible without any statistics." loading="lazy"></div>
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-finished">finished</span></div>
-    <h3>Hypertension, obesity and treatment gaps in the Stroke Belt</h3>
-    <p>A band of Southeastern states has long had more strokes than the rest of the country. In a four-person group project, we mapped stroke, high blood pressure, insurance, medical debt and food insecurity to ask who develops high blood pressure there and who gets treated for it.</p>
-    <ul class="tags"><li>Python</li><li>pandas</li><li>GeoPandas</li><li>matplotlib</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>Hypertension and treatment across the Stroke Belt</h3><span class="status status-finished">finished</span></div>
+    <p class="line">tract-level study of who develops high blood pressure and who gets treated</p>
+    <p class="skills">geospatial joins · choropleth mapping · area-level regression · permutation testing of preregistered hypotheses</p>
+    <ul class="tags"><li>Python</li><li>GeoPandas</li><li>scikit-learn</li><li>folium</li><li>pandas</li></ul>
   </div>
-</a></div>
-</section><section class="tabpanel" role="tabpanel" id="panel-molecules" aria-labelledby="tab-molecules">
-  <div class="panel-head"><h2>Molecules and food</h2><p>What chemical structure can and cannot tell you about a drug or a flavour.</p></div>
-  <div class="grid"><a class="tile tile-wide" href="projects/sweetspace.html">
-  <div class="panel"><img src="assets/fig/sweetspace-1.png" alt="Three odour words placed on a map of chemical structure. Molecules called garlic or vanilla sit in a few tight clumps, so those smells follow the molecular scaffold. Molecules called sweet are spread across the whole map." loading="lazy"></div>
+</a></div></section><section class="tabpanel" role="tabpanel" id="panel-molecules" aria-labelledby="tab-molecules"><div class="grid"><a class="tile tile-wide" href="projects/sweetspace.html">
+  <div class="panel"><img src="assets/fig/sweetspace-1.png" alt="each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space." loading="lazy"></div>
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
-    <h3>Flavour identity and what makes a sweetener sweet</h3>
-    <p>Cookies and cream does not taste like chocolate mixed with vanilla, and caramel and cotton candy both start from sugar and taste nothing alike. This project works out how much of a flavour is carried by single molecules, and asks the same kind of question about sweeteners: whether a molecule&#x27;s structure predicts how sweet it is, and what the body pays to process it.</p>
-    <ul class="tags"><li>Python</li><li>RDKit</li><li>pandas</li><li>scikit-learn</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>Flavour identity and sweetener potency</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">cheminformatics on what single molecules carry, and what structure predicts</p>
+    <p class="skills">cheminformatics · molecular fingerprints · dimensionality reduction · baseline-controlled modelling</p>
+    <ul class="tags"><li>Python</li><li>RDKit</li><li>scikit-learn</li><li>SHAP</li><li>t-SNE / UMAP</li></ul>
   </div>
 </a><a class="tile" href="projects/wakespace.html">
-  <div class="panel"><img src="assets/fig/wakespace-1.png" alt="Each drug placed by greasiness and polar surface area, coloured by the class it is licensed under. The weight-loss compounds are scattered across the whole plot while the stimulants overlap almost exactly." loading="lazy"></div>
+  <div class="panel"><img src="assets/fig/wakespace-1.png" alt="licensed class by colour. the weight-loss set spans the whole plot; the stimulants sit on top of each other." loading="lazy"></div>
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-finished">finished</span></div>
-    <h3>Drug classes compared against the chemistry</h3>
-    <p>Medicine files a drug under a class based on what it is licensed to treat, not on what the molecule is. This project plots wakefulness, ADHD and weight-loss drugs by their chemical properties to see whether those classes hold together once you look at the molecules.</p>
-    <ul class="tags"><li>Python</li><li>pandas</li><li>numpy</li><li>matplotlib</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>Drug classes against the chemistry</h3><span class="status status-finished">finished</span></div>
+    <p class="line">wakefulness, ADHD and weight-loss drugs plotted by molecular property</p>
+    <p class="skills">cheminformatics · molecular descriptor analysis · API data collection · figure design</p>
+    <ul class="tags"><li>Python</li><li>PubChem PUG REST</li><li>pandas</li><li>matplotlib</li></ul>
   </div>
 </a><a class="tile" href="projects/sirna.html">
-  <div class="panel"><img src="assets/fig/sirna-1.png" alt="How often each type of chemical modification appears in the collected siRNA sequences. Two modifications dominate, matching their prevalence in the literature and in approved drugs." loading="lazy"></div>
+  <div class="panel"><img src="assets/fig/sirna-1.png" alt="which chemical modifications appear in the training data, and how often." loading="lazy"></div>
   <div class="tile-body">
-    <div class="tile-meta"><span class="status status-in-progress">in progress</span></div>
-    <h3>Predicting the activity of chemically modified siRNA</h3>
-    <p>siRNA drugs switch off a chosen gene, and every approved one has had its chemistry altered to survive in the body. Tools that predict whether an siRNA will work were built on unaltered sequences, so this project asks whether a model can learn from the altered ones that drugs are actually made of.</p>
-    <ul class="tags"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>numpy</li></ul>
-    <span class="more">Read more <span aria-hidden="true">&rarr;</span></span>
+    <div class="tile-top"><h3>Predicting activity of chemically modified siRNA</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">classifier for silencing activity from sequence and modification pattern</p>
+    <p class="skills">supervised classification · sequence feature engineering · model comparison · imbalanced-data evaluation</p>
+    <ul class="tags"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>seaborn</li><li>Jupyter</li></ul>
   </div>
-</a></div>
-</section>
+</a></div></section>
 </main>
-<footer class="wrap foot">Dom Martinelli · built by hand, figures made with matplotlib</footer>
+<footer class="wrap foot">figures made with matplotlib · site built from json by build.py</footer>
 <script src="assets/tabs.js"></script>
 </body>
 </html>

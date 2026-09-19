@@ -1,0 +1,103 @@
+{
+  "slug": "patient-innovation-index",
+  "one_line": "bibliometric index measuring patient involvement in how research is produced",
+  "skills": [
+    "composite index construction from text signals",
+    "control-set design (random, journal-matched, topic-matched)",
+    "coarsened exact matching",
+    "field-normalized citation analysis",
+    "embedding-based topic clustering for matching"
+  ],
+  "tools": [
+    "Python",
+    "pandas",
+    "statsmodels",
+    "scikit-learn (KMeans)",
+    "sentence-transformers",
+    "UMAP",
+    "regex signal scorers",
+    "Streamlit",
+    "plotly",
+    "seaborn / matplotlib",
+    "psycopg2",
+    "requests"
+  ],
+  "data": [
+    "PubMed (E-utilities: titles, abstracts, author lists, affiliations, acknowledgements, grant metadata)",
+    "NIH iCite (Relative Citation Ratio, control sample)",
+    "OpenAlex (funder metadata)",
+    "Europe PMC",
+    "MeSH headings (NLM)",
+    "ClinicalTrials.gov / AACT (explorer app and PFDD layer)",
+    "Reliance on Science patent-to-paper citations (Zenodo)",
+    "FDA condition-specific PFDD meeting reports",
+    "IRS Form 990 funder lookup (explorer app)",
+    "hand-curated patient advocacy organization roster (pao_roster.csv)"
+  ],
+  "decisions": [
+    {
+      "chose": "retrieving the corpus on patient-involvement keyword terms, chunked by publication year",
+      "over": "building the corpus around a disease or set of diseases",
+      "because": "the object of study is a mode of production rather than a condition, and year chunking keeps the retrieval from favoring recent work",
+      "evidence": "The corpus is retrieved on 13 patient-involvement keyword terms, chunked by publication year to avoid recency bias.",
+      "source": "/Users/dominiero/Documents/GitHub/patient-innovation-index/README.md"
+    },
+    {
+      "chose": "three separately constructed control sets (stratified random, journal-matched, MeSH-heading-matched)",
+      "over": "one comparison against a random sample",
+      "because": "a single random comparison leaves journal and disease area confounded with the exposure",
+      "evidence": "A single comparison against a random sample would leave the effect confounded with journal and disease area.",
+      "source": "/Users/dominiero/Documents/GitHub/patient-innovation-index/README.md"
+    },
+    {
+      "chose": "coarsened exact matching on year bin and team size bin",
+      "over": "propensity score matching",
+      "because": "it matches the identification strategy of the benchmark paper and bounds imbalance up front instead of checking balance afterwards",
+      "evidence": "because CEM bounds imbalance ex ante instead of requiring post-hoc balance checking (Iacus, King & Porro, 2012)",
+      "source": "/Users/dominiero/Documents/GitHub/patient-innovation-index/README.md"
+    },
+    {
+      "chose": "Relative Citation Ratio as the outcome",
+      "over": "raw citation counts",
+      "because": "RCR normalizes each paper to a field baseline built from its own co-citation network, so fields with different citation cultures stay comparable",
+      "evidence": "Relative Citation Ratio normalizes to a field baseline built from each paper's own co-citation network (Hutchins et al., 2016)",
+      "source": "/Users/dominiero/Documents/GitHub/patient-innovation-index/README.md"
+    },
+    {
+      "chose": "false-discovery-rate correction on the per-heading tests only",
+      "over": "correcting the primary comparison as well",
+      "because": "the primary comparison is pre-specified while the per-heading tests are a multiple-testing family",
+      "evidence": "The primary comparison is pre-specified, so it takes no correction.",
+      "source": "/Users/dominiero/Documents/GitHub/patient-innovation-index/README.md"
+    }
+  ],
+  "broke": [
+    {
+      "what": "a case-folding bug: the scorer lowercased the text but kept capitalized patterns, so every acronym-based signal could never fire",
+      "evidence": "`score_signals` lowercased the text, then searched with patterns containing capitals.",
+      "source": "/Users/dominiero/Documents/GitHub/patient-innovation-index/bugfix_rescore/MEMO.md"
+    },
+    {
+      "what": "substring matching on organization names produced false hits on unrelated institutions",
+      "evidence": "Grant and affiliation matching lowercased both sides and used `in`, so \"nord\" hit Novo Nordisk, Helse Nord, Nordic, \"Avenue Nord\".",
+      "source": "/Users/dominiero/Documents/GitHub/patient-innovation-index/bugfix_rescore/MEMO.md"
+    },
+    {
+      "what": "the collective-author signal was tagging research consortia and outcome-measurement groups as patient collectives, which mislabeled a headline signal in the draft",
+      "evidence": "Its keyword list includes \"consortium\" and \"community\", so it catches research consortia",
+      "source": "/Users/dominiero/Documents/GitHub/patient-innovation-index/structural_redo/MEMO.md"
+    },
+    {
+      "what": "once patterns became case-insensitive, a bare sample-size notation started matching results-section text and tagging unrelated studies as self-experimentation",
+      "evidence": "bare `N=1` matched sample counts in results sections (\"(n=1) withdrew\")",
+      "source": "/Users/dominiero/Documents/GitHub/patient-innovation-index/bugfix_rescore/MEMO.md"
+    },
+    {
+      "what": "a figure and its signal table disagree because they came from different pipeline runs, and the repo lists reconciling them to one canonical run as open",
+      "evidence": "This is a snapshot difference between two pipeline runs and needs reconciling to one canonical run before submission.",
+      "source": "/Users/dominiero/Documents/GitHub/patient-innovation-index/README.md"
+    }
+  ],
+  "question": "Can patient involvement in how research gets produced be measured from published papers, and does involved research differ from comparable research without it?",
+  "rejected_line": "Wanted involvement scored from each paper's funding-statement text; the corpus carries PubMed grant lists only, so OpenAlex funder metadata stood in."
+}

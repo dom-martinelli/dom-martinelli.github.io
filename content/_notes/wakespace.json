@@ -1,0 +1,59 @@
+{
+  "slug": "wakespace",
+  "one_line": "chemical property space of wakefulness, ADHD and weight-loss drugs",
+  "skills": [
+    "cheminformatics",
+    "molecular descriptor analysis",
+    "property-space projection",
+    "API data collection",
+    "scientific figure design"
+  ],
+  "tools": ["Python", "pandas", "NumPy", "matplotlib", "PubChem PUG REST"],
+  "data": ["PubChem (PUG REST molecular properties, one row per compound)", "hand-assigned use classes for twenty-four wakefulness, ADHD, narcolepsy and weight-loss compounds"],
+  "decisions": [
+    {
+      "chose": "sampling compounds by what they are licensed for",
+      "over": "sampling by chemical scaffold",
+      "because": "the question is whether use classes hold up against chemistry, so drawing the sample by structure would presuppose the answer",
+      "evidence": "A scaffold-based sample would have assumed the answer.",
+      "source": "/Users/dominiero/Documents/GitHub/wakespace/README.md"
+    },
+    {
+      "chose": "percentile rank within the set for the radar spokes",
+      "over": "raw min-max scaling",
+      "because": "one peptide is twenty times the mass of everything else, so min-max compressed every small molecule onto the same point",
+      "evidence": "raw min-max scaling was the first version and every small molecule came out as the same dot",
+      "source": "/Users/dominiero/Documents/GitHub/wakespace/src/build_class_profiles.py"
+    },
+    {
+      "chose": "plotting XLogP against TPSA",
+      "over": "a UMAP embedding of Morgan fingerprints",
+      "because": "both axes are interpretable without a legend and a reader can check them, where an embedding only looks impressive",
+      "evidence": "would tell a reader nothing they could check",
+      "source": "/Users/dominiero/Documents/GitHub/wakespace/README.md"
+    },
+    {
+      "chose": "keeping semaglutide on a log mass axis",
+      "over": "dropping it as an outlier",
+      "because": "the span from a small amine to a peptide inside one licensed class is the central observation",
+      "evidence": "Excluding it would hide the single largest fact in the dataset",
+      "source": "/Users/dominiero/Documents/GitHub/wakespace/README.md"
+    },
+    {
+      "chose": "keeping withdrawn drugs such as sibutramine and phenylpropanolamine in the set",
+      "over": "restricting it to currently marketed drugs",
+      "because": "keeping only the survivors removes the contrast that makes survivorship interesting",
+      "evidence": "the question of what distinguishes a survivor is part of the point",
+      "source": "/Users/dominiero/Documents/GitHub/wakespace/README.md"
+    }
+  ],
+  "broke": [
+    {
+      "what": "enantiomer pairs (dexmethylphenidate/methylphenidate, armodafinil/modafinil, amphetamine/dextroamphetamine) return identical 2D descriptors from PubChem and land on exactly the same point, so they were merged into one labelled marker and the real clinical difference between them stays invisible in this view",
+      "evidence": "That is a limitation of the descriptors, not a property of the drugs",
+      "source": "/Users/dominiero/Documents/GitHub/wakespace/README.md"
+    }
+  ],
+  "question": "Do the classes medicine files wakefulness, ADHD and weight-loss drugs under survive contact with the molecules themselves?",
+  "rejected_line": "Scaled the radar spokes with min-max first; every small molecule collapsed to the same dot next to the peptide, so switched to percentile rank within the set."
+}

@@ -1,0 +1,96 @@
+{
+  "slug": "growthradar-lite",
+  "one_line": "single-file SMART on FHIR growth-monitoring app for the Epic sandbox",
+  "skills": [
+    "SMART on FHIR integration",
+    "OAuth 2.0 / PKCE",
+    "FHIR resource querying and parsing",
+    "clinical rule design (percentile drop, velocity)",
+    "LLM prompt design for clinical summaries"
+  ],
+  "tools": [
+    "JavaScript (single-file, no build step)",
+    "HTML/CSS",
+    "Chart.js 4.4",
+    "Web Crypto API (PKCE)",
+    "Epic FHIR R4 API",
+    "LOINC codes",
+    "OpenRouter API",
+    "HAPI FHIR (public and self-hosted, in the Codex variant)",
+    "Vite",
+    "Docker (HAPI demo server)"
+  ],
+  "data": [
+    "Epic FHIR sandbox (Patient, Observation, MedicationRequest, Condition)",
+    "WHO boys height reference 0-24 months (embedded p3/p50/p97)",
+    "CDC boys height reference 2-10 years (embedded p3/p50/p97)",
+    "Ranke 1983 Turner syndrome girls height reference (Codex variant)",
+    "synthetic demo patients loaded as a FHIR transaction bundle"
+  ],
+  "decisions": [
+    {
+      "chose": "a public HAPI FHIR server with a patient dropdown, in the follow-on build",
+      "over": "the Epic sandbox launch with OAuth and PKCE",
+      "because": "the demo needed its own teaching vignettes, which a fixed sandbox roster cannot supply, and the growth logic is unchanged either way",
+      "evidence": "Replace Epic sandbox with HAPI FHIR public server. ... Remove all OAuth/PKCE code. Replace the \"Connect to Epic Sandbox\" flow with a patient selector dropdown that lists the three demo patients by name.",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-lite-codex/CODEX_SPEC.md"
+    },
+    {
+      "chose": "demo cases built around trajectory, velocity, and delayed recognition",
+      "over": "vignettes built on population or ethnicity-specific expected growth",
+      "because": "a subgroup-specific chart can make a remediable problem look typical and talk a clinician out of a real concern",
+      "evidence": "Condition-specific references can help interpretation, but they should not override clinical concern or normalize remediable pathology.",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-lite-codex/demo-data/hapi/README.md"
+    },
+    {
+      "chose": "keeping the existing percentile tables, interpolation, and anomaly rules untouched while adding features",
+      "over": "rewriting the growth engine during the feature build",
+      "because": "the clinical logic was the part that had already been checked, so it was fenced off from the rebuild",
+      "evidence": "Do not change ... WHO/CDC percentile tables and interpolation logic ... detectAnomalies() function logic",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-lite-codex/CODEX_SPEC.md"
+    },
+    {
+      "chose": "asking for the model API key at run time and holding it in sessionStorage",
+      "over": "a committed or gitignored config file holding the key",
+      "because": "the app is served as static files, so anything in the repo ships with it",
+      "evidence": "const OPENAI_API_KEY = sessionStorage.getItem('openrouter_key') || '';",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-lite/config.js"
+    },
+    {
+      "chose": "self-hosted HAPI as the custom-data lane, with Epic kept as the interoperability lane",
+      "over": "treating the HAPI work as a throwaway detour",
+      "because": "the growth-processing logic stays the same and only the read source changes",
+      "evidence": "That means the HAPI work is not throwaway. It becomes your custom demo-data lane, while Epic becomes your interoperability lane.",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-lite-codex/SELF_HOSTED_HAPI_GUIDE.md"
+    }
+  ],
+  "broke": [
+    {
+      "what": "the first scopes requested were the user-level ones, which do not return a patient context; they had to be switched to patient-level and the granted scopes printed to debug it",
+      "evidence": "-  const SCOPES = 'openid fhirUser user/Patient.read user/Observation.read';\n+  const SCOPES = 'openid fhirUser patient/Patient.read patient/Observation.read';\n+      // show what scopes Epic actually granted",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-lite (commit 3e262ff)"
+    },
+    {
+      "what": "the sandbox patient came back with no vitals at all, so the chart had nothing to draw and synthetic pediatric measurements were added as a fallback",
+      "evidence": "// sandbox patient has no vitals -- use synthetic pediatric data for demo",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-lite (commit 371c0b4)"
+    },
+    {
+      "what": "the plain category search for vital signs did not work; the query had to carry the full terminology system URI",
+      "evidence": "-        `${FHIR_BASE}/Observation?patient=${patientId}&category=vital-signs&_count=100`,\n+        `${FHIR_BASE}/Observation?patient=${patientId}&category=http://terminology.hl7.org/CodeSystem/observation-category|vital-signs&_count=100`,",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-lite (commit 825d625)"
+    },
+    {
+      "what": "requests needed an explicit FHIR JSON Accept header before the patient fetch behaved",
+      "evidence": "+  Accept: 'application/fhir+json',",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-lite (commit 2d1dd5a)"
+    },
+    {
+      "what": "switching between demo patients and plotting the parental target line were both wrong and had to be fixed after the feature build",
+      "evidence": "Fix patient switching and parental target plotting",
+      "source": "/Users/dominiero/Documents/GitHub/growthradar-lite-codex (commit f7c9599)"
+    }
+  ],
+  "question": "Can a lightweight browser app read a child's growth history straight from a health record and surface faltering that a short visit would miss?",
+  "rejected_line": "dropped the Epic OAuth/PKCE launch in the follow-on build for a HAPI server with a patient dropdown, because the teaching vignettes had to be ones I could author and load myself"
+}

@@ -1,41 +1,16 @@
 {
   "slug": "sweetspace",
   "tab": "molecules",
-  "title": "Flavour identity and what makes a sweetener sweet",
+  "title": "Flavour identity and sweetener potency",
   "status": "in progress",
-  "hook": "Cookies and cream does not taste like chocolate mixed with vanilla, and caramel and cotton candy both start from sugar and taste nothing alike. This project works out how much of a flavour is carried by single molecules, and asks the same kind of question about sweeteners: whether a molecule's structure predicts how sweet it is, and what the body pays to process it.",
-  "question": "How much of a flavour's identity is carried by specific molecules, and does chemical structure predict how sweet a sweetener is or what it costs the body?",
-  "why_it_matters": "Food companies reformulate products constantly, swapping sugar for sweeteners and rebuilding flavours from individual compounds. Both moves assume flavour behaves additively and that a molecule's structure tells you how it will taste and how the gut will handle it. Getting those assumptions wrong shows up as products that taste unconvincing and as digestive and metabolic effects that consumers do not expect. This project tests the assumptions against public flavour chemistry data rather than taking them on faith.",
-  "what_i_did": [
-    "Built a reproducible data pipeline that pulls odour molecules with perfumer descriptors from the Pyrfume archives and resolves sweetener structures by name against PubChem, caching every download so the analysis never refetches.",
-    "Compared the compound sets of related flavours, for example whether the molecules in chocolate plus those in vanilla add up to cookies and cream, and whether white chocolate shares anything with dark chocolate.",
-    "Placed thousands of odour molecules in structure space using molecular fingerprints and a two-dimensional map, then measured, for each odour word, whether molecules that share the word also share structure.",
-    "Modelled sweetener potency from molecular descriptors and checked it against a deliberately dumb baseline that knows only which chemical class a sweetener belongs to, so a model that only learned the class could not pass as a model of structure.",
-    "Hand-curated sugar alcohol physiology from published studies and regulatory dossiers, with the build step refusing to run if any value lacks a citation.",
-    "Wrote validation checks for the chemistry itself, which caught a structural pattern that silently missed aromatic molecules and a public database entry that returned the wrong sugar alcohol under two different names."
-  ],
-  "what_i_found": [
-    "Flavour is not additive. The union of two parent flavours misses a whole coherent group of compounds in the blended flavour, and white chocolate shares almost nothing with dark chocolate because the roast compounds live in cocoa solids, not cocoa butter.",
-    "Some odour words are chemistry and some are not. Molecules labelled garlic or vanilla pile into a few tight clusters of similar structures, while molecules labelled sweet are scattered across the whole map.",
-    "Structure is a weak predictor of sweetener potency. A model on molecular descriptors looks convincing until you compare it against one that knows only the compound's class, which does better; most of what looked like structure was class membership.",
-    "Sugar alcohol tolerance tracks size and chemistry in an interpretable way, with the smallest one absorbed and excreted largely intact while a larger one carries a bond that can be cleaved, sending part of the molecule to the colon."
-  ],
-  "limits": [
-    "Commercial flavour formulations are proprietary, so the compound lists for things like cookies and cream are reconstructed from published flavour chemistry and are informed approximations rather than recipes.",
-    "Odour descriptors come from perfumers and crowd panels, and the vocabulary drifts between archives, so some flavour terms exist in one source and not the other.",
-    "The main sweetener database went offline during the project, so the sweetener table is hand-curated and much smaller than planned, which is the single largest constraint on the potency analysis. Sweet proteins and polymeric bulking agents are out of scope entirely."
-  ],
   "tools": [
     "Python",
     "RDKit",
-    "pandas",
     "scikit-learn",
     "SHAP",
-    "t-SNE",
-    "matplotlib",
-    "Jupyter",
-    "Pyrfume",
-    "PubChem"
+    "t-SNE / UMAP",
+    "pandas",
+    "matplotlib"
   ],
   "links": [
     {
@@ -46,26 +21,43 @@
   "figures": [
     {
       "file": "assets/fig/sweetspace-1.png",
-      "caption": "Three odour words placed on a map of chemical structure. Molecules called garlic or vanilla sit in a few tight clumps, so those smells follow the molecular scaffold. Molecules called sweet are spread across the whole map."
+      "note": "each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space."
     },
     {
       "file": "assets/fig/sweetspace-2.png",
-      "caption": "Which odour words get applied to the same molecule more often than chance. Blocks along the diagonal are families of smell, such as roasted with sulfurous and meaty, or fatty with waxy and oily."
+      "note": "which odour words land on the same molecule. blocks are families: roasted with sulfurous and meaty, fatty with waxy and oily."
     },
     {
       "file": "assets/fig/sweetspace-3.png",
-      "caption": "Flavours plotted by how much of their identity sits in single character-impact molecules. Coffee, vanilla and caramel have such molecules; cookies and cream, birthday cake and white chocolate have none, and are learned rather than carried by one compound."
+      "note": "flavour profiles by how much of their identity one molecule carries. everything on the dashed line is learned rather than tasted."
     }
   ],
-  "sources": [
-    "/Users/dominiero/Documents/GitHub/sweetspace/README.md",
-    "/Users/dominiero/Documents/GitHub/sweetspace/SPEC-sweetspace.md",
-    "/Users/dominiero/Documents/GitHub/sweetspace/src/odor_space_embed.py",
-    "/Users/dominiero/Documents/GitHub/sweetspace/src/build_odor_space_figures.py",
-    "/Users/dominiero/Documents/GitHub/sweetspace/src/demo_anchoring_figure.py",
-    "/Users/dominiero/Documents/GitHub/sweetspace/notebooks/01-flavor-is-not-additive.ipynb",
-    "/Users/dominiero/Documents/GitHub/sweetspace/notebooks/02-character-impact.ipynb",
-    "/Users/dominiero/Documents/GitHub/sweetspace/notebooks/03-sweetspace.ipynb",
-    "/Users/dominiero/Documents/GitHub/sweetspace/notebooks/04-what-it-costs.ipynb"
-  ]
+  "line": "cheminformatics on what single molecules carry, and what structure predicts",
+  "question": "How much of a flavour is carried by single molecules, and does a sweetener's structure predict how sweet it is?",
+  "skills": [
+    "cheminformatics",
+    "molecular fingerprints",
+    "dimensionality reduction",
+    "baseline-controlled modelling",
+    "feature attribution"
+  ],
+  "data": [
+    "Pyrfume (Leffingwell, Goodscents)",
+    "PubChem",
+    "hand-curated sweetener and polyol tables"
+  ],
+  "calls": [
+    "class-mean baseline, not predict-the-mean. sugars and polyols sit at a different potency level entirely, so any feature leaking class membership scores well without learning chemistry.",
+    "neighbour lift over raw neighbour share. raw share ranks the commonest odour words first, which measures prevalence, not structure.",
+    "SHAP on the within-class model, not the flattering full-dataset one. descriptor axes stay readable where fingerprint bits do not.",
+    "dairy label without coconut or cheesy. coconut notes are heavily lactonic, and baking that into the label would decide the lactone question in advance. both labels stay in the pipeline.",
+    "polydisperse bulking agents dropped, not stood in by a representative oligomer. a stand-in files one molecule under another molecule's name."
+  ],
+  "broke": [
+    "lactone SMARTS wrong twice. an uppercase C matched aliphatic carbon only and missed every aromatic lactone, coumarin included; with no ring carbon required on the carbonyl it also matched cyclic carbonates.",
+    "PubChem resolved ribitol onto xylitol's CID. different pentitol, valid structure, right formula, nothing looked broken. the build now raises when two query names collapse onto one CID.",
+    "SuperSweet, the sweetener source named in the spec, went offline mid-project. replaced by a hand-curated table resolved against PubChem, which caps what the potency analysis can say.",
+    "the distinctiveness axis did not behave. a flavour can own a distinctive compound set with no single molecule carrying its identity, so distinctiveness and anchoring came apart."
+  ],
+  "tried": "ranked odour words by raw neighbour share first. the commonest labels win that ranking on prevalence alone, so switched to lift over the base rate."
 }

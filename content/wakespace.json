@@ -1,58 +1,50 @@
 {
   "slug": "wakespace",
   "tab": "molecules",
-  "title": "Drug classes compared against the chemistry",
+  "title": "Drug classes against the chemistry",
   "status": "finished",
-  "hook": "Medicine files a drug under a class based on what it is licensed to treat, not on what the molecule is. This project plots wakefulness, ADHD and weight-loss drugs by their chemical properties to see whether those classes hold together once you look at the molecules.",
-  "question": "Do the use classes that medicine sorts wakefulness, ADHD and weight-loss drugs into hold up when the molecules are plotted by their chemical properties?",
-  "why_it_matters": "A drug's class shapes how clinicians reason about it, how patients understand it, and how regulators and formularies treat it. If a class groups molecules that have almost nothing chemically in common, then expectations carried from one member to another, about how it is absorbed, whether it reaches the brain, or how it might interact, do not transfer. Seeing where the label and the chemistry disagree is a cheap way to find those places.",
-  "what_i_did": [
-    "Assembled a set of compounds that promote wakefulness, suppress appetite, or treat ADHD and narcolepsy, chosen by how they are used rather than by chemical family, so that the use classes could actually be tested.",
-    "Pulled molecular properties for each compound from PubChem's public interface, including size, greasiness, polar surface area, hydrogen bonding and flexibility.",
-    "Plotted the compounds in a two-property space, using size and polar surface area as readable stand-ins for how easily a molecule crosses membranes and reaches the brain, and coloured them by their licensed use class.",
-    "Drew each compound as a six-property shape so that within-class similarity is visible directly, and added a density map of where these molecules cluster overall.",
-    "Kept withdrawn drugs in the set and kept the one very large peptide on a log scale rather than dropping it as an outlier, since both choices are part of what the question is about.",
-    "Merged mirror-image drug pairs that return identical two-dimensional properties, and said so on the figures rather than plotting them twice."
-  ],
-  "what_i_found": [
-    "The weight-loss class does not hold together chemically. Its members run from a small simple amine to a large peptide, spanning close to the whole range of orally given drugs, and several sit far outside the region where these molecules normally cluster.",
-    "The stimulants, licensed for two unrelated diagnoses, sit almost on top of each other, so there the class and the chemistry agree.",
-    "The caffeine-like compounds share one distinctive property shape, while the weight-loss compounds share no shape at all: one fills the chart and another is a sliver.",
-    "Most of the set falls in a single region of moderate greasiness and low polar surface area, which is the range where drugs typically reach the brain."
-  ],
-  "limits": [
-    "The set is small and chosen by hand, so it shows where classes break down rather than measuring how often that happens across medicine.",
-    "Two-dimensional properties cannot tell mirror-image drugs apart even though the clinical difference between them is real, and simple property descriptors say nothing about what receptor a drug binds.",
-    "Properties like these describe a molecule, not a dose, a formulation or a delivery route, all of which shape what a patient actually experiences."
-  ],
   "tools": [
     "Python",
+    "PubChem PUG REST",
     "pandas",
-    "numpy",
-    "matplotlib",
-    "PubChem"
+    "matplotlib"
   ],
   "links": [],
   "figures": [
     {
       "file": "assets/fig/wakespace-1.png",
-      "caption": "Each drug placed by greasiness and polar surface area, coloured by the class it is licensed under. The weight-loss compounds are scattered across the whole plot while the stimulants overlap almost exactly."
+      "note": "licensed class by colour. the weight-loss set spans the whole plot; the stimulants sit on top of each other."
     },
     {
       "file": "assets/fig/wakespace-2.png",
-      "caption": "Every compound drawn as a six-property shape, grouped by licensed use. Compounds within a class should look alike if the class tracks chemistry; the caffeine-like group does, the weight-loss group does not."
+      "note": "one radar per compound, spokes are percentiles within the set. the xanthines share a shape. the weight-loss row shares none."
     },
     {
       "file": "assets/fig/wakespace-3.png",
-      "caption": "Where these molecules cluster overall. One dense region of moderate greasiness and low polar surface area, the range in which drugs generally reach the brain, with several weight-loss compounds sitting far outside it."
+      "note": "density of the same space. one peak, under the polar surface area where drugs reach the brain."
     }
   ],
-  "sources": [
-    "/Users/dominiero/Documents/GitHub/wakespace/README.md",
-    "/Users/dominiero/Documents/GitHub/wakespace/src/pull_pubchem.py",
-    "/Users/dominiero/Documents/GitHub/wakespace/src/build_property_space.py",
-    "/Users/dominiero/Documents/GitHub/wakespace/src/build_class_profiles.py",
-    "/Users/dominiero/Documents/GitHub/wakespace/src/figstyle.py",
-    "/Users/dominiero/Documents/GitHub/wakespace/data/raw/pubchem_wakefulness.csv"
-  ]
+  "line": "wakefulness, ADHD and weight-loss drugs plotted by molecular property",
+  "question": "Do the classes medicine files these drugs under survive contact with the molecules?",
+  "skills": [
+    "cheminformatics",
+    "molecular descriptor analysis",
+    "API data collection",
+    "figure design"
+  ],
+  "data": [
+    "PubChem computed properties",
+    "hand-assigned use classes"
+  ],
+  "calls": [
+    "sampled by what each drug is licensed for, not by scaffold. sampling on structure would presuppose the answer.",
+    "percentile rank on the radar spokes, not min-max. one peptide is twenty times the mass of everything else.",
+    "XLogP against TPSA rather than a fingerprint embedding. both axes can be checked by a reader; an embedding only looks impressive.",
+    "semaglutide kept, on a log axis. a small amine and a peptide inside one licensed class is the whole observation.",
+    "withdrawn drugs kept in. keeping only the survivors removes the contrast."
+  ],
+  "broke": [
+    "enantiomer pairs return identical 2D descriptors from PubChem and land on one point. merged into single markers, so the clinical difference between them is invisible here."
+  ],
+  "tried": "scaled the radar spokes with min-max first. every small molecule collapsed onto the same dot beside the peptide, so switched to percentile rank within the set."
 }

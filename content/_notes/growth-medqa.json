@@ -1,0 +1,115 @@
+{
+  "slug": "growth-medqa",
+  "one_line": "pediatric growth-assessment benchmark curated from public medical QA datasets",
+  "skills": [
+    "benchmark design",
+    "LLM evaluation",
+    "annotation schema and rubric design",
+    "dataset curation and provenance auditing",
+    "clinical taxonomy crosswalking",
+    "scientific writing for peer review"
+  ],
+  "tools": [
+    "Python",
+    "DSPy (BootstrapFewShot)",
+    "pandas",
+    "scikit-learn",
+    "Hugging Face datasets",
+    "OpenRouter",
+    "OpenAI Batch API",
+    "Ollama",
+    "vLLM",
+    "Slurm",
+    "matplotlib",
+    "LaTeX"
+  ],
+  "data": [
+    "MedQA",
+    "MedMCQA",
+    "MedXpertQA",
+    "MMLU (college_medicine, professional_medicine)",
+    "PubMedQA (PQA-L expert-labeled subset)",
+    "MedBullets",
+    "AfriMed-QA",
+    "MedExpQA",
+    "PediatricsMQA",
+    "MedCalc-Bench v1.2",
+    "MedConceptsQA",
+    "MedThink-Bench",
+    "RareBench / RareArena (held out)",
+    "HealthBench (task analogues)",
+    "ICPED and HPO growth ontologies",
+    "USMLE/NBME physician competencies"
+  ],
+  "decisions": [
+    {
+      "chose": "defining growth relevance by whether the answer depends on the growth data",
+      "over": "counting any question that mentions a height or weight",
+      "because": "an incidental anthropometric detail in a stem does not make the item a test of growth reasoning",
+      "evidence": "a height or weight mention is not sufficient when it is merely incidental",
+      "source": "/Users/dominiero/Documents/GitHub/benchmark-fresh/docs/design_justification_validation_audit_2026-06-28.md"
+    },
+    {
+      "chose": "one frozen labeler run over the whole current corpus with a blinded stratified human audit",
+      "over": "routing only prefilter-positive or open-model-positive rows to the stronger classifier",
+      "because": "every row then gets the same measurement process",
+      "evidence": "avoids verification bias introduced by sending only prefilter-positive or open-model-positive rows to the higher-quality classifier",
+      "source": "/Users/dominiero/Documents/GitHub/benchmark-fresh/docs/growth_question_labeling_decision.md"
+    },
+    {
+      "chose": "rewriting the classifier instructions around primary subject and question target",
+      "over": "adding more few-shot examples to the DSPy classifier",
+      "because": "the failure mode was keyword surface matching, not a shortage of examples",
+      "evidence": "The next DSPy iteration should not simply add more examples. It should rewrite the classifier instructions so the model explicitly reasons from the refined inclusion and exclusion criteria rather than responding to isolated keywords.",
+      "source": "/Users/dominiero/Documents/GitHub/benchmark-fresh/docs/pediatric_prompt_optimization_and_prisma_flow.md"
+    },
+    {
+      "chose": "releasing only labels and item identifiers for one source dataset",
+      "over": "redistributing its question text with the rest of the benchmark",
+      "because": "that source carries no stated license while the others are MIT, Apache 2.0, or CC BY-SA",
+      "evidence": "PediatricsMQA = Unspecified (→ release labels+IDs only)",
+      "source": "/Users/dominiero/Documents/GitHub/benchmark-fresh/docs/SESSION_HANDOFF.md"
+    },
+    {
+      "chose": "holding the rare-disease corpora out of the extraction registry",
+      "over": "screening them alongside the general medical QA sets",
+      "because": "they pull the benchmark away from the primary-care pediatric setting it is meant to describe",
+      "evidence": "These may be useful later, but they are excluded for now to keep the benchmark focused on primary care pediatric clinical needs.",
+      "source": "/Users/dominiero/Documents/GitHub/Growth-MedQA/data_notes/current_dataset_scope.md"
+    }
+  ],
+  "broke": [
+    {
+      "what": "the vignette trajectory values were described as built from the official CDC/WHO LMS pipeline, but the script had hand-entered approximations and some reconstructed trajectories were not physiologically possible",
+      "evidence": "The v0 revision script used hand-entered approximate medians/SDs rather than the claimed official LMS pipeline. Some reconstructed trajectories were physiologically impossible.",
+      "source": "/Users/dominiero/Documents/GitHub/benchmark-fresh/docs/design_justification_validation_audit_2026-06-28.md"
+    },
+    {
+      "what": "the case registry that was supposed to guarantee item provenance turned out to be nearly empty, so it never protected the evaluated items",
+      "evidence": "The registry contained only two entries and neither pointed to a built item, so the claimed CSV-to-item drift check did not protect the evaluated 55 items.",
+      "source": "/Users/dominiero/Documents/GitHub/benchmark-fresh/docs/design_justification_validation_audit_2026-06-28.md"
+    },
+    {
+      "what": "the full-corpus batch labeling submission failed for a billing reason, not a technical one, and had to be replanned around a cheaper route",
+      "evidence": "The existing failed submission was blocked by the account billing limit, not by prompt validity or local compute.",
+      "source": "/Users/dominiero/Documents/GitHub/benchmark-fresh/docs/growth_question_labeling_decision.md"
+    },
+    {
+      "what": "an earlier labeling queue was built from a corpus that was later superseded, so it could not be resumed",
+      "evidence": "It includes sources and rows that are no longer in the current 12,324-row corpus and should not be resumed as the production run.",
+      "source": "/Users/dominiero/Documents/GitHub/benchmark-fresh/docs/growth_question_labeling_decision.md"
+    },
+    {
+      "what": "manuscript figures rendered blank and had to be regenerated from scratch in matplotlib",
+      "evidence": "Regenerate all figures with matplotlib (300 DPI) — fix blank rendering",
+      "source": "/Users/dominiero/Documents/GitHub/benchmark-fresh (git log --format=%s)"
+    },
+    {
+      "what": "one table generator silently overwrites another table's source file, so the build order has to be repaired by hand after every run",
+      "evidence": "builds S2 BUT also clobbers table1a — after running it, restore with `git checkout table1a-benchmarks-source.csv` then re-run `build_landscape_tables.py`",
+      "source": "/Users/dominiero/Documents/GitHub/benchmark-fresh/docs/SESSION_HANDOFF.md"
+    }
+  ],
+  "question": "When a language model scores well on medical exam questions, is it actually competent at the pediatric growth-assessment tasks a clinician would lean on it for?",
+  "rejected_line": "the three-level bloom_tier cognitive label got cut once it was clear it was a locally coined collapse rather than standard revised Bloom; the USMLE competency crosswalk replaced it"
+}

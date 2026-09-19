@@ -1,38 +1,12 @@
 {
   "slug": "sirna",
   "tab": "molecules",
-  "title": "Predicting the activity of chemically modified siRNA",
+  "title": "Predicting activity of chemically modified siRNA",
   "status": "in progress",
-  "hook": "siRNA drugs switch off a chosen gene, and every approved one has had its chemistry altered to survive in the body. Tools that predict whether an siRNA will work were built on unaltered sequences, so this project asks whether a model can learn from the altered ones that drugs are actually made of.",
-  "question": "Can a machine learning model predict how well a chemically modified siRNA silences its target using only its base sequence and the pattern of chemical modifications along it?",
-  "why_it_matters": "siRNA therapeutics work by silencing a specific gene, and picking which candidate sequence to take forward is expensive to do in the lab. Earlier prediction tools were trained on unmodified sequences, but every approved siRNA drug carries chemical modifications that change its stability, its off-target behaviour and how long it lasts. A model that ignores those modifications is answering a different question from the one drug developers face. Sequence and modification pattern are also the two things always known about a candidate, long before anything harder to measure exists.",
-  "what_i_did": [
-    "Collected published siRNA sequences with measured silencing activity, all of them chemically modified, drawn from a public modification database plus a separate set assembled by hand from the primary literature for use as an independent check.",
-    "Wrote scrapers to pull modification types and their positions along each strand out of database records that only existed as web pages.",
-    "Encoded each duplex as the identity of the base and the modification at every position on both strands, so that position, not just presence, was available to the model.",
-    "Trained three different model families, an ensemble of decision trees, a neural network and a linear classifier, and repeated the whole thing at several activity cutoffs, since published definitions of an effective siRNA disagree.",
-    "Compared the models on how well they avoid false positives as well as false negatives, since an optimistic prediction is the more expensive mistake in drug development, and cross-validated the results.",
-    "Read the weights the models assigned to individual positions and modification types against what the medicinal chemistry literature already says, as a check on whether the model learned chemistry or noise.",
-    "Tested the trained models on the independently assembled set to see whether performance survived leaving the original data source."
-  ],
-  "what_i_found": [
-    "Sequence and modification pattern alone carry enough signal for these models to separate effective from ineffective siRNAs, which had not been shown before for modified sequences.",
-    "The tree ensemble was the strongest performer, matching what earlier work found for unmodified siRNAs, while the linear model was easier to interpret despite scoring lower.",
-    "Performance held up on sequences gathered separately from the training source, which suggests the models picked up general design principles rather than the habits of one dataset.",
-    "The positions and modification types the models leaned on line up with patterns already described in the siRNA design literature."
-  ],
-  "limits": [
-    "The training data come from published records, which are biased toward sequences that worked well enough to report, and toward the most common modification chemistries.",
-    "Many clinical siRNAs are modified along their entire length, while much of the available data covers sequences modified at only a few positions, so the sequences the models learned from are not fully representative of what is in development.",
-    "Modifications are encoded as categories rather than as chemical structures, and the models handle only one duplex length, so a genuinely new modification chemistry or a different length cannot be scored without retraining.",
-    "The manuscript describing this work is unpublished and under review, so no results are quoted here."
-  ],
   "tools": [
     "Python",
     "scikit-learn",
     "pandas",
-    "numpy",
-    "matplotlib",
     "seaborn",
     "Jupyter"
   ],
@@ -40,19 +14,39 @@
   "figures": [
     {
       "file": "assets/fig/sirna-1.png",
-      "caption": "How often each type of chemical modification appears in the collected siRNA sequences. Two modifications dominate, matching their prevalence in the literature and in approved drugs."
+      "note": "which chemical modifications appear in the training data, and how often."
     },
     {
       "file": "assets/fig/sirna-2.png",
-      "caption": "How much the model relies on each modification type at each position along the two strands of the duplex. Position matters, not just which modification is present."
+      "note": "feature weights from the trained model. read with the co-occurrence caveat above."
     }
   ],
-  "sources": [
-    "/Users/dominiero/Projects/siRNA_efficacy/siRNA_efficacy_prediction.ipynb",
-    "/Users/dominiero/Projects/siRNA_chem_mod_generation/sirnamod_data_mining.ipynb",
-    "/Users/dominiero/Documents/Research/siRNA_preprint_REVISED_CLEAN.docx",
-    "/Users/dominiero/Documents/Research/Response to Reviewers_REVISED.docx",
-    "/Users/dominiero/Documents/Research/chem_modification_frequencies.png",
-    "/Users/dominiero/Documents/Research/feature_weights.svg"
+  "line": "classifier for silencing activity from sequence and modification pattern",
+  "question": "Can a model predict how well a chemically modified siRNA silences its target from sequence and modification alone?",
+  "skills": [
+    "supervised classification",
+    "sequence feature engineering",
+    "model comparison",
+    "imbalanced-data evaluation",
+    "literature curation"
+  ],
+  "data": [
+    "siRNAmod database",
+    "validation set hand-extracted from primary literature"
+  ],
+  "calls": [
+    "three model families side by side rather than tuning one architecture. on a task nobody had modelled, which family fits is itself the finding.",
+    "ROC and precision-recall AUC, not accuracy. classes are unbalanced at every threshold, and a falsely optimistic call is the expensive mistake here.",
+    "the whole experiment repeated at three inhibition cutoffs. published definitions of an effective siRNA disagree with each other.",
+    "one-hot encoding of base and modification at each position, not cheminformatics descriptors of each modification. enough for a proof of concept, at the cost that a genuinely new chemistry cannot be scored without retraining."
+  ],
+  "broke": [
+    "the validation sequences the methods pointed to were missing from the supplement at first submission. a reviewer caught it.",
+    "the supplementary spreadsheet still carried an earlier set of activity cutoffs, contradicting the manuscript. reviewer caught that too.",
+    "reading the learned weights needs to account for how modifications co-occur. a high weight on one stabilising modification partly stands in for the others that travel with it."
+  ],
+  "tried": "ran the classifiers at a 90 percent inhibition cutoff as well. too few sequences clear that bar, so the classes go too lopsided to learn from.",
+  "not_shown": [
+    "manuscript under review, so no performance figures here"
   ]
 }

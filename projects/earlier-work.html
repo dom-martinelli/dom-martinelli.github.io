@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earlier work, 2021 to 2024 · Dom Martinelli</title>
+<meta name="description" content="molecular deep learning, MD simulations, a pegRNA tool, clinical NLP">
+<meta property="og:title" content="Earlier work, 2021 to 2024 · Dom Martinelli">
+<meta property="og:description" content="molecular deep learning, MD simulations, a pegRNA tool, clinical NLP">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#earlier">&larr; Earlier work</a>
+  <h1>Earlier work, 2021 to 2024</h1>
+  <p class="line">molecular deep learning, MD simulations, a pegRNA tool, clinical NLP</p>
+  <dl class="spec"><div><dt>skills</dt><dd>deep learning on molecular representations · molecular dynamics · tool building for bench workflows · clinical data wrangling · multi-omics analysis</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Keras / TensorFlow</li><li>RDKit</li><li>GROMACS / CHARMM36</li><li>Biopython</li><li>pandas</li><li>R</li></ul></dd></div><div><dt>data</dt><dd>ChEMBL · hepatotoxicity set assembled by hand · NAMCS 2014-2019 · n2c2 de-identification corpus · AMP-AD, ROSMAP, Emory Vascular, DiCAD</dd></div><div><dt>status</dt><dd><span class="status status-archive">archive</span></dd></div></dl>
+  
+  
+  
+  <div class="row"><div class="margin-note">what is in here</div><div class="row-body"><ul><li>chemception-style CNN on molecule images, retargeted to a hepatotoxicity endpoint (2022). the image encoder and inception scaffold come from a published tutorial; the dataset, the endpoint and the GPU port are mine.</li><li>molecular dynamics of two peptides in GROMACS with CHARMM36, energy minimisation through NVT and NPT to a 10 ns production run (2022). the analysis notebook is adapted from a public teaching lab; the trajectories are my own runs.</li><li>a pegRNA design tool for prime editing, interactive at the command line, with its own validation messages for spacer, PBS and RTT lengths (2024). written from scratch.</li><li>clinical NLP on national survey data: NAMCS visit records wrangled against hand-built ICD and RxNorm lookup tables, plus a parser for the n2c2 de-identification ground truth (2024).</li><li>multi-omics cohort analyses across proteomics and metabolomics studies (2024 to 2025), the work behind the multi-omics line on my resume.</li><li>writing came first: two ChEMBL and Keras write-ups on inhibiting the hepatitis C polyprotein (2021), the oldest machine-learning-on-chemistry thing I have.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>kept on the site as one card, not six. it is range and persistence, not six separate claims.</li><li>authorship stated per item. where a public tutorial supplied the scaffold, it says so, and what is mine is named.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>most of it was never version controlled. the omics folder has a git directory with no commits in it at all, so there is no history to point at.</li><li>part of the clinical NLP annotation set is sitting as empty cloud placeholders rather than real files.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>no links: none of this is in a public repo yet</li><li>two things I remembered doing, flux balance analysis and Qiskit quantum chemistry work, are not on this machine or its clouds</li></ul></div></div>
+</main>
+<footer class="wrap foot">figures made with matplotlib · site built from json by build.py</footer>
+</body>
+</html>

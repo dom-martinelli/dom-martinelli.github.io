@@ -186,6 +186,7 @@ def build_project(site, p, tab_label):
   {f'<div class="actions">{link_html}</div>' if link_html else ''}
   {row('question', f"<p>{esc(p['question'])}</p>" if p.get('question') else '')}
   {f'<div class="figs">{figs}</div>' if figs else ''}
+  {row('what is in here', ul(p.get('items')))}
   {row('what came out', ul(p.get('found')))}
   {row('calls made', ul(p.get('calls')))}
   {row('what broke', ul(p.get('broke')))}

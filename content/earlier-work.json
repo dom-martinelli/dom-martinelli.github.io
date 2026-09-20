@@ -1,0 +1,52 @@
+{
+  "slug": "earlier-work",
+  "tab": "earlier",
+  "status": "archive",
+  "title": "Earlier work, 2021 to 2024",
+  "line": "molecular deep learning, MD simulations, a pegRNA tool, clinical NLP",
+  "question": "",
+  "skills": [
+    "deep learning on molecular representations",
+    "molecular dynamics",
+    "tool building for bench workflows",
+    "clinical data wrangling",
+    "multi-omics analysis"
+  ],
+  "tools": [
+    "Keras / TensorFlow",
+    "RDKit",
+    "GROMACS / CHARMM36",
+    "Biopython",
+    "pandas",
+    "R"
+  ],
+  "data": [
+    "ChEMBL",
+    "hepatotoxicity set assembled by hand",
+    "NAMCS 2014-2019",
+    "n2c2 de-identification corpus",
+    "AMP-AD, ROSMAP, Emory Vascular, DiCAD"
+  ],
+  "items": [
+    "chemception-style CNN on molecule images, retargeted to a hepatotoxicity endpoint (2022). the image encoder and inception scaffold come from a published tutorial; the dataset, the endpoint and the GPU port are mine.",
+    "molecular dynamics of two peptides in GROMACS with CHARMM36, energy minimisation through NVT and NPT to a 10 ns production run (2022). the analysis notebook is adapted from a public teaching lab; the trajectories are my own runs.",
+    "a pegRNA design tool for prime editing, interactive at the command line, with its own validation messages for spacer, PBS and RTT lengths (2024). written from scratch.",
+    "clinical NLP on national survey data: NAMCS visit records wrangled against hand-built ICD and RxNorm lookup tables, plus a parser for the n2c2 de-identification ground truth (2024).",
+    "multi-omics cohort analyses across proteomics and metabolomics studies (2024 to 2025), the work behind the multi-omics line on my resume.",
+    "writing came first: two ChEMBL and Keras write-ups on inhibiting the hepatitis C polyprotein (2021), the oldest machine-learning-on-chemistry thing I have."
+  ],
+  "calls": [
+    "kept on the site as one card, not six. it is range and persistence, not six separate claims.",
+    "authorship stated per item. where a public tutorial supplied the scaffold, it says so, and what is mine is named."
+  ],
+  "broke": [
+    "most of it was never version controlled. the omics folder has a git directory with no commits in it at all, so there is no history to point at.",
+    "part of the clinical NLP annotation set is sitting as empty cloud placeholders rather than real files."
+  ],
+  "not_shown": [
+    "no links: none of this is in a public repo yet",
+    "two things I remembered doing, flux balance analysis and Qiskit quantum chemistry work, are not on this machine or its clouds"
+  ],
+  "figures": [],
+  "links": []
+}

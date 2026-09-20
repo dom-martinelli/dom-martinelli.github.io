@@ -1,0 +1,50 @@
+{
+  "slug": "care-agent",
+  "tab": "agents",
+  "title": "Pulling one person's health record out of six portals",
+  "status": "in progress",
+  "line": "agent architecture for someone whose record is split across systems that never talk",
+  "question": "Can a set of agents assemble one person's usable health record from portals that were never built to release it?",
+  "skills": [
+    "agent workflow design",
+    "Claude skill authoring",
+    "OAuth and portal session handling",
+    "health data normalisation across schemas",
+    "rule-based email triage",
+    "scheduled and hook-driven runs"
+  ],
+  "tools": [
+    "Claude Code",
+    "Claude skills",
+    "MCP servers",
+    "Codex",
+    "Apple Health",
+    "Google Health Connect",
+    "Gmail API",
+    "cron and session hooks"
+  ],
+  "data": [
+    "MyChart (Epic) portal",
+    "Total Sleep Management portal",
+    "Cornell Health portal",
+    "Apple Health export",
+    "clinical correspondence by email"
+  ],
+  "calls": [
+    "one agent per portal, not one scraper across all of them. each portal has its own auth model, and a break in one should not take the other five down.",
+    "pull into a local store first, query the store second. the portals rate-limit and time out, so a question that re-authenticates before it can be answered is a question that fails.",
+    "local disk canonical, cloud as mirror. a cloud drive left in streaming mode leaves dataless placeholders on the path, and an agent reading that path gets a stub instead of the file.",
+    "email routed by sender and subject rule, not by a classifier. a missed message from the prescribing practice costs more than a false positive, and a rule is auditable after the fact.",
+    "built for a caregiver of someone with complex needs rather than for a general user. the design target is many conditions, many portals, one person tracking all of it.",
+    "read-only against every clinical system. nothing here writes back to a record."
+  ],
+  "broke": [
+    "no two portals expose the same thing. one has a documented FHIR path, one has a patient export behind a session cookie, one has neither.",
+    "the sync layer changed twice before the file question settled, and a run of the pipeline against placeholder files looks like a successful run with empty data."
+  ],
+  "tried": "tried treating it as one authenticated crawler over every portal. the auth models are too different to share a session layer, so it split into one agent per source with a shared normalisation step after.",
+  "not_shown": [
+    "no record contents, no dates, no clinical detail. the architecture is the artifact here.",
+    "portal-specific auth handling stays out of the public repo."
+  ]
+}

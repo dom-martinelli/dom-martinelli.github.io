@@ -19,9 +19,9 @@
   <section class="hero">
     <h1>Dom Martinelli</h1>
     <p class="affil">biomedical informatics · Cornell · Kohane lab, Harvard DBMI</p>
-    <div class="works"><span class="margin-note">works with</span><ul><li>Python</li><li>SMART on FHIR</li><li>RDKit</li><li>scikit-learn</li><li>GeoPandas</li><li>matched designs</li><li>LLM evaluation</li><li>ClinicalTrials.gov / AACT</li><li>PubMed / iCite</li><li>matplotlib</li></ul></div>
+    <div class="works"><span class="margin-note">works with</span><ul><li>Python</li><li>SMART on FHIR</li><li>RDKit</li><li>scikit-learn</li><li>GeoPandas</li><li>matched designs</li><li>LLM evaluation</li><li>ClinicalTrials.gov / AACT</li><li>PubMed / iCite</li><li>matplotlib</li><li>MCP / agent workflows</li><li>Gmail and Apple Health APIs</li></ul></div>
   </section>
-  <div class="tabs" role="tablist" aria-label="Subjects"><button role="tab" id="tab-medical-ai" aria-controls="panel-medical-ai" data-tab="medical-ai">Evaluating medical AI<span class="count">3</span></button><button role="tab" id="tab-clinical-tools" aria-controls="panel-clinical-tools" data-tab="clinical-tools">Clinical tools<span class="count">3</span></button><button role="tab" id="tab-trials" aria-controls="panel-trials" data-tab="trials">Trials and evidence<span class="count">3</span></button><button role="tab" id="tab-population" aria-controls="panel-population" data-tab="population">Population health<span class="count">1</span></button><button role="tab" id="tab-molecules" aria-controls="panel-molecules" data-tab="molecules">Molecules and food<span class="count">3</span></button></div>
+  <div class="tabs" role="tablist" aria-label="Subjects"><button role="tab" id="tab-medical-ai" aria-controls="panel-medical-ai" data-tab="medical-ai">Evaluating medical AI<span class="count">3</span></button><button role="tab" id="tab-agents" aria-controls="panel-agents" data-tab="agents">Agents and systems<span class="count">2</span></button><button role="tab" id="tab-clinical-tools" aria-controls="panel-clinical-tools" data-tab="clinical-tools">Clinical tools<span class="count">3</span></button><button role="tab" id="tab-trials" aria-controls="panel-trials" data-tab="trials">Trials and evidence<span class="count">4</span></button><button role="tab" id="tab-population" aria-controls="panel-population" data-tab="population">Population health<span class="count">1</span></button><button role="tab" id="tab-molecules" aria-controls="panel-molecules" data-tab="molecules">Molecules and food<span class="count">3</span></button></div>
   <section class="tabpanel" role="tabpanel" id="panel-medical-ai" aria-labelledby="tab-medical-ai"><div class="grid"><a class="tile tile-wide" href="projects/growth-medqa.html">
   <div class="panel"><img src="assets/fig/growth-medqa-1.png" alt="what the benchmark is made of: source datasets and how many items each contributes." loading="lazy"></div>
   <div class="tile-body">
@@ -45,6 +45,22 @@
     <p class="line">filterable registry of every AI device the FDA has authorized</p>
     <p class="skills">public-data reporting · interactive data visualisation · front-end engineering without a framework · regulatory literature review</p>
     <ul class="tags"><li>HTML</li><li>CSS</li><li>vanilla JavaScript</li><li>CSV pipeline</li></ul>
+  </div>
+</a></div></section><section class="tabpanel" role="tabpanel" id="panel-agents" aria-labelledby="tab-agents"><div class="grid"><a class="tile tile-text" href="projects/care-agent.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>Pulling one person&#x27;s health record out of six portals</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">agent architecture for someone whose record is split across systems that never talk</p>
+    <p class="skills">agent workflow design · Claude skill authoring · OAuth and portal session handling · health data normalisation across schemas</p>
+    <ul class="tags"><li>Claude Code</li><li>Claude skills</li><li>MCP servers</li><li>Codex</li><li>Apple Health</li></ul>
+  </div>
+</a><a class="tile tile-text" href="projects/vault-agents.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>A second brain four LLM tools can all write to</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">mapping which agent surface can actually reach a vault, a repo, or neither</p>
+    <p class="skills">MCP server setup and debugging · agent capability mapping · tunnel and daemon troubleshooting · watchdog automation</p>
+    <ul class="tags"><li>Obsidian</li><li>MCP</li><li>Claude Code</li><li>Tailscale funnel</li><li>launchd</li></ul>
   </div>
 </a></div></section><section class="tabpanel" role="tabpanel" id="panel-clinical-tools" aria-labelledby="tab-clinical-tools"><div class="grid"><a class="tile tile-wide" href="projects/growthradar-lite.html">
   <div class="panel panel-dark"><img src="assets/fig/growthradar-lite-1.png" alt="the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart." loading="lazy"></div>
@@ -93,6 +109,14 @@
     <p class="line">text-signal index of how much patients shaped a published study</p>
     <p class="skills">composite index construction · control-set design · coarsened exact matching · field-normalised citation analysis</p>
     <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li><li>UMAP</li></ul>
+  </div>
+</a><a class="tile tile-text" href="projects/patient-science-attention.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>Research attention to patient-led findings in Long COVID</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="line">whether the field picks up what patients documented themselves, measured on the citing literature</p>
+    <p class="skills">citation-based attention measurement · Mantel-Haenszel stratified odds ratios · interrupted time series with placebo controls · pre-registered unit lists frozen before data</p>
+    <ul class="tags"><li>Python</li><li>PubMed E-utilities</li><li>OpenAlex</li><li>NIH iCite</li><li>pandas</li></ul>
   </div>
 </a></div></section><section class="tabpanel" role="tabpanel" id="panel-population" aria-labelledby="tab-population"><div class="grid"><a class="tile tile-wide" href="projects/stroke-belt.html">
   <div class="panel"><img src="assets/fig/stroke-belt-1.png" alt="stroke prevalence by county. the belt is visible without any statistics." loading="lazy"></div>

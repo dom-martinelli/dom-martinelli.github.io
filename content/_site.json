@@ -1,7 +1,7 @@
 {
   "name": "Dom Martinelli",
-  "title": "Dom Martinelli · Biomedical informatics",
-  "footer": "figures made with matplotlib · site built from json by build.py",
+  "title": "Dom Martinelli \u00b7 Biomedical informatics",
+  "footer": "figures made with matplotlib \u00b7 site built from json by build.py",
   "elsewhere": [
     {
       "label": "GitHub",
@@ -16,6 +16,10 @@
     {
       "id": "medical-ai",
       "label": "Evaluating medical AI"
+    },
+    {
+      "id": "agents",
+      "label": "Agents and systems"
     },
     {
       "id": "clinical-tools",
@@ -37,6 +41,8 @@
   "order": [
     "growth-medqa",
     "growth-zscore",
+    "care-agent",
+    "vault-agents",
     "fda-ai-devices",
     "growthradar-lite",
     "growthbridge",
@@ -44,12 +50,13 @@
     "advocacy-accrual",
     "evidence-lag",
     "patient-innovation-index",
+    "patient-science-attention",
     "stroke-belt",
     "sweetspace",
     "wakespace",
     "sirna"
   ],
-  "affiliation": "biomedical informatics · Cornell · Kohane lab, Harvard DBMI",
+  "affiliation": "biomedical informatics \u00b7 Cornell \u00b7 Kohane lab, Harvard DBMI",
   "works_with": [
     "Python",
     "SMART on FHIR",
@@ -60,6 +67,8 @@
     "LLM evaluation",
     "ClinicalTrials.gov / AACT",
     "PubMed / iCite",
-    "matplotlib"
+    "matplotlib",
+    "MCP / agent workflows",
+    "Gmail and Apple Health APIs"
   ]
 }

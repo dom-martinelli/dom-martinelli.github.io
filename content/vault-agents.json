@@ -1,0 +1,49 @@
+{
+  "slug": "vault-agents",
+  "tab": "agents",
+  "title": "A second brain four LLM tools can all write to",
+  "status": "in progress",
+  "line": "mapping which agent surface can actually reach a vault, a repo, or neither",
+  "question": "Which of the tools all called by the same name can actually read and write a local vault and a GitHub repo, and what breaks when one of them cannot?",
+  "skills": [
+    "MCP server setup and debugging",
+    "agent capability mapping",
+    "tunnel and daemon troubleshooting",
+    "watchdog automation",
+    "single-source-of-truth note design"
+  ],
+  "tools": [
+    "Obsidian",
+    "MCP",
+    "Claude Code",
+    "Tailscale funnel",
+    "launchd",
+    "GitHub Actions"
+  ],
+  "data": [
+    "a working vault of research notes",
+    "connector and watchdog logs"
+  ],
+  "found": [
+    "three surfaces share one name and three different capability sets. the terminal agent reads and writes the vault off disk and holds the GitHub grant; the browser and desktop agents reach the vault only through a connector, and one of them has no GitHub path at all.",
+    "the repeated sign-in error was never the connector. three of the four links in the chain were healthy the whole time and the tunnel daemon was stopped, which had also wiped its own forwarding config.",
+    "a surface saying it has no GitHub access is telling the truth about itself and says nothing about the grant held by another surface. most of the apparent contradictions were two tools describing two systems."
+  ],
+  "calls": [
+    "a watchdog on a five-minute timer over a manual reconnect. the failure mode is a stopped daemon, and a person clicking reconnect is the slowest possible way to restart one.",
+    "one canonical file every surface reads first, over per-tool memory. four tools with four memories produce four versions of the same settled decision.",
+    "the watchdog stays silent when healthy and speaks only when it repaired something. a heartbeat nobody reads is a heartbeat nobody checks.",
+    "capability map written down as a reference card rather than re-derived per session. the cost of re-deriving it was a session of arguing with the tool about what it could see."
+  ],
+  "broke": [
+    "git sync across surfaces never closed the loop. the desktop agent has no GitHub connector at all and the browser agent's file picker is read-only, so two of the three could never push.",
+    "a vault path on a streaming cloud drive is refused outright by the sandboxed surfaces, which is a different failure from a permission error and reads the same from the logs."
+  ],
+  "tried": "tried syncing the vault through a GitHub repo so every surface could reach one copy. two of the three surfaces cannot push, so the repo could only ever be a read mirror and the write path went back to the connector.",
+  "links": [
+    {
+      "label": "capability map",
+      "url": "https://claude.ai/code/artifact/6900060e-a62f-4b0d-8ce9-dbf6d98fbc79"
+    }
+  ]
+}

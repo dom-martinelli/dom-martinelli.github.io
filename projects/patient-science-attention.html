@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research attention to patient-led findings in Long COVID · Dom Martinelli</title>
+<meta name="description" content="whether the field picks up what patients documented themselves, measured on the citing literature">
+<meta property="og:title" content="Research attention to patient-led findings in Long COVID · Dom Martinelli">
+<meta property="og:description" content="whether the field picks up what patients documented themselves, measured on the citing literature">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#trials">&larr; Trials and evidence</a>
+  <h1>Research attention to patient-led findings in Long COVID</h1>
+  <p class="line">whether the field picks up what patients documented themselves, measured on the citing literature</p>
+  <dl class="spec"><div><dt>skills</dt><dd>citation-based attention measurement · Mantel-Haenszel stratified odds ratios · interrupted time series with placebo controls · pre-registered unit lists frozen before data · replication on an independent pipeline</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>PubMed E-utilities</li><li>OpenAlex</li><li>NIH iCite</li><li>pandas</li><li>matplotlib</li></ul></dd></div><div><dt>data</dt><dd>11,778 Long COVID papers, PubMed 2020-2025 · OpenAlex works split by cited source · iCite cited-by sets for four index papers · symptom lists parsed from two published frames</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
+  
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>When patients run the study themselves, does the research field go on to pay attention to what they found?</p></div></div>
+  
+  <div class="row"><div class="margin-note">what came out</div><div class="row-body"><ul><li>papers citing the patient-led survey mention post-exertional malaise at a pooled odds ratio of 3.89, against 1.11 to 1.37 for three researcher-led and clinician-led comparison sources.</li><li>the effect survived a rebuild on a different symptom list and a different data pipeline. PEM came back at 2.83, and PEM and brain fog were the only two units clearing every comparison.</li><li>the broad hypothesis failed. patient-observable symptoms as a class never moved, and per-symptom growth does not differ by class. the signal lives in two named constructs, not in subjective symptoms generally.</li><li>median log gap across usable symptoms is negative, so most of the patient survey&#x27;s vocabulary is not what its citers pick up.</li><li>about 2.5 years from patient documentation to PEM entering the official research index at one of its highest weights.</li></ul></div></div>
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>unit lists and the patient-observable versus clinician-measurable split frozen in code before any count was pulled. the split is a judgment call, and freezing it is the only thing that keeps it from following the results.</li><li>three comparison sources rather than one. a single clinician-led cohort cannot separate a patient-led effect from a hospital-heavy one, and the researcher-led self-report source is what settles that.</li><li>a rebuild on published symptom tables rather than defending the hand-built list. an independent frame and an independent pipeline is a cheaper answer than an argument about term selection.</li><li>the null reported rather than cut. the class-level contrast was the planned headline and it came back flat.</li><li>method structure copied from an existing attention study on protein structure prediction, which is where the citing-split design comes from.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>mentions are not stance. a paper arguing a treatment is harmful counts as attention to that treatment, and nothing here measures agreement.</li><li>citing is a choice, so none of this is causal. the patient survey is the reference for the construct it is being scored on, and the comparison sources size that bias rather than remove it.</li><li>coverage is thin. only 25 of 166 survey symptoms clear ten mentions among citers, and the survey&#x27;s own patient language barely appears in abstracts.</li><li>two comparison sources were added after a preview of the first result. documented as post hoc, not pre-registered.</li><li>one rater, own term lists, terms that collide across fields.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>tried a yearly line of treatment papers co-mentioning the patient-named construct. numerators ran zero to four a year, so the line was noise and it was pooled into periods instead.</p></div></div>
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>the parallel case in the older disease is parked, not dropped, pending a scope decision.</li><li>figures and the frozen protocol live with the code, not here.</li></ul></div></div>
+</main>
+<footer class="wrap foot">figures made with matplotlib · site built from json by build.py</footer>
+</body>
+</html>

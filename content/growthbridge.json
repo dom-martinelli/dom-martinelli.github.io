@@ -45,8 +45,8 @@
   ],
   "broke": [
     "the Turner teaching case had been narrated as a percentile drop the z-score rule would never flag. the mock percentiles had to move to values the computed rule actually catches.",
-    "Pages deployment needed explicit job permissions and newer action versions before it worked.",
-    "Epic's exact redirect matching makes a project-subpath URL a trap: site root and index.html are not the same registered value."
+    "the Pages deploy needed explicit job permissions and newer action versions before it would run at all. the default workflow token cannot publish.",
+    "Epic matches redirect URIs exactly, so a project-subpath URL is a trap. site root and index.html are not the same registered value."
   ],
   "tried": "scripted per-scenario trend insights went away once flags were computed from the threshold, since a hand-written percentile-drop story cannot follow real record data.",
   "not_shown": [

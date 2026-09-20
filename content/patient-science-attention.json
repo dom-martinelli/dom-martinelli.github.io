@@ -1,0 +1,55 @@
+{
+  "slug": "patient-science-attention",
+  "tab": "trials",
+  "title": "Research attention to patient-led findings in Long COVID",
+  "status": "in progress",
+  "line": "whether the field picks up what patients documented themselves, measured on the citing literature",
+  "question": "When patients run the study themselves, does the research field go on to pay attention to what they found?",
+  "skills": [
+    "citation-based attention measurement",
+    "Mantel-Haenszel stratified odds ratios",
+    "interrupted time series with placebo controls",
+    "pre-registered unit lists frozen before data",
+    "replication on an independent pipeline"
+  ],
+  "tools": [
+    "Python",
+    "PubMed E-utilities",
+    "OpenAlex",
+    "NIH iCite",
+    "pandas",
+    "matplotlib"
+  ],
+  "data": [
+    "11,778 Long COVID papers, PubMed 2020-2025",
+    "OpenAlex works split by cited source",
+    "iCite cited-by sets for four index papers",
+    "symptom lists parsed from two published frames"
+  ],
+  "found": [
+    "papers citing the patient-led survey mention post-exertional malaise at a pooled odds ratio of 3.89, against 1.11 to 1.37 for three researcher-led and clinician-led comparison sources.",
+    "the effect survived a rebuild on a different symptom list and a different data pipeline. PEM came back at 2.83, and PEM and brain fog were the only two units clearing every comparison.",
+    "the broad hypothesis failed. patient-observable symptoms as a class never moved, and per-symptom growth does not differ by class. the signal lives in two named constructs, not in subjective symptoms generally.",
+    "median log gap across usable symptoms is negative, so most of the patient survey's vocabulary is not what its citers pick up.",
+    "about 2.5 years from patient documentation to PEM entering the official research index at one of its highest weights."
+  ],
+  "calls": [
+    "unit lists and the patient-observable versus clinician-measurable split frozen in code before any count was pulled. the split is a judgment call, and freezing it is the only thing that keeps it from following the results.",
+    "three comparison sources rather than one. a single clinician-led cohort cannot separate a patient-led effect from a hospital-heavy one, and the researcher-led self-report source is what settles that.",
+    "a rebuild on published symptom tables rather than defending the hand-built list. an independent frame and an independent pipeline is a cheaper answer than an argument about term selection.",
+    "the null reported rather than cut. the class-level contrast was the planned headline and it came back flat.",
+    "method structure copied from an existing attention study on protein structure prediction, which is where the citing-split design comes from."
+  ],
+  "broke": [
+    "mentions are not stance. a paper arguing a treatment is harmful counts as attention to that treatment, and nothing here measures agreement.",
+    "citing is a choice, so none of this is causal. the patient survey is the reference for the construct it is being scored on, and the comparison sources size that bias rather than remove it.",
+    "coverage is thin. only 25 of 166 survey symptoms clear ten mentions among citers, and the survey's own patient language barely appears in abstracts.",
+    "two comparison sources were added after a preview of the first result. documented as post hoc, not pre-registered.",
+    "one rater, own term lists, terms that collide across fields."
+  ],
+  "tried": "tried a yearly line of treatment papers co-mentioning the patient-named construct. numerators ran zero to four a year, so the line was noise and it was pooled into periods instead.",
+  "not_shown": [
+    "the parallel case in the older disease is parked, not dropped, pending a scope decision.",
+    "figures and the frozen protocol live with the code, not here."
+  ]
+}

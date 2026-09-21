@@ -19,19 +19,19 @@
   ],
   "figures": [
     {
-      "file": "assets/fig/evidence-lag-1.png",
+      "file": "gallery/eds-terminology-lag.png",
       "note": "old and new naming for the same connective-tissue diagnosis, by year."
     },
     {
-      "file": "assets/fig/evidence-lag-2.png",
+      "file": "gallery/cfs-get-pacing.png",
       "note": "graded exercise therapy against pacing in ME/CFS papers, with the 2021 NICE reversal marked."
     },
     {
-      "file": "assets/fig/evidence-lag-3.png",
+      "file": "gallery/glp1-signal-vs-approval.png",
       "note": "first FAERS report mentioning weight, first approval, and the weight indication, per GLP-1 drug."
     },
     {
-      "file": "assets/fig/evidence-lag-4.png",
+      "file": "gallery/mi-sex-framing.png",
       "note": "how papers on heart attacks in women frame the presentation, by year."
     }
   ],

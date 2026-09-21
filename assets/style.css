@@ -195,3 +195,18 @@ table.archive tr[hidden] { display: none; }
 .gmeta { font-size: 11.5px; color: var(--ink-faint); }
 code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px;
   background: var(--surface-2); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; }
+
+/* click-to-enlarge */
+a.zoom { display: block; cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 50; display: none; flex-direction: column;
+  align-items: center; justify-content: center; gap: 12px; padding: 24px;
+  background: rgba(8, 10, 11, .94); }
+.lightbox.on { display: flex; }
+.lightbox img { max-width: min(1600px, 96vw); max-height: 84vh; width: auto; height: auto;
+  background: var(--paper); border-radius: 8px; padding: 12px; cursor: zoom-out; }
+.lb-cap { margin: 0; max-width: 900px; text-align: center; color: var(--ink-soft);
+  font-family: "Iowan Old Style", Palatino, Georgia, serif; font-style: italic; }
+.lb-raw { color: var(--accent); font-size: 13px; }
+.lb-close { position: absolute; top: 14px; right: 18px; background: none; border: 0;
+  color: var(--ink); font-size: 34px; line-height: 1; cursor: pointer; }
+.lb-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }

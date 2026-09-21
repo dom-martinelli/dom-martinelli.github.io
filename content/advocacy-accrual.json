@@ -19,11 +19,11 @@
   ],
   "figures": [
     {
-      "file": "assets/fig/advocacy-accrual-1.png",
+      "file": "gallery/abandoned-by-reason.png",
       "note": "abandoned compounds by the reason their first trial stopped."
     },
     {
-      "file": "assets/fig/advocacy-accrual-2.png",
+      "file": "gallery/revival-by-reason.png",
       "note": "revival rate by stop reason, with intervals. the point estimate moves; the intervals overlap."
     }
   ],

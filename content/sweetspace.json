@@ -20,15 +20,15 @@
   ],
   "figures": [
     {
-      "file": "assets/fig/sweetspace-1.png",
+      "file": "gallery/odor-structure-topography.png",
       "note": "each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space."
     },
     {
-      "file": "assets/fig/sweetspace-2.png",
+      "file": "gallery/odor-descriptor-cooccurrence.png",
       "note": "which odour words land on the same molecule. blocks are families: roasted with sulfurous and meaty, fatty with waxy and oily."
     },
     {
-      "file": "assets/fig/sweetspace-3.png",
+      "file": "gallery/sweetener-anchoring.png",
       "note": "flavour profiles by how much of their identity one molecule carries. everything on the dashed line is learned rather than tasted."
     }
   ],

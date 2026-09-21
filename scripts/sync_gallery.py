@@ -20,6 +20,9 @@ HOME = Path.home()
 GH = HOME / "Documents/GitHub"
 SITE = Path(__file__).resolve().parent.parent
 OUT = SITE / "gallery"
+# the same figures, mirrored to iCloud Drive so they open in Finder and Quick
+# Look at full size, one subfolder per project. Overwritten each revision.
+ICLOUD = HOME / "Library/Mobile Documents/com~apple~CloudDocs/Figure Gallery"
 
 # gallery name, source path, project slug, one-line note
 FIGURES = [
@@ -84,15 +87,41 @@ def main():
             continue
         dest = OUT / name
         shutil.copy2(src, dest)          # same name every time: revisions overwrite
+        mirror = ICLOUD / slug
+        mirror.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, mirror / name)
         rows.append({
             "file": f"gallery/{name}", "slug": slug, "note": note,
             "source": str(src).replace(str(HOME), "~"),
             "rebuilt": datetime.fromtimestamp(src.stat().st_mtime).strftime("%Y-%m-%d"),
         })
+    # every other figure a project page shows (lab figures, screenshots) gets
+    # mirrored and listed too, so the folder and the page are complete
+    seen = {r["file"] for r in rows}
+    for pj in sorted((SITE / "content").glob("*.json")):
+        if pj.name.startswith("_"):
+            continue
+        proj = json.loads(pj.read_text())
+        for fig in proj.get("figures") or []:
+            rel = fig["file"]
+            if rel in seen or not (SITE / rel).exists():
+                continue
+            seen.add(rel)
+            src = SITE / rel
+            mirror = ICLOUD / proj["slug"]
+            mirror.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, mirror / src.name)
+            rows.append({
+                "file": rel, "slug": proj["slug"], "note": fig.get("note", ""),
+                "source": rel,
+                "rebuilt": datetime.fromtimestamp(src.stat().st_mtime).strftime("%Y-%m-%d"),
+            })
+
     data = {"version": figstyle_version(),
             "synced": datetime.now().strftime("%Y-%m-%d"), "figures": rows}
     (SITE / "content" / "_gallery.json").write_text(json.dumps(data, indent=1))
     print(f"{len(rows)} figures -> {OUT}  (figstyle {data['version']})")
+    print(f"mirrored to {ICLOUD}")
     for m in missing:
         print("  missing:", m)
     changed = subprocess.run(["git", "-C", str(SITE), "status", "--short", "gallery"],

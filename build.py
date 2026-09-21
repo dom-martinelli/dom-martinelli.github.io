@@ -60,6 +60,7 @@ def head(title: str, desc: str, depth: int) -> str:
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <link rel="stylesheet" href="{up}assets/style.css">
+<script src="{up}assets/lightbox.js" defer></script>
 </head>
 <body>
 """
@@ -83,12 +84,16 @@ def status_label(status: str) -> str:
     return f'<span class="status status-{esc(status.replace(" ", "-"))}">{esc(status)}</span>'
 
 
-def figure_panel(fig, depth: int, cls="panel") -> str:
+def figure_panel(fig, depth: int, cls="panel", link=True) -> str:
     up = "../" * depth
     if fig.get("dark"):
         cls += " panel-dark"   # a screenshot of a dark UI, not a figure on paper
-    return (f'<div class="{cls}"><img src="{up}{esc(fig["file"])}" '
-            f'alt="{esc(fig.get("note", ""))}" loading="lazy"></div>')
+    src = f'{up}{esc(fig["file"])}'
+    img = f'<img src="{src}" alt="{esc(fig.get("note", ""))}" loading="lazy">'
+    # tiles are already links to the project page; everywhere else a figure
+    # opens full size, in a lightbox with JS and as the raw file without
+    inner = img if not link else f'<a class="zoom" href="{src}">{img}</a>'
+    return f'<div class="{cls}">{inner}</div>'
 
 
 def chips(items, cls="tags"):
@@ -98,7 +103,7 @@ def chips(items, cls="tags"):
 def tile(p, wide: bool) -> str:
     figs = p.get("figures") or []
     # no figure, no empty picture frame: the tile becomes text only
-    art = figure_panel(figs[0], 0) if figs else ""
+    art = figure_panel(figs[0], 0, link=False) if figs else ""
     cls = "tile" + (" tile-wide" if wide and figs else "") + ("" if figs else " tile-text")
     skills = " · ".join(esc(s) for s in (p.get("skills") or [])[:4])
     return f"""<a class="{cls}" href="projects/{esc(p['slug'])}.html">
@@ -219,8 +224,8 @@ def build_gallery(site):
     blocks = []
     for slug, items in by_slug.items():
         cards = "".join(
-            f'<figure class="gcard"><div class="panel"><img src="{esc(i["file"])}" '
-            f'alt="{esc(i["note"])}" loading="lazy"></div>'
+            f'<figure class="gcard"><div class="panel"><a class="zoom" href="{esc(i["file"])}">'
+            f'<img src="{esc(i["file"])}" alt="{esc(i["note"])}" loading="lazy"></a></div>'
             f'<figcaption><span class="margin-note">{esc(i["note"])}</span>'
             f'<span class="gmeta mono">{esc(i["file"].split("/")[-1])} · rebuilt {esc(i["rebuilt"])}</span>'
             f'</figcaption></figure>' for i in items)
@@ -233,7 +238,7 @@ def build_gallery(site):
 <main class="wrap article" style="max-width:1120px">
   <a class="back" href="index.html">&larr; projects</a>
   <h1>Figures</h1>
-  <p class="line">every matplotlib figure, {len(figs)} of them, regenerated from the same style module</p>
+  <p class="line">every figure on the site, {len(figs)} of them. click any one for full size</p>
   <div class="row">
     <div class="margin-note">how this stays current</div>
     <div class="row-body"><p>Each file sits in <code>gallery/</code> under a fixed name.

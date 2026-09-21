@@ -8,6 +8,7 @@
 <meta property="og:title" content="Predicting activity of chemically modified siRNA · Dom Martinelli">
 <meta property="og:description" content="classifier for silencing activity from sequence and modification pattern">
 <link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
 </head>
 <body>
 <header class="top wrap">
@@ -22,7 +23,7 @@
   <dl class="spec"><div><dt>skills</dt><dd>supervised classification · sequence feature engineering · model comparison · imbalanced-data evaluation · literature curation</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>seaborn</li><li>Jupyter</li></ul></dd></div><div><dt>data</dt><dd>siRNAmod database · validation set hand-extracted from primary literature</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
   
   <div class="row"><div class="margin-note">question</div><div class="row-body"><p>Can a model predict how well a chemically modified siRNA silences its target from sequence and modification alone?</p></div></div>
-  <div class="figs"><figure class="fig"><div class="panel"><img src="../assets/fig/sirna-1.png" alt="which chemical modifications appear in the training data, and how often." loading="lazy"></div><figcaption class="margin-note">which chemical modifications appear in the training data, and how often.</figcaption></figure><figure class="fig"><div class="panel"><img src="../assets/fig/sirna-2.png" alt="feature weights from the trained model. read with the co-occurrence caveat above." loading="lazy"></div><figcaption class="margin-note">feature weights from the trained model. read with the co-occurrence caveat above.</figcaption></figure></div>
+  <div class="figs"><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/sirna-1.png"><img src="../assets/fig/sirna-1.png" alt="which chemical modifications appear in the training data, and how often." loading="lazy"></a></div><figcaption class="margin-note">which chemical modifications appear in the training data, and how often.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/sirna-2.png"><img src="../assets/fig/sirna-2.png" alt="feature weights from the trained model. read with the co-occurrence caveat above." loading="lazy"></a></div><figcaption class="margin-note">feature weights from the trained model. read with the co-occurrence caveat above.</figcaption></figure></div>
   
   
   <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>three model families side by side rather than tuning one architecture. on a task nobody had modelled, which family fits is itself the finding.</li><li>ROC and precision-recall AUC, not accuracy. classes are unbalanced at every threshold, and a falsely optimistic call is the expensive mistake here.</li><li>the whole experiment repeated at three inhibition cutoffs. published definitions of an effective siRNA disagree with each other.</li><li>one-hot encoding of base and modification at each position, not cheminformatics descriptors of each modification. enough for a proof of concept, at the cost that a genuinely new chemistry cannot be scored without retraining.</li></ul></div></div>

@@ -1,6 +1,6 @@
 {
  "version": "2026-09-21 pastel-classes",
- "synced": "2026-09-20",
+ "synced": "2026-09-21",
  "figures": [
   {
    "file": "gallery/odor-structure-topography.png",
@@ -141,6 +141,118 @@
    "note": "how papers frame heart attacks in women",
    "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/13_mi_sex_framing.png",
    "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "assets/fig/fda-ai-devices-1.png",
+   "slug": "fda-ai-devices",
+   "note": "the registry as it runs: filters across the top, authorisations per year, every device linked to its FDA record",
+   "source": "assets/fig/fda-ai-devices-1.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "assets/fig/growth-medqa-1.png",
+   "slug": "growth-medqa",
+   "note": "what the benchmark is made of: source datasets and how many items each contributes.",
+   "source": "assets/fig/growth-medqa-1.png",
+   "rebuilt": "2026-09-17"
+  },
+  {
+   "file": "assets/fig/growth-zscore-1.png",
+   "slug": "growth-zscore",
+   "note": "left: placement accuracy by how short the child is. right: the three conditions, no help, plus the formula, plus the CDC values for that age. 6 of 13 models shown, 40 children each.",
+   "source": "assets/fig/growth-zscore-1.png",
+   "rebuilt": "2026-09-19"
+  },
+  {
+   "file": "assets/fig/growth-zscore-2.png",
+   "slug": "growth-zscore",
+   "note": "green: asked for the CDC median height at an age, accurate to about a centimetre. red: asked to place a specific child with no reference given.",
+   "source": "assets/fig/growth-zscore-2.png",
+   "rebuilt": "2026-09-19"
+  },
+  {
+   "file": "assets/fig/growthbridge-1.png",
+   "slug": "growthbridge",
+   "note": "the family-facing view, loaded with the Turner syndrome teaching case",
+   "source": "assets/fig/growthbridge-1.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "assets/fig/growthradar-lite-1.png",
+   "slug": "growthradar-lite",
+   "note": "the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart.",
+   "source": "assets/fig/growthradar-lite-1.png",
+   "rebuilt": "2026-09-17"
+  },
+  {
+   "file": "assets/fig/over-referral-1.png",
+   "slug": "over-referral",
+   "note": "share of healthy short children each model refers. same children, same question, opposite behaviour.",
+   "source": "assets/fig/over-referral-1.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "assets/fig/over-referral-2.png",
+   "slug": "over-referral",
+   "note": "the percentile at which each model starts flagging. there is no shared threshold.",
+   "source": "assets/fig/over-referral-2.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "assets/fig/over-referral-3.png",
+   "slug": "over-referral",
+   "note": "the same models after one clinical sentence is added to the prompt.",
+   "source": "assets/fig/over-referral-3.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "assets/fig/over-referral-4.png",
+   "slug": "over-referral",
+   "note": "what the referrals cost, in one picture: healthy children worked up for each child with a real disorder, worst model against best.",
+   "source": "assets/fig/over-referral-4.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "assets/fig/sirna-1.png",
+   "slug": "sirna",
+   "note": "which chemical modifications appear in the training data, and how often.",
+   "source": "assets/fig/sirna-1.png",
+   "rebuilt": "2026-09-17"
+  },
+  {
+   "file": "assets/fig/sirna-2.png",
+   "slug": "sirna",
+   "note": "feature weights from the trained model. read with the co-occurrence caveat above.",
+   "source": "assets/fig/sirna-2.png",
+   "rebuilt": "2026-09-17"
+  },
+  {
+   "file": "assets/fig/stroke-belt-1.png",
+   "slug": "stroke-belt",
+   "note": "stroke prevalence by county. the belt is visible without any statistics.",
+   "source": "assets/fig/stroke-belt-1.png",
+   "rebuilt": "2026-09-17"
+  },
+  {
+   "file": "assets/fig/stroke-belt-2.png",
+   "slug": "stroke-belt",
+   "note": "insurance coverage among older adults, same geography.",
+   "source": "assets/fig/stroke-belt-2.png",
+   "rebuilt": "2026-09-17"
+  },
+  {
+   "file": "assets/fig/stroke-belt-3.png",
+   "slug": "stroke-belt",
+   "note": "medical debt in collections, county level.",
+   "source": "assets/fig/stroke-belt-3.png",
+   "rebuilt": "2026-09-17"
+  },
+  {
+   "file": "assets/fig/stroke-belt-4.png",
+   "slug": "stroke-belt",
+   "note": "food insecurity, county level.",
+   "source": "assets/fig/stroke-belt-4.png",
+   "rebuilt": "2026-09-17"
   }
  ]
 }

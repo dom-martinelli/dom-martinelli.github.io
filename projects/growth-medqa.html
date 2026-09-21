@@ -8,6 +8,7 @@
 <meta property="og:title" content="A pediatric growth benchmark · Dom Martinelli">
 <meta property="og:description" content="growth-assessment items curated out of public medical QA sets">
 <link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
 </head>
 <body>
 <header class="top wrap">
@@ -22,7 +23,7 @@
   <dl class="spec"><div><dt>skills</dt><dd>benchmark design · LLM evaluation · annotation schema design · provenance auditing · clinical taxonomy crosswalking</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>DSPy</li><li>Hugging Face datasets</li><li>OpenRouter</li><li>Slurm / vLLM</li><li>pandas</li><li>LaTeX</li></ul></dd></div><div><dt>data</dt><dd>MedQA · MedMCQA · MedXpertQA · MMLU medicine · PubMedQA · MedBullets · PediatricsMQA · ICPED / HPO · USMLE competencies</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
   <div class="actions"><a class="btn btn-primary" href="https://github.com/dom-martinelli/Growth-MedQA">Code on GitHub</a><a class="btn" href="https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer">Interactive explorer (Hugging Face Space)</a><a class="btn" href="https://huggingface.co/datasets/dmartinelli/growth-medqa">Dataset on Hugging Face</a></div>
   <div class="row"><div class="margin-note">question</div><div class="row-body"><p>When a model scores well on medical exams, is it competent at the growth-assessment tasks a clinician would lean on it for?</p></div></div>
-  <div class="figs"><figure class="fig"><div class="panel"><img src="../assets/fig/growth-medqa-1.png" alt="what the benchmark is made of: source datasets and how many items each contributes." loading="lazy"></div><figcaption class="margin-note">what the benchmark is made of: source datasets and how many items each contributes.</figcaption></figure></div>
+  <div class="figs"><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/growth-medqa-1.png"><img src="../assets/fig/growth-medqa-1.png" alt="what the benchmark is made of: source datasets and how many items each contributes." loading="lazy"></a></div><figcaption class="margin-note">what the benchmark is made of: source datasets and how many items each contributes.</figcaption></figure></div>
   
   
   <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>growth relevance defined by whether the answer depends on the growth data, not by whether a height or weight appears in the stem.</li><li>one frozen labeling run over the whole corpus with a blinded stratified human audit, rather than routing only prefilter-positive rows to the stronger classifier. every row gets the same measurement process.</li><li>classifier instructions rewritten around primary subject and question target instead of adding few-shot examples. the failure mode was keyword surface matching, not a shortage of examples.</li><li>labels and item ids released for one source dataset rather than its question text. that source states no license; the others are MIT, Apache or CC BY-SA.</li><li>rare-disease corpora held out of the registry. they pull the benchmark away from the primary-care pediatric setting it is meant to describe.</li></ul></div></div>

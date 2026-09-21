@@ -8,6 +8,7 @@
 <meta property="og:title" content="Growth monitoring from the health record · Dom Martinelli">
 <meta property="og:description" content="single-file SMART on FHIR app reading a child&#x27;s growth history">
 <link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
 </head>
 <body>
 <header class="top wrap">
@@ -22,7 +23,7 @@
   <dl class="spec"><div><dt>skills</dt><dd>SMART on FHIR integration · OAuth 2.0 / PKCE · FHIR querying and parsing · clinical rule design · LLM prompt design</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>JavaScript (no build step)</li><li>Chart.js</li><li>Web Crypto</li><li>Epic FHIR R4</li><li>LOINC</li><li>HAPI FHIR</li><li>Docker</li></ul></dd></div><div><dt>data</dt><dd>Epic FHIR sandbox · WHO and CDC height references (embedded) · synthetic demo patients</dd></div><div><dt>status</dt><dd><span class="status status-live">live</span></dd></div></dl>
   <div class="actions"><a class="btn btn-primary" href="https://dom-martinelli.github.io/growthradar-lite/">Live demo</a><a class="btn" href="https://github.com/dom-martinelli/growthradar-lite">Code on GitHub</a></div>
   <div class="row"><div class="margin-note">question</div><div class="row-body"><p>Can a browser app read a child&#x27;s growth history straight from a health record and surface faltering a short visit would miss?</p></div></div>
-  <div class="figs"><figure class="fig"><div class="panel panel-dark"><img src="../assets/fig/growthradar-lite-1.png" alt="the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart." loading="lazy"></div><figcaption class="margin-note">the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart.</figcaption></figure></div>
+  <div class="figs"><figure class="fig"><div class="panel panel-dark"><a class="zoom" href="../assets/fig/growthradar-lite-1.png"><img src="../assets/fig/growthradar-lite-1.png" alt="the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart." loading="lazy"></a></div><figcaption class="margin-note">the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart.</figcaption></figure></div>
   
   
   <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>growth engine fenced off during the feature build. the percentile tables, interpolation and anomaly rules were the part already checked.</li><li>demo cases built around trajectory, velocity and delayed recognition, not population-specific expected growth. a subgroup-specific chart can make a remediable problem look typical.</li><li>model API key asked for at run time and held in sessionStorage. the app ships as static files, so anything in the repo ships with it.</li><li>self-hosted HAPI added as the custom-data lane, Epic kept as the interoperability lane. only the read source changes; the growth logic does not.</li></ul></div></div>

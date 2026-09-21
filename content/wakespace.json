@@ -12,15 +12,15 @@
   "links": [],
   "figures": [
     {
-      "file": "assets/fig/wakespace-1.png",
+      "file": "gallery/drug-property-space.png",
       "note": "licensed class by colour. the weight-loss set spans the whole plot; the stimulants sit on top of each other."
     },
     {
-      "file": "assets/fig/wakespace-2.png",
+      "file": "gallery/drug-class-radar.png",
       "note": "one radar per compound, spokes are percentiles within the set. the xanthines share a shape. the weight-loss row shares none."
     },
     {
-      "file": "assets/fig/wakespace-3.png",
+      "file": "gallery/drug-property-topography.png",
       "note": "density of the same space. one peak, under the polar surface area where drugs reach the brain."
     }
   ],

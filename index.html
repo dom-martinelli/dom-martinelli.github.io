@@ -12,7 +12,7 @@
 <body>
 <header class="top wrap">
   <a class="name" href="index.html">Dom Martinelli</a>
-  <nav class="elsewhere"><a href="archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+  <nav class="elsewhere"><a href="gallery.html">Figures</a><a href="archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
 </header>
 
 <main class="wrap">
@@ -27,31 +27,27 @@
   <div class="panel"><img src="assets/fig/growth-medqa-1.png" alt="what the benchmark is made of: source datasets and how many items each contributes." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>A pediatric growth benchmark</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="line">growth-assessment items curated out of public medical QA sets</p>
     <p class="skills">benchmark design · LLM evaluation · annotation schema design · provenance auditing</p>
-    <ul class="tags"><li>Python</li><li>DSPy</li><li>Hugging Face datasets</li><li>OpenRouter</li><li>Slurm / vLLM</li></ul>
+    <ul class="tags"><li>Python</li><li>DSPy</li><li>Hugging Face datasets</li><li>OpenRouter</li></ul>
   </div>
 </a><a class="tile" href="projects/growth-zscore.html">
   <div class="panel"><img src="assets/fig/growth-zscore-1.png" alt="left: placement accuracy by how short the child is. right: the three conditions, no help, plus the formula, plus the CDC values for that age. 6 of 13 models shown, 40 children each." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Height z-score computation by language models</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="line">CLI benchmark scoring models against the referral threshold</p>
     <p class="skills">benchmark design · clinical safety metric design · prompt ablation design · LLM evaluation</p>
-    <ul class="tags"><li>Python</li><li>OpenRouter</li><li>provider APIs</li><li>pandas</li><li>CDC LMS method</li></ul>
+    <ul class="tags"><li>Python</li><li>OpenRouter</li><li>provider APIs</li><li>pandas</li></ul>
   </div>
 </a><a class="tile" href="projects/over-referral.html">
   <div class="panel"><img src="assets/fig/over-referral-1.png" alt="share of healthy short children each model refers. same children, same question, opposite behaviour." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Over-referral as a representation failure</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="line">deployment-behaviour benchmark on healthy short children</p>
     <p class="skills">deployment-behaviour benchmark design · prompt condition and ablation design · LLM evaluation at scale · clinical cost and PPV modelling</p>
-    <ul class="tags"><li>Python</li><li>OpenRouter</li><li>open and frontier model APIs</li><li>pandas</li><li>matplotlib</li></ul>
+    <ul class="tags"><li>Python</li><li>OpenRouter</li><li>open and frontier model APIs</li><li>pandas</li></ul>
   </div>
-</a><a class="tile tile-text" href="projects/fda-ai-devices.html">
-  
+</a><a class="tile" href="projects/fda-ai-devices.html">
+  <div class="panel"><img src="assets/fig/fda-ai-devices-1.png" alt="the registry as it runs: filters across the top, authorisations per year, every device linked to its FDA record" loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>FDA-authorized AI devices</h3><span class="status status-live">live</span></div>
-    <p class="line">filterable registry of every AI device the FDA has authorized</p>
     <p class="skills">public-data reporting · interactive data visualisation · front-end engineering without a framework · regulatory literature review</p>
     <ul class="tags"><li>HTML</li><li>CSS</li><li>vanilla JavaScript</li><li>CSV pipeline</li></ul>
   </div>
@@ -59,71 +55,62 @@
   <div class="panel panel-dark"><img src="assets/fig/growthradar-lite-1.png" alt="the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Growth monitoring from the health record</h3><span class="status status-live">live</span></div>
-    <p class="line">single-file SMART on FHIR app reading a child&#x27;s growth history</p>
     <p class="skills">SMART on FHIR integration · OAuth 2.0 / PKCE · FHIR querying and parsing · clinical rule design</p>
-    <ul class="tags"><li>JavaScript (no build step)</li><li>Chart.js</li><li>Web Crypto</li><li>Epic FHIR R4</li><li>LOINC</li></ul>
+    <ul class="tags"><li>JavaScript (no build step)</li><li>Chart.js</li><li>Web Crypto</li><li>Epic FHIR R4</li></ul>
   </div>
-</a><a class="tile tile-text" href="projects/growthbridge.html">
-  
+</a><a class="tile" href="projects/growthbridge.html">
+  <div class="panel"><img src="assets/fig/growthbridge-1.png" alt="the family-facing view, loaded with the Turner syndrome teaching case" loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>A family-facing growth chart</h3><span class="status status-live">live</span></div>
-    <p class="line">patient-facing SMART on FHIR demo, Epic sandbox</p>
     <p class="skills">SMART on FHIR integration · OAuth launch configuration · TypeScript front-end architecture · growth analysis implementation</p>
-    <ul class="tags"><li>TypeScript</li><li>Vite</li><li>fhirclient</li><li>FHIR R4</li><li>LOINC</li></ul>
+    <ul class="tags"><li>TypeScript</li><li>Vite</li><li>fhirclient</li><li>FHIR R4</li></ul>
   </div>
 </a><a class="tile tile-text" href="projects/platefit.html">
   
   <div class="tile-body">
     <div class="tile-top"><h3>Menu ranking for people on GLP-1 medication</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="line">chain menus scored against a protein-first, small-portion pattern</p>
     <p class="skills">rubric and scoring design · evidence review with strength grading · dataset compilation and provenance flagging · Next.js product build</p>
-    <ul class="tags"><li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Tailwind</li><li>PWA service worker</li></ul>
+    <ul class="tags"><li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Tailwind</li></ul>
   </div>
 </a></div></section><section class="tabpanel" role="tabpanel" id="panel-trials" aria-labelledby="tab-trials"><div class="grid"><a class="tile tile-wide" href="projects/advocacy-accrual.html">
   <div class="panel"><img src="assets/fig/advocacy-accrual-1.png" alt="abandoned compounds by the reason their first trial stopped." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Advocacy partners and trial enrollment failure</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="line">matched registry study of trials that stop for lack of patients</p>
     <p class="skills">matched cohort design · coarsened exact matching · bootstrap inference · registry API pipelines</p>
-    <ul class="tags"><li>Python</li><li>pandas</li><li>requests</li><li>parquet</li><li>pytest</li></ul>
+    <ul class="tags"><li>Python</li><li>pandas</li><li>requests</li><li>parquet</li></ul>
   </div>
 </a><a class="tile" href="projects/evidence-lag.html">
   <div class="panel"><img src="assets/fig/evidence-lag-1.png" alt="old and new naming for the same connective-tissue diagnosis, by year." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>How long evidence takes to reach practice</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="line">four case studies timing guidelines, labels and the literature</p>
     <p class="skills">bibliometric trend analysis · pharmacovigilance signal analysis · rate-limited API pipelines · denominator normalisation</p>
-    <ul class="tags"><li>Python</li><li>NCBI E-utilities</li><li>openFDA</li><li>pandas</li><li>matplotlib</li></ul>
+    <ul class="tags"><li>Python</li><li>NCBI E-utilities</li><li>openFDA</li><li>pandas</li></ul>
   </div>
 </a><a class="tile tile-text" href="projects/patient-innovation-index.html">
   
   <div class="tile-body">
     <div class="tile-top"><h3>Measuring patient involvement in research</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="line">text-signal index of how much patients shaped a published study</p>
     <p class="skills">composite index construction · control-set design · coarsened exact matching · field-normalised citation analysis</p>
-    <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li><li>UMAP</li></ul>
+    <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li></ul>
   </div>
 </a></div></section><section class="tabpanel" role="tabpanel" id="panel-population" aria-labelledby="tab-population"><div class="grid"><a class="tile tile-wide" href="projects/stroke-belt.html">
   <div class="panel"><img src="assets/fig/stroke-belt-1.png" alt="stroke prevalence by county. the belt is visible without any statistics." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Hypertension and treatment across the Stroke Belt</h3><span class="status status-finished">finished</span></div>
-    <p class="line">tract-level study of who develops high blood pressure and who gets treated</p>
     <p class="skills">geospatial joins · choropleth mapping · area-level regression · permutation testing of preregistered hypotheses</p>
-    <ul class="tags"><li>Python</li><li>GeoPandas</li><li>scikit-learn</li><li>folium</li><li>pandas</li></ul>
+    <ul class="tags"><li>Python</li><li>GeoPandas</li><li>scikit-learn</li><li>folium</li></ul>
   </div>
 </a></div></section><section class="tabpanel" role="tabpanel" id="panel-molecules" aria-labelledby="tab-molecules"><div class="grid"><a class="tile tile-wide" href="projects/sweetspace.html">
   <div class="panel"><img src="assets/fig/sweetspace-1.png" alt="each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Flavour identity and sweetener potency</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="line">cheminformatics on what single molecules carry, and what structure predicts</p>
     <p class="skills">cheminformatics · molecular fingerprints · dimensionality reduction · baseline-controlled modelling</p>
-    <ul class="tags"><li>Python</li><li>RDKit</li><li>scikit-learn</li><li>SHAP</li><li>t-SNE / UMAP</li></ul>
+    <ul class="tags"><li>Python</li><li>RDKit</li><li>scikit-learn</li><li>SHAP</li></ul>
   </div>
 </a><a class="tile" href="projects/wakespace.html">
   <div class="panel"><img src="assets/fig/wakespace-1.png" alt="licensed class by colour. the weight-loss set spans the whole plot; the stimulants sit on top of each other." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Drug classes against the chemistry</h3><span class="status status-finished">finished</span></div>
-    <p class="line">wakefulness, ADHD and weight-loss drugs plotted by molecular property</p>
     <p class="skills">cheminformatics · molecular descriptor analysis · API data collection · figure design</p>
     <ul class="tags"><li>Python</li><li>PubChem PUG REST</li><li>pandas</li><li>matplotlib</li></ul>
   </div>
@@ -131,17 +118,15 @@
   <div class="panel"><img src="assets/fig/sirna-1.png" alt="which chemical modifications appear in the training data, and how often." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Predicting activity of chemically modified siRNA</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="line">classifier for silencing activity from sequence and modification pattern</p>
     <p class="skills">supervised classification · sequence feature engineering · model comparison · imbalanced-data evaluation</p>
-    <ul class="tags"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>seaborn</li><li>Jupyter</li></ul>
+    <ul class="tags"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>seaborn</li></ul>
   </div>
 </a></div></section><section class="tabpanel" role="tabpanel" id="panel-earlier" aria-labelledby="tab-earlier"><div class="grid"><a class="tile tile-text" href="projects/earlier-work.html">
   
   <div class="tile-body">
     <div class="tile-top"><h3>Earlier work, 2021 to 2024</h3><span class="status status-archive">archive</span></div>
-    <p class="line">molecular deep learning, MD simulations, a pegRNA tool, clinical NLP</p>
     <p class="skills">deep learning on molecular representations · molecular dynamics · tool building for bench workflows · clinical data wrangling</p>
-    <ul class="tags"><li>Keras / TensorFlow</li><li>RDKit</li><li>GROMACS / CHARMM36</li><li>Biopython</li><li>pandas</li></ul>
+    <ul class="tags"><li>Keras / TensorFlow</li><li>RDKit</li><li>GROMACS / CHARMM36</li><li>Biopython</li></ul>
   </div>
 </a></div></section>
 </main>

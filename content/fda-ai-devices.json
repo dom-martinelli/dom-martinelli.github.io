@@ -10,7 +10,13 @@
     "CSV pipeline"
   ],
   "links": [],
-  "figures": [],
+  "figures": [
+    {
+      "file": "assets/fig/fda-ai-devices-1.png",
+      "dark": false,
+      "note": "the registry as it runs: filters across the top, authorisations per year, every device linked to its FDA record"
+    }
+  ],
   "host_file": "tools/fda-ai-devices.html",
   "line": "filterable registry of every AI device the FDA has authorized",
   "question": "What does the FDA's public list of AI-enabled devices record, and what does it leave out about whether those devices help patients?",

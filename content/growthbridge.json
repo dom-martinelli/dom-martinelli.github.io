@@ -21,7 +21,13 @@
       "url": "https://github.com/dom-martinelli/growthbridge-demo"
     }
   ],
-  "figures": [],
+  "figures": [
+    {
+      "file": "assets/fig/growthbridge-1.png",
+      "dark": false,
+      "note": "the family-facing view, loaded with the Turner syndrome teaching case"
+    }
+  ],
   "host_file": "",
   "line": "patient-facing SMART on FHIR demo, Epic sandbox",
   "question": "What would it look like for a family to see and understand their child's growth record between visits?",

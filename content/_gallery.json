@@ -1,0 +1,146 @@
+{
+ "version": "2026-09-21 pastel-classes",
+ "synced": "2026-09-20",
+ "figures": [
+  {
+   "file": "gallery/odor-structure-topography.png",
+   "slug": "sweetspace",
+   "note": "three odour words on the same map of 3,522 molecules",
+   "source": "~/Documents/GitHub/sweetspace/figures/fig-odor-structure-topography.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/odor-descriptor-cooccurrence.png",
+   "slug": "sweetspace",
+   "note": "which odour words land on the same molecule",
+   "source": "~/Documents/GitHub/sweetspace/figures/fig-odor-descriptor-cooccurrence.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/sweetener-anchoring.png",
+   "slug": "sweetspace",
+   "note": "flavours by how much of their identity one molecule carries",
+   "source": "~/Documents/GitHub/sweetspace/src/fig-sweetspace-anchoring.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/drug-property-space.png",
+   "slug": "wakespace",
+   "note": "wakefulness drugs by lipophilicity and polar surface area",
+   "source": "~/Documents/GitHub/wakespace/figures/01-property-space.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/drug-class-radar.png",
+   "slug": "wakespace",
+   "note": "one radar per compound, grouped by licensed use",
+   "source": "~/Documents/GitHub/wakespace/figures/02-class-radar.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/drug-property-topography.png",
+   "slug": "wakespace",
+   "note": "density of the same property space",
+   "source": "~/Documents/GitHub/wakespace/figures/03-property-topography.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/criteria-over-time.png",
+   "slug": "advocacy-accrual",
+   "note": "eligibility criteria per trial, by year",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/01_criteria_over_time.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/biomarker-divergence.png",
+   "slug": "advocacy-accrual",
+   "note": "biomarker requirements diverging between fields",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/02_biomarker_divergence.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/depression-vs-cancer.png",
+   "slug": "advocacy-accrual",
+   "note": "two fields, two different trial cultures",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/03_depression_vs_cancer.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/revival-confound.png",
+   "slug": "advocacy-accrual",
+   "note": "what else moves with a compound being revived",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/04_revival_confound.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/revival-by-reason.png",
+   "slug": "advocacy-accrual",
+   "note": "revival rate by why the first trial stopped",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/05_revival_by_reason.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/revival-model.png",
+   "slug": "advocacy-accrual",
+   "note": "model estimates for revival",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/06_revival_model.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/abandoned-by-reason.png",
+   "slug": "advocacy-accrual",
+   "note": "abandoned compounds by stop reason",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/07_abandoned_by_reason.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/glp1-cascade.png",
+   "slug": "evidence-lag",
+   "note": "the GLP-1 weight signal moving through the record",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/08_glp1_cascade.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/glp1-lag-shrinking.png",
+   "slug": "evidence-lag",
+   "note": "the lag from signal to label, narrowing",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/09_glp1_lag_shrinking.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/glp1-faers-share.png",
+   "slug": "evidence-lag",
+   "note": "weight reports as a share of each drug's own reports",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/10_glp1_faers_share.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/glp1-signal-vs-approval.png",
+   "slug": "evidence-lag",
+   "note": "first safety report, first approval, weight indication",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/10_glp1_signal_vs_approval.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/eds-terminology-lag.png",
+   "slug": "evidence-lag",
+   "note": "old and new naming for the same diagnosis",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/11_eds_terminology_lag.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/cfs-get-pacing.png",
+   "slug": "evidence-lag",
+   "note": "graded exercise against pacing, with the 2021 guideline reversal",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/12_cfs_get_pacing.png",
+   "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "gallery/mi-sex-framing.png",
+   "slug": "evidence-lag",
+   "note": "how papers frame heart attacks in women",
+   "source": "~/Documents/GitHub/advocacy-and-accrual/outputs/figures/13_mi_sex_framing.png",
+   "rebuilt": "2026-09-20"
+  }
+ ]
+}

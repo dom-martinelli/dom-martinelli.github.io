@@ -23,8 +23,29 @@
     <div class="works"><span class="margin-note">works with</span><ul><li>Python</li><li>SMART on FHIR</li><li>RDKit</li><li>scikit-learn</li><li>GeoPandas</li><li>matched designs</li><li>LLM evaluation</li><li>ClinicalTrials.gov / AACT</li><li>PubMed / iCite</li><li>matplotlib</li></ul></div>
     <p class="hero-archive"><a href="archive.html">every notebook on my machine, indexed &rarr;</a></p>
   </section>
-  <div class="tabs" role="tablist" aria-label="Subjects"><button role="tab" id="tab-medical-ai" aria-controls="panel-medical-ai" data-tab="medical-ai">Evaluating medical AI<span class="count">4</span></button><button role="tab" id="tab-clinical-tools" aria-controls="panel-clinical-tools" data-tab="clinical-tools">Clinical tools<span class="count">3</span></button><button role="tab" id="tab-trials" aria-controls="panel-trials" data-tab="trials">Trials and evidence<span class="count">3</span></button><button role="tab" id="tab-population" aria-controls="panel-population" data-tab="population">Population health<span class="count">1</span></button><button role="tab" id="tab-molecules" aria-controls="panel-molecules" data-tab="molecules">Molecules and food<span class="count">3</span></button><button role="tab" id="tab-earlier" aria-controls="panel-earlier" data-tab="earlier">Earlier work<span class="count">1</span></button></div>
-  <section class="tabpanel" role="tabpanel" id="panel-medical-ai" aria-labelledby="tab-medical-ai"><div class="grid"><a class="tile tile-wide" href="projects/growth-medqa.html">
+  <nav class="jump" aria-label="Subjects"><a href="#trials">Trials and evidence</a> · <a href="#medical-ai">Evaluating medical AI</a> · <a href="#clinical-tools">Clinical tools</a> · <a href="#population">Population health</a> · <a href="#molecules">Molecules and food</a> · <a href="#earlier">Earlier work</a></nav>
+  <section class="shelf" id="trials"><h2>Trials and evidence<span class="count">3</span></h2><div class="grid"><a class="tile tile-wide" href="projects/advocacy-accrual.html">
+  <div class="panel"><img src="gallery/abandoned-by-reason.png" alt="abandoned compounds by the reason their first trial stopped." loading="lazy"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Advocacy partners and trial enrollment failure</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">matched cohort design · coarsened exact matching · bootstrap inference · registry API pipelines</p>
+    <ul class="tags"><li>Python</li><li>pandas</li><li>requests</li><li>parquet</li></ul>
+  </div>
+</a><a class="tile" href="projects/evidence-lag.html">
+  <div class="panel"><img src="gallery/eds-terminology-lag.png" alt="old and new naming for the same connective-tissue diagnosis, by year." loading="lazy"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>How long evidence takes to reach practice</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">bibliometric trend analysis · pharmacovigilance signal analysis · rate-limited API pipelines · denominator normalisation</p>
+    <ul class="tags"><li>Python</li><li>NCBI E-utilities</li><li>openFDA</li><li>pandas</li></ul>
+  </div>
+</a><a class="tile" href="projects/patient-innovation-index.html">
+  <div class="panel"><img src="assets/fig/pii-dose-response.png" alt="citation impact climbs with each added involvement signal. left: impact by index score, medians marked on a log scale. right: the same papers as NIH citation percentiles." loading="lazy"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Measuring patient involvement in research</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">composite index construction · control-set design · coarsened exact matching · field-normalised citation analysis</p>
+    <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li></ul>
+  </div>
+</a></div></section><section class="shelf" id="medical-ai"><h2>Evaluating medical AI<span class="count">4</span></h2><div class="grid"><a class="tile tile-wide" href="projects/growth-medqa.html">
   <div class="panel"><img src="assets/fig/growth-medqa-1.png" alt="what the benchmark is made of: source datasets and how many items each contributes." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>A pediatric growth benchmark</h3><span class="status status-in-progress">in progress</span></div>
@@ -52,7 +73,7 @@
     <p class="skills">public-data reporting · interactive data visualisation · front-end engineering without a framework · regulatory literature review</p>
     <ul class="tags"><li>HTML</li><li>CSS</li><li>vanilla JavaScript</li><li>CSV pipeline</li></ul>
   </div>
-</a></div></section><section class="tabpanel" role="tabpanel" id="panel-clinical-tools" aria-labelledby="tab-clinical-tools"><div class="grid"><a class="tile tile-wide" href="projects/growthradar-lite.html">
+</a></div></section><section class="shelf" id="clinical-tools"><h2>Clinical tools<span class="count">3</span></h2><div class="grid"><a class="tile tile-wide" href="projects/growthradar-lite.html">
   <div class="panel panel-dark"><img src="assets/fig/growthradar-lite-1.png" alt="the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Growth monitoring from the health record</h3><span class="status status-live">live</span></div>
@@ -73,35 +94,14 @@
     <p class="skills">rubric and scoring design · evidence review with strength grading · dataset compilation and provenance flagging · Next.js product build</p>
     <ul class="tags"><li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Tailwind</li></ul>
   </div>
-</a></div></section><section class="tabpanel" role="tabpanel" id="panel-trials" aria-labelledby="tab-trials"><div class="grid"><a class="tile tile-wide" href="projects/advocacy-accrual.html">
-  <div class="panel"><img src="gallery/abandoned-by-reason.png" alt="abandoned compounds by the reason their first trial stopped." loading="lazy"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Advocacy partners and trial enrollment failure</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">matched cohort design · coarsened exact matching · bootstrap inference · registry API pipelines</p>
-    <ul class="tags"><li>Python</li><li>pandas</li><li>requests</li><li>parquet</li></ul>
-  </div>
-</a><a class="tile" href="projects/evidence-lag.html">
-  <div class="panel"><img src="gallery/eds-terminology-lag.png" alt="old and new naming for the same connective-tissue diagnosis, by year." loading="lazy"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>How long evidence takes to reach practice</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">bibliometric trend analysis · pharmacovigilance signal analysis · rate-limited API pipelines · denominator normalisation</p>
-    <ul class="tags"><li>Python</li><li>NCBI E-utilities</li><li>openFDA</li><li>pandas</li></ul>
-  </div>
-</a><a class="tile" href="projects/patient-innovation-index.html">
-  <div class="panel"><img src="assets/fig/pii-dose-response.png" alt="citation impact climbs with each added involvement signal. left: impact by index score, medians marked on a log scale. right: the same papers as NIH citation percentiles." loading="lazy"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Measuring patient involvement in research</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">composite index construction · control-set design · coarsened exact matching · field-normalised citation analysis</p>
-    <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li></ul>
-  </div>
-</a></div></section><section class="tabpanel" role="tabpanel" id="panel-population" aria-labelledby="tab-population"><div class="grid"><a class="tile tile-wide" href="projects/stroke-belt.html">
+</a></div></section><section class="shelf" id="population"><h2>Population health<span class="count">1</span></h2><div class="grid"><a class="tile tile-wide" href="projects/stroke-belt.html">
   <div class="panel"><img src="assets/fig/stroke-belt-1.png" alt="stroke prevalence by county. the belt is visible without any statistics." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Hypertension and treatment across the Stroke Belt</h3><span class="status status-finished">finished</span></div>
     <p class="skills">geospatial joins · choropleth mapping · area-level regression · permutation testing of preregistered hypotheses</p>
     <ul class="tags"><li>Python</li><li>GeoPandas</li><li>scikit-learn</li><li>folium</li></ul>
   </div>
-</a></div></section><section class="tabpanel" role="tabpanel" id="panel-molecules" aria-labelledby="tab-molecules"><div class="grid"><a class="tile tile-wide" href="projects/sweetspace.html">
+</a></div></section><section class="shelf" id="molecules"><h2>Molecules and food<span class="count">3</span></h2><div class="grid"><a class="tile tile-wide" href="projects/sweetspace.html">
   <div class="panel"><img src="gallery/odor-structure-topography.png" alt="each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Flavour identity and sweetener potency</h3><span class="status status-in-progress">in progress</span></div>
@@ -122,7 +122,7 @@
     <p class="skills">supervised classification · sequence feature engineering · model comparison · imbalanced-data evaluation</p>
     <ul class="tags"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>seaborn</li></ul>
   </div>
-</a></div></section><section class="tabpanel" role="tabpanel" id="panel-earlier" aria-labelledby="tab-earlier"><div class="grid"><a class="tile tile-text" href="projects/earlier-work.html">
+</a></div></section><section class="shelf" id="earlier"><h2>Earlier work<span class="count">1</span></h2><div class="grid"><a class="tile tile-text" href="projects/earlier-work.html">
   
   <div class="tile-body">
     <div class="tile-top"><h3>Earlier work, 2021 to 2024</h3><span class="status status-archive">archive</span></div>
@@ -132,6 +132,5 @@
 </a></div></section>
 </main>
 <footer class="wrap foot">figures made with matplotlib · site built from json by build.py</footer>
-<script src="assets/tabs.js"></script>
 </body>
 </html>

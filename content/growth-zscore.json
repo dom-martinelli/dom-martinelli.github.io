@@ -6,14 +6,17 @@
   "tools": [
     "Python",
     "OpenRouter",
-    "provider APIs",
-    "pandas",
-    "CDC LMS method"
+    "OpenAI, Anthropic, Google and Groq APIs",
+    "pandas"
   ],
   "links": [
     {
       "label": "Code on GitHub",
       "url": "https://github.com/dom-martinelli/growthradar-zscore"
+    },
+    {
+      "label": "Growth-MedQA, the benchmark this came out of",
+      "url": "growth-medqa.html"
     }
   ],
   "figures": [
@@ -28,7 +31,7 @@
   ],
   "host_file": "",
   "line": "CLI benchmark scoring models against the referral threshold",
-  "question": "Can a model compute a child's height-for-age z-score from the CDC reference and land on the right side of the referral line?",
+  "question": "Can a model compute a child's height-for-age z-score from the CDC reference well enough to land on the right side of the −2 referral line, where one side is a missed growth disorder and the other is a healthy child sent to a specialist?",
   "skills": [
     "benchmark design",
     "clinical safety metric design",
@@ -48,7 +51,7 @@
     "one OpenRouter key routing every model, direct provider keys kept as an option. one account, one code path."
   ],
   "broke": [
-    "provider APIs would not accept the harness's determinism settings, so temperature and seed handling is special-cased per model family. one reasoning model refuses the deterministic setting outright.",
+    "the direct OpenAI, Anthropic, Google and Groq APIs would not all accept the harness's determinism settings, so temperature and seed handling is special-cased per model family. one reasoning model refuses the deterministic setting outright.",
     "short token budgets truncated the JSON answer, which looked like a parsing failure rather than a length limit.",
     "the Google direct API silently drops the reproducibility parameters the rest of the harness sets."
   ],

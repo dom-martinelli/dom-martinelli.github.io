@@ -69,5 +69,10 @@
       "note": "what the referrals cost, in one picture: healthy children worked up for each child with a real disorder, worst model against best."
     }
   ],
-  "links": []
+  "links": [
+    {
+      "label": "Growth-MedQA, the benchmark this came out of",
+      "url": "growth-medqa.html"
+    }
+  ]
 }

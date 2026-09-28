@@ -1,7 +1,7 @@
 {
   "slug": "platefit",
   "tab": "clinical-tools",
-  "title": "Menu ranking for people on GLP-1 medication",
+  "title": "Restaurant menus ranked for eating on a GLP-1",
   "status": "in progress",
   "tools": [
     "Next.js 15",

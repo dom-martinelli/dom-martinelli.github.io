@@ -1,71 +1,71 @@
 {
-  "name": "Dom Martinelli",
-  "title": "Dom Martinelli · Biomedical informatics",
-  "footer": "figures made with matplotlib · site built from json by build.py",
-  "elsewhere": [
-    {
-      "label": "GitHub",
-      "url": "https://github.com/dom-martinelli"
-    },
-    {
-      "label": "Hugging Face",
-      "url": "https://huggingface.co/dmartinelli"
-    }
-  ],
-  "tabs": [
-    {
-      "id": "medical-ai",
-      "label": "Evaluating medical AI"
-    },
-    {
-      "id": "clinical-tools",
-      "label": "Clinical tools"
-    },
-    {
-      "id": "trials",
-      "label": "Trials and evidence"
-    },
-    {
-      "id": "population",
-      "label": "Population health"
-    },
-    {
-      "id": "molecules",
-      "label": "Molecules and food"
-    },
-    {
-      "id": "earlier",
-      "label": "Earlier work"
-    }
-  ],
-  "order": [
-    "growth-medqa",
-    "growth-zscore",
-    "over-referral",
-    "fda-ai-devices",
-    "growthradar-lite",
-    "growthbridge",
-    "platefit",
-    "advocacy-accrual",
-    "evidence-lag",
-    "patient-innovation-index",
-    "stroke-belt",
-    "sweetspace",
-    "wakespace",
-    "sirna",
-    "earlier-work"
-  ],
-  "affiliation": "biomedical informatics · Cornell · Kohane lab, Harvard DBMI",
-  "works_with": [
-    "Python",
-    "SMART on FHIR",
-    "RDKit",
-    "scikit-learn",
-    "GeoPandas",
-    "matched designs",
-    "LLM evaluation",
-    "ClinicalTrials.gov / AACT",
-    "PubMed / iCite",
-    "matplotlib"
-  ]
+ "name": "Dom Martinelli",
+ "title": "Dom Martinelli · Biomedical informatics",
+ "footer": "figures made with matplotlib · site built from json by build.py",
+ "elsewhere": [
+  {
+   "label": "GitHub",
+   "url": "https://github.com/dom-martinelli"
+  },
+  {
+   "label": "Hugging Face",
+   "url": "https://huggingface.co/dmartinelli"
+  }
+ ],
+ "tabs": [
+  {
+   "id": "trials",
+   "label": "Trials and evidence"
+  },
+  {
+   "id": "medical-ai",
+   "label": "Evaluating medical AI"
+  },
+  {
+   "id": "clinical-tools",
+   "label": "Clinical tools"
+  },
+  {
+   "id": "population",
+   "label": "Population health"
+  },
+  {
+   "id": "molecules",
+   "label": "Molecules and food"
+  },
+  {
+   "id": "earlier",
+   "label": "Earlier work"
+  }
+ ],
+ "order": [
+  "growth-medqa",
+  "growth-zscore",
+  "over-referral",
+  "fda-ai-devices",
+  "growthradar-lite",
+  "growthbridge",
+  "platefit",
+  "advocacy-accrual",
+  "evidence-lag",
+  "patient-innovation-index",
+  "stroke-belt",
+  "sweetspace",
+  "wakespace",
+  "sirna",
+  "earlier-work"
+ ],
+ "affiliation": "biomedical informatics · Cornell · Kohane lab, Harvard DBMI",
+ "works_with": [
+  "Python",
+  "SMART on FHIR",
+  "RDKit",
+  "scikit-learn",
+  "GeoPandas",
+  "matched designs",
+  "LLM evaluation",
+  "ClinicalTrials.gov / AACT",
+  "PubMed / iCite",
+  "matplotlib"
+ ]
 }

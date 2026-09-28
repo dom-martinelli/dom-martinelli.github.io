@@ -118,18 +118,14 @@ def tile(p, wide: bool) -> str:
 
 def build_index(site, projects):
     tabs = [t for t in site["tabs"] if any(p["tab"] == t["id"] for p in projects)]
-    tab_buttons = "".join(
-        f'<button role="tab" id="tab-{esc(t["id"])}" aria-controls="panel-{esc(t["id"])}" '
-        f'data-tab="{esc(t["id"])}">{esc(t["label"])}'
-        f'<span class="count">{sum(p["tab"] == t["id"] for p in projects)}</span></button>'
-        for t in tabs)
-    panels = []
+    jump = " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in tabs)
+    sections = []
     for t in tabs:
         items = [p for p in projects if p["tab"] == t["id"]]
         tiles = "".join(tile(p, wide=(i == 0)) for i, p in enumerate(items))
-        panels.append(
-            f'<section class="tabpanel" role="tabpanel" id="panel-{esc(t["id"])}" '
-            f'aria-labelledby="tab-{esc(t["id"])}"><div class="grid">{tiles}</div></section>')
+        sections.append(
+            f'<section class="shelf" id="{esc(t["id"])}"><h2>{esc(t["label"])}'
+            f'<span class="count">{len(items)}</span></h2><div class="grid">{tiles}</div></section>')
     works = "".join(f"<li>{esc(w)}</li>" for w in site.get("works_with", []))
     body = f"""{site_header(site, 0)}
 <main class="wrap">
@@ -139,11 +135,10 @@ def build_index(site, projects):
     <div class="works"><span class="margin-note">works with</span><ul>{works}</ul></div>
     <p class="hero-archive"><a href="archive.html">every notebook on my machine, indexed &rarr;</a></p>
   </section>
-  <div class="tabs" role="tablist" aria-label="Subjects">{tab_buttons}</div>
-  {''.join(panels)}
+  <nav class="jump" aria-label="Subjects">{jump}</nav>
+  {''.join(sections)}
 </main>
 <footer class="wrap foot">{esc(site.get('footer', ''))}</footer>
-<script src="assets/tabs.js"></script>
 </body>
 </html>
 """

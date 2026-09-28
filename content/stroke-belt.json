@@ -9,9 +9,16 @@
     "scikit-learn",
     "folium",
     "pandas",
-    "matplotlib"
+    "matplotlib",
+    "deck.gl",
+    "flow maps from the PUBPOL 2130 migration notebook"
   ],
-  "links": [],
+  "links": [
+    {
+      "label": "where patients go, interactive",
+      "url": "../tools/stroke-belt-flows.html"
+    }
+  ],
   "figures": [
     {
       "file": "assets/fig/stroke-belt-1.png",
@@ -28,6 +35,10 @@
     {
       "file": "assets/fig/stroke-belt-4.png",
       "note": "food insecurity, county level."
+    },
+    {
+      "file": "assets/fig/stroke-belt-5.png",
+      "note": "Medicare inpatient stays in eight Stroke Belt states, drawn from the patient's home county to the hospital's county. Arcs run light at home to deep at the hospital, so each starburst is a hub that the counties around it depend on: Nashville, Atlanta, Birmingham, Jackson, Charleston. The interactive version lets you tilt the map, hover any arc or county, and filter out small flows."
     }
   ],
   "line": "tract-level study of who develops high blood pressure and who gets treated",
@@ -43,7 +54,8 @@
     "CDC PLACES tract estimates",
     "ACS 5-year estimates",
     "Census TIGER geometries",
-    "county stroke, insurance, debt and food-access files"
+    "county stroke, insurance, debt and food-access files",
+    "CMS Hospital Service Area File, 2025 (Medicare stays by patient ZIP and hospital)"
   ],
   "calls": [
     "widened from one metro to the Stroke Belt states. the cleaned Chicago sample was a tiny slice of US tracts, and the hypertension burden is documented across the region.",
@@ -59,5 +71,8 @@
   "tried": "first version was Chicago tracts with HOLC redlining grades. too few tracts survived cleaning, so the team moved to Stroke Belt states and dropped the redlining layer.",
   "not_shown": [
     "four-person INFO 2950 group project; the decisions above are the team's"
+  ],
+  "found": [
+    "In the median Stroke Belt county, 82% of Medicare hospital stays happen in another county, against 68% in the median county elsewhere. A third of Belt counties send 95% or more of their stays away. Stroke care is time-critical, so distance to the hub is part of the disparity, not background to it."
   ]
 }

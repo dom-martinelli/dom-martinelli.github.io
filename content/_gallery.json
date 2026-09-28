@@ -355,7 +355,7 @@
   {
    "file": "assets/fig/stroke-belt-5.png",
    "slug": "stroke-belt",
-   "note": "Medicare inpatient stays in eight Stroke Belt states, drawn from the patient's home county to the hospital's county. Arcs run light at home to deep at the hospital, so each starburst is a hub that the counties around it depend on: Nashville, Atlanta, Birmingham, Jackson, Charleston. The interactive version lets you tilt the map, hover any arc or county, and filter out small flows.",
+   "note": "Medicare inpatient stays in eight Stroke Belt states, drawn from the patient's home county to the hospital's county. Arcs run light at home to deep at the hospital, so each starburst is a hub the surrounding counties depend on. Rings are the 47 rural hospitals here that closed since 2010 and could be placed on the map. Open it to tilt the map, hover any arc, county or closure, and filter out small flows.",
    "source": "assets/fig/stroke-belt-5.png",
    "rebuilt": "2026-09-28"
   }

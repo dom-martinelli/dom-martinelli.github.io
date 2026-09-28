@@ -14,7 +14,7 @@ Per-project fields the pages use:
   calls                           judgment calls, notes voice: "x over y. why"
   broke                           what failed or had to be redone
   tried                           one rejected approach, only if documented
-  figures [{file, note, dark}]    note sits in the margin beside the figure
+  figures [{file, note, dark, interactive}]  note sits in the margin; interactive = path of a tools/ page the still opens
   links [{label, url}]
 """
 from __future__ import annotations
@@ -93,6 +93,12 @@ def figure_panel(fig, depth: int, cls="panel", link=True) -> str:
     # tiles are already links to the project page; everywhere else a figure
     # opens full size, in a lightbox with JS and as the raw file without
     inner = img if not link else f'<a class="zoom" href="{src}">{img}</a>'
+    if fig.get("interactive"):
+        # a still of an interactive page: say so on the image, and open the page, not the file
+        cls += " panel-live"
+        badge = '<span class="live-badge">&#9654; interactive &middot; tilt, hover, filter</span>'
+        href = f'{up}{esc(fig["interactive"])}'
+        inner = img + badge if not link else f'<a href="{href}">{img}{badge}</a>'
     return f'<div class="{cls}">{inner}</div>'
 
 

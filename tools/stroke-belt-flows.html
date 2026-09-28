@@ -14,6 +14,12 @@
   p{margin:0 0 8px;font-size:.88rem;line-height:1.45;color:var(--soft)}
   .ramp{height:8px;border-radius:4px;background:linear-gradient(90deg,#B7E6A5,#7CCBA2,#46AEA0,#089099,#00718B,#045275);margin:6px 0 2px}
   .ends{display:flex;justify-content:space-between;font-size:.75rem;color:var(--soft)}
+  .find summary{cursor:pointer;font-size:.82rem;font-weight:600;margin:4px 0 6px}
+  .find p{font-size:.8rem}
+  .hint{position:fixed;right:16px;bottom:16px;z-index:2;background:#045275;color:#fff;border-radius:999px;padding:8px 14px;
+    font-size:.8rem;box-shadow:0 2px 12px rgba(0,0,0,.2);transition:opacity .6s}
+  .hint.gone{opacity:0;pointer-events:none}
+  @media (max-width:560px){.hint{bottom:auto;top:16px}}
   label{font-size:.8rem;color:var(--soft);display:flex;gap:8px;align-items:center;margin-top:8px}
   input[type=range]{flex:1}
   #tip{position:fixed;pointer-events:none;background:var(--panel);border:1px solid var(--rule);border-radius:6px;
@@ -26,18 +32,32 @@
   <h1>Where Stroke Belt patients go for a hospital stay</h1>
   <p>Each arc is Medicare inpatient stays from a patient's home county to the county of the hospital that treated them, across eight Stroke Belt states. Arcs shade from light at home to deep at the hospital. Dots are home counties, sized by how many stays leave.</p>
   <div class="ramp"></div><div class="ends"><span>home county</span><span>hospital county</span></div>
+  <details class="find"><summary>What the map shows</summary>
+    <p><b>Patients travel farther here.</b> A Stroke Belt Medicare stay is a median 10.7 miles from home, against 7.3 in the median state outside the Belt, and 14% are more than 30 miles away (8% elsewhere). Mississippi is the extreme: 27% of stays are over 30 miles.</p>
+    <p><b>The hubs are the cities.</b> Nashville, Atlanta, Birmingham, Charleston, Jackson, Knoxville, New Orleans and Little Rock each pull tens of thousands of stays from the counties around them.</p>
+    <p><b>Rings are rural hospitals that closed since 2010.</b> The Belt has 48 of the country's 154. Arkansas and Louisiana, the two early Medicaid expanders here, had 2 between them; the six states that held out through the decade had 46, Tennessee alone 14. Across all states, a higher closure rate goes with a larger share of stays over 30 miles (Spearman ρ 0.41). These are associations, not a causal estimate.</p>
+  </details>
+  <label><input id="showclosed" type="checkbox" checked> rural hospitals closed since 2010</label>
   <label>fewest stays per arc <input id="min" type="range" min="20" max="500" step="10" value="50"> <span id="minv">50</span></label>
   <p style="margin-top:8px;font-size:.75rem">CMS Hospital Service Area File, 2025 release. Cells under 11 stays are suppressed by CMS. Drag to tilt, scroll to zoom. <a href="../projects/stroke-belt.html">Back to the project</a></p>
 </div>
 <div id="tip"></div>
+<div class="hint" id="hint">&#9654; interactive: drag to tilt and spin · hover an arc, dot or ring · scroll to zoom</div>
 <script src="https://cdn.jsdelivr.net/npm/deck.gl@9.0.38/dist.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <script>
-if(new URLSearchParams(location.search).has("still")) document.querySelector(".panel").style.display="none";
+if(innerWidth>1300) document.querySelector(".find").open = true;
+const still = new URLSearchParams(location.search).has("still");
+if(still){ document.querySelector(".panel").style.display="none"; document.getElementById("hint").style.display="none"; }
 const SEA_FROM=[183,230,165], SEA_TO=[4,82,117];
 const dark = matchMedia("(prefers-color-scheme: dark)").matches;
 const tip = document.getElementById("tip");
-let data, states, view, minCases = 50;
+let data, states, view, closed = [], hubs = [], minCases = 50, showClosed = true, spinning = true, vs;
+const CITY = {"Davidson County, TN":"Nashville","Fulton County, GA":"Atlanta","Jefferson County, AL":"Birmingham","Charleston County, SC":"Charleston",
+  "Hinds County, MS":"Jackson","Knox County, TN":"Knoxville","Jefferson Parish, LA":"New Orleans area","Pulaski County, AR":"Little Rock",
+  "Orleans Parish, LA":"New Orleans","Mecklenburg County, NC":"Charlotte","Durham County, NC":"Durham","Hamilton County, TN":"Chattanooga",
+  "Shelby County, TN":"Memphis","Richland County, SC":"Columbia","Greenville County, SC":"Greenville","East Baton Rouge Parish, LA":"Baton Rouge",
+  "Forsyth County, NC":"Winston-Salem","Wake County, NC":"Raleigh","Pitt County, NC":"Greenville NC","Bibb County, GA":"Macon"};
 const fmt = n => n.toLocaleString("en-US");
 
 function layers(){
@@ -52,26 +72,47 @@ function layers(){
       getSourcePosition:d=>[d[0],d[1]], getTargetPosition:d=>[d[2],d[3]],
       getSourceColor:[...SEA_FROM,150], getTargetColor:[...SEA_TO,230],
       getWidth:d=>Math.max(0.6, Math.sqrt(d[4])/9), getHeight:0.45,
-      autoHighlight:true, highlightColor:[8,144,153,255]})
+      autoHighlight:true, highlightColor:[8,144,153,255]}),
+    new deck.ScatterplotLayer({id:"closed", data:showClosed?closed:[], pickable:true, stroked:true, filled:true,
+      getPosition:d=>[d[0],d[1]], getRadius:9000, radiusMinPixels:5, lineWidthMinPixels:2,
+      getFillColor:[255,255,255,210], getLineColor:[0,49,71,255]}),
+    new deck.TextLayer({id:"hubs", data:hubs, getPosition:d=>[d.x,d.y,60000], getText:d=>d.name, getSize:13,
+      getColor:dark?[230,240,238,255]:[0,49,71,255], fontWeight:700, getPixelOffset:[0,-14],
+      outlineWidth:3, outlineColor:dark?[13,21,23,255]:[255,255,255,255], fontSettings:{sdf:true},
+      fontFamily:"-apple-system,Helvetica,Arial,sans-serif"})
   ];
 }
 function onHover({object, x, y, layer}){
   if(!object){tip.style.display="none";return}
   tip.innerHTML = layer.id==="arcs"
     ? `<b>${fmt(object[4])}</b> stays<br>${object[5]} → ${object[6]}`
+    : layer.id==="closed" ? `<b>${object[2]}</b><br>closed ${object[3]} · ${object[4]}`
     : `<b>${object[4]}</b><br>${Math.round(object[2]*100)}% of ${fmt(object[3])} stays are in another county`;
   tip.style.display="block"; tip.style.left=(x+14)+"px"; tip.style.top=(y+14)+"px";
 }
 Promise.all([
   fetch("data/stroke-belt-flows.json").then(r=>r.json()),
-  fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(r=>r.json())
-]).then(([d, us])=>{
-  data = d; states = topojson.feature(us, us.objects.states);
+  fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(r=>r.json()),
+  fetch("data/stroke-belt-closures.json").then(r=>r.json())
+]).then(([d, us, c])=>{
+  data = d; closed = c; states = topojson.feature(us, us.objects.states);
+  const inflow = {};
+  d.arcs.forEach(a=>{const k=a[6]; (inflow[k] ||= {x:a[2],y:a[3],n:0}).n += a[4];});
+  hubs = Object.entries(inflow).sort((a,b)=>b[1].n-a[1].n).slice(0,8).map(([k,v])=>({...v,name:CITY[k]||k}));
   view = new deck.DeckGL({container:"map",
-    initialViewState:{longitude:-86.2, latitude:33.2, zoom:5.3, pitch:42, bearing:-8},
+    initialViewState:(vs={longitude:(innerWidth>900&&!still)?-89.6:-86.2, latitude:33.4, zoom:innerWidth>900?5.2:4.6, pitch:42, bearing:-8}),
     controller:true, layers:layers(), onHover,
+    onInteractionStateChange:s=>{ if(s.isDragging||s.isZooming||s.isRotating){ spinning=false; document.getElementById("hint").classList.add("gone"); } },
     parameters:{clearColor: dark?[0.05,0.08,0.09,1]:[0.953,0.961,0.949,1]}});
+  // a slow sway on load, so the page announces it is live; stops at the first touch
+  if(!still && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+    const t0 = performance.now();
+    (function sway(now){ if(!spinning) return;
+      const b = -8 + 14*Math.sin((now-t0)/2600);
+      view.setProps({initialViewState:{...vs, bearing:b, transitionDuration:0}}); requestAnimationFrame(sway); })(t0);
+  }
 });
+document.getElementById("showclosed").addEventListener("change", e=>{showClosed=e.target.checked; view && view.setProps({layers:layers()})});
 const slider = document.getElementById("min");
 slider.addEventListener("input", e=>{minCases=+e.target.value; document.getElementById("minv").textContent=minCases; view && view.setProps({layers:layers()})});
 </script>

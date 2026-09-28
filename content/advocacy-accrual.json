@@ -44,7 +44,7 @@
   ],
   "calls": [
     "three stop-reason classes with an explicit ambiguous bucket, not a binary accrual label. text saying nobody enrolled without saying why is not evidence of accrual failure.",
-    "blank stop reasons dropped from the outcome by default. counting them as non-accrual keeps the sample but biases toward the null if the blanks are quietly accrual failures. both branches coded.",
+    "blank stop reasons dropped from the outcome by default. counting them as non-accrual keeps the sample but biases toward the null if many of the blanks are really accrual failures. both branches coded.",
     "bootstrap whole matching strata, not individual trials. controls were drawn for a specific treated trial, so they are not independent of it.",
     "effect reported in days of avoided delay, not dollars. the industry per-day cost figure circulates with a wide range and thin provenance."
   ],

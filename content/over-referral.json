@@ -25,20 +25,25 @@
     "published referral PPV and workup cost figures"
   ],
   "found": [
-    "most models behave like the doctor you would fire: given a hundred healthy short children each, the worst refer every one. the newest refer almost none. it splits the field rather than tracking scale.",
-    "they trigger on the label, not the trajectory. raw height and weight reads as fine; adding the percentile sets off the alarm on the identical steady curve, and each model flips at its own percentile.",
-    "one clinical sentence, that a stably tracking low percentile is a normal variant, drops over-referral to near zero for most models. a subset ignore it, which is its own finding.",
-    "the computed velocity barely helps. representation, not more compute, is what moves the behaviour.",
+    "most models behave like the doctor you would fire: given a hundred healthy short children each, the worst refer every one. the newest refer almost none. model size does not predict where a model lands.",
+    "the percentile label is what triggers them. raw height and weight reads as fine; adding the percentile sets off the alarm on the identical steady curve, and each model flips at its own percentile.",
+    "one clinical sentence, that a stably tracking low percentile is a normal variant, drops over-referral to near zero for most models. a subset ignore it.",
+    "the computed velocity barely helps. how the growth data is presented is what moves the behaviour.",
     "role framing moves the screening call much less than representation does: under payer, endocrinologist or parent prompts the within-model spread stays small next to the model-to-model spread."
   ],
+  "cost_per_1000": [
+    "Sisley et al. (J Pediatr, 2013; doi:10.1016/j.jpeds.2013.04.002) puts the positive predictive value of a short-stature referral at about 1–5%, so roughly 950–990 of every 1,000 referrals do not find treatable pathology.",
+    "If a screener refers all 1,000 children, as the worst models here did, those low-yield workups cost about $1.9–$4.0 million.",
+    "This estimate assumes $2,000–$4,000 per initial workup, applies the 1–5% PPV range to all 1,000 referrals, and excludes later treatment, travel, and family time."
+  ],
   "calls": [
-    "healthy children as the test set, not sick ones. the failure being measured is referring a well child, and only a handful of real disease cases are digitised cleanly enough to trust.",
-    "referral burden and PPV as the yardstick, not accuracy. a short-stature referral already carries a positive predictive value of a few percent, and each workup costs thousands into the most access-constrained pediatric specialty.",
-    "the same children re-run under each prompt condition rather than fresh samples per condition, so the difference is the representation and not the draw.",
+    "healthy children as the test set. the failure being measured is referring a well child, and only a handful of real disease cases are digitised cleanly enough to trust.",
+    "referral burden and PPV as the yardstick. a short-stature referral already carries a positive predictive value of a few percent, and each workup costs thousands into the most access-constrained pediatric specialty.",
+    "the same children re-run under each prompt condition, so any difference comes from the representation. fresh samples per condition would add sampling noise.",
     "open and frontier models in one panel. the interesting result is the split across the field, which a frontier-only panel would hide."
   ],
   "broke": [
-    "the first framing read as a leaderboard. it is a behaviour measurement, and the figures had to be rebuilt so the comparison is condition against condition, not model against model.",
+    "the first framing read as a leaderboard. it is a behaviour measurement, and the figures had to be rebuilt so each figure compares conditions within a model.",
     "single deterministic pass per item, and the contamination check is still outstanding."
   ],
   "tried": "tried reading it as a capability gap first, expecting bigger models to do better. the panel does not sort by scale, so capability was the wrong frame and representation replaced it.",

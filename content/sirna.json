@@ -38,7 +38,7 @@
     "three model families side by side rather than tuning one architecture. on a task nobody had modelled, which family fits is itself the finding.",
     "ROC and precision-recall AUC, not accuracy. classes are unbalanced at every threshold, and a falsely optimistic call is the expensive mistake here.",
     "the whole experiment repeated at three inhibition cutoffs. published definitions of an effective siRNA disagree with each other.",
-    "one-hot encoding of base and modification at each position, not cheminformatics descriptors of each modification. enough for a proof of concept, at the cost that a genuinely new chemistry cannot be scored without retraining."
+    "one-hot encoding of base and modification at each position, not cheminformatics descriptors of each modification. enough for a proof of concept, at the cost that a new chemistry cannot be scored without retraining."
   ],
   "broke": [
     "the validation sequences the methods pointed to were missing from the supplement at first submission. a reviewer caught it.",

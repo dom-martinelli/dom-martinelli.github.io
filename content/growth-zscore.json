@@ -25,6 +25,10 @@
       "note": "left: placement accuracy by how short the child is. right: the three conditions, no help, plus the formula, plus the CDC values for that age. 6 of 13 models shown, 40 children each."
     },
     {
+      "file": "assets/fig/growth-zscore-3.png",
+      "note": "the same 40 children, 16 of them truly below −2. dark: a short child placed above the line, a missed referral. light: a child placed below it, an unneeded one. the CDC values fix most models, but Qwen2.5 72B trades 16 misses for 13 unneeded referrals: the error changes direction instead of going away."
+    },
+    {
       "file": "assets/fig/growth-zscore-2.png",
       "note": "green: asked for the CDC median height at an age, accurate to about a centimetre. red: asked to place a specific child with no reference given."
     }
@@ -60,8 +64,15 @@
   ],
   "found": [
     "placement collapses exactly where a screener has to be right: very short and borderline children. average-height kids are easy for everyone.",
+    "getting the z-score wrong is not a rounding problem. near −2 a small miss decides whether a child is referred, so every error is either a missed short child or a healthy one sent to endocrinology.",
+    "reference values can move the error without removing it. one model goes from missing every short child to over-referring more than half the children who are fine.",
     "handing over the CDC values for that age lifts every model, and does not rescue the weakest ones.",
     "the formula on its own does almost nothing. the reference values are what move it.",
     "they can recite the median height for an age to about a centimetre, then fail to place a specific child on the chart. the knowledge is there; the processing is not."
+  ],
+  "cost_per_1000": [
+    "A short-stature workup runs about $2,000–$4,000 (visit, IGF-1 and IGFBP-3, bone age, sometimes MRI or karyotype), and the referral's positive predictive value for treatable pathology is about 1–5% (Sisley et al., J Pediatr 2013).",
+    "Qwen2.5 72B with the CDC values sent 13 of 40 children below −2 who were not. At that rate, 1,000 children like these produce about 325 unneeded workups, roughly $0.65–$1.3 million, each one taking a slot in a subspecialty with some of the longest waits in pediatrics.",
+    "The test set is weighted toward children near the line, where the call is hardest, so this is a stress-test rate, not a population estimate."
   ]
 }

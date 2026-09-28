@@ -1,6 +1,6 @@
 {
  "version": "2026-09-21 pastel-classes",
- "synced": "2026-09-21",
+ "synced": "2026-09-28",
  "figures": [
   {
    "file": "gallery/odor-structure-topography.png",
@@ -164,6 +164,13 @@
    "rebuilt": "2026-09-19"
   },
   {
+   "file": "assets/fig/growth-zscore-3.png",
+   "slug": "growth-zscore",
+   "note": "the same 40 children, 16 of them truly below \u22122. dark: a short child placed above the line, a missed referral. light: a child placed below it, an unneeded one. the CDC values fix most models, but Qwen2.5 72B trades 16 misses for 13 unneeded referrals: the error changes direction instead of going away.",
+   "source": "assets/fig/growth-zscore-3.png",
+   "rebuilt": "2026-09-28"
+  },
+  {
    "file": "assets/fig/growth-zscore-2.png",
    "slug": "growth-zscore",
    "note": "green: asked for the CDC median height at an age, accurate to about a centimetre. red: asked to place a specific child with no reference given.",
@@ -211,6 +218,97 @@
    "note": "what the referrals cost, in one picture: healthy children worked up for each child with a real disorder, worst model against best.",
    "source": "assets/fig/over-referral-4.png",
    "rebuilt": "2026-09-20"
+  },
+  {
+   "file": "assets/fig/pii-dose-response.png",
+   "slug": "patient-innovation-index",
+   "note": "citation impact climbs with each added involvement signal. left: impact by index score, medians marked on a log scale. right: the same papers as NIH citation percentiles.",
+   "source": "assets/fig/pii-dose-response.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-umap-pii.png",
+   "slug": "patient-innovation-index",
+   "note": "a sample of abstracts laid out by topic, coloured by index score. involved papers bunch on one side of the map, so topic is a confounder the control sets have to absorb.",
+   "source": "assets/fig/pii-umap-pii.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-survival.png",
+   "slug": "patient-innovation-index",
+   "note": "share of papers above each citation level, log scale. half of the papers with two or more signals beat the field average (RCR 1.0), against 37% of controls.",
+   "source": "assets/fig/pii-survival.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-signal-vs-population.png",
+   "slug": "patient-innovation-index",
+   "note": "each signal alone against the population baseline. red signals are structural and predict impact; the grey ones are framing and predict nothing.",
+   "source": "assets/fig/pii-signal-vs-population.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-signal-decomposition.png",
+   "slug": "patient-innovation-index",
+   "note": "the same breakdown against controls matched on disease heading. the structural signals stay on top.",
+   "source": "assets/fig/pii-signal-decomposition.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-cem.png",
+   "slug": "patient-innovation-index",
+   "note": "after matching on year and team size. the dashed lines are each group's median; the involved group's sits to the right.",
+   "source": "assets/fig/pii-cem.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-matched-rcr.png",
+   "slug": "patient-innovation-index",
+   "note": "a second matched comparison: involved papers against matched papers from the same search that scored zero, so both groups come out of one retrieval.",
+   "source": "assets/fig/pii-matched-rcr.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-emb-matched-rcr.png",
+   "slug": "patient-innovation-index",
+   "note": "the tightest topic control: each involved paper paired with the zero-score paper whose abstract embedding sits closest. a much smaller sample.",
+   "source": "assets/fig/pii-emb-matched-rcr.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-within-journal.png",
+   "slug": "patient-innovation-index",
+   "note": "the comparison repeated inside each of 18 journals. 13 point the same way.",
+   "source": "assets/fig/pii-within-journal.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-within-disease.png",
+   "slug": "patient-innovation-index",
+   "note": "within broad disease groups against disease-matched controls. most groups favour involved papers; mental and metabolic disorders do not.",
+   "source": "assets/fig/pii-within-disease.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-bucket-significance-mesh-ctrl.png",
+   "slug": "patient-innovation-index",
+   "note": "the same question with a stricter control pool, heading-matched controls pooled per disease group. the gains shrink and three groups hold.",
+   "source": "assets/fig/pii-bucket-significance-mesh-ctrl.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-heading-significance-50ctrl.png",
+   "slug": "patient-innovation-index",
+   "note": "specific disease headings with at least 50 controls, top 15 by effect. COVID-19, HIV and pain survive false-discovery correction.",
+   "source": "assets/fig/pii-heading-significance-50ctrl.png",
+   "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pii-citation-velocity.png",
+   "slug": "patient-innovation-index",
+   "note": "one thing the index does not predict: early citation speed. involved papers are cited more slowly in their first two years until three or more signals.",
+   "source": "assets/fig/pii-citation-velocity.png",
+   "rebuilt": "2026-09-27"
   },
   {
    "file": "assets/fig/sirna-1.png",

@@ -318,11 +318,18 @@
    "rebuilt": "2026-09-27"
   },
   {
+   "file": "assets/fig/sirna-3.png",
+   "slug": "sirna",
+   "note": "the seven sugar modifications in the training data, drawn in ChemDraw for the paper, each shown against the unmodified ribose position it replaces (grey marks the change). backbone modifications such as phosphorothioate are not part of this set.",
+   "source": "assets/fig/sirna-3.png",
+   "rebuilt": "2026-09-28"
+  },
+  {
    "file": "assets/fig/sirna-1.png",
    "slug": "sirna",
-   "note": "which chemical modifications appear in the training data, and how often.",
+   "note": "how often each modification appears across the training siRNAs, in the same order as the structures above. 2\u2032-O-methyl and 2\u2032-fluoro dominate; the rarer chemistries give the model very few examples to learn from.",
    "source": "assets/fig/sirna-1.png",
-   "rebuilt": "2026-09-17"
+   "rebuilt": "2026-09-28"
   },
   {
    "file": "assets/fig/sirna-2.png",

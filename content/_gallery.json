@@ -180,16 +180,16 @@
   {
    "file": "assets/fig/growthbridge-1.png",
    "slug": "growthbridge",
-   "note": "the family-facing view, loaded with the Turner syndrome teaching case",
+   "note": "the family-facing chart for the Turner syndrome teaching case. the dashed line marks the visit where height fell below \u22122 SD, and the note underneath explains it in plain language and points the family back to their clinician.",
    "source": "assets/fig/growthbridge-1.png",
-   "rebuilt": "2026-09-20"
+   "rebuilt": "2026-09-28"
   },
   {
    "file": "assets/fig/growthradar-lite-1.png",
    "slug": "growthradar-lite",
-   "note": "the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart.",
+   "note": "the sample patient's height and weight from the record, with flagged points marked. below, height velocity between visits: the early jumps of 48 and 23 cm a year are flagged as likely measurement artifacts, so a bad entry is caught before it reads as a growth problem.",
    "source": "assets/fig/growthradar-lite-1.png",
-   "rebuilt": "2026-09-17"
+   "rebuilt": "2026-09-28"
   },
   {
    "file": "assets/fig/over-referral-1.png",

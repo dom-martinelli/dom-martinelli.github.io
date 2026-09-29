@@ -26,11 +26,11 @@
     {
       "file": "assets/fig/growthradar-lite-1.png",
       "dark": true,
-      "note": "the app with its sample patient loaded: parsed vitals from the record, each marked with how it is used on the chart."
+      "note": "the sample patient's height and weight from the record, with flagged points marked. below, height velocity between visits: the early jumps of 48 and 23 cm a year are flagged as likely measurement artifacts, so a bad entry is caught before it reads as a growth problem."
     }
   ],
   "host_file": "",
-  "line": "single-file SMART on FHIR app reading a child's growth history",
+  "line": "what a clinician sees: a child's growth history pulled from the record, charted, with implausible jumps flagged before anyone acts on them",
   "question": "Can a browser app read a child's growth history straight from a health record and surface faltering a short visit would miss?",
   "skills": [
     "SMART on FHIR integration",

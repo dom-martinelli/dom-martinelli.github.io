@@ -25,6 +25,9 @@ ROOTS = [
 SKIP_PARTS = {
     "node_modules", ".git", "__pycache__", ".ipynb_checkpoints", "Library/Caches",
     "site-packages", ".venv", "venv", "anaconda3", ".Trash",
+    # industry work under confidentiality: never listed, not even by name
+    "Research/AL", "FANTOM5_ENCODE", "prime_editing", "pegrna", "tool_v1", "tool_v2",
+    "h3k27ac", "Mobile Documents/com~apple~CloudDocs/Metabolism",
 }
 
 # subject buckets, tested in order: first hit wins

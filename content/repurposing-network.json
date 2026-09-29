@@ -1,0 +1,30 @@
+{
+  "slug": "repurposing-network",
+  "tab": "molecules",
+  "title": "Metformin to Alzheimer's, through the knowledge graph",
+  "status": "planned",
+  "line": "drug repurposing hypotheses read off a public biomedical knowledge graph",
+  "question": "If metformin helps in Alzheimer's, as observational studies keep suggesting, what biological paths could carry that effect, and how well supported is each link?",
+  "skills": [
+    "drug repurposing",
+    "knowledge graphs",
+    "network visualisation"
+  ],
+  "tools": [
+    "Python",
+    "Hetionet",
+    "Open Targets",
+    "ChEMBL"
+  ],
+  "data": [
+    "Hetionet (Himmelstein et al., eLife 2017)",
+    "Open Targets",
+    "ChEMBL mechanisms"
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": "",
+  "planned": [
+    "planned figure: the top metapaths from metformin to Alzheimer's in Hetionet, drawn in 3D with edge width by evidence, next to the ClinicalTrials.gov record of metformin trials in cognitive decline."
+  ]
+}

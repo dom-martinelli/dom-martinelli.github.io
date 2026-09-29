@@ -1,0 +1,38 @@
+{
+  "slug": "generative-design",
+  "tab": "molecules",
+  "title": "Generative models for drug design",
+  "status": "planned",
+  "line": "what my 2022 review found, and a small open generative run to show the method",
+  "question": "Generative models can propose thousands of new drug-like molecules, but most are hard to synthesise and hard to compare. Which model families actually deliver, and how do you tell?",
+  "skills": [
+    "cheminformatics",
+    "generative machine learning",
+    "systematic review"
+  ],
+  "tools": [
+    "Python",
+    "RDKit",
+    "SELFIES"
+  ],
+  "data": [
+    "ChEMBL",
+    "ZINC",
+    "published generative benchmarks (GuacaMol, MOSES)"
+  ],
+  "found": [
+    "the review covered 87 studies: six model families (LSTM and GRU RNNs, VAEs, GANs, adversarial autoencoders, evolutionary algorithms) and eight recurring problems, led by poor synthesisability, thin assay data and no agreed way to compare models."
+  ],
+  "planned": [
+    "a small open run: a SELFIES-based generator trained on a ChEMBL target set, scored against the MOSES and GuacaMol benchmark metrics, with the generated molecules drawn on the same chemical-space map as the wakefulness-drug project.",
+    "industry generative work (multi-objective reinforcement learning on thousands of molecules) is proprietary and is described here, not shown."
+  ],
+  "figures": [],
+  "links": [
+    {
+      "label": "the review (Computers in Biology and Medicine, 2022)",
+      "url": "https://doi.org/10.1016/j.compbiomed.2022.105403"
+    }
+  ],
+  "host_file": ""
+}

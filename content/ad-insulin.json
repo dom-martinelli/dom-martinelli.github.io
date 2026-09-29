@@ -1,0 +1,35 @@
+{
+  "slug": "ad-insulin",
+  "tab": "molecules",
+  "title": "Alzheimer's disease and insulin resistance",
+  "status": "planned",
+  "line": "the molecular overlap between brain insulin resistance and Alzheimer's, as a network",
+  "question": "Type 2 diabetes roughly doubles dementia risk, and insulin was the most frequent chemical in 17,286 Alzheimer's abstracts in my 2022 text-mining paper. Which genes and pathways do the two diseases actually share, and which of them are drug targets?",
+  "skills": [
+    "multi-omics analysis",
+    "causal inference framing",
+    "network biology"
+  ],
+  "tools": [
+    "Python",
+    "Open Targets Platform",
+    "STRING",
+    "Reactome"
+  ],
+  "data": [
+    "Open Targets associations for Alzheimer's disease and type 2 diabetes",
+    "STRING protein–protein interactions",
+    "Reactome pathways",
+    "2024–25 lab work: AMP-AD, ROSMAP and DiCAD proteomics, Emory vascular RNA-seq"
+  ],
+  "not_shown": [
+    "the lab figures themselves wait on confirming what the data-use terms allow"
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": "",
+  "planned": [
+    "planned figure: an interactive network of genes associated with both diseases, linked by protein interactions and shared pathways, coloured by which disease each gene is most associated with and marked where an approved drug already hits it.",
+    "lab work behind it (Vacanti lab, 2024–25): proteomics across AMP-AD, ROSMAP and DiCAD, and DESeq2 on diabetes-medication users in the Emory vascular cohort."
+  ]
+}

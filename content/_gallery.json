@@ -1,6 +1,6 @@
 {
  "version": "2026-09-21 pastel-classes",
- "synced": "2026-09-28",
+ "synced": "2026-09-29",
  "figures": [
   {
    "file": "gallery/odor-structure-topography.png",
@@ -316,6 +316,13 @@
    "note": "one thing the index does not predict: early citation speed. involved papers are cited more slowly in their first two years until three or more signals.",
    "source": "assets/fig/pii-citation-velocity.png",
    "rebuilt": "2026-09-27"
+  },
+  {
+   "file": "assets/fig/pgx-trials-1.png",
+   "slug": "pgx-trials",
+   "note": "share of trial sites in the United States, by start year, for trials cited as evidence in PharmGKB gene\u2013drug relationships. colour is the number of trials that year. the US share falls from around half in the late 2000s to a fifth or less after 2016.",
+   "source": "assets/fig/pgx-trials-1.png",
+   "rebuilt": "2026-09-29"
   },
   {
    "file": "assets/fig/sirna-3.png",

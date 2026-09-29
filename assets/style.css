@@ -235,3 +235,5 @@ a.zoom { display: block; cursor: zoom-in; }
 .paper-nofig { flex-direction: column; gap: 8px; text-align: center; background: linear-gradient(135deg, #e8f5ef, #d3ecef) !important; }
 .paper-nofig .big { font-size: 2rem; font-weight: 700; color: #045275; font-style: normal; }
 .paper-nofig span { color: #2b5b66; font-style: normal; max-width: 80%; }
+.status-planned { color: #7CCBA2; border-style: dashed; border-color: #46AEA0; }
+.status-exploratory { color: #B7E6A5; border-color: #089099; }

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where pharmacogenomic evidence comes from · Dom Martinelli</title>
+<meta name="description" content="PharmGKB&#x27;s gene–drug evidence traced back to the trials behind it, and where those trials ran">
+<meta property="og:title" content="Where pharmacogenomic evidence comes from · Dom Martinelli">
+<meta property="og:description" content="PharmGKB&#x27;s gene–drug evidence traced back to the trials behind it, and where those trials ran">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="../archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#pgx">&larr; Pharmacogenomics and precision psychiatry</a>
+  <h1>Where pharmacogenomic evidence comes from</h1>
+  <p class="line">PharmGKB&#x27;s gene–drug evidence traced back to the trials behind it, and where those trials ran</p>
+  <dl class="spec"><div><dt>skills</dt><dd>evidence linkage across databases · schema-aware ETL · pharmacogenomics · trial registry analysis</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>pandas</li><li>AACT (PostgreSQL)</li><li>PharmGKB</li></ul></dd></div><div><dt>data</dt><dd>PharmGKB relationships and literature links · AACT, the ClinicalTrials.gov database · PubMed</dd></div><div><dt>status</dt><dd><span class="status status-exploratory">exploratory</span></dd></div></dl>
+  <div class="actions"><a class="btn btn-primary" href="https://github.com/dom-martinelli/PharmEDA">PharmEDA on GitHub</a></div>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>When PharmGKB says a gene changes how a drug works, which clinical trials is that claim resting on, and whose bodies were in them?</p></div></div>
+  <div class="figs"><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/pgx-trials-1.png"><img src="../assets/fig/pgx-trials-1.png" alt="share of trial sites in the United States, by start year, for trials cited as evidence in PharmGKB gene–drug relationships. colour is the number of trials that year. the US share falls from around half in the late 2000s to a fifth or less after 2016." loading="lazy"></a></div><figcaption class="margin-note">share of trial sites in the United States, by start year, for trials cited as evidence in PharmGKB gene–drug relationships. colour is the number of trials that year. the US share falls from around half in the late 2000s to a fifth or less after 2016.</figcaption></figure></div>
+  
+  
+  <div class="row"><div class="margin-note">what came out</div><div class="row-body"><ul><li>8,027 PharmGKB &#x27;associated&#x27; relationship–paper links, matched to ClinicalTrials.gov references, give 254 trials behind the gene–drug claims, 202 with full records.</li><li>45 of those trials, supporting 51 papers, back relationships whose only evidence comes from outside the US. Germany has the most non-US sites (370).</li><li>42 of the trials were withdrawn, and the withdrawal reasons are tallied in the notebook.</li></ul></div></div>
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>the link runs PharmGKB relationship → cited paper → trial registry number, so a trial only counts if a paper behind a gene–drug claim names it.</li><li>site country is the unit, not sponsor country. a claim tested only in German clinics is a claim about German patients.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>a missingness pass reported sex, race and ethnicity missing in every one of the 202 trials, with only 3 study–gene matches. that is almost certainly a join error, not a finding, and it is left off until it is rechecked.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>the three case studies planned on top of this (zolpidem sex-based dosing, carbamazepine with HLA-B*15:02, warfarin genotype dosing)</li></ul></div></div>
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

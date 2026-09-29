@@ -1,0 +1,33 @@
+{
+  "slug": "allostatic-load",
+  "tab": "pgx",
+  "title": "Allostatic load and antidepressant response",
+  "status": "planned",
+  "line": "stress biology, its epigenetic marks, and the drugs whose response it modifies",
+  "question": "Chronic stress leaves measurable marks: HPA-axis dysregulation, glucocorticoid-receptor methylation, faster epigenetic clocks. Which of those marks are documented to change how people respond to psychiatric drugs, and does the burden fall on the same populations that are thin in the trials?",
+  "skills": [
+    "precision psychiatry",
+    "epigenomics literature synthesis",
+    "network visualisation"
+  ],
+  "tools": [
+    "Python",
+    "Open Targets Platform",
+    "networkx"
+  ],
+  "data": [
+    "published allostatic-load and FKBP5 / NR3C1 methylation studies",
+    "Open Targets genetic associations for major depressive disorder",
+    "CPIC and PharmGKB psychiatric drug annotations"
+  ],
+  "calls": [
+    "literature-first. every edge in the network has to point to an established finding, not to a model's guess."
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": "",
+  "planned": [
+    "planned figure: a three-layer network running from stress-response genes (FKBP5, NR3C1, CRHR1) through the pathways they share with drug targets to SSRIs, SNRIs and ketamine, with each edge sourced to a paper or database record.",
+    "reading list first: McEwen's allostatic-load model, the FKBP5 × early-life-stress work, and the antidepressant-response studies that use methylation as a moderator."
+  ]
+}

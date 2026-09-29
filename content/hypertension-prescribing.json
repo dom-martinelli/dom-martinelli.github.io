@@ -1,0 +1,39 @@
+{
+  "slug": "hypertension-prescribing",
+  "tab": "population",
+  "title": "Who gets blood pressure medication, and where the specialists are",
+  "status": "planned",
+  "line": "antihypertensive prescribing by county against hospital and specialist resourcing",
+  "question": "Across the Stroke Belt, does the drug class a patient with hypertension receives, and whether they get one at all, track where cardiologists and well-resourced hospitals are?",
+  "skills": [
+    "health services research",
+    "geospatial analysis",
+    "pharmacoepidemiology"
+  ],
+  "tools": [
+    "Python",
+    "GeoPandas",
+    "deck.gl"
+  ],
+  "data": [
+    "Medicare Part D Prescribers by Provider and Drug",
+    "AHA Annual Survey Database FY2022 (licensed through Cornell; aggregates only)",
+    "CDC PLACES blood pressure medication measure"
+  ],
+  "links": [
+    {
+      "label": "the Stroke Belt hypertension project",
+      "url": "stroke-belt.html"
+    },
+    {
+      "label": "where Southern patients go for a hospital stay",
+      "url": "patient-flows.html"
+    }
+  ],
+  "figures": [],
+  "host_file": "",
+  "planned": [
+    "planned figure: county share of antihypertensive fills by class (ACE inhibitors, ARBs, thiazides, calcium channel blockers) beside cardiologist density and hospital resourcing.",
+    "the AHA survey is licensed through Cornell and cannot be redistributed, so only county-level aggregates will appear here."
+  ]
+}

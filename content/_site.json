@@ -18,6 +18,10 @@
    "label": "Trials and evidence"
   },
   {
+   "id": "pgx",
+   "label": "Pharmacogenomics and precision psychiatry"
+  },
+  {
    "id": "medical-ai",
    "label": "Evaluating medical AI"
   },
@@ -47,13 +51,21 @@
   "growthbridge",
   "platefit",
   "advocacy-accrual",
+  "pgx-trials",
+  "pgx-ancestry",
+  "allostatic-load",
+  "glp1-sud",
   "evidence-lag",
   "patient-innovation-index",
   "stroke-belt",
   "patient-flows",
+  "hypertension-prescribing",
   "sweetspace",
   "wakespace",
   "sirna",
+  "ad-insulin",
+  "repurposing-network",
+  "generative-design",
   "earlier-work"
  ],
  "affiliation": "biomedical informatics · Cornell · Kohane lab, Harvard DBMI",

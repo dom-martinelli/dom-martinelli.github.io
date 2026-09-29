@@ -1,0 +1,53 @@
+{
+  "slug": "pgx-trials",
+  "tab": "pgx",
+  "title": "Where pharmacogenomic evidence comes from",
+  "status": "exploratory",
+  "line": "PharmGKB's gene–drug evidence traced back to the trials behind it, and where those trials ran",
+  "question": "When PharmGKB says a gene changes how a drug works, which clinical trials is that claim resting on, and whose bodies were in them?",
+  "skills": [
+    "evidence linkage across databases",
+    "schema-aware ETL",
+    "pharmacogenomics",
+    "trial registry analysis"
+  ],
+  "tools": [
+    "Python",
+    "pandas",
+    "AACT (PostgreSQL)",
+    "PharmGKB"
+  ],
+  "data": [
+    "PharmGKB relationships and literature links",
+    "AACT, the ClinicalTrials.gov database",
+    "PubMed"
+  ],
+  "figures": [
+    {
+      "file": "assets/fig/pgx-trials-1.png",
+      "note": "share of trial sites in the United States, by start year, for trials cited as evidence in PharmGKB gene–drug relationships. colour is the number of trials that year. the US share falls from around half in the late 2000s to a fifth or less after 2016."
+    }
+  ],
+  "found": [
+    "8,027 PharmGKB 'associated' relationship–paper links, matched to ClinicalTrials.gov references, give 254 trials behind the gene–drug claims, 202 with full records.",
+    "45 of those trials, supporting 51 papers, back relationships whose only evidence comes from outside the US. Germany has the most non-US sites (370).",
+    "42 of the trials were withdrawn, and the withdrawal reasons are tallied in the notebook."
+  ],
+  "calls": [
+    "the link runs PharmGKB relationship → cited paper → trial registry number, so a trial only counts if a paper behind a gene–drug claim names it.",
+    "site country is the unit, not sponsor country. a claim tested only in German clinics is a claim about German patients."
+  ],
+  "broke": [
+    "a missingness pass reported sex, race and ethnicity missing in every one of the 202 trials, with only 3 study–gene matches. that is almost certainly a join error, not a finding, and it is left off until it is rechecked."
+  ],
+  "not_shown": [
+    "the three case studies planned on top of this (zolpidem sex-based dosing, carbamazepine with HLA-B*15:02, warfarin genotype dosing)"
+  ],
+  "links": [
+    {
+      "label": "PharmEDA on GitHub",
+      "url": "https://github.com/dom-martinelli/PharmEDA"
+    }
+  ],
+  "host_file": ""
+}

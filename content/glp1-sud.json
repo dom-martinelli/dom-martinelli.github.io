@@ -1,0 +1,30 @@
+{
+  "slug": "glp1-sud",
+  "tab": "pgx",
+  "title": "GLP-1 drugs and addiction",
+  "status": "planned",
+  "line": "whether the reward-pathway signal behind semaglutide shows up in trials and safety reports",
+  "question": "Semaglutide acts on GLP-1 receptors in the brain's reward circuitry as well as the gut. Does the signal for alcohol and other substance use hold up across the trials now registered and in the FDA's adverse-event reports?",
+  "skills": [
+    "drug repurposing",
+    "pharmacovigilance",
+    "trial registry analysis"
+  ],
+  "tools": [
+    "Python",
+    "openFDA",
+    "ClinicalTrials.gov API"
+  ],
+  "data": [
+    "FDA Adverse Event Reporting System (FAERS) via openFDA",
+    "ClinicalTrials.gov registrations for GLP-1 agonists in substance use disorders",
+    "Hendershot et al. 2025, the semaglutide alcohol use disorder trial"
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": "",
+  "planned": [
+    "planned figure: a swimlane of every registered GLP-1 trial in alcohol, opioid, nicotine and stimulant use, by phase and status.",
+    "planned check: disproportionality of alcohol- and substance-related reports for semaglutide and tirzepatide against other diabetes drugs, stopped early if nothing is there."
+  ]
+}

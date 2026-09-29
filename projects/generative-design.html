@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generative models for drug design · Dom Martinelli</title>
+<meta name="description" content="what my 2022 review found, and a small open generative run to show the method">
+<meta property="og:title" content="Generative models for drug design · Dom Martinelli">
+<meta property="og:description" content="what my 2022 review found, and a small open generative run to show the method">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="../archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#molecules">&larr; Molecules and food</a>
+  <h1>Generative models for drug design</h1>
+  <p class="line">what my 2022 review found, and a small open generative run to show the method</p>
+  <dl class="spec"><div><dt>skills</dt><dd>cheminformatics · generative machine learning · systematic review</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>RDKit</li><li>SELFIES</li></ul></dd></div><div><dt>data</dt><dd>ChEMBL · ZINC · published generative benchmarks (GuacaMol, MOSES)</dd></div><div><dt>status</dt><dd><span class="status status-planned">planned</span></dd></div></dl>
+  <div class="actions"><a class="btn btn-primary" href="https://doi.org/10.1016/j.compbiomed.2022.105403">the review (Computers in Biology and Medicine, 2022)</a></div>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>Generative models can propose thousands of new drug-like molecules, but most are hard to synthesise and hard to compare. Which model families actually deliver, and how do you tell?</p></div></div>
+  
+  
+  <div class="row"><div class="margin-note">planned</div><div class="row-body"><ul><li>a small open run: a SELFIES-based generator trained on a ChEMBL target set, scored against the MOSES and GuacaMol benchmark metrics, with the generated molecules drawn on the same chemical-space map as the wakefulness-drug project.</li><li>industry generative work (multi-objective reinforcement learning on thousands of molecules) is proprietary and is described here, not shown.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what came out</div><div class="row-body"><ul><li>the review covered 87 studies: six model families (LSTM and GRU RNNs, VAEs, GANs, adversarial autoencoders, evolutionary algorithms) and eight recurring problems, led by poor synthesisability, thin assay data and no agreed way to compare models.</li></ul></div></div>
+  
+  
+  
+  
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

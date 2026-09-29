@@ -23,7 +23,7 @@
     <div class="works"><span class="margin-note">works with</span><ul><li>Python</li><li>SMART on FHIR</li><li>RDKit</li><li>scikit-learn</li><li>GeoPandas</li><li>matched designs</li><li>LLM evaluation</li><li>ClinicalTrials.gov / AACT</li><li>PubMed / iCite</li><li>matplotlib</li></ul></div>
     <p class="hero-archive"><a href="#papers">six first-author papers &rarr;</a> &nbsp;·&nbsp; <a href="archive.html">every notebook on my machine, indexed &rarr;</a></p>
   </section>
-  <nav class="jump" aria-label="Subjects"><a href="#trials">Trials and evidence</a> · <a href="#medical-ai">Evaluating medical AI</a> · <a href="#clinical-tools">Clinical tools</a> · <a href="#population">Population health</a> · <a href="#molecules">Molecules and food</a> · <a href="#earlier">Earlier work</a> · <a href="#papers">Papers</a></nav>
+  <nav class="jump" aria-label="Subjects"><a href="#trials">Trials and evidence</a> · <a href="#pgx">Pharmacogenomics and precision psychiatry</a> · <a href="#medical-ai">Evaluating medical AI</a> · <a href="#clinical-tools">Clinical tools</a> · <a href="#population">Population health</a> · <a href="#molecules">Molecules and food</a> · <a href="#earlier">Earlier work</a> · <a href="#papers">Papers</a></nav>
   <section class="shelf" id="trials"><h2>Trials and evidence<span class="count">3</span></h2><div class="grid"><a class="tile tile-wide" href="projects/advocacy-accrual.html">
   <div class="panel"><img src="gallery/abandoned-by-reason.png" alt="abandoned compounds by the reason their first trial stopped." loading="lazy"></div>
   <div class="tile-body">
@@ -44,6 +44,34 @@
     <div class="tile-top"><h3>Measuring patient involvement in research</h3><span class="status status-in-progress">in progress</span></div>
     <p class="skills">composite index construction · control-set design · coarsened exact matching · field-normalised citation analysis</p>
     <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li></ul>
+  </div>
+</a></div></section><section class="shelf" id="pgx"><h2>Pharmacogenomics and precision psychiatry<span class="count">4</span></h2><div class="grid"><a class="tile tile-wide" href="projects/pgx-trials.html">
+  <div class="panel"><img src="assets/fig/pgx-trials-1.png" alt="share of trial sites in the United States, by start year, for trials cited as evidence in PharmGKB gene–drug relationships. colour is the number of trials that year. the US share falls from around half in the late 2000s to a fifth or less after 2016." loading="lazy"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Where pharmacogenomic evidence comes from</h3><span class="status status-exploratory">exploratory</span></div>
+    <p class="skills">evidence linkage across databases · schema-aware ETL · pharmacogenomics · trial registry analysis</p>
+    <ul class="tags"><li>Python</li><li>pandas</li><li>AACT (PostgreSQL)</li><li>PharmGKB</li></ul>
+  </div>
+</a><a class="tile tile-text" href="projects/pgx-ancestry.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>Which drug recommendations change with ancestry</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">pharmacogenomics · network analysis · population genetics</p>
+    <ul class="tags"><li>Python</li><li>networkx</li><li>deck.gl</li></ul>
+  </div>
+</a><a class="tile tile-text" href="projects/allostatic-load.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>Allostatic load and antidepressant response</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">precision psychiatry · epigenomics literature synthesis · network visualisation</p>
+    <ul class="tags"><li>Python</li><li>Open Targets Platform</li><li>networkx</li></ul>
+  </div>
+</a><a class="tile tile-text" href="projects/glp1-sud.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>GLP-1 drugs and addiction</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">drug repurposing · pharmacovigilance · trial registry analysis</p>
+    <ul class="tags"><li>Python</li><li>openFDA</li><li>ClinicalTrials.gov API</li></ul>
   </div>
 </a></div></section><section class="shelf" id="medical-ai"><h2>Evaluating medical AI<span class="count">4</span></h2><div class="grid"><a class="tile tile-wide" href="projects/growth-medqa.html">
   <div class="panel"><img src="assets/fig/growth-medqa-1.png" alt="what the benchmark is made of: source datasets and how many items each contributes." loading="lazy"></div>
@@ -94,7 +122,7 @@
     <p class="skills">rubric and scoring design · evidence review with strength grading · dataset compilation and provenance flagging · Next.js product build</p>
     <ul class="tags"><li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Tailwind</li></ul>
   </div>
-</a></div></section><section class="shelf" id="population"><h2>Population health<span class="count">2</span></h2><div class="grid"><a class="tile tile-wide" href="projects/stroke-belt.html">
+</a></div></section><section class="shelf" id="population"><h2>Population health<span class="count">3</span></h2><div class="grid"><a class="tile tile-wide" href="projects/stroke-belt.html">
   <div class="panel"><img src="assets/fig/stroke-belt-1.png" alt="stroke prevalence by county. the belt is visible without any statistics." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Hypertension and treatment across the Stroke Belt</h3><span class="status status-finished">finished</span></div>
@@ -108,7 +136,14 @@
     <p class="skills">geospatial analysis · health economics framing · interactive visualisation · reusing course code on new data</p>
     <ul class="tags"><li>Python</li><li>pandas</li><li>deck.gl</li><li>Census gazetteers</li></ul>
   </div>
-</a></div></section><section class="shelf" id="molecules"><h2>Molecules and food<span class="count">3</span></h2><div class="grid"><a class="tile tile-wide" href="projects/sweetspace.html">
+</a><a class="tile tile-text" href="projects/hypertension-prescribing.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>Who gets blood pressure medication, and where the specialists are</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">health services research · geospatial analysis · pharmacoepidemiology</p>
+    <ul class="tags"><li>Python</li><li>GeoPandas</li><li>deck.gl</li></ul>
+  </div>
+</a></div></section><section class="shelf" id="molecules"><h2>Molecules and food<span class="count">6</span></h2><div class="grid"><a class="tile tile-wide" href="projects/sweetspace.html">
   <div class="panel"><img src="gallery/odor-structure-topography.png" alt="each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Flavour identity and sweetener potency</h3><span class="status status-in-progress">in progress</span></div>
@@ -129,11 +164,32 @@
     <p class="skills">supervised classification · sequence feature engineering · model comparison · imbalanced-data evaluation</p>
     <ul class="tags"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>seaborn</li></ul>
   </div>
+</a><a class="tile tile-text" href="projects/ad-insulin.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>Alzheimer&#x27;s disease and insulin resistance</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">multi-omics analysis · causal inference framing · network biology</p>
+    <ul class="tags"><li>Python</li><li>Open Targets Platform</li><li>STRING</li><li>Reactome</li></ul>
+  </div>
+</a><a class="tile tile-text" href="projects/repurposing-network.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>Metformin to Alzheimer&#x27;s, through the knowledge graph</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">drug repurposing · knowledge graphs · network visualisation</p>
+    <ul class="tags"><li>Python</li><li>Hetionet</li><li>Open Targets</li><li>ChEMBL</li></ul>
+  </div>
+</a><a class="tile tile-text" href="projects/generative-design.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>Generative models for drug design</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">cheminformatics · generative machine learning · systematic review</p>
+    <ul class="tags"><li>Python</li><li>RDKit</li><li>SELFIES</li></ul>
+  </div>
 </a></div></section><section class="shelf" id="earlier"><h2>Earlier work<span class="count">1</span></h2><div class="grid"><a class="tile tile-text" href="projects/earlier-work.html">
   
   <div class="tile-body">
     <div class="tile-top"><h3>Earlier work, 2021 to 2024</h3><span class="status status-archive">archive</span></div>
-    <p class="skills">deep learning on molecular representations · molecular dynamics · tool building for bench workflows · clinical data wrangling</p>
+    <p class="skills">deep learning on molecular representations · molecular dynamics · clinical data wrangling · multi-omics analysis</p>
     <ul class="tags"><li>Keras / TensorFlow</li><li>RDKit</li><li>GROMACS / CHARMM36</li><li>Biopython</li></ul>
   </div>
 </a></div></section>

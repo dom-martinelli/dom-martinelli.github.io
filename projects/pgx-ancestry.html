@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which drug recommendations change with ancestry · Dom Martinelli</title>
+<meta name="description" content="a network of pharmacogenes, drugs and population allele frequencies">
+<meta property="og:title" content="Which drug recommendations change with ancestry · Dom Martinelli">
+<meta property="og:description" content="a network of pharmacogenes, drugs and population allele frequencies">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="../archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#pgx">&larr; Pharmacogenomics and precision psychiatry</a>
+  <h1>Which drug recommendations change with ancestry</h1>
+  <p class="line">a network of pharmacogenes, drugs and population allele frequencies</p>
+  <dl class="spec"><div><dt>skills</dt><dd>pharmacogenomics · network analysis · population genetics</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>networkx</li><li>deck.gl</li></ul></dd></div><div><dt>data</dt><dd>CPIC guidelines and PharmGKB clinical annotations · PharmGKB allele frequency tables by biogeographic group · gnomAD population frequencies</dd></div><div><dt>status</dt><dd><span class="status status-planned">planned</span></dd></div></dl>
+  
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>For which drugs does a CPIC dosing recommendation hinge on an allele whose frequency differs most between populations, and who was in the trials those drugs were approved on?</p></div></div>
+  
+  
+  <div class="row"><div class="margin-note">planned</div><div class="row-body"><ul><li>planned figure: a gene–drug network where each drug node is sized by how far the actionable-phenotype frequency spreads across biogeographic groups. CYP2C19 and clopidogrel, HLA-B*15:02 and carbamazepine, and CYP2D6 and codeine are the known anchors.</li><li>second view: approval-trial demographics for the same drugs, from FDA Drug Trials Snapshots, set against those frequencies.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>recommendations come from CPIC, the consortium guidelines clinicians actually dose from, rather than from single association studies.</li></ul></div></div>
+  
+  
+  
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

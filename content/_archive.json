@@ -35,28 +35,6 @@
    "stub": false
   },
   {
-   "path": "~/Projects/prime_editing/tool_v1.ipynb",
-   "name": "tool_v1.ipynb",
-   "bytes": 15939,
-   "cells": 28,
-   "with_output": 8,
-   "date": "2024-06",
-   "bucket": "clinical and health data",
-   "provenance": "mine",
-   "stub": false
-  },
-  {
-   "path": "~/Downloads/tool_v1(3).ipynb",
-   "name": "tool_v1(3).ipynb",
-   "bytes": 15939,
-   "cells": 28,
-   "with_output": 8,
-   "date": "2024-06",
-   "bucket": "clinical and health data",
-   "provenance": "mine",
-   "stub": false
-  },
-  {
    "path": "~/Documents/GitHub/intro_datasci_project/phase2viz.ipynb",
    "name": "phase2viz.ipynb",
    "bytes": 250483,
@@ -1729,17 +1707,6 @@
    "stub": false
   },
   {
-   "path": "~/Documents/Research/AL/GPT/final_h3k27ac_enhancer_promoter_analysis.ipynb",
-   "name": "final_h3k27ac_enhancer_promoter_analysis.ipynb",
-   "bytes": 5048,
-   "cells": 10,
-   "with_output": 0,
-   "date": "2025-06",
-   "bucket": "geospatial",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
    "path": "~/Downloads/Discussion03_20250912.ipynb",
    "name": "Discussion03_20250912.ipynb",
    "bytes": 27089,
@@ -2499,72 +2466,6 @@
    "stub": false
   },
   {
-   "path": "~/Documents/Research/AL/GPT/auto_examples_jupyter 2/plot_pandas_io_example.ipynb",
-   "name": "plot_pandas_io_example.ipynb",
-   "bytes": 11419,
-   "cells": 33,
-   "with_output": 0,
-   "date": "2025-05",
-   "bucket": "omics and sequencing",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
-   "path": "~/Documents/Research/AL/GPT/auto_examples_jupyter 2/plot_minimal_pydeseq2_pipeline.ipynb",
-   "name": "plot_minimal_pydeseq2_pipeline.ipynb",
-   "bytes": 19909,
-   "cells": 51,
-   "with_output": 0,
-   "date": "2025-05",
-   "bucket": "omics and sequencing",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
-   "path": "~/Documents/Research/AL/GPT/auto_examples_jupyter 2/plot_step_by_step.ipynb",
-   "name": "plot_step_by_step.ipynb",
-   "bytes": 12562,
-   "cells": 39,
-   "with_output": 0,
-   "date": "2025-05",
-   "bucket": "omics and sequencing",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
-   "path": "~/Documents/Research/AL/GPT/auto_examples_jupyter/plot_pandas_io_example.ipynb",
-   "name": "plot_pandas_io_example.ipynb",
-   "bytes": 11419,
-   "cells": 33,
-   "with_output": 0,
-   "date": "2025-05",
-   "bucket": "omics and sequencing",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
-   "path": "~/Documents/Research/AL/GPT/auto_examples_jupyter/plot_minimal_pydeseq2_pipeline.ipynb",
-   "name": "plot_minimal_pydeseq2_pipeline.ipynb",
-   "bytes": 19909,
-   "cells": 51,
-   "with_output": 0,
-   "date": "2025-05",
-   "bucket": "omics and sequencing",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
-   "path": "~/Documents/Research/AL/GPT/auto_examples_jupyter/plot_step_by_step.ipynb",
-   "name": "plot_step_by_step.ipynb",
-   "bytes": 12562,
-   "cells": 39,
-   "with_output": 0,
-   "date": "2025-05",
-   "bucket": "omics and sequencing",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
    "path": "~/Documents/GitHub/Tutorials/PubMed_TF_IDF.ipynb",
    "name": "PubMed_TF_IDF.ipynb",
    "bytes": 128490,
@@ -2650,28 +2551,6 @@
    "date": "2025-03",
    "bucket": "statistics and dataframes",
    "provenance": "third party",
-   "stub": false
-  },
-  {
-   "path": "~/Documents/Research/FANTOM5_ENCODE_EpiMap_Promoter_IGV_Analysis.ipynb",
-   "name": "FANTOM5_ENCODE_EpiMap_Promoter_IGV_Analysis.ipynb",
-   "bytes": 6103,
-   "cells": 8,
-   "with_output": 0,
-   "date": "2025-05",
-   "bucket": "statistics and dataframes",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
-   "path": "~/Documents/Research/AL/GPT/h3k27ac_enhancer_specificity_analyzer.ipynb",
-   "name": "h3k27ac_enhancer_specificity_analyzer.ipynb",
-   "bytes": 3859,
-   "cells": 8,
-   "with_output": 0,
-   "date": "2025-06",
-   "bucket": "statistics and dataframes",
-   "provenance": "unclear",
    "stub": false
   },
   {
@@ -2773,50 +2652,6 @@
    "stub": false
   },
   {
-   "path": "~/Projects/prime_editing/tool_v2.ipynb",
-   "name": "tool_v2.ipynb",
-   "bytes": 2183,
-   "cells": 6,
-   "with_output": 0,
-   "date": "2024-06",
-   "bucket": "unsorted",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
-   "path": "~/Downloads/tool_v1(1).ipynb",
-   "name": "tool_v1(1).ipynb",
-   "bytes": 13679,
-   "cells": 23,
-   "with_output": 7,
-   "date": "2024-06",
-   "bucket": "unsorted",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
-   "path": "~/Downloads/tool_v1(2).ipynb",
-   "name": "tool_v1(2).ipynb",
-   "bytes": 13679,
-   "cells": 23,
-   "with_output": 7,
-   "date": "2024-06",
-   "bucket": "unsorted",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
-   "path": "~/Downloads/tool_v1.ipynb",
-   "name": "tool_v1.ipynb",
-   "bytes": 13103,
-   "cells": 19,
-   "with_output": 5,
-   "date": "2024-06",
-   "bucket": "unsorted",
-   "provenance": "unclear",
-   "stub": false
-  },
-  {
    "path": "~/Downloads/module_trait_relationships_heatmap.ipynb",
    "name": "module_trait_relationships_heatmap.ipynb",
    "bytes": 2004348,
@@ -2901,14 +2736,14 @@
    "unclear": 8
   },
   "clinical and health data": {
-   "mine": 41,
+   "mine": 39,
    "third party": 4,
    "unclear": 40
   },
   "geospatial": {
    "mine": 7,
    "third party": 33,
-   "unclear": 16
+   "unclear": 15
   },
   "machine learning": {
    "mine": 6,
@@ -2918,17 +2753,17 @@
   "omics and sequencing": {
    "mine": 1,
    "third party": 5,
-   "unclear": 22
+   "unclear": 16
   },
   "statistics and dataframes": {
    "mine": 4,
    "third party": 4,
-   "unclear": 10
+   "unclear": 8
   },
   "unsorted": {
    "mine": 1,
    "third party": 2,
-   "unclear": 12
+   "unclear": 8
   },
   "intro programming": {
    "mine": 0,

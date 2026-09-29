@@ -225,6 +225,7 @@ def build_project(site, p, tab_label):
   {row('question', f"<p>{esc(p['question'])}</p>" if p.get('question') else '')}
   {f'<div class="figs">{figs}</div>' if figs else ''}
   {row('what is in here', ul(p.get('items')))}
+  {row('planned', ul(p.get('planned')))}
   {row('what came out', ul(p.get('found')))}{row('cost per 1,000 screened', ul(p.get('cost_per_1000')))}
   {row('calls made', ul(p.get('calls')))}
   {row('what broke', ul(p.get('broke')))}

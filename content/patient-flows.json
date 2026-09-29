@@ -1,0 +1,54 @@
+{
+  "slug": "patient-flows",
+  "tab": "population",
+  "title": "Where Southern patients go for a hospital stay",
+  "status": "done",
+  "line": "interactive flow map of Medicare hospital stays, with rural closures and Medicaid expansion",
+  "question": "How far do patients in the Stroke Belt travel for a hospital stay, and does that distance line up with the rural hospitals that closed and the states that declined Medicaid expansion?",
+  "skills": [
+    "geospatial analysis",
+    "health economics framing",
+    "interactive visualisation",
+    "reusing course code on new data"
+  ],
+  "tools": [
+    "Python",
+    "pandas",
+    "deck.gl",
+    "Census gazetteers"
+  ],
+  "data": [
+    "CMS Hospital Service Area File, 2025 (Medicare stays by patient ZIP and hospital)",
+    "UNC Sheps Center rural hospital closures, 2010 to 2025",
+    "Census 2020 ZCTA-to-county and gazetteer files"
+  ],
+  "figures": [
+    {
+      "file": "assets/fig/patient-flows-1.png",
+      "note": "Medicare inpatient stays in eight Stroke Belt states, drawn from the patient's home county to the hospital's county. Arcs run light at home to deep at the hospital, so each starburst is a hub the surrounding counties depend on. Rings are the 47 rural hospitals here that closed since 2010 and could be placed on the map. Open it to tilt the map, hover any arc, county or closure, and filter out small flows.",
+      "interactive": "tools/stroke-belt-flows.html"
+    }
+  ],
+  "found": [
+    "Stroke Belt patients travel farther for a hospital stay: a median 10.7 miles from home against 7.3 in the median state outside the Belt, and 14% of stays are more than 30 miles away against 8%. Mississippi is the extreme at 27%. For a time-critical condition like stroke, that distance is part of the disparity.",
+    "Rural hospital closures track that distance. Across states, a higher closure rate since 2010 goes with a larger share of stays over 30 miles (Spearman ρ 0.41, p = 0.003). The Belt accounts for 48 of the country's 154 closures.",
+    "The Belt splits on Medicaid expansion. Arkansas and Louisiana, the region's early expanders (2014, 2016), had 2 closures between them; the six states that held out through the decade had 46, Tennessee alone 14. This is an association across a handful of states, not a causal estimate, but it matches the reimbursement story: expansion shrinks the uncompensated care that small rural hospitals absorb."
+  ],
+  "calls": [
+    "miles travelled as the headline, not 'left the home county'. Georgia has 159 small counties, so almost any trip crosses a line there and the county measure overstated it.",
+    "distance measured between ZIP centroids, patient home to hospital. rough at the scale of one trip, stable across two million of them.",
+    "closure and expansion results reported as associations across a few states. eight states cannot carry a causal claim, and the card says so.",
+    "arcs under 20 stays dropped from the map, and CMS itself suppresses cells under 11, so the thinnest rural flows are missing rather than zero."
+  ],
+  "tried": "started from the PUBPOL 2130 Week 7 migration-flow notebook, which draws origin, destination and count rows as arcs, and pointed the same pattern at Medicare hospital data instead of census migration.",
+  "not_shown": [
+    "one closed hospital could not be placed on the map with confidence and is left off rather than guessed"
+  ],
+  "host_file": "tools/stroke-belt-flows.html",
+  "links": [
+    {
+      "label": "the Stroke Belt hypertension project",
+      "url": "stroke-belt.html"
+    }
+  ]
+}

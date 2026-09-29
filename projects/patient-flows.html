@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Southern patients go for a hospital stay · Dom Martinelli</title>
+<meta name="description" content="interactive flow map of Medicare hospital stays, with rural closures and Medicaid expansion">
+<meta property="og:title" content="Where Southern patients go for a hospital stay · Dom Martinelli">
+<meta property="og:description" content="interactive flow map of Medicare hospital stays, with rural closures and Medicaid expansion">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="../archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#population">&larr; Population health</a>
+  <h1>Where Southern patients go for a hospital stay</h1>
+  <p class="line">interactive flow map of Medicare hospital stays, with rural closures and Medicaid expansion</p>
+  <dl class="spec"><div><dt>skills</dt><dd>geospatial analysis · health economics framing · interactive visualisation · reusing course code on new data</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>pandas</li><li>deck.gl</li><li>Census gazetteers</li></ul></dd></div><div><dt>data</dt><dd>CMS Hospital Service Area File, 2025 (Medicare stays by patient ZIP and hospital) · UNC Sheps Center rural hospital closures, 2010 to 2025 · Census 2020 ZCTA-to-county and gazetteer files</dd></div><div><dt>status</dt><dd><span class="status status-done">done</span></dd></div></dl>
+  <div class="actions"><a class="btn btn-primary" href="../tools/stroke-belt-flows.html">open it</a><a class="btn" href="stroke-belt.html">the Stroke Belt hypertension project</a></div>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>How far do patients in the Stroke Belt travel for a hospital stay, and does that distance line up with the rural hospitals that closed and the states that declined Medicaid expansion?</p></div></div>
+  <div class="figs"><figure class="fig"><div class="panel panel-live"><a href="../tools/stroke-belt-flows.html"><img src="../assets/fig/patient-flows-1.png" alt="Medicare inpatient stays in eight Stroke Belt states, drawn from the patient&#x27;s home county to the hospital&#x27;s county. Arcs run light at home to deep at the hospital, so each starburst is a hub the surrounding counties depend on. Rings are the 47 rural hospitals here that closed since 2010 and could be placed on the map. Open it to tilt the map, hover any arc, county or closure, and filter out small flows." loading="lazy"><span class="live-badge">&#9654; interactive &middot; tilt, hover, filter</span></a></div><figcaption class="margin-note">Medicare inpatient stays in eight Stroke Belt states, drawn from the patient&#x27;s home county to the hospital&#x27;s county. Arcs run light at home to deep at the hospital, so each starburst is a hub the surrounding counties depend on. Rings are the 47 rural hospitals here that closed since 2010 and could be placed on the map. Open it to tilt the map, hover any arc, county or closure, and filter out small flows.</figcaption></figure></div>
+  
+  <div class="row"><div class="margin-note">what came out</div><div class="row-body"><ul><li>Stroke Belt patients travel farther for a hospital stay: a median 10.7 miles from home against 7.3 in the median state outside the Belt, and 14% of stays are more than 30 miles away against 8%. Mississippi is the extreme at 27%. For a time-critical condition like stroke, that distance is part of the disparity.</li><li>Rural hospital closures track that distance. Across states, a higher closure rate since 2010 goes with a larger share of stays over 30 miles (Spearman ρ 0.41, p = 0.003). The Belt accounts for 48 of the country&#x27;s 154 closures.</li><li>The Belt splits on Medicaid expansion. Arkansas and Louisiana, the region&#x27;s early expanders (2014, 2016), had 2 closures between them; the six states that held out through the decade had 46, Tennessee alone 14. This is an association across a handful of states, not a causal estimate, but it matches the reimbursement story: expansion shrinks the uncompensated care that small rural hospitals absorb.</li></ul></div></div>
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>miles travelled as the headline, not &#x27;left the home county&#x27;. Georgia has 159 small counties, so almost any trip crosses a line there and the county measure overstated it.</li><li>distance measured between ZIP centroids, patient home to hospital. rough at the scale of one trip, stable across two million of them.</li><li>closure and expansion results reported as associations across a few states. eight states cannot carry a causal claim, and the card says so.</li><li>arcs under 20 stays dropped from the map, and CMS itself suppresses cells under 11, so the thinnest rural flows are missing rather than zero.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>started from the PUBPOL 2130 Week 7 migration-flow notebook, which draws origin, destination and count rows as arcs, and pointed the same pattern at Medicare hospital data instead of census migration.</p></div></div>
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>one closed hospital could not be placed on the map with confidence and is left off rather than guessed</li></ul></div></div>
+</main>
+<footer class="wrap foot">figures made with matplotlib · site built from json by build.py</footer>
+</body>
+</html>

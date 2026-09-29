@@ -1,0 +1,71 @@
+{
+  "published": [
+    {
+      "title": "From sequences to therapeutics: using machine learning to predict chemically modified siRNA activity",
+      "venue": "Genomics 116(2), 110815",
+      "year": 2024,
+      "doi": "10.1016/j.ygeno.2024.110815",
+      "licence": "CC BY-NC 4.0",
+      "figure": "assets/fig/pubs/sirna-genomics-2024.png",
+      "figure_note": "Fig. 3: bases and modifications one-hot encoded, labelled against an efficacy threshold, five-fold cross-validated, then tested on external data.",
+      "project": "sirna"
+    },
+    {
+      "title": "Machine learning for siRNA efficiency prediction: a systematic review",
+      "venue": "Health Sciences Review 11, 100157",
+      "year": 2024,
+      "doi": "10.1016/j.hsr.2024.100157",
+      "licence": "CC BY-NC-ND 4.0",
+      "figure": "assets/fig/pubs/sirna-review-2024.png",
+      "figure_note": "Fig. 1: how siRNA therapeutics silence a gene, from Dicer processing to a sliced mRNA."
+    },
+    {
+      "title": "Machine learning for metabolomics research in drug discovery",
+      "venue": "Intelligence-Based Medicine 8, 100101",
+      "year": 2023,
+      "doi": "10.1016/j.ibmed.2023.100101",
+      "licence": "CC BY-NC-ND 4.0",
+      "figure": "assets/fig/pubs/metabolomics-ml-2023.png",
+      "figure_note": "Fig. 2: the supervised and unsupervised methods used in studies of drug metabolism."
+    },
+    {
+      "title": "Evolution of Alzheimer's disease research from a health-tech perspective: insights from text mining",
+      "venue": "International Journal of Information Management Data Insights 2(2), 100089",
+      "year": 2022,
+      "doi": "10.1016/j.jjimei.2022.100089",
+      "licence": "CC BY-NC-ND 4.0",
+      "figure": "assets/fig/pubs/ad-textmining-2022.png",
+      "figure_note": "Fig. 4: the most frequent mechanism and chemical terms across 17,286 Alzheimer's abstracts. Insulin is the most frequent chemical."
+    },
+    {
+      "title": "In silico vaccine design: a tutorial in immunoinformatics",
+      "venue": "Healthcare Analytics 2, 100044",
+      "year": 2022,
+      "doi": "10.1016/j.health.2022.100044",
+      "licence": "CC BY-NC-ND 4.0",
+      "figure": "assets/fig/pubs/vaccine-structure-2022.png",
+      "figure_note": "Fig. 9: the designed multi-epitope P. vivax vaccine (turquoise) bound to MHC-II (blue)."
+    },
+    {
+      "title": "Generative machine learning for de novo drug discovery: a systematic review",
+      "venue": "Computers in Biology and Medicine 145, 105403",
+      "year": 2022,
+      "doi": "10.1016/j.compbiomed.2022.105403",
+      "licence": "",
+      "figure": "",
+      "figure_note": "",
+      "stat": "87 studies",
+      "stat_note": "six generative model families, eight open challenges, three molecular encodings"
+    }
+  ],
+  "in_progress": [
+    {
+      "title": "Dietary methyl donors and the epigenetic hypothesis of Alzheimer's disease",
+      "note": "review, drafted 2022: folate, B6 and B12 through one-carbon metabolism to DNA methylation in AD"
+    },
+    {
+      "title": "Semax at the melanocortin-4 receptor: a molecular dynamics study",
+      "note": "draft, 2022: docking and GROMACS simulations against the 7PIU structure"
+    }
+  ]
+}

@@ -122,9 +122,39 @@ def tile(p, wide: bool) -> str:
 </a>"""
 
 
+def papers_section() -> str:
+    """Published papers as a strip of figure cards, drafts as a short list. Figures are
+    cropped unmodified from the open-access PDFs; a paper without an open licence gets none."""
+    f = CONTENT / "_publications.json"
+    if not f.exists():
+        return ""
+    data = json.loads(f.read_text())
+    cards = []
+    for p in data.get("published", []):
+        url = f"https://doi.org/{p['doi']}"
+        art = (f'<div class="panel"><img src="{esc(p["figure"])}" alt="{esc(p["figure_note"])}" loading="lazy"></div>'
+               if p.get("figure") else f'<div class="panel paper-nofig"><span class="big">{esc(p.get("stat", ""))}</span><span>{esc(p.get("stat_note", ""))}</span></div>')
+        lic = f' · {esc(p["licence"])}' if p.get("licence") else ""
+        proj = (f' · <a href="projects/{esc(p["project"])}.html">project page</a>' if p.get("project") else "")
+        cards.append(f"""<article class="paper">
+  <a class="paper-link" href="{url}">{art}</a>
+  <div class="paper-body">
+    <h3><a href="{url}">{esc(p['title'])}</a></h3>
+    <p class="paper-venue">{esc(p['venue'])}, {p['year']}{lic}{proj}</p>
+    <p class="paper-note">{esc(p.get('figure_note', ''))}</p>
+  </div>
+</article>""")
+    drafts = "".join(f"<li><b>{esc(d['title'])}</b> &middot; {esc(d['note'])}</li>" for d in data.get("in_progress", []))
+    return (f'<section class="shelf" id="papers"><h2>Papers<span class="count">{len(cards)}</span></h2>'
+            f'<p class="papers-lede">first-author, peer-reviewed. figures are the papers\' own, shown under their open licences.</p>'
+            f'<div class="papers">{"".join(cards)}</div>'
+            + (f'<div class="drafts"><span class="margin-note">in progress</span><ul>{drafts}</ul></div>' if drafts else "")
+            + '</section>')
+
+
 def build_index(site, projects):
     tabs = [t for t in site["tabs"] if any(p["tab"] == t["id"] for p in projects)]
-    jump = " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in tabs)
+    jump = " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in tabs) + ' · <a href="#papers">Papers</a>'
     sections = []
     for t in tabs:
         items = [p for p in projects if p["tab"] == t["id"]]
@@ -139,10 +169,11 @@ def build_index(site, projects):
     <h1>{esc(site['name'])}</h1>
     <p class="affil">{esc(site['affiliation'])}</p>
     <div class="works"><span class="margin-note">works with</span><ul>{works}</ul></div>
-    <p class="hero-archive"><a href="archive.html">every notebook on my machine, indexed &rarr;</a></p>
+    <p class="hero-archive"><a href="#papers">six first-author papers &rarr;</a> &nbsp;·&nbsp; <a href="archive.html">every notebook on my machine, indexed &rarr;</a></p>
   </section>
   <nav class="jump" aria-label="Subjects">{jump}</nav>
   {''.join(sections)}
+  {papers_section()}
 </main>
 <footer class="wrap foot">{esc(site.get('footer', ''))}</footer>
 </body>

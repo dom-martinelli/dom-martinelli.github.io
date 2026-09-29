@@ -1,7 +1,7 @@
 {
  "name": "Dom Martinelli",
  "title": "Dom Martinelli · Biomedical informatics",
- "footer": "figures made with matplotlib · site built from json by build.py",
+ "footer": "figures made with matplotlib and deck.gl · site built from json by build.py",
  "elsewhere": [
   {
    "label": "GitHub",

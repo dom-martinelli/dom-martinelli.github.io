@@ -27,7 +27,7 @@ SKIP_PARTS = {
     "site-packages", ".venv", "venv", "anaconda3", ".Trash",
     # industry work under confidentiality: never listed, not even by name
     "Research/AL", "FANTOM5_ENCODE", "prime_editing", "pegrna", "tool_v1", "tool_v2",
-    "h3k27ac", "Mobile Documents/com~apple~CloudDocs/Metabolism",
+    "h3k27ac", "Mobile Documents/com~apple~CloudDocs/Metabolism", "sulf_pred", "all_processing.ipynb",
 }
 
 # subject buckets, tested in order: first hit wins

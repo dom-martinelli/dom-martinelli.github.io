@@ -1,0 +1,31 @@
+{
+  "slug": "pkpd-simulator",
+  "tab": "pgx",
+  "title": "How metabolizer status reshapes a dose",
+  "status": "planned",
+  "line": "an interactive pharmacokinetic simulator with CYP2D6 and CYP2C19 phenotype sliders",
+  "question": "Two people take the same dose of the same antidepressant. If one is a CYP2D6 poor metabolizer and the other an ultrarapid metabolizer, how different are the drug levels they actually live with, and when does CPIC say to change the drug or the dose?",
+  "skills": [
+    "pharmacokinetic modelling",
+    "pharmacogenomics",
+    "interactive visualisation"
+  ],
+  "tools": [
+    "JavaScript",
+    "compartment models",
+    "PharmGKB pathways"
+  ],
+  "data": [
+    "CPIC guidelines for CYP2D6 and CYP2C19 with SSRIs and tricyclics",
+    "PharmGKB pharmacokinetic pathway files (already downloaded, 271 pathways)",
+    "published clearance ratios by metabolizer phenotype"
+  ],
+  "planned": [
+    "a one- or two-compartment model in the browser: pick a drug and a metabolizer phenotype, drag the dose and interval, and watch the concentration curve move against the therapeutic window.",
+    "the PharmGKB pathway for the same drug drawn beside it, so the enzyme the slider changes is visible in the metabolic route.",
+    "starting pair: amitriptyline and CYP2D6/CYP2C19, where CPIC gives explicit dose adjustments."
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": ""
+}

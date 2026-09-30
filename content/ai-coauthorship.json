@@ -1,0 +1,30 @@
+{
+  "slug": "ai-coauthorship",
+  "tab": "medical-ai",
+  "title": "AI as a co-author in medicine",
+  "status": "planned",
+  "line": "where medical papers disclose AI use, and whether it clusters in high-stakes fields",
+  "question": "Since ICMJE and major journals set rules on AI use in 2023, which medical specialties and journals disclose it, how fast is that growing, and does it cluster where clinical stakes are highest?",
+  "skills": [
+    "bibliometrics",
+    "text mining",
+    "research integrity"
+  ],
+  "tools": [
+    "Python",
+    "PubMed E-utilities",
+    "OpenAlex"
+  ],
+  "data": [
+    "PubMed and PubMed Central full text (disclosure statements)",
+    "OpenAlex journal and field metadata",
+    "ICMJE recommendations on AI-assisted technology (2023)"
+  ],
+  "planned": [
+    "small batches first: one specialty at a time, stopping early if disclosure rates show nothing worth mapping.",
+    "if the signal is there, a field-by-year heatmap of disclosure rates, with the journal policy dates marked."
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": ""
+}

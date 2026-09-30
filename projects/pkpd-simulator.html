@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How metabolizer status reshapes a dose · Dom Martinelli</title>
+<meta name="description" content="an interactive pharmacokinetic simulator with CYP2D6 and CYP2C19 phenotype sliders">
+<meta property="og:title" content="How metabolizer status reshapes a dose · Dom Martinelli">
+<meta property="og:description" content="an interactive pharmacokinetic simulator with CYP2D6 and CYP2C19 phenotype sliders">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="../archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#pgx">&larr; Pharmacogenomics and precision psychiatry</a>
+  <h1>How metabolizer status reshapes a dose</h1>
+  <p class="line">an interactive pharmacokinetic simulator with CYP2D6 and CYP2C19 phenotype sliders</p>
+  <dl class="spec"><div><dt>skills</dt><dd>pharmacokinetic modelling · pharmacogenomics · interactive visualisation</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>JavaScript</li><li>compartment models</li><li>PharmGKB pathways</li></ul></dd></div><div><dt>data</dt><dd>CPIC guidelines for CYP2D6 and CYP2C19 with SSRIs and tricyclics · PharmGKB pharmacokinetic pathway files (already downloaded, 271 pathways) · published clearance ratios by metabolizer phenotype</dd></div><div><dt>status</dt><dd><span class="status status-planned">planned</span></dd></div></dl>
+  
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>Two people take the same dose of the same antidepressant. If one is a CYP2D6 poor metabolizer and the other an ultrarapid metabolizer, how different are the drug levels they actually live with, and when does CPIC say to change the drug or the dose?</p></div></div>
+  
+  
+  <div class="row"><div class="margin-note">planned</div><div class="row-body"><ul><li>a one- or two-compartment model in the browser: pick a drug and a metabolizer phenotype, drag the dose and interval, and watch the concentration curve move against the therapeutic window.</li><li>the PharmGKB pathway for the same drug drawn beside it, so the enzyme the slider changes is visible in the metabolic route.</li><li>starting pair: amitriptyline and CYP2D6/CYP2C19, where CPIC gives explicit dose adjustments.</li></ul></div></div>
+  
+  
+  
+  
+  
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

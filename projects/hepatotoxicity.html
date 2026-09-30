@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Predicting drug-induced liver injury · Dom Martinelli</title>
+<meta name="description" content="liver toxicity in chemical space, starting from the FDA&#x27;s own reference set">
+<meta property="og:title" content="Predicting drug-induced liver injury · Dom Martinelli">
+<meta property="og:description" content="liver toxicity in chemical space, starting from the FDA&#x27;s own reference set">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="../archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#molecules">&larr; Molecules and food</a>
+  <h1>Predicting drug-induced liver injury</h1>
+  <p class="line">liver toxicity in chemical space, starting from the FDA&#x27;s own reference set</p>
+  <dl class="spec"><div><dt>skills</dt><dd>cheminformatics · toxicity prediction · chemical-space visualisation</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>RDKit</li><li>scikit-learn</li></ul></dd></div><div><dt>data</dt><dd>FDA DILIrank (Chen et al., Drug Discovery Today 2016): about a thousand drugs ranked by liver-injury concern · NIH LiverTox · ChEMBL structures</dd></div><div><dt>status</dt><dd><span class="status status-planned">planned</span></dd></div></dl>
+  
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>Drug-induced liver injury is a leading reason drugs are withdrawn or restricted. How well does chemical structure alone separate the drugs that injure the liver from those that don&#x27;t, and where does it fail?</p></div></div>
+  
+  
+  <div class="row"><div class="margin-note">planned</div><div class="row-body"><ul><li>prior art first: DILIrank and the published DILI prediction models set the bar, so this starts by reproducing a baseline rather than claiming a new one.</li><li>a chemical-space map of the DILIrank drugs, coloured by concern level, with the misclassified ones labelled on hover.</li><li>a successor to my 2022 Chemception hepatotoxicity model (in Earlier work), which trained a CNN on molecule images.</li></ul></div></div>
+  
+  
+  
+  
+  
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

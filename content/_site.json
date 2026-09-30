@@ -46,6 +46,7 @@
   "healthbench-rubrics",
   "growth-medqa",
   "icd-index",
+  "ai-coauthorship",
   "growth-zscore",
   "over-referral",
   "growthradar-lite",
@@ -60,6 +61,7 @@
   "allostatic-load",
   "glp1-sud",
   "mthfr",
+  "pkpd-simulator",
   "evidence-lag",
   "patient-innovation-index",
   "patient-led-science",
@@ -73,6 +75,7 @@
   "ad-insulin",
   "repurposing-network",
   "generative-design",
+  "hepatotoxicity",
   "earlier-work"
  ],
  "affiliation": "biomedical informatics · Cornell · Kohane lab, Harvard DBMI",

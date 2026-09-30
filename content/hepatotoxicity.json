@@ -1,0 +1,31 @@
+{
+  "slug": "hepatotoxicity",
+  "tab": "molecules",
+  "title": "Predicting drug-induced liver injury",
+  "status": "planned",
+  "line": "liver toxicity in chemical space, starting from the FDA's own reference set",
+  "question": "Drug-induced liver injury is a leading reason drugs are withdrawn or restricted. How well does chemical structure alone separate the drugs that injure the liver from those that don't, and where does it fail?",
+  "skills": [
+    "cheminformatics",
+    "toxicity prediction",
+    "chemical-space visualisation"
+  ],
+  "tools": [
+    "Python",
+    "RDKit",
+    "scikit-learn"
+  ],
+  "data": [
+    "FDA DILIrank (Chen et al., Drug Discovery Today 2016): about a thousand drugs ranked by liver-injury concern",
+    "NIH LiverTox",
+    "ChEMBL structures"
+  ],
+  "planned": [
+    "prior art first: DILIrank and the published DILI prediction models set the bar, so this starts by reproducing a baseline rather than claiming a new one.",
+    "a chemical-space map of the DILIrank drugs, coloured by concern level, with the misclassified ones labelled on hover.",
+    "a successor to my 2022 Chemception hepatotoxicity model (in Earlier work), which trained a CNN on molecule images."
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": ""
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "patient-led-science",
+  "tab": "trials",
+  "title": "Do patients' ideas reach the research?",
+  "status": "in progress",
+  "line": "Long COVID, where patients named and studied the illness before most researchers did",
+  "question": "Long COVID patients ran their own surveys and named symptoms like post-exertional malaise before most of the literature did. Do the ideas patients introduced show up in the research that engages their work, and how long do they take to arrive?",
+  "skills": [
+    "science-of-science methods",
+    "bibliometrics",
+    "patient-centred research"
+  ],
+  "tools": [
+    "Python",
+    "PubMed E-utilities",
+    "iCite"
+  ],
+  "data": [
+    "Patient-Led Research Collaborative survey reports (2020 onward)",
+    "PubMed and iCite citation data",
+    "a rule-based comparison pool of papers that do not engage patient-led work"
+  ],
+  "planned": [
+    "dating each symptom in the patient-led reports against the first PubMed paper to describe it.",
+    "comparing how the papers that cite patient-led work frame those symptoms against a matched comparison pool.",
+    "ME/CFS as the historical contrast: graded exercise versus pacing, and the 2021 NICE guideline reversal."
+  ],
+  "not_shown": [
+    "results are held until my advisor has reviewed them"
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": ""
+}

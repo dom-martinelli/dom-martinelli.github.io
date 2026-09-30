@@ -24,12 +24,26 @@
     <p class="hero-archive"><a href="#papers">six first-author papers &rarr;</a> &nbsp;·&nbsp; <a href="archive.html">every notebook on my machine, indexed &rarr;</a></p>
   </section>
   <nav class="jump" aria-label="Subjects"><a href="#trials">Trials and evidence</a> · <a href="#pgx">Pharmacogenomics and precision psychiatry</a> · <a href="#medical-ai">Evaluating medical AI</a> · <a href="#clinical-tools">Clinical tools</a> · <a href="#population">Population health</a> · <a href="#molecules">Molecules and food</a> · <a href="#earlier">Earlier work</a> · <a href="#papers">Papers</a></nav>
-  <section class="shelf" id="trials"><h2>Trials and evidence<span class="count">3</span></h2><div class="grid"><a class="tile tile-wide" href="projects/advocacy-accrual.html">
+  <section class="shelf" id="trials"><h2>Trials and evidence<span class="count">5</span></h2><div class="grid"><a class="tile tile-wide" href="projects/advocacy-accrual.html">
   <div class="panel"><img src="gallery/abandoned-by-reason.png" alt="abandoned compounds by the reason their first trial stopped." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Advocacy partners and trial enrollment failure</h3><span class="status status-in-progress">in progress</span></div>
     <p class="skills">matched cohort design · coarsened exact matching · bootstrap inference · registry API pipelines</p>
     <ul class="tags"><li>Python</li><li>pandas</li><li>requests</li><li>parquet</li></ul>
+  </div>
+</a><a class="tile tile-text" href="projects/trial-eligibility.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>Who the trial rules leave out</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">trial design critique · survey epidemiology · psychiatric comorbidity</p>
+    <ul class="tags"><li>Python</li><li>pandas</li><li>plotly</li></ul>
+  </div>
+</a><a class="tile tile-text" href="projects/drug-failure-history.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>Where we could have caught it earlier</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">pharmacovigilance · drug safety history · pharmacogenomics</p>
+    <ul class="tags"><li>Python</li><li>openFDA</li><li>D3 / deck.gl</li></ul>
   </div>
 </a><a class="tile" href="projects/evidence-lag.html">
   <div class="panel"><img src="gallery/eds-terminology-lag.png" alt="old and new naming for the same connective-tissue diagnosis, by year." loading="lazy"></div>
@@ -45,7 +59,7 @@
     <p class="skills">composite index construction · control-set design · coarsened exact matching · field-normalised citation analysis</p>
     <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li></ul>
   </div>
-</a></div></section><section class="shelf" id="pgx"><h2>Pharmacogenomics and precision psychiatry<span class="count">4</span></h2><div class="grid"><a class="tile tile-wide" href="projects/pgx-trials.html">
+</a></div></section><section class="shelf" id="pgx"><h2>Pharmacogenomics and precision psychiatry<span class="count">5</span></h2><div class="grid"><a class="tile tile-wide" href="projects/pgx-trials.html">
   <div class="panel"><img src="assets/fig/pgx-trials-1.png" alt="share of trial sites in the United States, by start year, for trials cited as evidence in PharmGKB gene–drug relationships. colour is the number of trials that year. the US share falls from around half in the late 2000s to a fifth or less after 2016." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Where pharmacogenomic evidence comes from</h3><span class="status status-exploratory">exploratory</span></div>
@@ -73,7 +87,14 @@
     <p class="skills">drug repurposing · pharmacovigilance · trial registry analysis</p>
     <ul class="tags"><li>Python</li><li>openFDA</li><li>ClinicalTrials.gov API</li></ul>
   </div>
-</a></div></section><section class="shelf" id="medical-ai"><h2>Evaluating medical AI<span class="count">5</span></h2><div class="grid"><a class="tile tile-text" href="projects/healthbench-rubrics.html">
+</a><a class="tile tile-text" href="projects/mthfr.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>MTHFR: why the trials couldn&#x27;t see it</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">gene-environment interaction · evidence synthesis · geospatial visualisation</p>
+    <ul class="tags"><li>Python</li><li>GeoPandas</li><li>plotly</li></ul>
+  </div>
+</a></div></section><section class="shelf" id="medical-ai"><h2>Evaluating medical AI<span class="count">6</span></h2><div class="grid"><a class="tile tile-text" href="projects/healthbench-rubrics.html">
   
   <div class="tile-body">
     <div class="tile-top"><h3>What a medical AI benchmark&#x27;s rubrics actually reward</h3><span class="status status-in-progress">in progress</span></div>
@@ -86,6 +107,13 @@
     <div class="tile-top"><h3>A pediatric growth benchmark</h3><span class="status status-in-progress">in progress</span></div>
     <p class="skills">benchmark design · LLM evaluation · annotation schema design · provenance auditing</p>
     <ul class="tags"><li>Python</li><li>DSPy</li><li>Hugging Face datasets</li><li>OpenRouter</li></ul>
+  </div>
+</a><a class="tile" href="projects/icd-index.html">
+  <div class="panel"><img src="assets/fig/icd-index-1.png" alt="the pipeline: collect 14,088 items, label each condition and its role with a local model, map names to ICD-10-CM through the official Alphabetic Index, check with two other models, then publish a searchable explorer." loading="lazy"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Which diseases medical AI benchmarks actually test</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">benchmark auditing · clinical coding (ICD-10-CM, CCSR) · LLM labelling with validation · reproducible pipelines</p>
+    <ul class="tags"><li>Python</li><li>Ollama (local models)</li><li>rapidfuzz</li><li>sentence-transformers</li></ul>
   </div>
 </a><a class="tile" href="projects/growth-zscore.html">
   <div class="panel"><img src="assets/fig/growth-zscore-1.png" alt="left: placement accuracy by how short the child is. right: the three conditions, no help, plus the formula, plus the CDC values for that age. 6 of 13 models shown, 40 children each." loading="lazy"></div>
@@ -129,7 +157,7 @@
     <p class="skills">rubric and scoring design · evidence review with strength grading · dataset compilation and provenance flagging · Next.js product build</p>
     <ul class="tags"><li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Tailwind</li></ul>
   </div>
-</a></div></section><section class="shelf" id="population"><h2>Population health<span class="count">3</span></h2><div class="grid"><a class="tile tile-wide" href="projects/stroke-belt.html">
+</a></div></section><section class="shelf" id="population"><h2>Population health<span class="count">4</span></h2><div class="grid"><a class="tile tile-wide" href="projects/stroke-belt.html">
   <div class="panel"><img src="assets/fig/stroke-belt-1.png" alt="stroke prevalence by county. the belt is visible without any statistics." loading="lazy"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Hypertension and treatment across the Stroke Belt</h3><span class="status status-finished">finished</span></div>
@@ -149,6 +177,13 @@
     <div class="tile-top"><h3>Who gets blood pressure medication, and where the specialists are</h3><span class="status status-planned">planned</span></div>
     <p class="skills">health services research · geospatial analysis · pharmacoepidemiology</p>
     <ul class="tags"><li>Python</li><li>GeoPandas</li><li>deck.gl</li></ul>
+  </div>
+</a><a class="tile tile-text" href="projects/pharmacoeconomics.html">
+  
+  <div class="tile-body">
+    <div class="tile-top"><h3>What Medicare overpays for generics, by county</h3><span class="status status-planned">planned</span></div>
+    <p class="skills">pharmacoeconomics · health policy analysis · geospatial analysis</p>
+    <ul class="tags"><li>Python</li><li>GeoPandas</li><li>PolicyMap</li></ul>
   </div>
 </a></div></section><section class="shelf" id="molecules"><h2>Molecules and food<span class="count">6</span></h2><div class="grid"><a class="tile tile-wide" href="projects/sweetspace.html">
   <div class="panel"><img src="gallery/odor-structure-topography.png" alt="each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space." loading="lazy"></div>

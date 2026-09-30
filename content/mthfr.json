@@ -1,0 +1,32 @@
+{
+  "slug": "mthfr",
+  "tab": "pgx",
+  "title": "MTHFR: why the trials couldn't see it",
+  "status": "planned",
+  "line": "a gene's effect that depends on diet, and trials run where the diet erased it",
+  "question": "The MTHFR 677TT genotype raises homocysteine, but only where people lack folate. If most homocysteine-lowering trials ran in countries that fortify flour with folic acid, were they ever able to detect an effect?",
+  "skills": [
+    "gene-environment interaction",
+    "evidence synthesis",
+    "geospatial visualisation"
+  ],
+  "tools": [
+    "Python",
+    "GeoPandas",
+    "plotly"
+  ],
+  "data": [
+    "Wilcken et al. 2003, 677TT frequencies from over 7,000 newborns in 16 regions",
+    "Holmes et al., Lancet 2011, effect modification by population folate",
+    "Food Fortification Initiative country status",
+    "ACMG 2013 guidance against routine MTHFR testing"
+  ],
+  "planned": [
+    "a world map with TT genotype frequency as fill and mandatory folic-acid fortification as hatching, with the homocysteine-lowering trial sites on top: the trials sit where the gene matters least.",
+    "an effect surface: population folate status × genotype against the homocysteine difference, flat in fortified regions and rising where folate is low (Holmes: 3.12 vs 0.13 µmol/L).",
+    "a short note on the gap between that evidence and the direct-to-consumer MTHFR testing market."
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": ""
+}

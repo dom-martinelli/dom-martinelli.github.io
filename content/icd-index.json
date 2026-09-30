@@ -1,0 +1,55 @@
+{
+  "slug": "icd-index",
+  "tab": "medical-ai",
+  "title": "Which diseases medical AI benchmarks actually test",
+  "status": "in progress",
+  "line": "every question in nine public benchmarks, labelled by condition and coded to ICD-10-CM",
+  "question": "When a model scores well on a medical benchmark, which diseases was it actually tested on, and which ones never come up?",
+  "skills": [
+    "benchmark auditing",
+    "clinical coding (ICD-10-CM, CCSR)",
+    "LLM labelling with validation",
+    "reproducible pipelines"
+  ],
+  "tools": [
+    "Python",
+    "Ollama (local models)",
+    "rapidfuzz",
+    "sentence-transformers",
+    "Gradio"
+  ],
+  "data": [
+    "MedQA, MedMCQA, PubMedQA, MMLU medical subjects, MedBullets, HealthBench",
+    "ICD-10-CM Alphabetic Index (April 2026 release)",
+    "AHRQ CCSR categories"
+  ],
+  "figures": [
+    {
+      "file": "assets/fig/icd-index-1.png",
+      "note": "the pipeline: collect 14,088 items, label each condition and its role with a local model, map names to ICD-10-CM through the official Alphabetic Index, check with two other models, then publish a searchable explorer."
+    },
+    {
+      "file": "assets/fig/icd-index-2.png",
+      "note": "tested conditions by ICD-10-CM chapter, stacked by benchmark. every chapter is covered, but unevenly: external causes of morbidity has fewer than ten items."
+    }
+  ],
+  "found": [
+    "14,088 unique items across nine public benchmarks; 5,000 of them (HealthBench) have no answer key, and are kept as coverage rather than scored.",
+    "names are never coded by the model itself. each condition goes through the official ICD-10-CM Alphabetic Index first, then fuzzy and embedding matches, and anything unmatched stays visible rather than dropping out of the counts."
+  ],
+  "calls": [
+    "condition roles, not just mentions: tested, context, ruled out, or appearing only in a wrong option. a disease named in a distractor is not a disease the benchmark tests.",
+    "question text is withheld wherever a dataset's licence does not clearly allow redistribution; the explorer shows identifiers and derived labels instead.",
+    "everything runs on local models, so the whole index cost nothing in API fees and can be rerun by anyone."
+  ],
+  "not_shown": [
+    "validation numbers are held for the paper in progress with Chris and Joon"
+  ],
+  "links": [
+    {
+      "label": "open the explorer (Hugging Face)",
+      "url": "https://huggingface.co/spaces/dmartinelli/medical-benchmark-disease-index"
+    }
+  ],
+  "host_file": ""
+}

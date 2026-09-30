@@ -1,0 +1,33 @@
+{
+  "slug": "drug-failure-history",
+  "tab": "trials",
+  "title": "Where we could have caught it earlier",
+  "status": "planned",
+  "line": "drug withdrawals and late label changes, laid out as timelines of missed chances",
+  "question": "Across drugs withdrawn or relabelled for harm, how long did the signal sit in the record first, and how often did the harm fall on people the approval trials barely included?",
+  "skills": [
+    "pharmacovigilance",
+    "drug safety history",
+    "pharmacogenomics"
+  ],
+  "tools": [
+    "Python",
+    "openFDA",
+    "D3 / deck.gl"
+  ],
+  "data": [
+    "Onakpoya et al. 2016, 462 post-marketing withdrawals",
+    "GAO-01-286R (2001): 8 of 10 drugs withdrawn 1997–2000 posed greater risks for women",
+    "Chung et al. 2004, carbamazepine and HLA-B*15:02",
+    "IWPC warfarin dosing data (NEJM 2009)",
+    "openFDA drug labels"
+  ],
+  "planned": [
+    "an arc diagram: each withdrawn drug is an arc from its first adverse-reaction report to its withdrawal, height by the lag (median six years, and not shrinking), coloured by mechanism.",
+    "a 'too late' timeline for drug–gene pairs: approval, then the first case series in an under-studied population, then the label change, with the gap shaded. HLA-B*15:02 and carbamazepine is the anchor case.",
+    "the sex panel: the GAO withdrawals and Zucker and Prendergast's finding that women's pharmacokinetics predict their higher adverse-reaction rates, set on the NIH and FDA policy timeline."
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": ""
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "trial-eligibility",
+  "tab": "trials",
+  "title": "Who the trial rules leave out",
+  "status": "planned",
+  "line": "eligibility criteria applied to a national sample of real patients",
+  "question": "If you apply a typical psychiatric trial's exclusion criteria to everyone in the country who has the disorder, how many real patients would have been allowed in?",
+  "skills": [
+    "trial design critique",
+    "survey epidemiology",
+    "psychiatric comorbidity"
+  ],
+  "tools": [
+    "Python",
+    "pandas",
+    "plotly"
+  ],
+  "data": [
+    "NESARC or NSDUH national survey data",
+    "ClinicalTrials.gov eligibility criteria",
+    "Hoertel et al. and Zimmerman et al. generalizability studies"
+  ],
+  "planned": [
+    "eligibility funnels drawn as an alluvial: everyone with the disorder enters on the left, each exclusion (comorbid substance use, suicidality, other psychiatric illness, medications) peels off a stream, and the thin trickle on the right is who a trial could enrol. small multiples for depression, bipolar disorder, panic and alcohol use disorder.",
+    "the anchor numbers are published: Zimmerman found most outpatients with depression would fail standard antidepressant-trial criteria, and Hoertel's group found 96.9% of treatment-seekers with alcohol dependence and a mood or anxiety disorder would be ineligible.",
+    "tie-in from the advocacy-and-accrual work: 52% of depression trials already exclude people with another psychiatric illness."
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": ""
+}

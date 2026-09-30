@@ -192,6 +192,20 @@
    "rebuilt": "2026-09-28"
   },
   {
+   "file": "assets/fig/icd-index-1.png",
+   "slug": "icd-index",
+   "note": "the pipeline: collect 14,088 items, label each condition and its role with a local model, map names to ICD-10-CM through the official Alphabetic Index, check with two other models, then publish a searchable explorer.",
+   "source": "assets/fig/icd-index-1.png",
+   "rebuilt": "2026-09-29"
+  },
+  {
+   "file": "assets/fig/icd-index-2.png",
+   "slug": "icd-index",
+   "note": "tested conditions by ICD-10-CM chapter, stacked by benchmark. every chapter is covered, but unevenly: external causes of morbidity has fewer than ten items.",
+   "source": "assets/fig/icd-index-2.png",
+   "rebuilt": "2026-09-29"
+  },
+  {
    "file": "assets/fig/over-referral-1.png",
    "slug": "over-referral",
    "note": "share of healthy short children each model refers. same children, same question, opposite behaviour.",

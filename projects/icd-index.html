@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which diseases medical AI benchmarks actually test · Dom Martinelli</title>
+<meta name="description" content="every question in nine public benchmarks, labelled by condition and coded to ICD-10-CM">
+<meta property="og:title" content="Which diseases medical AI benchmarks actually test · Dom Martinelli">
+<meta property="og:description" content="every question in nine public benchmarks, labelled by condition and coded to ICD-10-CM">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="../archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#medical-ai">&larr; Evaluating medical AI</a>
+  <h1>Which diseases medical AI benchmarks actually test</h1>
+  <p class="line">every question in nine public benchmarks, labelled by condition and coded to ICD-10-CM</p>
+  <dl class="spec"><div><dt>skills</dt><dd>benchmark auditing · clinical coding (ICD-10-CM, CCSR) · LLM labelling with validation · reproducible pipelines</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>Ollama (local models)</li><li>rapidfuzz</li><li>sentence-transformers</li><li>Gradio</li></ul></dd></div><div><dt>data</dt><dd>MedQA, MedMCQA, PubMedQA, MMLU medical subjects, MedBullets, HealthBench · ICD-10-CM Alphabetic Index (April 2026 release) · AHRQ CCSR categories</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
+  <div class="actions"><a class="btn btn-primary" href="https://huggingface.co/spaces/dmartinelli/medical-benchmark-disease-index">open the explorer (Hugging Face)</a></div>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>When a model scores well on a medical benchmark, which diseases was it actually tested on, and which ones never come up?</p></div></div>
+  <div class="figs"><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/icd-index-1.png"><img src="../assets/fig/icd-index-1.png" alt="the pipeline: collect 14,088 items, label each condition and its role with a local model, map names to ICD-10-CM through the official Alphabetic Index, check with two other models, then publish a searchable explorer." loading="lazy"></a></div><figcaption class="margin-note">the pipeline: collect 14,088 items, label each condition and its role with a local model, map names to ICD-10-CM through the official Alphabetic Index, check with two other models, then publish a searchable explorer.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/icd-index-2.png"><img src="../assets/fig/icd-index-2.png" alt="tested conditions by ICD-10-CM chapter, stacked by benchmark. every chapter is covered, but unevenly: external causes of morbidity has fewer than ten items." loading="lazy"></a></div><figcaption class="margin-note">tested conditions by ICD-10-CM chapter, stacked by benchmark. every chapter is covered, but unevenly: external causes of morbidity has fewer than ten items.</figcaption></figure></div>
+  
+  
+  <div class="row"><div class="margin-note">what came out</div><div class="row-body"><ul><li>14,088 unique items across nine public benchmarks; 5,000 of them (HealthBench) have no answer key, and are kept as coverage rather than scored.</li><li>names are never coded by the model itself. each condition goes through the official ICD-10-CM Alphabetic Index first, then fuzzy and embedding matches, and anything unmatched stays visible rather than dropping out of the counts.</li></ul></div></div>
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>condition roles, not just mentions: tested, context, ruled out, or appearing only in a wrong option. a disease named in a distractor is not a disease the benchmark tests.</li><li>question text is withheld wherever a dataset&#x27;s licence does not clearly allow redistribution; the explorer shows identifiers and derived labels instead.</li><li>everything runs on local models, so the whole index cost nothing in API fees and can be rerun by anyone.</li></ul></div></div>
+  
+  
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>validation numbers are held for the paper in progress with Chris and Joon</li></ul></div></div>
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

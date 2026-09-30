@@ -1,0 +1,31 @@
+{
+  "slug": "pharmacoeconomics",
+  "tab": "population",
+  "title": "What Medicare overpays for generics, by county",
+  "status": "planned",
+  "line": "Part D generic spending priced against a transparent cost-plus benchmark",
+  "question": "Lalani and colleagues estimated Medicare could have saved $3.6 billion of $9.6 billion on 89 generics by paying cost-plus prices. Where does that overpayment land, county by county?",
+  "skills": [
+    "pharmacoeconomics",
+    "health policy analysis",
+    "geospatial analysis"
+  ],
+  "tools": [
+    "Python",
+    "GeoPandas",
+    "PolicyMap"
+  ],
+  "data": [
+    "CMS Medicare Part D Spending by Drug (2019–2023, already downloaded)",
+    "CMS Part D Prescribers by geography",
+    "Mark Cuban Cost Plus Drug Company list prices",
+    "Lalani, Kesselheim and Rome, Annals of Internal Medicine 2022"
+  ],
+  "planned": [
+    "a county choropleth of estimated overpayment per beneficiary, pairing the geography-level Part D file with cost-plus prices for the same generics.",
+    "a ridgeline of estimated R&D cost per approved drug by therapeutic area, from Wouters, McKee and Luyten (JAMA 2020), as the context for what a price is supposed to recover."
+  ],
+  "figures": [],
+  "links": [],
+  "host_file": ""
+}

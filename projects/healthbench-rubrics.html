@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What a medical AI benchmark&#x27;s rubrics actually reward · Dom Martinelli</title>
+<meta name="description" content="College Scholar thesis: reading HealthBench&#x27;s physician-written grading criteria as evidence">
+<meta property="og:title" content="What a medical AI benchmark&#x27;s rubrics actually reward · Dom Martinelli">
+<meta property="og:description" content="College Scholar thesis: reading HealthBench&#x27;s physician-written grading criteria as evidence">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="../archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#medical-ai">&larr; Evaluating medical AI</a>
+  <h1>What a medical AI benchmark&#x27;s rubrics actually reward</h1>
+  <p class="line">College Scholar thesis: reading HealthBench&#x27;s physician-written grading criteria as evidence</p>
+  <dl class="spec"><div><dt>skills</dt><dd>benchmark auditing · qualitative coding with inter-rater checks · LLM-as-judge experiments · clinical reasoning</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>pandas</li><li>LLM grader re-runs</li><li>custom reading interfaces</li></ul></dd></div><div><dt>data</dt><dd>HealthBench (OpenAI, 2025): 5,000 conversations with physician-written rubrics, and its physician meta-evaluation labels</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
+  <div class="actions"><a class="btn btn-primary" href="https://arxiv.org/abs/2505.08775">HealthBench paper (OpenAI, 2025)</a></div>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>HealthBench scores medical chatbots against checklists that physicians wrote for each conversation. What do those checklists encode about good care, where do they quietly disagree with each other, and does the grader read them the way the physicians meant?</p></div></div>
+  
+  
+  <div class="row"><div class="margin-note">planned</div><div class="row-body"><ul><li>rules of thumb: when a physician justifies a criterion, how often does the justification rest on their own habit rather than a guideline or source, and can a keyword filter find those cases?</li><li>wording: if a criterion is reworded without changing its meaning, how often does the grader&#x27;s verdict flip, and is that more than the grader&#x27;s own run-to-run noise?</li><li>scored backwards: criteria phrased as &#x27;Should …&#x27; but carrying negative points. Does the grader penalise the very behaviour the physician wanted?</li><li>many hands: do the checklists read as written by one physician per conversation, or merged from several writers with different habits and point scales?</li><li>disagreement: where do physicians grading the same answer split, and is the split concentrated where the rubric itself says the situation is ambiguous?</li><li>what negative points mean: are penalties written as omissions (&#x27;failed to …&#x27;) or as named behaviours to avoid, and what does that do to scoring?</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>each question is a direct count or a controlled grader re-run on the published data, not a model&#x27;s summary of it.</li><li>every candidate finding gets a hand-check sample before it counts, and the register records which ones have not had one yet.</li></ul></div></div>
+  
+  
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>results are held until my thesis advisor has reviewed them. the reading interfaces built for each question, one per experiment, will be linked here then.</li></ul></div></div>
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "slug": "healthbench-rubrics",
+  "tab": "medical-ai",
+  "title": "What a medical AI benchmark's rubrics actually reward",
+  "status": "in progress",
+  "line": "College Scholar thesis: reading HealthBench's physician-written grading criteria as evidence",
+  "question": "HealthBench scores medical chatbots against checklists that physicians wrote for each conversation. What do those checklists encode about good care, where do they quietly disagree with each other, and does the grader read them the way the physicians meant?",
+  "skills": [
+    "benchmark auditing",
+    "qualitative coding with inter-rater checks",
+    "LLM-as-judge experiments",
+    "clinical reasoning"
+  ],
+  "tools": [
+    "Python",
+    "pandas",
+    "LLM grader re-runs",
+    "custom reading interfaces"
+  ],
+  "data": [
+    "HealthBench (OpenAI, 2025): 5,000 conversations with physician-written rubrics, and its physician meta-evaluation labels"
+  ],
+  "planned": [
+    "rules of thumb: when a physician justifies a criterion, how often does the justification rest on their own habit rather than a guideline or source, and can a keyword filter find those cases?",
+    "wording: if a criterion is reworded without changing its meaning, how often does the grader's verdict flip, and is that more than the grader's own run-to-run noise?",
+    "scored backwards: criteria phrased as 'Should …' but carrying negative points. Does the grader penalise the very behaviour the physician wanted?",
+    "many hands: do the checklists read as written by one physician per conversation, or merged from several writers with different habits and point scales?",
+    "disagreement: where do physicians grading the same answer split, and is the split concentrated where the rubric itself says the situation is ambiguous?",
+    "what negative points mean: are penalties written as omissions ('failed to …') or as named behaviours to avoid, and what does that do to scoring?"
+  ],
+  "calls": [
+    "each question is a direct count or a controlled grader re-run on the published data, not a model's summary of it.",
+    "every candidate finding gets a hand-check sample before it counts, and the register records which ones have not had one yet."
+  ],
+  "not_shown": [
+    "results are held until my thesis advisor has reviewed them. the reading interfaces built for each question, one per experiment, will be linked here then."
+  ],
+  "figures": [],
+  "links": [
+    {
+      "label": "HealthBench paper (OpenAI, 2025)",
+      "url": "https://arxiv.org/abs/2505.08775"
+    }
+  ],
+  "host_file": ""
+}

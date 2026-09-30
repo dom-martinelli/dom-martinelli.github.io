@@ -43,6 +43,7 @@
   }
  ],
  "order": [
+  "healthbench-rubrics",
   "growth-medqa",
   "growth-zscore",
   "over-referral",

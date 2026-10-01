@@ -43,5 +43,6 @@
   "not_shown": [
     "thresholds are guidance-level, not trial-backed, so this is a ranking aid and not a clinical instrument",
     "not deployed yet, so there is no link"
-  ]
+  ],
+  "hidden": true
 }

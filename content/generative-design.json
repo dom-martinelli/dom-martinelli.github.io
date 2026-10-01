@@ -27,7 +27,12 @@
     "a small open run: a SELFIES-based generator trained on a ChEMBL target set, scored against the MOSES and GuacaMol benchmark metrics, with the generated molecules drawn on the same chemical-space map as the wakefulness-drug project.",
     "industry generative work (multi-objective reinforcement learning on thousands of molecules) is proprietary and is described here, not shown."
   ],
-  "figures": [],
+  "figures": [
+    {
+      "file": "assets/fig/generative-design-aae.webp",
+      "note": "an adversarial autoencoder, one of the six model families the review covers. a discriminator pushes the encoder's latent codes toward a chosen prior, so sampling that prior gives the decoder valid starting points."
+    }
+  ],
   "links": [
     {
       "label": "the review (Computers in Biology and Medicine, 2022)",

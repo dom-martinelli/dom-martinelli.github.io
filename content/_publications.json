@@ -25,8 +25,8 @@
       "year": 2023,
       "doi": "10.1016/j.ibmed.2023.100101",
       "licence": "CC BY-NC-ND 4.0",
-      "figure": "assets/fig/pubs/metabolomics-ml-2023.png",
-      "figure_note": "Fig. 2: the supervised and unsupervised methods used in studies of drug metabolism."
+      "figure": "assets/fig/pubs/metabolomics-ml-2023-network.png",
+      "figure_note": "metabolic reactions sit inside larger pathway networks and feed the downstream signalling a model has to learn."
     },
     {
       "title": "Evolution of Alzheimer's disease research from a health-tech perspective: insights from text mining",
@@ -52,8 +52,8 @@
       "year": 2022,
       "doi": "10.1016/j.compbiomed.2022.105403",
       "licence": "",
-      "figure": "",
-      "figure_note": "",
+      "figure": "assets/fig/generative-design-aae.webp",
+      "figure_note": "an adversarial autoencoder, one of the six generative model families the review covers.",
       "stat": "87 studies",
       "stat_note": "six generative model families, eight open challenges, three molecular encodings"
     }

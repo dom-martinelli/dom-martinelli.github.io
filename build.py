@@ -157,7 +157,8 @@ def build_index(site, projects):
     jump = " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in tabs) + ' · <a href="#papers">Papers</a>'
     sections = []
     for t in tabs:
-        items = [p for p in projects if p["tab"] == t["id"]]
+        # projects with a figure first, so every section opens on an image
+        items = sorted((p for p in projects if p["tab"] == t["id"]), key=lambda p: not p.get("figures"))
         tiles = "".join(tile(p, wide=(i == 0)) for i, p in enumerate(items))
         sections.append(
             f'<section class="shelf" id="{esc(t["id"])}"><h2>{esc(t["label"])}'

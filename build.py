@@ -154,7 +154,7 @@ def papers_section() -> str:
 
 def build_index(site, projects):
     tabs = [t for t in site["tabs"] if any(p["tab"] == t["id"] for p in projects)]
-    jump = " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in tabs) + ' · <a href="#papers">Papers</a>'
+    jump = '<a href="#papers">Papers</a> · ' + " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in tabs)
     sections = []
     for t in tabs:
         # projects with a figure first, so every section opens on an image
@@ -173,8 +173,8 @@ def build_index(site, projects):
     <p class="hero-archive"><a href="#papers">six first-author papers &rarr;</a> &nbsp;·&nbsp; <a href="archive.html">every notebook on my machine, indexed &rarr;</a></p>
   </section>
   <nav class="jump" aria-label="Subjects">{jump}</nav>
-  {''.join(sections)}
   {papers_section()}
+  {''.join(sections)}
 </main>
 <footer class="wrap foot">{esc(site.get('footer', ''))}</footer>
 </body>

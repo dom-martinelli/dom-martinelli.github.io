@@ -50,5 +50,6 @@
       "label": "the Stroke Belt hypertension project",
       "url": "stroke-belt.html"
     }
-  ]
+  ],
+  "interactive": "tools/stroke-belt-flows.html"
 }

@@ -59,5 +59,6 @@
   "tried": "dropped the Epic OAuth launch in the follow-on build for a HAPI server with a patient dropdown, because the teaching vignettes had to be ones I could author and load myself.",
   "not_shown": [
     "percentiles come from a small embedded boys-only table, interpolated, not a validated LMS engine"
-  ]
+  ],
+  "interactive": "https://dom-martinelli.github.io/growthradar-lite/"
 }

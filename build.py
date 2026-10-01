@@ -16,6 +16,10 @@ Per-project fields the pages use:
   tried                           one rejected approach, only if documented
   figures [{file, note, dark, interactive}]  note sits in the margin; interactive = path of a tools/ page the still opens
   links [{label, url}]
+  interactive                     url of a live tool; the tile's picture opens it and the
+                                  project lands under "Tools you can use"
+
+Home-page images come from assets/thumb/ (scripts/make_thumbs.py) when present.
 """
 from __future__ import annotations
 
@@ -84,20 +88,31 @@ def status_label(status: str) -> str:
     return f'<span class="status status-{esc(status.replace(" ", "-"))}">{esc(status)}</span>'
 
 
-def figure_panel(fig, depth: int, cls="panel", link=True) -> str:
+def thumb(rel: str) -> str:
+    """The small WebP from scripts/make_thumbs.py when it exists, else the original."""
+    t = Path("assets/thumb") / Path(rel).with_suffix(".webp")
+    return str(t) if (ROOT / t).exists() else rel
+
+
+def target(url: str, up: str) -> str:
+    return url if url.startswith("http") else f"{up}{url}"
+
+
+def figure_panel(fig, depth: int, cls="panel", link=True, small=False) -> str:
     up = "../" * depth
     if fig.get("dark"):
         cls += " panel-dark"   # a screenshot of a dark UI, not a figure on paper
     src = f'{up}{esc(fig["file"])}'
-    img = f'<img src="{src}" alt="{esc(fig.get("note", ""))}" loading="lazy">'
+    shown = f'{up}{esc(thumb(fig["file"]))}' if small else src
+    img = f'<img src="{shown}" alt="{esc(fig.get("note", ""))}" loading="lazy" decoding="async">'
     # tiles are already links to the project page; everywhere else a figure
     # opens full size, in a lightbox with JS and as the raw file without
     inner = img if not link else f'<a class="zoom" href="{src}">{img}</a>'
     if fig.get("interactive"):
         # a still of an interactive page: say so on the image, and open the page, not the file
         cls += " panel-live"
-        badge = '<span class="live-badge">&#9654; interactive &middot; tilt, hover, filter</span>'
-        href = f'{up}{esc(fig["interactive"])}'
+        badge = '<span class="live-badge">&#9654; open the interactive version</span>'
+        href = esc(target(fig["interactive"], up))
         inner = img + badge if not link else f'<a href="{href}">{img}{badge}</a>'
     return f'<div class="{cls}">{inner}</div>'
 
@@ -109,9 +124,20 @@ def chips(items, cls="tags"):
 def tile(p, wide: bool) -> str:
     figs = p.get("figures") or []
     # no figure, no empty picture frame: the tile becomes text only
-    art = figure_panel(figs[0], 0, link=False) if figs else ""
+    live = p.get("interactive")
+    art = figure_panel(dict(figs[0], interactive=live) if live else figs[0], 0, link=bool(live), small=True) if figs else ""
     cls = "tile" + (" tile-wide" if wide and figs else "") + ("" if figs else " tile-text")
     skills = " · ".join(esc(s) for s in (p.get("skills") or [])[:4])
+    if live and figs:
+        # two links side by side: the picture opens the tool, the text opens the write-up
+        return f"""<div class="{cls}">
+  {art}
+  <a class="tile-body" href="projects/{esc(p['slug'])}.html">
+    <div class="tile-top"><h3>{esc(p['title'])}</h3>{status_label(p.get('status', ''))}</div>
+    <p class="skills">{skills}</p>
+    {chips((p.get('tools') or [])[:4])}
+  </a>
+</div>"""
     return f"""<a class="{cls}" href="projects/{esc(p['slug'])}.html">
   {art}
   <div class="tile-body">
@@ -132,7 +158,7 @@ def papers_section() -> str:
     cards = []
     for p in data.get("published", []):
         url = f"https://doi.org/{p['doi']}"
-        art = (f'<div class="panel"><img src="{esc(p["figure"])}" alt="{esc(p["figure_note"])}" loading="lazy"></div>'
+        art = (f'<div class="panel"><img src="{esc(thumb(p["figure"]))}" alt="{esc(p["figure_note"])}" loading="lazy" decoding="async"></div>'
                if p.get("figure") else f'<div class="panel paper-nofig"><span class="big">{esc(p.get("stat", ""))}</span><span>{esc(p.get("stat_note", ""))}</span></div>')
         lic = f' · {esc(p["licence"])}' if p.get("licence") else ""
         proj = (f' · <a href="projects/{esc(p["project"])}.html">project page</a>' if p.get("project") else "")
@@ -152,13 +178,25 @@ def papers_section() -> str:
             + '</section>')
 
 
+GROUPS = [("tools", "Tools you can use"), ("analyses", "Analyses"),
+          ("planned", "Planned"), ("earlier", "Earlier work")]
+
+
+def group(p) -> str:
+    if p["tab"] == "earlier":
+        return "earlier"
+    if p.get("interactive"):
+        return "tools"
+    return "planned" if p.get("status") == "planned" else "analyses"
+
+
 def build_index(site, projects):
-    tabs = [t for t in site["tabs"] if any(p["tab"] == t["id"] for p in projects)]
+    tabs = [{"id": g, "label": label} for g, label in GROUPS if any(group(p) == g for p in projects)]
     jump = '<a href="#papers">Papers</a> · ' + " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in tabs)
     sections = []
     for t in tabs:
         # projects with a figure first, so every section opens on an image
-        items = sorted((p for p in projects if p["tab"] == t["id"]), key=lambda p: not p.get("figures"))
+        items = sorted((p for p in projects if group(p) == t["id"]), key=lambda p: not p.get("figures"))
         tiles = "".join(tile(p, wide=(i == 0)) for i, p in enumerate(items))
         sections.append(
             f'<section class="shelf" id="{esc(t["id"])}"><h2>{esc(t["label"])}'
@@ -218,7 +256,7 @@ def build_project(site, p, tab_label):
         for f in (p.get("figures") or []))
     body = f"""{site_header(site, depth)}
 <main class="wrap article">
-  <a class="back" href="../index.html#{esc(p['tab'])}">&larr; {esc(tab_label)}</a>
+  <a class="back" href="../index.html#{group(p)}">&larr; {esc(tab_label)}</a>
   <h1>{esc(p['title'])}</h1>
   <p class="line">{esc(p.get('line', ''))}</p>
   <dl class="spec">{spec}</dl>
@@ -360,7 +398,7 @@ def main():
     build_archive(site)
     build_gallery(site)
     for p in projects:
-        build_project(site, p, labels[p["tab"]])
+        build_project(site, p, dict(GROUPS)[group(p)])
     print(f"built index + {len(projects)} project pages")
 
 

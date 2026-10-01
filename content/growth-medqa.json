@@ -69,5 +69,6 @@
   "tried": "a three-level cognitive tier label got cut once it was clear it was a locally coined collapse rather than standard revised Bloom. the USMLE competency crosswalk replaced it.",
   "not_shown": [
     "manuscript under review, so no scores or model rankings here"
-  ]
+  ],
+  "interactive": "https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer"
 }

@@ -39,5 +39,6 @@
     "v1 was a fixed essay whose headline figures came from an older snapshot and secondary sources of different vintages.",
     "the page's own copy read as machine-written on a later teardown: adversative title, hero stats, closing aphorism. rewritten against my style rules."
   ],
-  "tried": "v1 was a static evidence essay built on other people's summary figures. rebuilt as a filterable registry over the FDA's own downloaded list, so the per-device record and the aggregate evidence stay visibly separate."
+  "tried": "v1 was a static evidence essay built on other people's summary figures. rebuilt as a filterable registry over the FDA's own downloaded list, so the per-device record and the aggregate evidence stay visibly separate.",
+  "interactive": "tools/fda-ai-devices.html"
 }

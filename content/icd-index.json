@@ -51,5 +51,6 @@
       "url": "https://huggingface.co/spaces/dmartinelli/medical-benchmark-disease-index"
     }
   ],
-  "host_file": ""
+  "host_file": "",
+  "interactive": "https://huggingface.co/spaces/dmartinelli/medical-benchmark-disease-index"
 }

@@ -57,5 +57,6 @@
   "tried": "scripted per-scenario trend insights went away once flags were computed from the threshold, since a hand-written percentile-drop story cannot follow real record data.",
   "not_shown": [
     "percentiles are not from a validated engine, the midparental formula has no documented source yet, and it has never been run against a real Epic client"
-  ]
+  ],
+  "interactive": "https://dom-martinelli.github.io/growthbridge-demo/"
 }

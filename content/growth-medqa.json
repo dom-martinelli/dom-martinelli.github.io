@@ -30,6 +30,18 @@
     {
       "file": "assets/fig/growth-medqa-1.png",
       "note": "what the benchmark is made of: source datasets and how many items each contributes."
+    },
+    {
+      "file": "assets/fig/growth-medqa-spread.png",
+      "note": "aggregate accuracy hides how much each model varies across growth subjects. 10 models, 960 items; the black tick is the overall score."
+    },
+    {
+      "file": "assets/fig/growth-medqa-kappa.png",
+      "note": "agreement heatmap (kappa) from the benchmark's labelling."
+    },
+    {
+      "file": "assets/fig/growth-medqa-labeling.png",
+      "note": "the labelling framework behind every item (supplementary figure S1)."
     }
   ],
   "host_file": "",

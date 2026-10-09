@@ -1,0 +1,41 @@
+{
+  "slug": "growth-reference",
+  "tab": "medical-ai",
+  "status": "in progress",
+  "hidden": true,
+  "title": "Whose growth chart? Models default to American norms",
+  "line": "counterfactual nationality experiment on growth-chart choice",
+  "question": "A healthy Korean toddler or Indian adolescent plotted on a US chart can look abnormal. When a language model assesses a child's growth, does it pick the right national reference, or judge every child against American norms?",
+  "skills": [
+    "counterfactual prompt design",
+    "LLM evaluation",
+    "growth reference standards (CDC, WHO, national charts)",
+    "LLM-as-judge scoring"
+  ],
+  "tools": [
+    "Python",
+    "OpenRouter",
+    "pandas"
+  ],
+  "data": [
+    "37 chart-choice prompts, the same child with the population descriptor swapped",
+    "CDC 2000 and WHO 2006 references, national charts for comparison"
+  ],
+  "found": [
+    "without a stated population, 96% of responses judged the child against a US chart (89 of 98).",
+    "naming the population helps unevenly: told the child is Korean, 57% still used a US chart; for South-Asian children, 17.5% picked the correct national chart.",
+    "models reason fluently about growth but rarely say that the reference population matters at all."
+  ],
+  "calls": [
+    "the descriptor is one word (Korean, South Asian, Indian, Dutch) with nothing else changed, so any shift comes from the label and not from extra clinical detail.",
+    "scored on whether the model names the reference it used, not only on the final call. a correct call against the wrong chart is still a reference failure."
+  ],
+  "broke": [
+    "responses were scored by an LLM judge; a human audit of the judge's calls is still to do.",
+    "the Dutch and South-Asian cases use proxy references until exact LMS tables are substituted."
+  ],
+  "figures": [],
+  "links": [
+    {"label": "Growth-MedQA, the benchmark this came out of", "url": "growth-medqa.html"}
+  ]
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who is the patient? A pediatric index-patient filter · Dom Martinelli</title>
+<meta name="description" content="keeping the medical questions whose primary clinical subject is a child, and dropping the ones that only mention one">
+<meta property="og:title" content="Who is the patient? A pediatric index-patient filter · Dom Martinelli">
+<meta property="og:description" content="keeping the medical questions whose primary clinical subject is a child, and dropping the ones that only mention one">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="../archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#analyses">&larr; Analyses</a>
+  <h1>Who is the patient? A pediatric index-patient filter</h1>
+  <p class="line">keeping the medical questions whose primary clinical subject is a child, and dropping the ones that only mention one</p>
+  <dl class="spec"><div><dt>skills</dt><dd>annotation schema design · classifier calibration · packaging research code for reuse · honest validation reporting</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>DSPy</li><li>BootstrapFewShot</li><li>pytest</li><li>pandas</li></ul></dd></div><div><dt>data</dt><dd>224,705 rows from 16 medical-QA source and configuration subsets · a 269-item calibration set with a held-out split · a 500-row ambiguity audit across 12 failure-mode strata · PedMedQA as an independent, method-different cross-reference</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
+  <div class="actions"><a class="btn btn-primary" href="projects/growth-medqa.html">Where it is used: the Growth-MedQA benchmark</a></div>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>A keyword sweep for child, infant and adolescent returns far more pediatric questions than are really pediatric. Can the primary clinical subject be identified instead of the vocabulary?</p></div></div>
+  <div class="figs"><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/peds-filter/funnel.png"><img src="../assets/fig/peds-filter/funnel.png" alt="the two-stage cascade. a deterministic high-recall keyword and source-scope screen cuts 212,983 rows to 22,834, then a structured classifier that names the primary clinical subject takes that to 12,324. the orange step is the one that would have been the whole method if keywords were enough." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">the two-stage cascade. a deterministic high-recall keyword and source-scope screen cuts 212,983 rows to 22,834, then a structured classifier that names the primary clinical subject takes that to 12,324. the orange step is the one that would have been the whole method if keywords were enough.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/peds-filter/neonate-gap.png"><img src="../assets/fig/peds-filter/neonate-gap.png" alt="recall is not uniform by age band. the adult-pregnancy gate drops newborns delivered to an adult mother, so neonate recall sits at 75.4%. a validated fix exists and is shipped opt-in rather than on by default, with the gap documented and covered by a test." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">recall is not uniform by age band. the adult-pregnancy gate drops newborns delivered to an adult mother, so neonate recall sits at 75.4%. a validated fix exists and is shipped opt-in rather than on by default, with the gap documented and covered by a test.</figcaption></figure></div>
+  
+  
+  
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>the rule is one sentence and it is the whole method: do not classify a question as pediatric just because it contains child terms. identify the primary clinical subject and the target of the question.</li><li>the shipped filter is deterministic, dependency-light and needs no API keys. the expensive classifier earned its place by handling the cases the deterministic pass cannot, not by replacing it.</li><li>the classifier was improved by rewriting the instructions around primary subject and question target. adding few-shot examples was the wrong lever: the failure mode was keyword surface matching, not a shortage of examples.</li><li>every row goes through the same measurement process in one frozen labeling run, rather than routing only prefilter-positive rows to the stronger classifier.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>agreement with PedMedQA was nearly reported as validated accuracy before I checked its own labels and found errors in them, including a 19-year-old labeled as an infant. it is a cross-reference and a lower bound, and the docs now say so.</li><li>the neonate gap was found by reading recall by age band rather than in aggregate. the aggregate number looked fine.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>a sandbox version turned the neonatal override on by default and lifted overall recall to 95.6%. it is not the default because it trades specificity back, so it ships as a flag with the numbers for both settings.</p></div></div>
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>the 269-item calibration labels are accepted model labels with a blinded audit, not independent clinician gold. that distinction is in the repo and it matters.</li></ul></div></div>
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

@@ -53,6 +53,26 @@
   ],
   "figures": [
     {
+      "file": "assets/fig/deck/reassurance-18models.png",
+      "note": "healthy short children correctly reassured, 18 models. seven reassure almost everyone; four reassure none."
+    },
+    {
+      "file": "assets/fig/deck/sens-spec-7model.png",
+      "note": "a zero false-alarm rate is not restraint if the model also misses the disease. only Gemini 2.5 Pro clears 0.75 on both axes."
+    },
+    {
+      "file": "assets/fig/deck/overreferral-slope.png",
+      "note": "the over-referral rate as a slope, before and after the clinical sentence."
+    },
+    {
+      "file": "assets/fig/deck/exam-vs-reassure.png",
+      "note": "exam accuracy against reassurance: the two do not move together."
+    },
+    {
+      "file": "assets/fig/deck/overreferral-7model.png",
+      "note": "the seven-model panel the sensitivity-specificity figure is drawn from."
+    },
+    {
       "file": "assets/fig/over-referral-1.png",
       "note": "share of healthy short children each model refers. same children, same question, opposite behaviour."
     },

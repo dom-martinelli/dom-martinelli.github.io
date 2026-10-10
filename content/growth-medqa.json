@@ -28,6 +28,18 @@
   ],
   "figures": [
     {
+      "file": "assets/fig/deck/medqa-saturation.png",
+      "note": "MedQA is saturated: the exam no longer separates models. top score by year, from a 37 per cent retriever-reader in 2020 to the whole frontier above 90 per cent by 2026."
+    },
+    {
+      "file": "assets/fig/deck/subject-swing.png",
+      "note": "one score hides how much a model swings across growth subjects. each grey dot is accuracy on one subject; teal is the overall score. a typical model swings about 21 points."
+    },
+    {
+      "file": "assets/fig/deck/label-schematic.png",
+      "note": "every item carries three labels: growth role, USMLE task, and ICPED topic. nothing is bespoke; each maps to a recognised clinical rubric."
+    },
+    {
       "file": "assets/fig/growth-medqa-1.png",
       "note": "what the benchmark is made of: source datasets and how many items each contributes."
     },

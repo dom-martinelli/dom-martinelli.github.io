@@ -42,6 +42,22 @@
     {
       "file": "assets/fig/growth-medqa-labeling.png",
       "note": "the labelling framework behind every item (supplementary figure S1)."
+    },
+    {
+      "file": "assets/fig/growth/deck_mcq_competency.png",
+      "note": "the competency imbalance behind the benchmark: about 99 per cent test-taking, about 1 per cent clinic skills."
+    },
+    {
+      "file": "assets/fig/growth/growth_medqa_fig1_construction.png",
+      "note": "how the 960-item set was built."
+    },
+    {
+      "file": "assets/fig/growth/growth_medqa_fig2_labeling.png",
+      "note": "the labelling pass, and who labelled what."
+    },
+    {
+      "file": "assets/fig/growth/within_model_variability_by_task.png",
+      "note": "the same spread again, split by task instead of growth subject."
     }
   ],
   "host_file": "",

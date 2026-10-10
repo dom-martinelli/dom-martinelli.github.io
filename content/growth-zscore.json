@@ -31,6 +31,22 @@
     {
       "file": "assets/fig/growth-zscore-2.png",
       "note": "green: asked for the CDC median height at an age, accurate to about a centimetre. red: asked to place a specific child with no reference given."
+    },
+    {
+      "file": "assets/fig/growth/deck_zscore_heat.png",
+      "note": "can they place the child on the growth chart at all? z-score accuracy, six models."
+    },
+    {
+      "file": "assets/fig/growth/deck_recite.png",
+      "note": "they can recite the chart but cannot use it. green: recite the median height for an age, accurate to about a centimetre. red: place a specific child with no reference given."
+    },
+    {
+      "file": "assets/fig/growth/deck_recite_frontier.png",
+      "note": "the same recite-against-place split, frontier models only."
+    },
+    {
+      "file": "assets/fig/growth/deck_data_error.png",
+      "note": "data errors: one extra output field flips the model from fooled to correct."
     }
   ],
   "host_file": "",

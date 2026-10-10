@@ -68,11 +68,11 @@
   </div>
 </article></div><div class="drafts"><span class="margin-note">in progress</span><ul><li><b>Evaluating large language models on pediatric growth assessment</b> &middot; with J. Lee, I. Kohane, C. Soto Rivera, J. Hatoun, L. Vernacchio, E. C. Trudell and N. Rabbani. Submitted to AMIA 2027 Amplify Informatics, under review</li><li><b>An ICD-10 index of medical question-answering benchmark items</b> &middot; with J. Lee and colleagues. In preparation</li><li><b>Patient involvement in biomedical research and its downstream scientific impact</b> &middot; with Y. Yin. In preparation</li><li><b>Patient-led findings and shifts in research attention: Long COVID and ME/CFS</b> &middot; with Y. Yin. In preparation</li><li><b>Dietary methyl donors and the epigenetic hypothesis of Alzheimer&#x27;s disease</b> &middot; review, drafted 2022: folate, B6 and B12 through one-carbon metabolism to DNA methylation in AD</li><li><b>Semax at the melanocortin-4 receptor: a molecular dynamics study</b> &middot; draft, 2022: docking and GROMACS simulations against the 7PIU structure</li></ul></div></section>
   <section class="shelf" id="tools"><h2>Tools you can use<span class="count">6</span></h2><div class="grid"><div class="tile tile-wide">
-  <div class="panel panel-live"><a href="https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer"><img src="assets/thumb/assets/fig/sibmi/reading-the-number.webp" alt="reading the number: z-score, anthropometry, BMI, malnutrition and birth size. 246 items, cluster mean 84%. each grey dot is one growth topic, orange is this quantitative cluster, navy is the model&#x27;s overall score." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>
-  <a class="tile-body" href="projects/growth-medqa.html">
-    <div class="tile-top"><h3>A pediatric growth benchmark</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">benchmark design · LLM evaluation · annotation schema design · provenance auditing</p>
-    <ul class="tags"><li>Python</li><li>DSPy</li><li>Hugging Face datasets</li><li>OpenRouter</li></ul>
+  <div class="panel panel-live"><a href="https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer"><img src="assets/thumb/assets/fig/explorer/item-browser.webp" alt="item browser: every question in the benchmark, with the full stem, all options, the correct answer marked, and the reason the item was included. paginated, with selectable columns and a detail inspector that shows identifier provenance." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>
+  <a class="tile-body" href="projects/growth-medqa-explorer.html">
+    <div class="tile-top"><h3>Growth-MedQA Explorer</h3><span class="status status-live">live</span></div>
+    <p class="skills">interactive dashboards · making an evaluation auditable · designing a contribution path for clinicians</p>
+    <ul class="tags"><li>Streamlit</li><li>pandas</li><li>Plotly</li><li>pyarrow</li></ul>
   </a>
 </div><div class="tile">
   <div class="panel panel-live"><a href="https://huggingface.co/spaces/dmartinelli/medical-benchmark-disease-index"><img src="assets/thumb/assets/fig/icd-index-1.webp" alt="the pipeline: collect 14,088 items, label each condition and its role with a local model, map names to ICD-10-CM through the official Alphabetic Index, check with two other models, then publish a searchable explorer." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>
@@ -109,7 +109,21 @@
     <p class="skills">geospatial analysis · health economics framing · interactive visualisation · reusing course code on new data</p>
     <ul class="tags"><li>Python</li><li>pandas</li><li>deck.gl</li><li>Census gazetteers</li></ul>
   </a>
-</div></div></section><section class="shelf" id="analyses"><h2>Analyses<span class="count">12</span></h2><div class="grid"><a class="tile tile-wide" href="projects/growth-zscore.html">
+</div></div></section><section class="shelf" id="analyses"><h2>Analyses<span class="count">14</span></h2><div class="grid"><a class="tile tile-wide" href="projects/growth-medqa.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/sibmi/reading-the-number.webp" alt="reading the number: z-score, anthropometry, BMI, malnutrition and birth size. 246 items, cluster mean 84%. each grey dot is one growth topic, orange is this quantitative cluster, navy is the model&#x27;s overall score." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>A pediatric growth benchmark: stratified results</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">benchmark design · LLM evaluation · annotation schema design · provenance auditing</p>
+    <ul class="tags"><li>Python</li><li>DSPy</li><li>Hugging Face datasets</li><li>OpenRouter</li></ul>
+  </div>
+</a><a class="tile" href="projects/pediatric-index-filter.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/peds-filter/funnel.webp" alt="the two-stage cascade. a deterministic high-recall keyword and source-scope screen cuts 212,983 rows to 22,834, then a structured classifier that names the primary clinical subject takes that to 12,324. the orange step is the one that would have been the whole method if keywords were enough." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Who is the patient? A pediatric index-patient filter</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">annotation schema design · classifier calibration · packaging research code for reuse · honest validation reporting</p>
+    <ul class="tags"><li>Python</li><li>DSPy</li><li>BootstrapFewShot</li><li>pytest</li></ul>
+  </div>
+</a><a class="tile" href="projects/growth-zscore.html">
   <div class="panel"><img src="assets/thumb/assets/fig/growth-zscore-1.webp" alt="left: placement accuracy by how short the child is. right: the three conditions, no help, plus the formula, plus the CDC values for that age. 6 of 13 models shown, 40 children each." loading="lazy" decoding="async"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Height z-score computation by language models</h3><span class="status status-in-progress">in progress</span></div>

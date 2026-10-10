@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growth-MedQA Explorer · Dom Martinelli</title>
+<meta name="description" content="a browser for the benchmark: filter to a slice, compare models on it, read the actual items, and submit your own">
+<meta property="og:title" content="Growth-MedQA Explorer · Dom Martinelli">
+<meta property="og:description" content="a browser for the benchmark: filter to a slice, compare models on it, read the actual items, and submit your own">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="../archive.html">Archive</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#tools">&larr; Tools you can use</a>
+  <h1>Growth-MedQA Explorer</h1>
+  <p class="line">a browser for the benchmark: filter to a slice, compare models on it, read the actual items, and submit your own</p>
+  <dl class="spec"><div><dt>skills</dt><dd>interactive dashboards · making an evaluation auditable · designing a contribution path for clinicians</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Streamlit</li><li>pandas</li><li>Plotly</li><li>pyarrow</li><li>Hugging Face Spaces</li></ul></dd></div><div><dt>data</dt><dd>the frozen Growth-MedQA item set · per-model correctness for every item · the two-axis taxonomy and the USMLE / HPO / MONDO crosswalks</dd></div><div><dt>status</dt><dd><span class="status status-live">live</span></dd></div></dl>
+  <div class="actions"><a class="btn btn-primary" href="https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer">Open the explorer (Hugging Face Space)</a><a class="btn" href="projects/growth-medqa.html">The benchmark itself</a><a class="btn" href="https://huggingface.co/datasets/dmartinelli/growth-medqa">Dataset on Hugging Face</a><a class="btn" href="https://github.com/dom-martinelli/Growth-MedQA">Code on GitHub</a></div>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>If a benchmark&#x27;s headline finding is that one number hides the weak slices, can a reader check that for themselves instead of taking my word for it?</p></div></div>
+  <div class="figs"><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/explorer/item-browser.png"><img src="../assets/fig/explorer/item-browser.png" alt="item browser: every question in the benchmark, with the full stem, all options, the correct answer marked, and the reason the item was included. paginated, with selectable columns and a detail inspector that shows identifier provenance." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">item browser: every question in the benchmark, with the full stem, all options, the correct answer marked, and the reason the item was included. paginated, with selectable columns and a detail inspector that shows identifier provenance.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/explorer/contribute.png"><img src="../assets/fig/explorer/contribute.png" alt="contribute tab: three submission routes for clinicians, from a one-line scenario suggestion up to a full MCQ or a longitudinal vignette. everything lands in a review queue; nothing writes to the canonical dataset live." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">contribute tab: three submission routes for clinicians, from a one-line scenario suggestion up to a full MCQ or a longitudinal vignette. everything lands in a review queue; nothing writes to the canonical dataset live.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/explorer/leaderboard.png"><img src="../assets/fig/explorer/leaderboard.png" alt="leaderboard: accuracy on whatever slice you have filtered to, next to the same model&#x27;s accuracy on all items, with the delta and a Wilson interval. narrow the filter to a growth-specific slice and watch the order change." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">leaderboard: accuracy on whatever slice you have filtered to, next to the same model&#x27;s accuracy on all items, with the delta and a Wilson interval. narrow the filter to a growth-specific slice and watch the order change.</figcaption></figure></div>
+  
+  
+  
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>the delta column, not the raw accuracy, is the thing the app is built around. a filtered score only means something next to the same model&#x27;s overall score.</li><li>every claim in the paper should be re-derivable from the app by a reader who does not trust me. that is why the item browser shows the inclusion reason and the identifier provenance, not just the question.</li><li>the contribute tab deliberately does not write to the dataset. submissions enter a review queue and a maintainer reviews them by hand, which is the honest limit of one reviewer.</li><li>identifier columns are hidden by default and only source-grounded exact mappings get loaded. pending ontology candidates never reach the app.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>the slice heatmap currently renders &#x27;no items for that slice&#x27; on both axes even with no filter applied and all items selected. caught by stepping through the live Space rather than the local test harness.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>the manuscript&#x27;s external-comparison table against MedQA, MedMCQA and PubMedQA is not mirrored in the app</li></ul></div></div>
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

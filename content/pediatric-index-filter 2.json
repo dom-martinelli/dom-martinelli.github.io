@@ -1,0 +1,33 @@
+{
+ "slug": "pediatric-index-filter",
+ "tab": "medical-ai",
+ "title": "Who is the patient? A pediatric index-patient filter",
+ "status": "in progress",
+ "line": "keeping the medical questions whose primary clinical subject is a child, and dropping the ones that only mention one",
+ "question": "A keyword sweep for child, infant and adolescent returns far more pediatric questions than are really pediatric. Can the primary clinical subject be identified instead of the vocabulary?",
+ "tools": ["Python", "DSPy", "BootstrapFewShot", "pytest", "pandas"],
+ "skills": ["annotation schema design", "classifier calibration", "packaging research code for reuse", "honest validation reporting"],
+ "data": ["224,705 rows from 16 medical-QA source and configuration subsets", "a 269-item calibration set with a held-out split", "a 500-row ambiguity audit across 12 failure-mode strata", "PedMedQA as an independent, method-different cross-reference"],
+ "figures": [
+  {"file": "assets/fig/peds-filter/funnel.png", "note": "the two-stage cascade. a deterministic high-recall keyword and source-scope screen cuts 212,983 rows to 22,834, then a structured classifier that names the primary clinical subject takes that to 12,324. the orange step is the one that would have been the whole method if keywords were enough."},
+  {"file": "assets/fig/peds-filter/neonate-gap.png", "note": "recall is not uniform by age band. the adult-pregnancy gate drops newborns delivered to an adult mother, so neonate recall sits at 75.4%. a validated fix exists and is shipped opt-in rather than on by default, with the gap documented and covered by a test."}
+ ],
+ "links": [
+  {"label": "Where it is used: the Growth-MedQA benchmark", "url": "projects/growth-medqa.html"}
+ ],
+ "calls": [
+  "the rule is one sentence and it is the whole method: do not classify a question as pediatric just because it contains child terms. identify the primary clinical subject and the target of the question.",
+  "the shipped filter is deterministic, dependency-light and needs no API keys. the expensive classifier earned its place by handling the cases the deterministic pass cannot, not by replacing it.",
+  "the classifier was improved by rewriting the instructions around primary subject and question target. adding few-shot examples was the wrong lever: the failure mode was keyword surface matching, not a shortage of examples.",
+  "every row goes through the same measurement process in one frozen labeling run, rather than routing only prefilter-positive rows to the stronger classifier."
+ ],
+ "broke": [
+  "agreement with PedMedQA was nearly reported as validated accuracy before I checked its own labels and found errors in them, including a 19-year-old labeled as an infant. it is a cross-reference and a lower bound, and the docs now say so.",
+  "the neonate gap was found by reading recall by age band rather than in aggregate. the aggregate number looked fine."
+ ],
+ "tried": "a sandbox version turned the neonatal override on by default and lifted overall recall to 95.6%. it is not the default because it trades specificity back, so it ships as a flag with the numbers for both settings.",
+ "not_shown": [
+  "the 269-item calibration labels are accepted model labels with a blinded audit, not independent clinician gold. that distinction is in the repo and it matters."
+ ],
+ "host_file": ""
+}

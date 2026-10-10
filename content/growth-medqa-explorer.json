@@ -1,0 +1,36 @@
+{
+ "slug": "growth-medqa-explorer",
+ "tab": "medical-ai",
+ "title": "Growth-MedQA Explorer",
+ "status": "live",
+ "line": "a browser for the benchmark: filter to a slice, compare models on it, read the actual items, and submit your own",
+ "question": "If a benchmark's headline finding is that one number hides the weak slices, can a reader check that for themselves instead of taking my word for it?",
+ "interactive": "https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer",
+ "links": [
+  {"label": "Open the explorer (Hugging Face Space)", "url": "https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer"},
+  {"label": "The benchmark itself", "url": "projects/growth-medqa.html"},
+  {"label": "Dataset on Hugging Face", "url": "https://huggingface.co/datasets/dmartinelli/growth-medqa"},
+  {"label": "Code on GitHub", "url": "https://github.com/dom-martinelli/Growth-MedQA"}
+ ],
+ "tools": ["Streamlit", "pandas", "Plotly", "pyarrow", "Hugging Face Spaces"],
+ "skills": ["interactive dashboards", "making an evaluation auditable", "designing a contribution path for clinicians"],
+ "data": ["the frozen Growth-MedQA item set", "per-model correctness for every item", "the two-axis taxonomy and the USMLE / HPO / MONDO crosswalks"],
+ "figures": [
+  {"file": "assets/fig/explorer/item-browser.png", "note": "item browser: every question in the benchmark, with the full stem, all options, the correct answer marked, and the reason the item was included. paginated, with selectable columns and a detail inspector that shows identifier provenance."},
+  {"file": "assets/fig/explorer/contribute.png", "note": "contribute tab: three submission routes for clinicians, from a one-line scenario suggestion up to a full MCQ or a longitudinal vignette. everything lands in a review queue; nothing writes to the canonical dataset live."},
+  {"file": "assets/fig/explorer/leaderboard.png", "note": "leaderboard: accuracy on whatever slice you have filtered to, next to the same model's accuracy on all items, with the delta and a Wilson interval. narrow the filter to a growth-specific slice and watch the order change."}
+ ],
+ "calls": [
+  "the delta column, not the raw accuracy, is the thing the app is built around. a filtered score only means something next to the same model's overall score.",
+  "every claim in the paper should be re-derivable from the app by a reader who does not trust me. that is why the item browser shows the inclusion reason and the identifier provenance, not just the question.",
+  "the contribute tab deliberately does not write to the dataset. submissions enter a review queue and a maintainer reviews them by hand, which is the honest limit of one reviewer.",
+  "identifier columns are hidden by default and only source-grounded exact mappings get loaded. pending ontology candidates never reach the app."
+ ],
+ "broke": [
+  "the slice heatmap currently renders 'no items for that slice' on both axes even with no filter applied and all items selected. caught by stepping through the live Space rather than the local test harness."
+ ],
+ "not_shown": [
+  "the manuscript's external-comparison table against MedQA, MedMCQA and PubMedQA is not mirrored in the app"
+ ],
+ "host_file": ""
+}

@@ -1,7 +1,7 @@
 {
  "name": "Dom Martinelli",
- "title": "Dom Martinelli · Biomedical informatics",
- "footer": "figures made with matplotlib and deck.gl · site built from json by build.py",
+ "title": "Dom Martinelli \u00b7 Biomedical informatics",
+ "footer": "figures made with matplotlib and deck.gl \u00b7 site built from json by build.py",
  "elsewhere": [
   {
    "label": "GitHub",
@@ -45,6 +45,8 @@
  "order": [
   "healthbench-rubrics",
   "growth-medqa",
+  "growth-medqa-explorer",
+  "pediatric-index-filter",
   "icd-index",
   "ai-coauthorship",
   "growth-zscore",
@@ -78,7 +80,7 @@
   "hepatotoxicity",
   "earlier-work"
  ],
- "affiliation": "biomedical informatics · Cornell · Kohane lab, Harvard DBMI",
+ "affiliation": "biomedical informatics \u00b7 Cornell \u00b7 Kohane lab, Harvard DBMI",
  "works_with": [
   "Python",
   "SMART on FHIR",

@@ -45,8 +45,12 @@ def load():
         if p.name.startswith("_"):
             continue
         d = json.loads(p.read_text())
-        if not d.get("hidden"):
-            projects.append(d)
+        # A card ships only if it is not hidden AND not explicitly held back.
+        # `public: false` is what the Studio writes when a card is unlocked
+        # there; the build has to honour it or the Studio is lying.
+        if d.get("hidden") or d.get("public") is False:
+            continue
+        projects.append(d)
     order = {s: i for i, s in enumerate(site.get("order", []))}
     projects.sort(key=lambda d: (order.get(d["slug"], 999), d["title"]))
     return site, projects
@@ -73,7 +77,7 @@ def head(title: str, desc: str, depth: int) -> str:
 def site_header(site, depth: int) -> str:
     up = "../" * depth
     links = (f'<a href="{up}gallery.html">Figures</a>'
-             f'<a href="{up}archive.html">Archive</a>') + "".join(
+             '') + "".join(
         f'<a href="{esc(l["url"])}">{esc(l["label"])}</a>' for l in site.get("elsewhere", []))
     return f"""<header class="top wrap">
   <a class="name" href="{up}index.html">{esc(site["name"])}</a>
@@ -208,7 +212,7 @@ def build_index(site, projects):
     <h1>{esc(site['name'])}</h1>
     <p class="affil">{esc(site['affiliation'])}</p>
     <div class="works"><span class="margin-note">works with</span><ul>{works}</ul></div>
-    <p class="hero-archive"><a href="#papers">six first-author papers &rarr;</a> &nbsp;·&nbsp; <a href="archive.html">every notebook on my machine, indexed &rarr;</a></p>
+    <p class="hero-archive"><a href="#papers">six first-author papers &rarr;</a></p>
   </section>
   <nav class="jump" aria-label="Subjects">{jump}</nav>
   {papers_section()}
@@ -289,9 +293,12 @@ def build_gallery(site):
     data = json.loads(f.read_text())
     figs = data["figures"]
     by_slug = {}
+    titles = {p["slug"]: p["title"] for p in load()[1]}
+    # Only gallery figures whose project actually ships. A held-back card
+    # must not leak through the figure page or link to a page that is gone.
+    figs = [f for f in figs if f["slug"] in titles]
     for fig in figs:
         by_slug.setdefault(fig["slug"], []).append(fig)
-    titles = {p["slug"]: p["title"] for p in load()[1]}
 
     blocks = []
     for slug, items in by_slug.items():
@@ -395,7 +402,7 @@ def main():
     if unknown:
         raise SystemExit(f"projects with an unknown tab: {unknown}")
     build_index(site, projects)
-    build_archive(site)
+    # build_archive(site)  # held back: lists local paths for 248 notebooks
     build_gallery(site)
     for p in projects:
         build_project(site, p, dict(GROUPS)[group(p)])

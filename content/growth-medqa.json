@@ -28,6 +28,38 @@
   ],
   "figures": [
     {
+      "file": "assets/fig/sibmi/reading-the-number.png",
+      "note": "reading the number: z-score, anthropometry, BMI, malnutrition and birth size. 246 items, cluster mean 84%. each grey dot is one growth topic, orange is this quantitative cluster, navy is the model's overall score."
+    },
+    {
+      "file": "assets/fig/sibmi/naming-the-condition.png",
+      "note": "naming the condition: short stature, syndromes, systemic causes, puberty and faltering. 479 items, cluster mean 91%. the same eight models and the same axis as the panel above, so the two clusters can be read against each other."
+    },
+    {
+      "file": "assets/fig/sibmi/one-number-is-an-average.png",
+      "note": "one number is an average. the bar is the overall score, and it collapses the whole spread of topics into a single point."
+    },
+    {
+      "file": "assets/fig/sibmi/same-score-by-topic.png",
+      "note": "the same score broken down by topic. each grey dot is one growth topic; the navy dot is the model's overall score."
+    },
+    {
+      "file": "assets/fig/sibmi/bedside-explodes-apart.png",
+      "note": "at the bedside the field explodes apart. the same 16 models triaging healthy children range from every child right to almost none."
+    },
+    {
+      "file": "assets/fig/sibmi/agree-wrong-key-is-off.png",
+      "note": "when a dozen models agree wrong, the answer key is usually the one that's off. four of the 83 answerable pile-ons."
+    },
+    {
+      "file": "assets/fig/sibmi/pediatrics-is-a-minority.png",
+      "note": "pediatrics is a minority in every general medical-QA benchmark; the median share is 10.4%."
+    },
+    {
+      "file": "assets/fig/sibmi/medqa-saturation-build.png",
+      "note": "MedQA accuracy by year, from a 36.7% BioBERT reader in 2021 to the whole frontier above 90% by 2026."
+    },
+    {
       "file": "assets/fig/psb/clinical-delta-topics.jpg",
       "note": "wild variation across pediatric endocrine topics. blue = stable categories, red = deep volatility. obesity and chart interpretation have the lowest floors and the widest spread between models; Claude Sonnet 4.6 drops 10 points on obesity."
     },

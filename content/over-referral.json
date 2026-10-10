@@ -67,6 +67,38 @@
     {
       "file": "assets/fig/over-referral-4.png",
       "note": "what the referrals cost, in one picture: healthy children worked up for each child with a real disorder, worst model against best."
+    },
+    {
+      "file": "assets/fig/growth/deck_f1_over_referral_5.png",
+      "note": "over-referral splits the panel: proprietary and open models side by side, GPT-4o near the top, Opus at the bottom."
+    },
+    {
+      "file": "assets/fig/growth/deck_f2_varied5.png",
+      "note": "each model flags at its own percentile. there is no shared threshold."
+    },
+    {
+      "file": "assets/fig/growth/deck_f3_instruction_delta.png",
+      "note": "one clinical sentence collapses the over-referral for most models. Mistral and DeepSeek resist."
+    },
+    {
+      "file": "assets/fig/growth/deck_cost_overreferral.png",
+      "note": "the sourced cost of the flood: positive predictive value of 1 to 5 per cent, $2-4k per workup, $0.5-1.1B a year."
+    },
+    {
+      "file": "assets/fig/growth/deck_burden_hero.png",
+      "note": "the same point in one glance: how many healthy children get worked up to catch the one who needs help."
+    },
+    {
+      "file": "assets/fig/growth/deck_two_velocity.png",
+      "note": "a real disorder against a healthy child measured too often. the velocity looks the same; only the trajectory over a real interval separates them."
+    },
+    {
+      "file": "assets/fig/growth/deck_measurement_error.png",
+      "note": "measurement error is large enough that velocity alone cannot screen (Voss 1990)."
+    },
+    {
+      "file": "assets/fig/growth/deck_roles_contrast.png",
+      "note": "role and persona prompts: the most role-sensitive models."
     }
   ],
   "links": [

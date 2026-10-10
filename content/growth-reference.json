@@ -34,8 +34,40 @@
     "responses were scored by an LLM judge; a human audit of the judge's calls is still to do.",
     "the Dutch and South-Asian cases use proxy references until exact LMS tables are substituted."
   ],
-  "figures": [],
+  "figures": [
+    {
+      "file": "assets/fig/growth-ref/growth_chart_choice_behavior_by_descriptor.png",
+      "note": "what the model does when the child is described as Korean, South Asian, Indian or not described at all. the US default barely moves."
+    },
+    {
+      "file": "assets/fig/growth-ref/growth_chart_choice_behavior_by_model.png",
+      "note": "the same behaviour split by model: every model defaults, some more than others."
+    },
+    {
+      "file": "assets/fig/growth-ref/growth_chart_choice_source_categories_by_descriptor.png",
+      "note": "which reference the model cites, by descriptor."
+    },
+    {
+      "file": "assets/fig/growth-ref/growth_chart_choice_source_categories_by_model.png",
+      "note": "which reference the model cites, by model."
+    },
+    {
+      "file": "assets/fig/growth-ref/growth_chart_choice_decision_changing_behavior_by_descriptor.png",
+      "note": "only the cases where the chart choice changes the clinical call."
+    },
+    {
+      "file": "assets/fig/growth-ref/korea_kcdc_girl_14y8m_minus2_cdc_short.png",
+      "note": "a worked case: a 14-year-8-month Korean girl who is normal on the KCDC chart and short on the CDC one."
+    },
+    {
+      "file": "assets/fig/growth-ref/india_iap_girl_14y_p3_cdc_short.png",
+      "note": "the same split for a 14-year-old Indian girl, IAP against CDC."
+    }
+  ],
   "links": [
-    {"label": "Growth-MedQA, the benchmark this came out of", "url": "growth-medqa.html"}
+    {
+      "label": "Growth-MedQA, the benchmark this came out of",
+      "url": "growth-medqa.html"
+    }
   ]
 }

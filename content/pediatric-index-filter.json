@@ -5,15 +5,52 @@
  "status": "in progress",
  "line": "keeping the medical questions whose primary clinical subject is a child, and dropping the ones that only mention one",
  "question": "A keyword sweep for child, infant and adolescent returns far more pediatric questions than are really pediatric. Can the primary clinical subject be identified instead of the vocabulary?",
- "tools": ["Python", "DSPy", "BootstrapFewShot", "pytest", "pandas"],
- "skills": ["annotation schema design", "classifier calibration", "packaging research code for reuse", "honest validation reporting"],
- "data": ["224,705 rows from 16 medical-QA source and configuration subsets", "a 269-item calibration set with a held-out split", "a 500-row ambiguity audit across 12 failure-mode strata", "PedMedQA as an independent, method-different cross-reference"],
+ "tools": [
+  "Python",
+  "DSPy",
+  "BootstrapFewShot",
+  "pytest",
+  "pandas"
+ ],
+ "skills": [
+  "annotation schema design",
+  "classifier calibration",
+  "packaging research code for reuse",
+  "honest validation reporting"
+ ],
+ "data": [
+  "224,705 rows from 16 medical-QA source and configuration subsets",
+  "a 269-item calibration set with a held-out split",
+  "a 500-row ambiguity audit across 12 failure-mode strata",
+  "PedMedQA as an independent, method-different cross-reference"
+ ],
  "figures": [
-  {"file": "assets/fig/peds-filter/funnel.png", "note": "the two-stage cascade. a deterministic high-recall keyword and source-scope screen cuts 212,983 rows to 22,834, then a structured classifier that names the primary clinical subject takes that to 12,324. the orange step is the one that would have been the whole method if keywords were enough."},
-  {"file": "assets/fig/peds-filter/neonate-gap.png", "note": "recall is not uniform by age band. the adult-pregnancy gate drops newborns delivered to an adult mother, so neonate recall sits at 75.4%. a validated fix exists and is shipped opt-in rather than on by default, with the gap documented and covered by a test."}
+  {
+   "file": "assets/fig/peds-filter/funnel.png",
+   "note": "the two-stage cascade. a deterministic high-recall keyword and source-scope screen cuts 212,983 rows to 22,834, then a structured classifier that names the primary clinical subject takes that to 12,324. the orange step is the one that would have been the whole method if keywords were enough."
+  },
+  {
+   "file": "assets/fig/peds-filter/neonate-gap.png",
+   "note": "recall is not uniform by age band. the adult-pregnancy gate drops newborns delivered to an adult mother, so neonate recall sits at 75.4%. a validated fix exists and is shipped opt-in rather than on by default, with the gap documented and covered by a test."
+  }
  ],
  "links": [
-  {"label": "Where it is used: the Growth-MedQA benchmark", "url": "projects/growth-medqa.html"}
+  {
+   "label": "Code on GitHub",
+   "url": "https://github.com/dom-martinelli/pediatric-index-filter"
+  },
+  {
+   "label": "How I drew the boundary",
+   "url": "https://github.com/dom-martinelli/pediatric-index-filter/blob/main/docs/boundary_criteria.md"
+  },
+  {
+   "label": "Validation and known limits",
+   "url": "https://github.com/dom-martinelli/pediatric-index-filter/blob/main/docs/validation.md"
+  },
+  {
+   "label": "Where it is used: the Growth-MedQA benchmark",
+   "url": "projects/growth-medqa.html"
+  }
  ],
  "calls": [
   "the rule is one sentence and it is the whole method: do not classify a question as pediatric just because it contains child terms. identify the primary clinical subject and the target of the question.",

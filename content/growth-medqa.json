@@ -28,6 +28,38 @@
   ],
   "figures": [
     {
+      "file": "assets/fig/amia/fig1-topic-breakdown.png",
+      "note": "the paper's Figure 1. (a) each model's spread across growth topics; (b) each topic across the 22 models. z-score and percentile computation sits near the bottom at 62.4%, about 18 points below the strongest topic."
+    },
+    {
+      "file": "assets/fig/amia/zscore-stratum-heatmap.png",
+      "note": "the z-score deficit per model and stratum. every one of the 22 models scores below its own average here, median drop 13.7 points."
+    },
+    {
+      "file": "assets/fig/amia/zscore-gap-decomp.png",
+      "note": "where the z-score gap comes from, broken into its parts."
+    },
+    {
+      "file": "assets/fig/amia/zscore-conditions.png",
+      "note": "the z-score items under different prompt conditions."
+    },
+    {
+      "file": "assets/fig/amia/competency-performance.png",
+      "note": "the same panel by USMLE physician-task competency: strongest at formulating the diagnosis (~83%), weakest at health maintenance (~60%) and prognosis (~62%)."
+    },
+    {
+      "file": "assets/fig/amia/subtopic-performance-range.png",
+      "note": "the range across subtopics, which the aggregate score hides."
+    },
+    {
+      "file": "assets/fig/amia/benchmark-composition.png",
+      "note": "what the 960 items are made of: nine public sources screened from 224,705 questions."
+    },
+    {
+      "file": "assets/fig/amia/study-workflow.png",
+      "note": "the study workflow from source benchmarks to labelled corpus."
+    },
+    {
       "file": "assets/fig/deck/medqa-saturation.png",
       "note": "MedQA is saturated: the exam no longer separates models. top score by year, from a 37 per cent retriever-reader in 2020 to the whole frontier above 90 per cent by 2026."
     },

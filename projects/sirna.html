@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Predicting activity of chemically modified siRNA · Dom Martinelli</title>
+<meta name="description" content="classifier for silencing activity from sequence and modification pattern">
+<meta property="og:title" content="Predicting activity of chemically modified siRNA · Dom Martinelli">
+<meta property="og:description" content="classifier for silencing activity from sequence and modification pattern">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#analyses">&larr; Analyses</a>
+  <h1>Predicting activity of chemically modified siRNA</h1>
+  <p class="line">classifier for silencing activity from sequence and modification pattern</p>
+  <dl class="spec"><div><dt>skills</dt><dd>supervised classification · sequence feature engineering · model comparison · imbalanced-data evaluation · literature curation</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>seaborn</li><li>Jupyter</li></ul></dd></div><div><dt>data</dt><dd>siRNAmod database · validation set hand-extracted from primary literature</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
+  
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>Can a model predict how well a chemically modified siRNA silences its target from sequence and modification alone?</p></div></div>
+  <div class="figs"><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/sirna-2.png"><img src="../assets/fig/sirna-2.png" alt="feature weights from the trained model. read with the co-occurrence caveat above." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">feature weights from the trained model. read with the co-occurrence caveat above.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/sirna-3.png"><img src="../assets/fig/sirna-3.png" alt="the seven sugar modifications in the training data, drawn in ChemDraw for the paper, each shown against the unmodified ribose position it replaces (grey marks the change). backbone modifications such as phosphorothioate are not part of this set." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">the seven sugar modifications in the training data, drawn in ChemDraw for the paper, each shown against the unmodified ribose position it replaces (grey marks the change). backbone modifications such as phosphorothioate are not part of this set.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/sirna-1.png"><img src="../assets/fig/sirna-1.png" alt="how often each modification appears across the training siRNAs, in the same order as the structures above. 2′-O-methyl and 2′-fluoro dominate; the rarer chemistries give the model very few examples to learn from." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">how often each modification appears across the training siRNAs, in the same order as the structures above. 2′-O-methyl and 2′-fluoro dominate; the rarer chemistries give the model very few examples to learn from.</figcaption></figure></div>
+  
+  
+  
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>three model families side by side rather than tuning one architecture. on a task nobody had modelled, which family fits is itself the finding.</li><li>ROC and precision-recall AUC, not accuracy. classes are unbalanced at every threshold, and a falsely optimistic call is the expensive mistake here.</li><li>the whole experiment repeated at three inhibition cutoffs. published definitions of an effective siRNA disagree with each other.</li><li>one-hot encoding of base and modification at each position, not cheminformatics descriptors of each modification. enough for a proof of concept, at the cost that a new chemistry cannot be scored without retraining.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>the validation sequences the methods pointed to were missing from the supplement at first submission. a reviewer caught it.</li><li>the supplementary spreadsheet still carried an earlier set of activity cutoffs, contradicting the manuscript. reviewer caught that too.</li><li>reading the learned weights needs to account for how modifications co-occur. a high weight on one stabilising modification partly stands in for the others that travel with it.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>ran the classifiers at a 90 percent inhibition cutoff as well. too few sequences clear that bar, so the classes go too lopsided to learn from.</p></div></div>
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>manuscript under review, so no performance figures here</li></ul></div></div>
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

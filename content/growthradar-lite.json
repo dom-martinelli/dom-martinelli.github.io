@@ -1,64 +1,65 @@
 {
-  "slug": "growthradar-lite",
-  "tab": "clinical-tools",
-  "title": "Growth monitoring from the health record",
-  "status": "live",
-  "tools": [
-    "JavaScript (no build step)",
-    "Chart.js",
-    "Web Crypto",
-    "Epic FHIR R4",
-    "LOINC",
-    "HAPI FHIR",
-    "Docker"
-  ],
-  "links": [
-    {
-      "label": "Live demo",
-      "url": "https://dom-martinelli.github.io/growthradar-lite/"
-    },
-    {
-      "label": "Code on GitHub",
-      "url": "https://github.com/dom-martinelli/growthradar-lite"
-    }
-  ],
-  "figures": [
-    {
-      "file": "assets/fig/growthradar-lite-1.png",
-      "dark": true,
-      "note": "the sample patient's height and weight from the record, with flagged points marked. below, height velocity between visits: the early jumps of 48 and 23 cm a year are flagged as likely measurement artifacts, so a bad entry is caught before it reads as a growth problem."
-    }
-  ],
-  "host_file": "",
-  "line": "what a clinician sees: a child's growth history pulled from the record, charted, with implausible jumps flagged before anyone acts on them",
-  "question": "Can a browser app read a child's growth history straight from a health record and surface faltering a short visit would miss?",
-  "skills": [
-    "SMART on FHIR integration",
-    "OAuth 2.0 / PKCE",
-    "FHIR querying and parsing",
-    "clinical rule design",
-    "LLM prompt design"
-  ],
-  "data": [
-    "Epic FHIR sandbox",
-    "WHO and CDC height references (embedded)",
-    "synthetic demo patients"
-  ],
-  "calls": [
-    "growth engine fenced off during the feature build. the percentile tables, interpolation and anomaly rules were the part already checked.",
-    "demo cases built around trajectory, velocity and delayed recognition, not population-specific expected growth. a subgroup-specific chart can make a remediable problem look typical.",
-    "model API key asked for at run time and held in sessionStorage. the app ships as static files, so anything in the repo ships with it.",
-    "self-hosted HAPI added as the custom-data lane, Epic kept as the interoperability lane. only the read source changes; the growth logic does not."
-  ],
-  "broke": [
-    "first scopes requested were user-level, which return no patient context. switched to patient-level and printed the granted scopes to debug it.",
-    "the sandbox patient came back with no vitals at all, so the chart had nothing to draw. synthetic measurements added as a fallback.",
-    "the plain category search for vital signs did not work; the query needs the full terminology system URI, and requests need an explicit FHIR JSON Accept header.",
-    "switching between demo patients and plotting the parental target line were both wrong after the feature build."
-  ],
-  "tried": "dropped the Epic OAuth launch in the follow-on build for a HAPI server with a patient dropdown, because the teaching vignettes had to be ones I could author and load myself.",
-  "not_shown": [
-    "percentiles come from a small embedded boys-only table, interpolated, not a validated LMS engine"
-  ],
-  "interactive": "https://dom-martinelli.github.io/growthradar-lite/"
+ "slug": "growthradar-lite",
+ "tab": "clinical-tools",
+ "title": "Growth monitoring from the health record",
+ "status": "live",
+ "tools": [
+  "JavaScript (no build step)",
+  "Chart.js",
+  "Web Crypto",
+  "Epic FHIR R4",
+  "LOINC",
+  "HAPI FHIR",
+  "Docker"
+ ],
+ "links": [
+  {
+   "label": "Live demo",
+   "url": "https://dom-martinelli.github.io/growthradar-lite/"
+  },
+  {
+   "label": "Code on GitHub",
+   "url": "https://github.com/dom-martinelli/growthradar-lite"
+  }
+ ],
+ "figures": [
+  {
+   "file": "assets/fig/growthradar-lite-1.png",
+   "dark": true,
+   "note": "the sample patient's height and weight from the record, with flagged points marked. below, height velocity between visits: the early jumps of 48 and 23 cm a year are flagged as likely measurement artifacts, so a bad entry is caught before it reads as a growth problem."
+  }
+ ],
+ "host_file": "",
+ "line": "what a clinician sees: a child's growth history pulled from the record, charted, with implausible jumps flagged before anyone acts on them",
+ "question": "Can a browser app read a child's growth history straight from a health record and surface faltering a short visit would miss?",
+ "skills": [
+  "SMART on FHIR integration",
+  "OAuth 2.0 / PKCE",
+  "FHIR querying and parsing",
+  "clinical rule design",
+  "LLM prompt design"
+ ],
+ "data": [
+  "Epic FHIR sandbox",
+  "WHO and CDC height references (embedded)",
+  "synthetic demo patients"
+ ],
+ "calls": [
+  "growth engine fenced off during the feature build. the percentile tables, interpolation and anomaly rules were the part already checked.",
+  "demo cases built around trajectory, velocity and delayed recognition, not population-specific expected growth. a subgroup-specific chart can make a remediable problem look typical.",
+  "model API key asked for at run time and held in sessionStorage. the app ships as static files, so anything in the repo ships with it.",
+  "self-hosted HAPI added as the custom-data lane, Epic kept as the interoperability lane. only the read source changes; the growth logic does not."
+ ],
+ "broke": [
+  "first scopes requested were user-level, which return no patient context. switched to patient-level and printed the granted scopes to debug it.",
+  "the sandbox patient came back with no vitals at all, so the chart had nothing to draw. synthetic measurements added as a fallback.",
+  "the plain category search for vital signs did not work; the query needs the full terminology system URI, and requests need an explicit FHIR JSON Accept header.",
+  "switching between demo patients and plotting the parental target line were both wrong after the feature build."
+ ],
+ "tried": "dropped the Epic OAuth launch in the follow-on build for a HAPI server with a patient dropdown, because the teaching vignettes had to be ones I could author and load myself.",
+ "not_shown": [
+  "percentiles come from a small embedded boys-only table, interpolated, not a validated LMS engine"
+ ],
+ "interactive": "https://dom-martinelli.github.io/growthradar-lite/",
+ "public": true
 }

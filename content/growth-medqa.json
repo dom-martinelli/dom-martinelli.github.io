@@ -24,6 +24,10 @@
  ],
  "figures": [
   {
+   "file": "assets/fig/psb/clinical-delta-topics.jpg",
+   "note": "wild variation across pediatric endocrine topics. blue = stable categories, red = deep volatility. obesity and chart interpretation have the lowest floors and the widest spread between models; Claude Sonnet 4.6 drops 10 points on obesity."
+  },
+  {
    "file": "assets/fig/sibmi/reading-the-number.png",
    "note": "reading the number: z-score, anthropometry, BMI, malnutrition and birth size. 246 items, cluster mean 84%. each grey dot is one growth topic, orange is this quantitative cluster, navy is the model's overall score."
   },
@@ -54,10 +58,6 @@
   {
    "file": "assets/fig/sibmi/medqa-saturation-build.png",
    "note": "MedQA accuracy by year, from a 36.7% BioBERT reader in 2021 to the whole frontier above 90% by 2026."
-  },
-  {
-   "file": "assets/fig/psb/clinical-delta-topics.jpg",
-   "note": "wild variation across pediatric endocrine topics. blue = stable categories, red = deep volatility. obesity and chart interpretation have the lowest floors and the widest spread between models; Claude Sonnet 4.6 drops 10 points on obesity."
   },
   {
    "file": "assets/fig/psb/usmle-delta-competency.jpg",
@@ -217,5 +217,6 @@
  "tried": "a three-level cognitive tier label got cut once it was clear it was a locally coined collapse rather than standard revised Bloom. the USMLE competency crosswalk replaced it.",
  "not_shown": [
   "manuscript under review, so no scores or model rankings here"
- ]
+ ],
+ "public": true
 }

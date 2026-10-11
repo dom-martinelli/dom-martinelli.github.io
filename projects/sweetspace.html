@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flavor identity and sweetener potency · Dom Martinelli</title>
+<meta name="description" content="cheminformatics on what single molecules carry, and what structure predicts">
+<meta property="og:title" content="Flavor identity and sweetener potency · Dom Martinelli">
+<meta property="og:description" content="cheminformatics on what single molecules carry, and what structure predicts">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#analyses">&larr; Analyses</a>
+  <h1>Flavor identity and sweetener potency</h1>
+  <p class="line">cheminformatics on what single molecules carry, and what structure predicts</p>
+  <dl class="spec"><div><dt>skills</dt><dd>cheminformatics · molecular fingerprints · dimensionality reduction · baseline-controlled modelling · feature attribution</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>RDKit</li><li>scikit-learn</li><li>SHAP</li><li>t-SNE / UMAP</li><li>pandas</li><li>matplotlib</li></ul></dd></div><div><dt>data</dt><dd>Pyrfume (Leffingwell, Goodscents) · PubChem · hand-curated sweetener and polyol tables</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
+  <div class="actions"><a class="btn btn-primary" href="https://github.com/dom-martinelli/sweetspace">Code on GitHub</a></div>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>How much of a flavour is carried by single molecules, and does a sweetener&#x27;s structure predict how sweet it is?</p></div></div>
+  <div class="figs"><figure class="fig"><div class="panel"><a class="zoom" href="../gallery/odor-structure-topography.png"><img src="../gallery/odor-structure-topography.png" alt="each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../gallery/odor-descriptor-cooccurrence.png"><img src="../gallery/odor-descriptor-cooccurrence.png" alt="which odour words land on the same molecule. blocks are families: roasted with sulfurous and meaty, fatty with waxy and oily." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">which odour words land on the same molecule. blocks are families: roasted with sulfurous and meaty, fatty with waxy and oily.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../gallery/sweetener-anchoring.png"><img src="../gallery/sweetener-anchoring.png" alt="flavour profiles by how much of their identity one molecule carries. everything on the dashed line is learned rather than tasted." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">flavour profiles by how much of their identity one molecule carries. everything on the dashed line is learned rather than tasted.</figcaption></figure></div>
+  
+  
+  
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>class-mean baseline, not predict-the-mean. sugars and polyols sit at a different potency level entirely, so any feature leaking class membership scores well without learning chemistry.</li><li>neighbour lift over raw neighbour share. raw share ranks the commonest odour words first, which measures prevalence, not structure.</li><li>SHAP on the within-class model, not the flattering full-dataset one. descriptor axes stay readable where fingerprint bits do not.</li><li>dairy label without coconut or cheesy. coconut notes are heavily lactonic, and baking that into the label would decide the lactone question in advance. both labels stay in the pipeline.</li><li>polydisperse bulking agents dropped, not stood in by a representative oligomer. a stand-in files one molecule under another molecule&#x27;s name.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>lactone SMARTS wrong twice. an uppercase C matched aliphatic carbon only and missed every aromatic lactone, coumarin included; with no ring carbon required on the carbonyl it also matched cyclic carbonates.</li><li>PubChem resolved ribitol onto xylitol&#x27;s CID. different pentitol, valid structure, right formula, nothing looked broken. the build now raises when two query names collapse onto one CID.</li><li>SuperSweet, the sweetener source named in the spec, went offline mid-project. replaced by a hand-curated table resolved against PubChem, which caps what the potency analysis can say.</li><li>the distinctiveness axis did not behave. a flavour can own a distinctive compound set with no single molecule carrying its identity, so distinctiveness and anchoring came apart.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>ranked odour words by raw neighbour share first. the commonest labels win that ranking on prevalence alone, so switched to lift over the base rate.</p></div></div>
+  
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

@@ -1,56 +1,57 @@
 {
-  "slug": "sirna",
-  "tab": "molecules",
-  "title": "Predicting activity of chemically modified siRNA",
-  "status": "in progress",
-  "tools": [
-    "Python",
-    "scikit-learn",
-    "pandas",
-    "seaborn",
-    "Jupyter"
-  ],
-  "links": [],
-  "figures": [
-    {
-      "file": "assets/fig/sirna-3.png",
-      "note": "the seven sugar modifications in the training data, drawn in ChemDraw for the paper, each shown against the unmodified ribose position it replaces (grey marks the change). backbone modifications such as phosphorothioate are not part of this set."
-    },
-    {
-      "file": "assets/fig/sirna-1.png",
-      "note": "how often each modification appears across the training siRNAs, in the same order as the structures above. 2′-O-methyl and 2′-fluoro dominate; the rarer chemistries give the model very few examples to learn from."
-    },
-    {
-      "file": "assets/fig/sirna-2.png",
-      "note": "feature weights from the trained model. read with the co-occurrence caveat above."
-    }
-  ],
-  "line": "classifier for silencing activity from sequence and modification pattern",
-  "question": "Can a model predict how well a chemically modified siRNA silences its target from sequence and modification alone?",
-  "skills": [
-    "supervised classification",
-    "sequence feature engineering",
-    "model comparison",
-    "imbalanced-data evaluation",
-    "literature curation"
-  ],
-  "data": [
-    "siRNAmod database",
-    "validation set hand-extracted from primary literature"
-  ],
-  "calls": [
-    "three model families side by side rather than tuning one architecture. on a task nobody had modelled, which family fits is itself the finding.",
-    "ROC and precision-recall AUC, not accuracy. classes are unbalanced at every threshold, and a falsely optimistic call is the expensive mistake here.",
-    "the whole experiment repeated at three inhibition cutoffs. published definitions of an effective siRNA disagree with each other.",
-    "one-hot encoding of base and modification at each position, not cheminformatics descriptors of each modification. enough for a proof of concept, at the cost that a new chemistry cannot be scored without retraining."
-  ],
-  "broke": [
-    "the validation sequences the methods pointed to were missing from the supplement at first submission. a reviewer caught it.",
-    "the supplementary spreadsheet still carried an earlier set of activity cutoffs, contradicting the manuscript. reviewer caught that too.",
-    "reading the learned weights needs to account for how modifications co-occur. a high weight on one stabilising modification partly stands in for the others that travel with it."
-  ],
-  "tried": "ran the classifiers at a 90 percent inhibition cutoff as well. too few sequences clear that bar, so the classes go too lopsided to learn from.",
-  "not_shown": [
-    "manuscript under review, so no performance figures here"
-  ]
+ "slug": "sirna",
+ "tab": "molecules",
+ "title": "Predicting activity of chemically modified siRNA",
+ "status": "in progress",
+ "tools": [
+  "Python",
+  "scikit-learn",
+  "pandas",
+  "seaborn",
+  "Jupyter"
+ ],
+ "links": [],
+ "figures": [
+  {
+   "file": "assets/fig/sirna-2.png",
+   "note": "feature weights from the trained model. read with the co-occurrence caveat above."
+  },
+  {
+   "file": "assets/fig/sirna-3.png",
+   "note": "the seven sugar modifications in the training data, drawn in ChemDraw for the paper, each shown against the unmodified ribose position it replaces (grey marks the change). backbone modifications such as phosphorothioate are not part of this set."
+  },
+  {
+   "file": "assets/fig/sirna-1.png",
+   "note": "how often each modification appears across the training siRNAs, in the same order as the structures above. 2\u2032-O-methyl and 2\u2032-fluoro dominate; the rarer chemistries give the model very few examples to learn from."
+  }
+ ],
+ "line": "classifier for silencing activity from sequence and modification pattern",
+ "question": "Can a model predict how well a chemically modified siRNA silences its target from sequence and modification alone?",
+ "skills": [
+  "supervised classification",
+  "sequence feature engineering",
+  "model comparison",
+  "imbalanced-data evaluation",
+  "literature curation"
+ ],
+ "data": [
+  "siRNAmod database",
+  "validation set hand-extracted from primary literature"
+ ],
+ "calls": [
+  "three model families side by side rather than tuning one architecture. on a task nobody had modelled, which family fits is itself the finding.",
+  "ROC and precision-recall AUC, not accuracy. classes are unbalanced at every threshold, and a falsely optimistic call is the expensive mistake here.",
+  "the whole experiment repeated at three inhibition cutoffs. published definitions of an effective siRNA disagree with each other.",
+  "one-hot encoding of base and modification at each position, not cheminformatics descriptors of each modification. enough for a proof of concept, at the cost that a new chemistry cannot be scored without retraining."
+ ],
+ "broke": [
+  "the validation sequences the methods pointed to were missing from the supplement at first submission. a reviewer caught it.",
+  "the supplementary spreadsheet still carried an earlier set of activity cutoffs, contradicting the manuscript. reviewer caught that too.",
+  "reading the learned weights needs to account for how modifications co-occur. a high weight on one stabilising modification partly stands in for the others that travel with it."
+ ],
+ "tried": "ran the classifiers at a 90 percent inhibition cutoff as well. too few sequences clear that bar, so the classes go too lopsided to learn from.",
+ "not_shown": [
+  "manuscript under review, so no performance figures here"
+ ],
+ "public": true
 }

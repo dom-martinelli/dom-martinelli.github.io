@@ -1,69 +1,70 @@
 {
-  "slug": "stroke-belt",
-  "tab": "population",
-  "title": "Hypertension and treatment across the Stroke Belt",
-  "status": "finished",
-  "tools": [
-    "Python",
-    "GeoPandas",
-    "scikit-learn",
-    "folium",
-    "pandas",
-    "matplotlib"
-  ],
-  "links": [
-    {
-      "label": "where Southern patients go for a hospital stay",
-      "url": "patient-flows.html"
-    }
-  ],
-  "figures": [
-    {
-      "file": "assets/fig/stroke-belt-1.png",
-      "note": "stroke prevalence by county. the belt is visible without any statistics."
-    },
-    {
-      "file": "assets/fig/stroke-belt-2.png",
-      "note": "insurance coverage among older adults, same geography."
-    },
-    {
-      "file": "assets/fig/stroke-belt-3.png",
-      "note": "medical debt in collections, county level."
-    },
-    {
-      "file": "assets/fig/stroke-belt-4.png",
-      "note": "food insecurity, county level."
-    }
-  ],
-  "line": "tract-level study of who develops high blood pressure and who gets treated",
-  "question": "Within the Stroke Belt, is high blood pressure more common where obesity is, and are diagnosed adults less likely to be on medication where the Black population share is larger?",
-  "skills": [
-    "geospatial joins",
-    "choropleth mapping",
-    "area-level regression",
-    "permutation testing of preregistered hypotheses",
-    "outlier rules for bounded measures"
-  ],
-  "data": [
-    "CDC PLACES tract estimates",
-    "ACS 5-year estimates",
-    "Census TIGER geometries",
-    "county stroke, insurance, debt and food-access files"
-  ],
-  "calls": [
-    "widened from one metro to the Stroke Belt states. the cleaned Chicago sample was a tiny slice of US tracts, and the hypertension burden is documented across the region.",
-    "medication coverage among adults already diagnosed as the treatment outcome, not recorded prevalence. low recorded prevalence can mean less testing rather than less disease.",
-    "interquartile rule for flagging high-burden tracts, not z-scores. tract percentages are bounded and right-skewed.",
-    "collinear behavioural measures left out of the second model. inactivity, smoking and short sleep are multicollinear with obesity, the predictor of interest."
-  ],
-  "broke": [
-    "tract IDs kept losing their leading zero when read as numbers, which silently breaks joins for every state whose FIPS code starts with one.",
-    "the first model cell was committed in an erroring state after the medication column was renamed.",
-    "the source column name for the treatment measure implied a share of the whole tract population rather than of diagnosed adults. renamed before analysis."
-  ],
-  "tried": "first version was Chicago tracts with HOLC redlining grades. too few tracts survived cleaning, so the team moved to Stroke Belt states and dropped the redlining layer.",
-  "not_shown": [
-    "four-person INFO 2950 group project; the decisions above are the team's"
-  ],
-  "found": []
+ "slug": "stroke-belt",
+ "tab": "population",
+ "title": "Hypertension and treatment across the Stroke Belt",
+ "status": "finished",
+ "tools": [
+  "Python",
+  "GeoPandas",
+  "scikit-learn",
+  "folium",
+  "pandas",
+  "matplotlib"
+ ],
+ "links": [
+  {
+   "label": "where Southern patients go for a hospital stay",
+   "url": "patient-flows.html"
+  }
+ ],
+ "figures": [
+  {
+   "file": "assets/fig/stroke-belt-2.png",
+   "note": "insurance coverage among older adults, same geography."
+  },
+  {
+   "file": "assets/fig/stroke-belt-1.png",
+   "note": "stroke prevalence by county. the belt is visible without any statistics."
+  },
+  {
+   "file": "assets/fig/stroke-belt-3.png",
+   "note": "medical debt in collections, county level."
+  },
+  {
+   "file": "assets/fig/stroke-belt-4.png",
+   "note": "food insecurity, county level."
+  }
+ ],
+ "line": "tract-level study of who develops high blood pressure and who gets treated",
+ "question": "Within the Stroke Belt, is high blood pressure more common where obesity is, and are diagnosed adults less likely to be on medication where the Black population share is larger?",
+ "skills": [
+  "geospatial joins",
+  "choropleth mapping",
+  "area-level regression",
+  "permutation testing of preregistered hypotheses",
+  "outlier rules for bounded measures"
+ ],
+ "data": [
+  "CDC PLACES tract estimates",
+  "ACS 5-year estimates",
+  "Census TIGER geometries",
+  "county stroke, insurance, debt and food-access files"
+ ],
+ "calls": [
+  "widened from one metro to the Stroke Belt states. the cleaned Chicago sample was a tiny slice of US tracts, and the hypertension burden is documented across the region.",
+  "medication coverage among adults already diagnosed as the treatment outcome, not recorded prevalence. low recorded prevalence can mean less testing rather than less disease.",
+  "interquartile rule for flagging high-burden tracts, not z-scores. tract percentages are bounded and right-skewed.",
+  "collinear behavioural measures left out of the second model. inactivity, smoking and short sleep are multicollinear with obesity, the predictor of interest."
+ ],
+ "broke": [
+  "tract IDs kept losing their leading zero when read as numbers, which silently breaks joins for every state whose FIPS code starts with one.",
+  "the first model cell was committed in an erroring state after the medication column was renamed.",
+  "the source column name for the treatment measure implied a share of the whole tract population rather than of diagnosed adults. renamed before analysis."
+ ],
+ "tried": "first version was Chicago tracts with HOLC redlining grades. too few tracts survived cleaning, so the team moved to Stroke Belt states and dropped the redlining layer.",
+ "not_shown": [
+  "four-person INFO 2950 group project; the decisions above are the team's"
+ ],
+ "found": [],
+ "public": true
 }

@@ -1,130 +1,131 @@
 {
-  "slug": "over-referral",
-  "tab": "medical-ai",
-  "status": "in progress",
-  "title": "Over-referral as a representation failure",
-  "line": "deployment-behaviour benchmark on healthy short children",
-  "question": "Deployed as a screener on healthy short children, does a language model refer everyone, and what changes that?",
-  "skills": [
-    "deployment-behaviour benchmark design",
-    "prompt condition and ablation design",
-    "LLM evaluation at scale",
-    "clinical cost and PPV modelling",
-    "figure design for a lab audience"
-  ],
-  "tools": [
-    "Python",
-    "OpenRouter",
-    "open and frontier model APIs",
-    "pandas",
-    "matplotlib"
-  ],
-  "data": [
-    "synthetic healthy short-stature cases",
-    "CDC 2000 reference",
-    "published referral PPV and workup cost figures"
-  ],
-  "found": [
-    "most models behave like the doctor you would fire: given a hundred healthy short children each, the worst refer every one. the newest refer almost none. model size does not predict where a model lands.",
-    "the percentile label is what triggers them. raw height and weight reads as fine; adding the percentile sets off the alarm on the identical steady curve, and each model flips at its own percentile.",
-    "one clinical sentence, that a stably tracking low percentile is a normal variant, drops over-referral to near zero for most models. a subset ignore it.",
-    "the computed velocity barely helps. how the growth data is presented is what moves the behaviour.",
-    "role framing moves the screening call much less than representation does: under payer, endocrinologist or parent prompts the within-model spread stays small next to the model-to-model spread."
-  ],
-  "cost_per_1000": [
-    "Sisley et al. (J Pediatr, 2013; doi:10.1016/j.jpeds.2013.04.002) puts the positive predictive value of a short-stature referral at about 1–5%, so roughly 950–990 of every 1,000 referrals do not find treatable pathology.",
-    "If a screener refers all 1,000 children, as the worst models here did, those low-yield workups cost about $1.9–$4.0 million.",
-    "This estimate assumes $2,000–$4,000 per initial workup, applies the 1–5% PPV range to all 1,000 referrals, and excludes later treatment, travel, and family time."
-  ],
-  "calls": [
-    "healthy children as the test set. the failure being measured is referring a well child, and only a handful of real disease cases are digitised cleanly enough to trust.",
-    "referral burden and PPV as the yardstick. a short-stature referral already carries a positive predictive value of a few percent, and each workup costs thousands into the most access-constrained pediatric specialty.",
-    "the same children re-run under each prompt condition, so any difference comes from the representation. fresh samples per condition would add sampling noise.",
-    "open and frontier models in one panel. the interesting result is the split across the field, which a frontier-only panel would hide."
-  ],
-  "broke": [
-    "the first framing read as a leaderboard. it is a behaviour measurement, and the figures had to be rebuilt so each figure compares conditions within a model.",
-    "single deterministic pass per item, and the contamination check is still outstanding."
-  ],
-  "tried": "tried reading it as a capability gap first, expecting bigger models to do better. the panel does not sort by scale, so capability was the wrong frame and representation replaced it.",
-  "not_shown": [
-    "not claiming these models miss real disease: that needs far more digitised disease cases than exist here",
-    "lab work with collaborators, headed for a pediatrics research letter, so this is the walkthrough version"
-  ],
-  "figures": [
-    {
-      "file": "assets/fig/deck/reassurance-18models.png",
-      "note": "healthy short children correctly reassured, 18 models. seven reassure almost everyone; four reassure none."
-    },
-    {
-      "file": "assets/fig/deck/sens-spec-7model.png",
-      "note": "a zero false-alarm rate is not restraint if the model also misses the disease. only Gemini 2.5 Pro clears 0.75 on both axes."
-    },
-    {
-      "file": "assets/fig/deck/overreferral-slope.png",
-      "note": "the over-referral rate as a slope, before and after the clinical sentence."
-    },
-    {
-      "file": "assets/fig/deck/exam-vs-reassure.png",
-      "note": "exam accuracy against reassurance: the two do not move together."
-    },
-    {
-      "file": "assets/fig/deck/overreferral-7model.png",
-      "note": "the seven-model panel the sensitivity-specificity figure is drawn from."
-    },
-    {
-      "file": "assets/fig/over-referral-1.png",
-      "note": "share of healthy short children each model refers. same children, same question, opposite behaviour."
-    },
-    {
-      "file": "assets/fig/over-referral-2.png",
-      "note": "the percentile at which each model starts flagging. there is no shared threshold."
-    },
-    {
-      "file": "assets/fig/over-referral-3.png",
-      "note": "the same models after one clinical sentence is added to the prompt."
-    },
-    {
-      "file": "assets/fig/over-referral-4.png",
-      "note": "what the referrals cost, in one picture: healthy children worked up for each child with a real disorder, worst model against best."
-    },
-    {
-      "file": "assets/fig/growth/deck_f1_over_referral_5.png",
-      "note": "over-referral splits the panel: proprietary and open models side by side, GPT-4o near the top, Opus at the bottom."
-    },
-    {
-      "file": "assets/fig/growth/deck_f2_varied5.png",
-      "note": "each model flags at its own percentile. there is no shared threshold."
-    },
-    {
-      "file": "assets/fig/growth/deck_f3_instruction_delta.png",
-      "note": "one clinical sentence collapses the over-referral for most models. Mistral and DeepSeek resist."
-    },
-    {
-      "file": "assets/fig/growth/deck_cost_overreferral.png",
-      "note": "the sourced cost of the flood: positive predictive value of 1 to 5 per cent, $2-4k per workup, $0.5-1.1B a year."
-    },
-    {
-      "file": "assets/fig/growth/deck_burden_hero.png",
-      "note": "the same point in one glance: how many healthy children get worked up to catch the one who needs help."
-    },
-    {
-      "file": "assets/fig/growth/deck_two_velocity.png",
-      "note": "a real disorder against a healthy child measured too often. the velocity looks the same; only the trajectory over a real interval separates them."
-    },
-    {
-      "file": "assets/fig/growth/deck_measurement_error.png",
-      "note": "measurement error is large enough that velocity alone cannot screen (Voss 1990)."
-    },
-    {
-      "file": "assets/fig/growth/deck_roles_contrast.png",
-      "note": "role and persona prompts: the most role-sensitive models."
-    }
-  ],
-  "links": [
-    {
-      "label": "Growth-MedQA, the benchmark this came out of",
-      "url": "growth-medqa.html"
-    }
-  ]
+ "slug": "over-referral",
+ "tab": "medical-ai",
+ "status": "in progress",
+ "title": "Over-referral as a representation failure",
+ "line": "deployment-behaviour benchmark on healthy short children",
+ "question": "Deployed as a screener on healthy short children, does a language model refer everyone, and what changes that?",
+ "skills": [
+  "deployment-behaviour benchmark design",
+  "prompt condition and ablation design",
+  "LLM evaluation at scale",
+  "clinical cost and PPV modelling",
+  "figure design for a lab audience"
+ ],
+ "tools": [
+  "Python",
+  "OpenRouter",
+  "open and frontier model APIs",
+  "pandas",
+  "matplotlib"
+ ],
+ "data": [
+  "synthetic healthy short-stature cases",
+  "CDC 2000 reference",
+  "published referral PPV and workup cost figures"
+ ],
+ "found": [
+  "most models behave like the doctor you would fire: given a hundred healthy short children each, the worst refer every one. the newest refer almost none. model size does not predict where a model lands.",
+  "the percentile label is what triggers them. raw height and weight reads as fine; adding the percentile sets off the alarm on the identical steady curve, and each model flips at its own percentile.",
+  "one clinical sentence, that a stably tracking low percentile is a normal variant, drops over-referral to near zero for most models. a subset ignore it.",
+  "the computed velocity barely helps. how the growth data is presented is what moves the behaviour.",
+  "role framing moves the screening call much less than representation does: under payer, endocrinologist or parent prompts the within-model spread stays small next to the model-to-model spread."
+ ],
+ "cost_per_1000": [
+  "Sisley et al. (J Pediatr, 2013; doi:10.1016/j.jpeds.2013.04.002) puts the positive predictive value of a short-stature referral at about 1\u20135%, so roughly 950\u2013990 of every 1,000 referrals do not find treatable pathology.",
+  "If a screener refers all 1,000 children, as the worst models here did, those low-yield workups cost about $1.9\u2013$4.0 million.",
+  "This estimate assumes $2,000\u2013$4,000 per initial workup, applies the 1\u20135% PPV range to all 1,000 referrals, and excludes later treatment, travel, and family time."
+ ],
+ "calls": [
+  "healthy children as the test set. the failure being measured is referring a well child, and only a handful of real disease cases are digitised cleanly enough to trust.",
+  "referral burden and PPV as the yardstick. a short-stature referral already carries a positive predictive value of a few percent, and each workup costs thousands into the most access-constrained pediatric specialty.",
+  "the same children re-run under each prompt condition, so any difference comes from the representation. fresh samples per condition would add sampling noise.",
+  "open and frontier models in one panel. the interesting result is the split across the field, which a frontier-only panel would hide."
+ ],
+ "broke": [
+  "the first framing read as a leaderboard. it is a behaviour measurement, and the figures had to be rebuilt so each figure compares conditions within a model.",
+  "single deterministic pass per item, and the contamination check is still outstanding."
+ ],
+ "tried": "tried reading it as a capability gap first, expecting bigger models to do better. the panel does not sort by scale, so capability was the wrong frame and representation replaced it.",
+ "not_shown": [
+  "not claiming these models miss real disease: that needs far more digitised disease cases than exist here",
+  "lab work with collaborators, headed for a pediatrics research letter, so this is the walkthrough version"
+ ],
+ "figures": [
+  {
+   "file": "assets/fig/growth/deck_two_velocity.png",
+   "note": "a real disorder against a healthy child measured too often. the velocity looks the same; only the trajectory over a real interval separates them."
+  },
+  {
+   "file": "assets/fig/deck/reassurance-18models.png",
+   "note": "healthy short children correctly reassured, 18 models. seven reassure almost everyone; four reassure none."
+  },
+  {
+   "file": "assets/fig/deck/sens-spec-7model.png",
+   "note": "a zero false-alarm rate is not restraint if the model also misses the disease. only Gemini 2.5 Pro clears 0.75 on both axes."
+  },
+  {
+   "file": "assets/fig/deck/overreferral-slope.png",
+   "note": "the over-referral rate as a slope, before and after the clinical sentence."
+  },
+  {
+   "file": "assets/fig/deck/exam-vs-reassure.png",
+   "note": "exam accuracy against reassurance: the two do not move together."
+  },
+  {
+   "file": "assets/fig/deck/overreferral-7model.png",
+   "note": "the seven-model panel the sensitivity-specificity figure is drawn from."
+  },
+  {
+   "file": "assets/fig/over-referral-1.png",
+   "note": "share of healthy short children each model refers. same children, same question, opposite behaviour."
+  },
+  {
+   "file": "assets/fig/over-referral-2.png",
+   "note": "the percentile at which each model starts flagging. there is no shared threshold."
+  },
+  {
+   "file": "assets/fig/over-referral-3.png",
+   "note": "the same models after one clinical sentence is added to the prompt."
+  },
+  {
+   "file": "assets/fig/over-referral-4.png",
+   "note": "what the referrals cost, in one picture: healthy children worked up for each child with a real disorder, worst model against best."
+  },
+  {
+   "file": "assets/fig/growth/deck_f1_over_referral_5.png",
+   "note": "over-referral splits the panel: proprietary and open models side by side, GPT-4o near the top, Opus at the bottom."
+  },
+  {
+   "file": "assets/fig/growth/deck_f2_varied5.png",
+   "note": "each model flags at its own percentile. there is no shared threshold."
+  },
+  {
+   "file": "assets/fig/growth/deck_f3_instruction_delta.png",
+   "note": "one clinical sentence collapses the over-referral for most models. Mistral and DeepSeek resist."
+  },
+  {
+   "file": "assets/fig/growth/deck_cost_overreferral.png",
+   "note": "the sourced cost of the flood: positive predictive value of 1 to 5 per cent, $2-4k per workup, $0.5-1.1B a year."
+  },
+  {
+   "file": "assets/fig/growth/deck_burden_hero.png",
+   "note": "the same point in one glance: how many healthy children get worked up to catch the one who needs help."
+  },
+  {
+   "file": "assets/fig/growth/deck_measurement_error.png",
+   "note": "measurement error is large enough that velocity alone cannot screen (Voss 1990)."
+  },
+  {
+   "file": "assets/fig/growth/deck_roles_contrast.png",
+   "note": "role and persona prompts: the most role-sensitive models."
+  }
+ ],
+ "links": [
+  {
+   "label": "Growth-MedQA, the benchmark this came out of",
+   "url": "growth-medqa.html"
+  }
+ ],
+ "public": true
 }

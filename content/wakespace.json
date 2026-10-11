@@ -1,50 +1,51 @@
 {
-  "slug": "wakespace",
-  "tab": "molecules",
-  "title": "Drug classes against the chemistry",
-  "status": "finished",
-  "tools": [
-    "Python",
-    "PubChem PUG REST",
-    "pandas",
-    "matplotlib"
-  ],
-  "links": [],
-  "figures": [
-    {
-      "file": "gallery/drug-property-space.png",
-      "note": "licensed class by colour. the weight-loss set spans the whole plot; the stimulants sit on top of each other."
-    },
-    {
-      "file": "gallery/drug-class-radar.png",
-      "note": "one radar per compound, spokes are percentiles within the set. the xanthines share a shape. the weight-loss row shares none."
-    },
-    {
-      "file": "gallery/drug-property-topography.png",
-      "note": "density of the same space. one peak, under the polar surface area where drugs reach the brain."
-    }
-  ],
-  "line": "wakefulness, ADHD and weight-loss drugs plotted by molecular property",
-  "question": "Do the classes medicine files these drugs under survive contact with the molecules?",
-  "skills": [
-    "cheminformatics",
-    "molecular descriptor analysis",
-    "API data collection",
-    "figure design"
-  ],
-  "data": [
-    "PubChem computed properties",
-    "hand-assigned use classes"
-  ],
-  "calls": [
-    "sampled by what each drug is licensed for, not by scaffold. sampling on structure would presuppose the answer.",
-    "percentile rank on the radar spokes, not min-max. one peptide is twenty times the mass of everything else.",
-    "XLogP against TPSA rather than a fingerprint embedding. both axes can be checked by a reader; an embedding only looks impressive.",
-    "semaglutide kept, on a log axis. a small amine and a peptide inside one licensed class is the whole observation.",
-    "withdrawn drugs kept in. keeping only the survivors removes the contrast."
-  ],
-  "broke": [
-    "enantiomer pairs return identical 2D descriptors from PubChem and land on one point. merged into single markers, so the clinical difference between them is invisible here."
-  ],
-  "tried": "scaled the radar spokes with min-max first. every small molecule collapsed onto the same dot beside the peptide, so switched to percentile rank within the set."
+ "slug": "wakespace",
+ "tab": "molecules",
+ "title": "Drug classes against the chemistry",
+ "status": "finished",
+ "tools": [
+  "Python",
+  "PubChem PUG REST",
+  "pandas",
+  "matplotlib"
+ ],
+ "links": [],
+ "figures": [
+  {
+   "file": "gallery/drug-class-radar.png",
+   "note": "one radar per compound, spokes are percentiles within the set. the xanthines share a shape. the weight-loss row shares none."
+  },
+  {
+   "file": "gallery/drug-property-space.png",
+   "note": "licensed class by colour. the weight-loss set spans the whole plot; the stimulants sit on top of each other."
+  },
+  {
+   "file": "gallery/drug-property-topography.png",
+   "note": "density of the same space. one peak, under the polar surface area where drugs reach the brain."
+  }
+ ],
+ "line": "wakefulness, ADHD and weight-loss drugs plotted by molecular property",
+ "question": "Do the classes medicine files these drugs under survive contact with the molecules?",
+ "skills": [
+  "cheminformatics",
+  "molecular descriptor analysis",
+  "API data collection",
+  "figure design"
+ ],
+ "data": [
+  "PubChem computed properties",
+  "hand-assigned use classes"
+ ],
+ "calls": [
+  "sampled by what each drug is licensed for, not by scaffold. sampling on structure would presuppose the answer.",
+  "percentile rank on the radar spokes, not min-max. one peptide is twenty times the mass of everything else.",
+  "XLogP against TPSA rather than a fingerprint embedding. both axes can be checked by a reader; an embedding only looks impressive.",
+  "semaglutide kept, on a log axis. a small amine and a peptide inside one licensed class is the whole observation.",
+  "withdrawn drugs kept in. keeping only the survivors removes the contrast."
+ ],
+ "broke": [
+  "enantiomer pairs return identical 2D descriptors from PubChem and land on one point. merged into single markers, so the clinical difference between them is invisible here."
+ ],
+ "tried": "scaled the radar spokes with min-max first. every small molecule collapsed onto the same dot beside the peptide, so switched to percentile rank within the set.",
+ "public": true
 }

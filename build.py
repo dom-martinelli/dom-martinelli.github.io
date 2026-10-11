@@ -45,10 +45,10 @@ def load():
         if p.name.startswith("_"):
             continue
         d = json.loads(p.read_text())
-        # A card ships only if it is not hidden AND not explicitly held back.
-        # `public: false` is what the Studio writes when a card is unlocked
-        # there; the build has to honour it or the Studio is lying.
-        if d.get("hidden") or d.get("public") is False:
+        # Private by default. A card ships ONLY when it is explicitly
+        # flipped Public in the Studio, which is exactly what the Studio
+        # has always claimed it does. Absent or false means not published.
+        if d.get("hidden") or not d.get("public"):
             continue
         projects.append(d)
     order = {s: i for i, s in enumerate(site.get("order", []))}
@@ -152,7 +152,7 @@ def tile(p, wide: bool) -> str:
 </a>"""
 
 
-def papers_section() -> str:
+def papers_section(live=frozenset()) -> str:
     """Published papers as a strip of figure cards, drafts as a short list. Figures are
     cropped unmodified from the open-access PDFs; a paper without an open licence gets none."""
     f = CONTENT / "_publications.json"
@@ -165,7 +165,10 @@ def papers_section() -> str:
         art = (f'<div class="panel"><img src="{esc(thumb(p["figure"]))}" alt="{esc(p["figure_note"])}" loading="lazy" decoding="async"></div>'
                if p.get("figure") else f'<div class="panel paper-nofig"><span class="big">{esc(p.get("stat", ""))}</span><span>{esc(p.get("stat_note", ""))}</span></div>')
         lic = f' · {esc(p["licence"])}' if p.get("licence") else ""
-        proj = (f' · <a href="projects/{esc(p["project"])}.html">project page</a>' if p.get("project") else "")
+        # Only link a project page that actually ships; a held-back card
+        # would otherwise be a 404 advertised from the papers shelf.
+        proj = (f' · <a href="projects/{esc(p["project"])}.html">project page</a>'
+                if p.get("project") in live else "")
         cards.append(f"""<article class="paper">
   <a class="paper-link" href="{url}">{art}</a>
   <div class="paper-body">
@@ -196,7 +199,8 @@ def group(p) -> str:
 
 def build_index(site, projects):
     tabs = [{"id": g, "label": label} for g, label in GROUPS if any(group(p) == g for p in projects)]
-    jump = '<a href="#papers">Papers</a> · ' + " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in tabs)
+    jump = " · ".join(['<a href="#papers">Papers</a>']
+                      + [f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in tabs])
     sections = []
     for t in tabs:
         # projects with a figure first, so every section opens on an image
@@ -215,7 +219,7 @@ def build_index(site, projects):
     <p class="hero-archive"><a href="#papers">six first-author papers &rarr;</a></p>
   </section>
   <nav class="jump" aria-label="Subjects">{jump}</nav>
-  {papers_section()}
+  {papers_section({p["slug"] for p in projects})}
   {''.join(sections)}
 </main>
 <footer class="wrap foot">{esc(site.get('footer', ''))}</footer>
@@ -406,7 +410,20 @@ def main():
     build_gallery(site)
     for p in projects:
         build_project(site, p, dict(GROUPS)[group(p)])
-    print(f"built index + {len(projects)} project pages")
+
+    # Prune orphans. A card held back in the Studio must not keep serving
+    # the page from the last build it was in: the file has to leave the
+    # repo, or "private" only means "unlinked from the index".
+    keep = {f"{p['slug']}.html" for p in projects}
+    pruned = 0
+    pages = ROOT / "projects"
+    if pages.is_dir():
+        for stale in sorted(pages.glob("*.html")):
+            if stale.name not in keep:
+                stale.unlink()
+                pruned += 1
+    print(f"built index + {len(projects)} project pages"
+          + (f", pruned {pruned} orphaned" if pruned else ""))
 
 
 if __name__ == "__main__":

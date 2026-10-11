@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 import shutil
 from pathlib import Path
 
@@ -43,6 +44,11 @@ def load():
     projects = []
     for p in sorted(CONTENT.glob("*.json")):
         if p.name.startswith("_"):
+            continue
+        # iCloud leaves "<name> 2.json" copies behind. They are not cards and
+        # must never become one; build.py is where that gets caught.
+        if re.search(r" \d+$", p.stem):
+            print(f"  ! skipping duplicate file: {p.name}")
             continue
         d = json.loads(p.read_text())
         # Private by default. A card ships ONLY when it is explicitly

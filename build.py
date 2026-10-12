@@ -191,7 +191,7 @@ def papers_section(live=frozenset()) -> str:
             + '</section>')
 
 
-GROUPS = [("tools", "Tools you can use"), ("analyses", "Analyses"),
+GROUPS = [("analyses", "Analyses"), ("tools", "Tools you can use"),
           ("planned", "Planned"), ("earlier", "Earlier work")]
 
 

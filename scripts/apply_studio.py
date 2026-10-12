@@ -16,6 +16,18 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 
 
+def find_figure(path: str):
+    """Find a figure by its file path across every card, so a thumbnail
+    borrowed from another project can be adopted onto this one."""
+    for f in sorted(CONTENT.glob("*.json")):
+        if f.name.startswith("_"):
+            continue
+        for g in json.loads(f.read_text()).get("figures", []):
+            if g["file"] == path:
+                return dict(g)
+    return None
+
+
 def main(state_file: str) -> None:
     state = json.loads(pathlib.Path(state_file).read_text())
     site_path = CONTENT / "_site.json"
@@ -34,12 +46,19 @@ def main(state_file: str) -> None:
             d["public"] = bool(s["public"])
         if s.get("title"):
             d["title"] = s["title"]
-        # A chosen thumbnail is just that figure moved to the front of the list.
+        # A chosen thumbnail is that figure moved to the front of the list.
+        # The Studio can borrow a figure from another project, so one that is
+        # not already on this card gets adopted onto it, note and all.
         if s.get("thumb"):
             figs = d.get("figures", [])
             i = next((n for n, g in enumerate(figs) if g["file"] == s["thumb"]), None)
             if i is None:
-                print(f"  ! {slug}: thumb not among its figures: {s['thumb']}")
+                borrowed = find_figure(s["thumb"])
+                if borrowed:
+                    d["figures"] = [borrowed] + figs
+                    print(f"  + {slug}: borrowed {s['thumb']}")
+                else:
+                    print(f"  ! {slug}: thumb is not a figure anywhere: {s['thumb']}")
             elif i:
                 d["figures"] = [figs[i]] + figs[:i] + figs[i + 1:]
         if "rank" in s:

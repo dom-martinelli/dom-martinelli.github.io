@@ -53,6 +53,10 @@
  ],
  "figures": [
   {
+   "file": "assets/fig/sibmi/bedside-explodes-apart.png",
+   "note": "at the bedside the field explodes apart. the same 16 models triaging healthy children range from every child right to almost none."
+  },
+  {
    "file": "assets/fig/growth/deck_two_velocity.png",
    "note": "a real disorder against a healthy child measured too often. the velocity looks the same; only the trajectory over a real interval separates them."
   },

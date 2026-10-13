@@ -1,7 +1,7 @@
 {
  "slug": "patient-innovation-index",
  "tab": "trials",
- "title": "Measuring patient involvement in research",
+ "title": "Is there a patient-involvement citation advantage?",
  "status": "in progress",
  "tools": [
   "Python",
@@ -14,60 +14,24 @@
  "links": [],
  "figures": [
   {
-   "file": "assets/fig/pii-dose-response.png",
-   "note": "citation impact climbs with each added involvement signal. left: impact by index score, medians marked on a log scale. right: the same papers as NIH citation percentiles."
+   "file": "assets/fig/pii-v7/fig3-comparison-groups.png",
+   "note": "the whole argument in one panel. the 553 papers with a detected report sit 28% above random PubMed papers after adjustment, and 8% below the 12,222 unflagged papers retrieved by the same search. the unflagged papers are themselves 52% above random. the advantage belongs to the involvement-vocabulary literature, not to reporting involvement."
   },
   {
-   "file": "assets/fig/pii-umap-pii.png",
-   "note": "a sample of abstracts laid out by topic, coloured by index score. involved papers bunch on one side of the map, so topic is a confounder the control sets have to absorb."
+   "file": "assets/fig/pii-v7/fig4-citation-difference.png",
+   "note": "the citation difference by comparison group and estimator. +70% unadjusted, +54% year-reweighted, +28% in median regression, +8% under coarsened exact matching with an interval crossing zero. against the unflagged corpus it is -8%. the number you report is a choice about the control group."
   },
   {
-   "file": "assets/fig/pii-survival.png",
-   "note": "share of papers above each citation level, log scale. half of the papers with two or more signals beat the field average (RCR 1.0), against 37% of controls."
+   "file": "assets/fig/pii-v7/fig2-signal-precision.png",
+   "note": "six of thirteen signals survive. precision against hand coding with Wilson intervals, 9 or 10 sampled papers each. patient author, organization as funder, organization as affiliation and collective author all reach 9 of 10 or better; self-report instruments, self-experimentation and patient-controlled data never once identified real involvement."
   },
   {
-   "file": "assets/fig/pii-signal-vs-population.png",
-   "note": "each signal alone against the population baseline. red signals are structural and predict impact; the grey ones are framing and predict nothing."
-  },
-  {
-   "file": "assets/fig/pii-signal-decomposition.png",
-   "note": "the same breakdown against controls matched on disease heading. the structural signals stay on top."
-  },
-  {
-   "file": "assets/fig/pii-cem.png",
-   "note": "after matching on year and team size. the dashed lines are each group's median; the involved group's sits to the right."
-  },
-  {
-   "file": "assets/fig/pii-matched-rcr.png",
-   "note": "a second matched comparison: involved papers against matched papers from the same search that scored zero, so both groups come out of one retrieval."
-  },
-  {
-   "file": "assets/fig/pii-emb-matched-rcr.png",
-   "note": "the tightest topic control: each involved paper paired with the zero-score paper whose abstract embedding sits closest. a much smaller sample."
-  },
-  {
-   "file": "assets/fig/pii-within-journal.png",
-   "note": "the comparison repeated inside each of 18 journals. 13 point the same way."
-  },
-  {
-   "file": "assets/fig/pii-within-disease.png",
-   "note": "within broad disease groups against disease-matched controls. most groups favour involved papers; mental and metabolic disorders do not."
-  },
-  {
-   "file": "assets/fig/pii-bucket-significance-mesh-ctrl.png",
-   "note": "the same question with a stricter control pool, heading-matched controls pooled per disease group. the gains shrink and three groups hold."
-  },
-  {
-   "file": "assets/fig/pii-heading-significance-50ctrl.png",
-   "note": "specific disease headings with at least 50 controls, top 15 by effect. COVID-19, HIV and pain survive false-discovery correction."
-  },
-  {
-   "file": "assets/fig/pii-citation-velocity.png",
-   "note": "one thing the index does not predict: early citation speed. involved papers are cited more slowly in their first two years until three or more signals."
+   "file": "assets/fig/pii-v7/fig1-study-design.png",
+   "note": "study design. what is scanned in each paper, the 2,770-name patient-organization list, and the three control sets. 23,584 PubMed papers, 553 with a validated report, 289 partnership and 269 organization support."
   }
  ],
- "line": "text-signal index of how much patients shaped a published study",
- "question": "Patients have shaped research as authors, funders and data owners since the HIV activists of the 1980s. Can that involvement be measured from the published papers, and does involved research reach further?",
+ "line": "thirteen text signals of patient involvement, and what happens to the citation effect once the comparison group is right",
+ "question": "Papers that report patients as partners are cited more than random PubMed papers. Is that because of the involvement, or because of the kind of literature those papers live in?",
  "skills": [
   "composite index construction",
   "control-set design",
@@ -82,11 +46,11 @@
   "MeSH headings"
  ],
  "calls": [
-  "corpus retrieved on involvement terms, chunked by year, not built around a disease. the object of study is a mode of production, and year chunks stop the pull favouring recent work.",
-  "three separately built control sets: stratified random, journal-matched, heading-matched. one random comparison leaves journal and disease area confounded with the exposure.",
-  "coarsened exact matching on year and team size, not propensity scores. bounds imbalance up front instead of checking balance afterwards.",
-  "relative citation ratio as the outcome, not raw counts. each paper is normalised to its own co-citation field baseline.",
-  "false-discovery correction on the 70 per-heading tests, none on the primary comparison. the primary test was specified in advance; the headings are a multiple-testing family."
+  "the comparison group is the whole finding. a single random control confounds the involvement with the literature it sits in, which is what produced the earlier and much larger estimate.",
+  "signals were kept or dropped on measured precision against hand coding, not on whether they sounded like involvement. seven of thirteen were dropped.",
+  "relative citation ratio as the outcome, not raw counts, so each paper is normalised to its own co-citation field.",
+  "both the regression and the matching estimate are reported rather than the more favourable one, because they disagree and the disagreement is the result.",
+  "full text of the 7,969 open-access papers read as a robustness check, since titles and abstracts miss involvement reported in acknowledgements."
  ],
  "broke": [
   "case-folding bug: the scorer lowercased the text but kept capitalised patterns, so every acronym signal could never fire.",
@@ -97,14 +61,15 @@
  ],
  "tried": "wanted involvement scored from each paper's funding-statement text. the corpus carries PubMed grant lists only, so OpenAlex funder metadata stood in.",
  "found": [
-  "papers with two or more involvement signals sit at a median relative citation ratio 52% above a random PubMed sample (0.995 against 0.655; 655 papers against 16,161).",
-  "the gradient is monotonic: median RCR 0.79 at one signal, 0.98 at two, 1.53 at three or more.",
-  "matched on year and team size (coarsened exact matching, 654 pairs), the gap is +31%.",
-  "structure carries the effect and vocabulary does not. patients as authors, affiliates and data owners predict impact; papers that only call themselves patient-led show nothing.",
-  "the effect concentrates where organised patient research already exists. of 70 disease headings, three survive false-discovery correction: HIV, COVID-19 and pain.",
-  "inside the same journal the direction holds in 13 of 18 journals, median +32%, so journal prestige is not doing the work.",
-  "the index weights are my own judgment, so six other weighting schemes and thresholds were run. every one stays positive and significant, from +24% to +54%.",
-  "involved papers are not cited faster. early citation velocity runs lower for papers with one signal and only catches up at three or more."
+  "against 16,161 random PubMed papers the 553 papers with a detected report are cited 70% higher unadjusted (median RCR 1.113 against 0.655), 54% reweighted to their years, and 28% in median regression with year, log team size, article type and open access.",
+  "against the right control group the effect disappears. the 12,222 unflagged papers retrieved by the same search have a median RCR of 1.141, slightly above the flagged ones; adjusted, the papers reporting involvement sit 8% below them, interval -19 to 3.",
+  "the unflagged corpus is itself 52% above random PubMed papers. so the advantage belongs to the involvement-vocabulary literature as a whole, not to reporting partnership or organization support.",
+  "the adjusted estimate depends on the estimator: 28% in median regression, 8% under coarsened exact matching with an interval from -6 to 24. open access alone moves the year-adjusted estimate from 56% to 37%; 73% of the flagged papers are open access against 25% of random ones.",
+  "only six of thirteen signals identify real involvement against hand coding. patient author reached 9 of 9; self-report instruments, self-experimentation and patient-controlled data reached 0 of 10.",
+  "the draft index that summed all 13 signals flagged 9,442 papers and gave 6% in both regression and matching. the validated set is one seventeenth of that size and is the honest object of study."
  ],
- "public": true
+ "public": true,
+ "not_shown": [
+  "preprint under revision; these are v7 numbers and they supersede the larger effect sizes reported in earlier drafts"
+ ]
 }

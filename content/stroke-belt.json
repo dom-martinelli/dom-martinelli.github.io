@@ -33,6 +33,10 @@
   {
    "file": "assets/fig/stroke-belt-4.png",
    "note": "food insecurity, county level."
+  },
+  {
+   "file": "assets/fig/stroke-belt-redlining.png",
+   "note": "the version that did not ship. Chicago tracts, 1930s HOLC redlining grade beside present-day blood-pressure medication rates. the two maps line up, which is the whole reason the question was worth asking, but too few tracts survived cleaning to support a claim, so the project moved to Stroke Belt states and dropped the layer. kept here because the abandoned approach is the part most readers would want to see."
   }
  ],
  "line": "tract-level study of who develops high blood pressure and who gets treated",

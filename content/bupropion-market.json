@@ -28,6 +28,7 @@
  ],
  "found": [
   "25 approved drugs inhibit the serotonin transporter. Bupropion inhibits dopamine and norepinephrine transporters and does not touch serotonin, which put it outside the mechanism every competitor was built on.",
+  "bupropion's mechanistic neighbours are not antidepressants. the ten approved drugs that hit dopamine and norepinephrine without serotonin are bupropion, methylphenidate, dexmethylphenidate, serdexmethylphenidate, amphetamine, dextroamphetamine, lisdexamfetamine, diethylpropion, phendimetrazine and phenmetrazine: the ADHD stimulant class and the anorectics.",
   "ten approved drugs hit both dopamine and norepinephrine transporters without serotonin. Bupropion is the one that was marketed for depression.",
   "smoking and nicotine trials passed depression trials in 1999 and never gave the lead back. Across the dated record there are 164 smoking trials against 138 for depression.",
   "obesity and weight trials start in 2005 and reach 56, a third indication family the original filing did not anticipate.",
@@ -35,6 +36,7 @@
  ],
  "so_what": [
   "a mechanism nobody else is using is a weaker launch position and a stronger franchise. Bupropion gave up the ability to be compared favourably with the market leader, and bought the ability to be used where the market leader could not go.",
+  "the mechanism predicted the indications before the market found them. a molecule sitting with stimulants and appetite suppressants was always going to end up in smoking cessation and obesity, whatever the launch label said. that is a repurposing signal available from a target table on day one, years before the trials.",
   "the value of an atypical mechanism shows up in indication count, not in the first label. Anyone valuing a differentiated asset on its launch indication alone is pricing the wrong thing.",
   "this is the counterpart to the Wegovy teardown. There a brand defended a crowded class by buying a claim its rival could not make; here a brand entered a crowded class by refusing the mechanism that defined it."
  ],
@@ -50,8 +52,8 @@
  "host_file": "",
  "figures": [
   {
-   "file": "assets/fig/bupropion/transporter-landscape.png",
-   "note": "the market bupropion entered, by mechanism. 25 approved drugs inhibit the serotonin transporter; bupropion sits in dopamine and norepinephrine and touches serotonin not at all. counts are ChEMBL approved-drug mechanism records per transporter."
+   "file": "assets/fig/bupropion/transporter-classes.png",
+   "note": "every approved drug on the three monoamine transporters, grouped by which it hits. the highlighted row is the ten that take dopamine and norepinephrine while leaving serotonin alone: bupropion, and otherwise the ADHD stimulant class and the appetite suppressants. the drug filed as an antidepressant has no antidepressant neighbours."
   },
   {
    "file": "assets/fig/bupropion/indication-expansion.png",

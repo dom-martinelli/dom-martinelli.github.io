@@ -3,8 +3,8 @@
  "tab": "medical-ai",
  "title": "What a medical AI benchmark's rubrics actually reward",
  "status": "in progress",
- "line": "College Scholar thesis: reading HealthBench's physician-written grading criteria as evidence",
- "question": "HealthBench scores medical chatbots against checklists that physicians wrote for each conversation. What do those checklists encode about good care, where do they quietly disagree with each other, and does the grader read them the way the physicians meant?",
+ "line": "what the benchmarks grading medical AI actually reward, for teams whose product will be scored by one: 5,000 physician-written rubrics read as evidence",
+ "question": "HealthBench scores medical chatbots against checklists that physicians wrote for each conversation. What do those checklists encode about good care, where do they disagree with each other, and does the grader read them the way the physicians meant?",
  "skills": [
   "benchmark auditing",
   "qualitative coding with inter-rater checks",

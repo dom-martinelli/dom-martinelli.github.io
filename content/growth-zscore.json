@@ -73,7 +73,7 @@
  "broke": [
   "the direct OpenAI, Anthropic, Google and Groq APIs would not all accept the harness's determinism settings, so temperature and seed handling is special-cased per model family. one reasoning model refuses the deterministic setting outright.",
   "short token budgets truncated the JSON answer, which looked like a parsing failure rather than a length limit.",
-  "the Google direct API silently drops the reproducibility parameters the rest of the harness sets."
+  "the Google direct API drops the reproducibility parameters the rest of the harness sets, without reporting it."
  ],
  "not_shown": [
   "results here are the ones from the lab walkthrough figures; the fuller model set sits with a paper in progress"

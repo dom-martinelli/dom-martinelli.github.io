@@ -57,7 +57,7 @@
   "collinear behavioural measures left out of the second model. inactivity, smoking and short sleep are multicollinear with obesity, the predictor of interest."
  ],
  "broke": [
-  "tract IDs kept losing their leading zero when read as numbers, which silently breaks joins for every state whose FIPS code starts with one.",
+  "tract IDs kept losing their leading zero when read as numbers, which breaks joins for every state whose FIPS code starts with one, with no error raised.",
   "the first model cell was committed in an erroring state after the medication column was renamed.",
   "the source column name for the treatment measure implied a share of the whole tract population rather than of diagnosed adults. renamed before analysis."
  ],

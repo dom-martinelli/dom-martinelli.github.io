@@ -58,7 +58,7 @@
  "calls": [
   "the delta column, not the raw accuracy, is the thing the app is built around. a filtered score only means something next to the same model's overall score.",
   "every claim in the paper should be re-derivable from the app by a reader who does not trust me. that is why the item browser shows the inclusion reason and the identifier provenance, not just the question.",
-  "the contribute tab deliberately does not write to the dataset. submissions enter a review queue and a maintainer reviews them by hand, which is the honest limit of one reviewer.",
+  "the contribute tab deliberately does not write to the dataset. submissions enter a review queue and a maintainer reviews them by hand, which is the limit of having one reviewer.",
   "identifier columns are hidden by default and only source-grounded exact mappings get loaded. pending ontology candidates never reach the app."
  ],
  "broke": [

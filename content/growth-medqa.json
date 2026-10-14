@@ -84,10 +84,6 @@
    "note": "growth performance against general medical competence. weaker models show a distinct growth shortfall, 7 to 8.6 points below their own general average."
   },
   {
-   "file": "assets/fig/psb/curation-funnel.jpg",
-   "note": "the curation funnel: 212,983 items down to 1,097 exact-answer growth questions."
-  },
-  {
    "file": "assets/fig/psb/three-label-axes.jpg",
    "note": "the three label axes: growth role, USMLE competency, ICPED/ABP topic."
   },
@@ -156,10 +152,6 @@
    "note": "aggregate accuracy hides how much each model varies across growth subjects. 10 models, 960 items; the black tick is the overall score."
   },
   {
-   "file": "assets/fig/growth-medqa-kappa.png",
-   "note": "agreement heatmap (kappa) from the benchmark's labelling."
-  },
-  {
    "file": "assets/fig/growth-medqa-labeling.png",
    "note": "the labelling framework behind every item (supplementary figure S1)."
   },
@@ -181,7 +173,7 @@
   }
  ],
  "host_file": "",
- "line": "growth-assessment items curated out of public medical QA sets, scored topic by topic",
+ "line": "whether a model that passes medical exams can be trusted on a clinical task, for anyone evaluating one: 960 curated pediatric growth items, 22 models scored",
  "question": "When a model scores well on medical exams, is it competent at the growth-assessment tasks a clinician would lean on it for?",
  "skills": [
   "benchmark design",
@@ -212,7 +204,7 @@
   "an early version of the vignette trajectories was described as built from the official LMS pipeline but had hand-entered approximations, and some reconstructed curves were not physiologically possible. caught in a claim-by-claim audit of my own design docs.",
   "the case registry meant to guarantee item provenance was nearly empty, so it never protected the evaluated items.",
   "a full-corpus batch labeling run failed for a billing reason and had to be replanned around a cheaper route; an earlier queue was built on a corpus that got superseded and could not be resumed.",
-  "one table generator silently overwrites another table's source file, so build order still has to be repaired by hand."
+  "one table generator overwrites another table's source file with no warning, so build order still has to be repaired by hand."
  ],
  "tried": "a three-level cognitive tier label got cut once it was clear it was a locally coined collapse rather than standard revised Bloom. the USMLE competency crosswalk replaced it.",
  "not_shown": [

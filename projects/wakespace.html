@@ -27,9 +27,11 @@
   
   
   
+  
   <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>sampled by what each drug is licensed for, not by scaffold. sampling on structure would presuppose the answer.</li><li>percentile rank on the radar spokes, not min-max. one peptide is twenty times the mass of everything else.</li><li>XLogP against TPSA rather than a fingerprint embedding. both axes can be checked by a reader; an embedding only looks impressive.</li><li>semaglutide kept, on a log axis. a small amine and a peptide inside one licensed class is the whole observation.</li><li>withdrawn drugs kept in. keeping only the survivors removes the contrast.</li></ul></div></div>
   <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>enantiomer pairs return identical 2D descriptors from PubChem and land on one point. merged into single markers, so the clinical difference between them is invisible here.</li></ul></div></div>
   <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>scaled the radar spokes with min-max first. every small molecule collapsed onto the same dot beside the peptide, so switched to percentile rank within the set.</p></div></div>
+  
   
 </main>
 <footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>

@@ -18,7 +18,7 @@
   }
  ],
  "host_file": "tools/fda-ai-devices.html",
- "line": "filterable registry of every AI device the FDA has authorized",
+ "line": "what regulatory precedent exists for an AI device, and what the public record will not tell you: all 1,524 devices the FDA has authorised since 1995",
  "question": "What does the FDA's public list of AI-enabled devices record, and what does it leave out about whether those devices help patients?",
  "skills": [
   "public-data reporting",
@@ -32,7 +32,7 @@
  "calls": [
   "per-device table and aggregate evidence findings kept in separate sections. the published studies report across the whole list, so no single device can carry one of those values.",
   "framed as an evidence and transparency question, not as 510(k) clearance being wrongdoing. the pathway is legal and often appropriate.",
-  "missing fields reported as not reported, not as not done. a study may exist and simply be absent from the public summary, which is itself the finding.",
+  "missing fields reported as not reported, not as not done. a study may exist and simply be absent from the public summary, and the absence is what this records.",
   "says plainly that the list undercounts. it is assembled from AI terminology in public summaries, so devices can be missing."
  ],
  "broke": [

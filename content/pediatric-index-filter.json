@@ -16,7 +16,7 @@
   "annotation schema design",
   "classifier calibration",
   "packaging research code for reuse",
-  "honest validation reporting"
+  "reporting validation limits"
  ],
  "data": [
   "224,705 rows from 16 medical-QA source and configuration subsets",

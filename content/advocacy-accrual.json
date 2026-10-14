@@ -50,7 +50,7 @@
  ],
  "broke": [
   "pulled version history with ten parallel workers and no delay. the endpoint 403'd the whole address after a few hundred requests, so planned-enrollment and planned-date outcomes are still unmeasured.",
-  "the disease-area covariate came back silently empty: the API field the cohort builder read is blank in this version, so every trial fell into one unmapped bucket until MeSH ancestors were pulled instead.",
+  "the disease-area covariate came back empty with no error: the API field the cohort builder read is blank in this version, so every trial fell into one unmapped bucket until MeSH ancestors were pulled instead.",
   "the novel-compound filter had no registry-coverage floor, so ubiquitous old drugs counted as novel.",
   "interim tables were built ad hoc under a gitignored directory and never committed, so a fresh clone could not rerun the notebooks."
  ],

@@ -27,9 +27,11 @@
   
   
   
+  
   <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>widened from one metro to the Stroke Belt states. the cleaned Chicago sample was a tiny slice of US tracts, and the hypertension burden is documented across the region.</li><li>medication coverage among adults already diagnosed as the treatment outcome, not recorded prevalence. low recorded prevalence can mean less testing rather than less disease.</li><li>interquartile rule for flagging high-burden tracts, not z-scores. tract percentages are bounded and right-skewed.</li><li>collinear behavioural measures left out of the second model. inactivity, smoking and short sleep are multicollinear with obesity, the predictor of interest.</li></ul></div></div>
-  <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>tract IDs kept losing their leading zero when read as numbers, which silently breaks joins for every state whose FIPS code starts with one.</li><li>the first model cell was committed in an erroring state after the medication column was renamed.</li><li>the source column name for the treatment measure implied a share of the whole tract population rather than of diagnosed adults. renamed before analysis.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>tract IDs kept losing their leading zero when read as numbers, which breaks joins for every state whose FIPS code starts with one, with no error raised.</li><li>the first model cell was committed in an erroring state after the medication column was renamed.</li><li>the source column name for the treatment measure implied a share of the whole tract population rather than of diagnosed adults. renamed before analysis.</li></ul></div></div>
   <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>first version was Chicago tracts with HOLC redlining grades. too few tracts survived cleaning, so the team moved to Stroke Belt states and dropped the redlining layer.</p></div></div>
+  
   <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>four-person INFO 2950 group project; the decisions above are the team&#x27;s</li></ul></div></div>
 </main>
 <footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>

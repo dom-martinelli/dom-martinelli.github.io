@@ -27,8 +27,10 @@
   
   
   
-  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>the delta column, not the raw accuracy, is the thing the app is built around. a filtered score only means something next to the same model&#x27;s overall score.</li><li>every claim in the paper should be re-derivable from the app by a reader who does not trust me. that is why the item browser shows the inclusion reason and the identifier provenance, not just the question.</li><li>the contribute tab deliberately does not write to the dataset. submissions enter a review queue and a maintainer reviews them by hand, which is the honest limit of one reviewer.</li><li>identifier columns are hidden by default and only source-grounded exact mappings get loaded. pending ontology candidates never reach the app.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>the delta column, not the raw accuracy, is the thing the app is built around. a filtered score only means something next to the same model&#x27;s overall score.</li><li>every claim in the paper should be re-derivable from the app by a reader who does not trust me. that is why the item browser shows the inclusion reason and the identifier provenance, not just the question.</li><li>the contribute tab deliberately does not write to the dataset. submissions enter a review queue and a maintainer reviews them by hand, which is the limit of having one reviewer.</li><li>identifier columns are hidden by default and only source-grounded exact mappings get loaded. pending ontology candidates never reach the app.</li></ul></div></div>
   <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>the slice heatmap currently renders &#x27;no items for that slice&#x27; on both axes even with no filter applied and all items selected. caught by stepping through the live Space rather than the local test harness.</li></ul></div></div>
+  
   
   <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>the manuscript&#x27;s external-comparison table against MedQA, MedMCQA and PubMedQA is not mirrored in the app</li></ul></div></div>
 </main>

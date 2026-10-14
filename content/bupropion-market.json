@@ -9,7 +9,8 @@
  "tools": [
   "ChEMBL mechanism-of-action",
   "ClinicalTrials.gov API v2",
-  "Python",
+  "RDKit",
+  "scikit-learn",
   "matplotlib"
  ],
  "skills": [
@@ -29,6 +30,7 @@
  "found": [
   "25 approved drugs inhibit the serotonin transporter. Bupropion inhibits dopamine and norepinephrine transporters and does not touch serotonin, which put it outside the mechanism every competitor was built on.",
   "bupropion's mechanistic neighbours are not antidepressants. the ten approved drugs that hit dopamine and norepinephrine without serotonin are bupropion, methylphenidate, dexmethylphenidate, serdexmethylphenidate, amphetamine, dextroamphetamine, lisdexamfetamine, diethylpropion, phendimetrazine and phenmetrazine: the ADHD stimulant class and the anorectics.",
+  "the mechanistic class is a chemical class too. the ten are more structurally similar to each other than chance allows (mean Tanimoto 0.25 against 0.14 for the rest, permutation p below 0.001), and they are smaller and less lipophilic than the other 47. polarity does not distinguish them.",
   "ten approved drugs hit both dopamine and norepinephrine transporters without serotonin. Bupropion is the one that was marketed for depression.",
   "smoking and nicotine trials passed depression trials in 1999 and never gave the lead back. Across the dated record there are 164 smoking trials against 138 for depression.",
   "obesity and weight trials start in 2005 and reach 56, a third indication family the original filing did not anticipate.",
@@ -43,7 +45,8 @@
  "calls": [
   "approved drugs per target rather than prescription volume. Prescription data is proprietary; the mechanism landscape is public and is what a development decision actually faces.",
   "trial counts as the proxy for commercial attention, since they are the public record of where sponsors spent. They undercount marketing and overcount academic interest, and that is stated rather than corrected for.",
-  "condition text buckets rather than MeSH terms. The registry's free-text conditions are messy but they are what sponsors actually wrote."
+  "condition text buckets rather than MeSH terms. The registry's free-text conditions are messy but they are what sponsors actually wrote.",
+  "Morgan fingerprints with a permutation test rather than a picture of a cluster. ten points can look grouped in any projection, so the claim rests on the similarity statistic, not on the layout."
  ],
  "not_shown": [
   "revenue, prescription share and the internal case for the original programme are not public, so the commercial story here is reconstructed from the mechanism and trial record only",
@@ -54,6 +57,10 @@
   {
    "file": "assets/fig/bupropion/transporter-classes.png",
    "note": "every approved drug on the three monoamine transporters, grouped by which it hits. the highlighted row is the ten that take dopamine and norepinephrine while leaving serotonin alone: bupropion, and otherwise the ADHD stimulant class and the appetite suppressants. the drug filed as an antidepressant has no antidepressant neighbours."
+  },
+  {
+   "file": "assets/fig/bupropion/chemical-space.png",
+   "note": "the same ten drugs in chemical space. left, Morgan fingerprints projected to two components: they are more similar to each other than any random ten of the 57, mean Tanimoto 0.25 against 0.14, permutation p below 0.001. right, they are smaller (median MW 219 against 275) and less lipophilic (cLogP 1.9 against 3.3). polarity does not separate them, p = 0.60."
   },
   {
    "file": "assets/fig/bupropion/indication-expansion.png",

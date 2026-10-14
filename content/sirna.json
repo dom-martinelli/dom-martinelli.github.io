@@ -2,7 +2,7 @@
  "slug": "sirna",
  "tab": "molecules",
  "title": "Predicting activity of chemically modified siRNA",
- "status": "in progress",
+ "status": "published",
  "tools": [
   "Python",
   "scikit-learn",
@@ -10,15 +10,20 @@
   "seaborn",
   "Jupyter"
  ],
- "links": [],
- "figures": [
+ "links": [
   {
-   "file": "assets/fig/sirna-2.png",
-   "note": "feature weights from the trained model. read with the co-occurrence caveat above."
-  },
+   "label": "Read the paper (Genomics 2024)",
+   "url": "https://doi.org/10.1016/j.ygeno.2024.110815"
+  }
+ ],
+ "figures": [
   {
    "file": "assets/fig/sirna-3.png",
    "note": "the seven sugar modifications in the training data, drawn in ChemDraw for the paper, each shown against the unmodified ribose position it replaces (grey marks the change). backbone modifications such as phosphorothioate are not part of this set."
+  },
+  {
+   "file": "assets/fig/sirna-2.png",
+   "note": "feature weights from the trained model. read with the co-occurrence caveat above."
   },
   {
    "file": "assets/fig/sirna-1.png",

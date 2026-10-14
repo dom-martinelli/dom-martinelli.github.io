@@ -3,7 +3,7 @@
  "tab": "population",
  "title": "Where Southern patients go for a hospital stay",
  "status": "done",
- "line": "interactive flow map of Medicare hospital stays, with rural closures and Medicaid expansion",
+ "line": "where patients actually go for a hospital stay, for site-of-care and access planning: Stroke Belt patients travel a median 10.7 miles against 7.3 elsewhere",
  "question": "How far do patients in the Stroke Belt travel for a hospital stay, and does that distance line up with the rural hospitals that closed and the states that declined Medicaid expansion?",
  "skills": [
   "geospatial analysis",

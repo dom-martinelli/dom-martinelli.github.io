@@ -1,7 +1,7 @@
 {
  "slug": "wakespace",
  "tab": "molecules",
- "title": "Drug classes against the chemistry",
+ "title": "Drugs that act on the reward pathway, and the classes we file them under",
  "status": "finished",
  "tools": [
   "Python",
@@ -9,7 +9,12 @@
   "pandas",
   "matplotlib"
  ],
- "links": [],
+ "links": [
+  {
+   "label": "The commercial side of this: the audacity of bupropion",
+   "url": "projects/bupropion-market.html"
+  }
+ ],
  "figures": [
   {
    "file": "gallery/drug-class-radar.png",
@@ -24,8 +29,8 @@
    "note": "density of the same space. one peak, under the polar surface area where drugs reach the brain."
   }
  ],
- "line": "wakefulness, ADHD and weight-loss drugs plotted by molecular property",
- "question": "Do the classes medicine files these drugs under survive contact with the molecules?",
+ "line": "why a weight-loss drug keeps turning up in addiction research, for anyone scouting repurposing candidates: 24 compounds licensed for five different things, plotted by the chemistry they share",
+ "question": "GLP-1s turn out to blunt addictive behaviour. Bupropion treats both weight and smoking. ADHD is a disorder of impulse. If these drugs all touch the reward pathway, do the classes medicine files them under survive contact with the molecules?",
  "skills": [
   "cheminformatics",
   "molecular descriptor analysis",
@@ -47,5 +52,22 @@
   "enantiomer pairs return identical 2D descriptors from PubChem and land on one point. merged into single markers, so the clinical difference between them is invisible here."
  ],
  "tried": "scaled the radar spokes with min-max first. every small molecule collapsed onto the same dot beside the peptide, so switched to percentile rank within the set.",
- "public": true
+ "public": true,
+ "did": [
+  "sampled 24 compounds by what they are licensed for, across xanthines, stimulants, wakefulness agents, non-stimulant ADHD drugs and weight-loss drugs, rather than by scaffold.",
+  "pulled computed molecular properties for each from PubChem and plotted the licensed classes against the chemistry.",
+  "checked which classes hold together in property space and which scatter."
+ ],
+ "found": [
+  "the xanthines share a shape on the radar. Caffeine, theophylline and theobromine behave as one family on every spoke.",
+  "the weight-loss row shares none. Phentermine, orlistat and semaglutide are licensed for the same thing and have nothing chemical in common, which is the clearest sign that the licence is not a chemical category.",
+  "bupropion sits with the non-stimulant ADHD drugs by licence while being the molecule that also carries smoking and weight indications. The class it is filed under does not predict where it gets used."
+ ],
+ "so_what": [
+  "a licensed class is a regulatory artifact, not a mechanism. Screening repurposing candidates by indication will miss the compounds that cross classes, which are exactly the interesting ones.",
+  "the compounds that scatter in property space while sharing a behavioural effect are the ones worth a mechanistic look. That is the shortlist this chart produces."
+ ],
+ "not_shown": [
+  "the reward-pathway target network behind this framing is not built yet; this card currently shows the chemistry, not the mechanism"
+ ]
 }

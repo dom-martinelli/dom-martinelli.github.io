@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Drug classes against the chemistry · Dom Martinelli</title>
-<meta name="description" content="wakefulness, ADHD and weight-loss drugs plotted by molecular property">
-<meta property="og:title" content="Drug classes against the chemistry · Dom Martinelli">
-<meta property="og:description" content="wakefulness, ADHD and weight-loss drugs plotted by molecular property">
+<title>Drugs that act on the reward pathway, and the classes we file them under · Dom Martinelli</title>
+<meta name="description" content="why a weight-loss drug keeps turning up in addiction research, for anyone scouting repurposing candidates: 24 compounds licensed for five different things, plotted by the chemistry they share">
+<meta property="og:title" content="Drugs that act on the reward pathway, and the classes we file them under · Dom Martinelli">
+<meta property="og:description" content="why a weight-loss drug keeps turning up in addiction research, for anyone scouting repurposing candidates: 24 compounds licensed for five different things, plotted by the chemistry they share">
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/lightbox.js" defer></script>
 </head>
@@ -18,19 +18,21 @@
 
 <main class="wrap article">
   <a class="back" href="../index.html#analyses">&larr; Analyses</a>
-  <h1>Drug classes against the chemistry</h1>
-  <p class="line">wakefulness, ADHD and weight-loss drugs plotted by molecular property</p>
+  <h1>Drugs that act on the reward pathway, and the classes we file them under</h1>
+  <p class="line">why a weight-loss drug keeps turning up in addiction research, for anyone scouting repurposing candidates: 24 compounds licensed for five different things, plotted by the chemistry they share</p>
   <dl class="spec"><div><dt>skills</dt><dd>cheminformatics · molecular descriptor analysis · API data collection · figure design</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>PubChem PUG REST</li><li>pandas</li><li>matplotlib</li></ul></dd></div><div><dt>data</dt><dd>PubChem computed properties · hand-assigned use classes</dd></div><div><dt>status</dt><dd><span class="status status-finished">finished</span></dd></div></dl>
-  
-  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>Do the classes medicine files these drugs under survive contact with the molecules?</p></div></div>
+  <div class="actions"><a class="btn btn-primary" href="projects/bupropion-market.html">The commercial side of this: the audacity of bupropion</a></div>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>GLP-1s turn out to blunt addictive behaviour. Bupropion treats both weight and smoking. ADHD is a disorder of impulse. If these drugs all touch the reward pathway, do the classes medicine files them under survive contact with the molecules?</p></div></div>
   <div class="figs"><figure class="fig"><div class="panel"><a class="zoom" href="../gallery/drug-class-radar.png"><img src="../gallery/drug-class-radar.png" alt="one radar per compound, spokes are percentiles within the set. the xanthines share a shape. the weight-loss row shares none." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">one radar per compound, spokes are percentiles within the set. the xanthines share a shape. the weight-loss row shares none.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../gallery/drug-property-space.png"><img src="../gallery/drug-property-space.png" alt="licensed class by colour. the weight-loss set spans the whole plot; the stimulants sit on top of each other." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">licensed class by colour. the weight-loss set spans the whole plot; the stimulants sit on top of each other.</figcaption></figure><figure class="fig"><div class="panel"><a class="zoom" href="../gallery/drug-property-topography.png"><img src="../gallery/drug-property-topography.png" alt="density of the same space. one peak, under the polar surface area where drugs reach the brain." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">density of the same space. one peak, under the polar surface area where drugs reach the brain.</figcaption></figure></div>
+  <div class="row"><div class="margin-note">what i did</div><div class="row-body"><ul><li>sampled 24 compounds by what they are licensed for, across xanthines, stimulants, wakefulness agents, non-stimulant ADHD drugs and weight-loss drugs, rather than by scaffold.</li><li>pulled computed molecular properties for each from PubChem and plotted the licensed classes against the chemistry.</li><li>checked which classes hold together in property space and which scatter.</li></ul></div></div>
   
   
-  
+  <div class="row"><div class="margin-note">what came out</div><div class="row-body"><ul><li>the xanthines share a shape on the radar. Caffeine, theophylline and theobromine behave as one family on every spoke.</li><li>the weight-loss row shares none. Phentermine, orlistat and semaglutide are licensed for the same thing and have nothing chemical in common, which is the clearest sign that the licence is not a chemical category.</li><li>bupropion sits with the non-stimulant ADHD drugs by licence while being the molecule that also carries smoking and weight indications. The class it is filed under does not predict where it gets used.</li></ul></div></div>
   <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>sampled by what each drug is licensed for, not by scaffold. sampling on structure would presuppose the answer.</li><li>percentile rank on the radar spokes, not min-max. one peptide is twenty times the mass of everything else.</li><li>XLogP against TPSA rather than a fingerprint embedding. both axes can be checked by a reader; an embedding only looks impressive.</li><li>semaglutide kept, on a log axis. a small amine and a peptide inside one licensed class is the whole observation.</li><li>withdrawn drugs kept in. keeping only the survivors removes the contrast.</li></ul></div></div>
   <div class="row"><div class="margin-note">what broke</div><div class="row-body"><ul><li>enantiomer pairs return identical 2D descriptors from PubChem and land on one point. merged into single markers, so the clinical difference between them is invisible here.</li></ul></div></div>
   <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>scaled the radar spokes with min-max first. every small molecule collapsed onto the same dot beside the peptide, so switched to percentile rank within the set.</p></div></div>
-  
+  <div class="row"><div class="margin-note">so what</div><div class="row-body"><ul><li>a licensed class is a regulatory artifact, not a mechanism. Screening repurposing candidates by indication will miss the compounds that cross classes, which are exactly the interesting ones.</li><li>the compounds that scatter in property space while sharing a behavioural effect are the ones worth a mechanistic look. That is the shortlist this chart produces.</li></ul></div></div>
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>the reward-pathway target network behind this framing is not built yet; this card currently shows the chemistry, not the mechanism</li></ul></div></div>
 </main>
 <footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
 </body>

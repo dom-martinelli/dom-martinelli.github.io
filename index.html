@@ -67,7 +67,7 @@
     <p class="paper-note">an adversarial autoencoder, one of the six generative model families the review covers.</p>
   </div>
 </article></div><div class="drafts"><span class="margin-note">in progress</span><ul><li><b>Evaluating large language models on pediatric growth assessment</b> &middot; with J. Lee, I. Kohane, C. Soto Rivera, J. Hatoun, L. Vernacchio, E. C. Trudell and N. Rabbani. Submitted to AMIA 2027 Amplify Informatics, under review</li><li><b>An ICD-10 index of medical question-answering benchmark items</b> &middot; with J. Lee and colleagues. In preparation</li><li><b>Patient involvement in biomedical research and its downstream scientific impact</b> &middot; with Y. Yin. In preparation</li><li><b>Patient-led findings and shifts in research attention: Long COVID and ME/CFS</b> &middot; with Y. Yin. In preparation</li><li><b>Dietary methyl donors and the epigenetic hypothesis of Alzheimer&#x27;s disease</b> &middot; review, drafted 2022: folate, B6 and B12 through one-carbon metabolism to DNA methylation in AD</li><li><b>Semax at the melanocortin-4 receptor: a molecular dynamics study</b> &middot; draft, 2022: docking and GROMACS simulations against the 7PIU structure</li></ul></div></section>
-  <section class="shelf" id="analyses"><h2>Analyses<span class="count">9</span></h2><div class="grid"><a class="tile tile-wide" href="projects/patient-innovation-index.html">
+  <section class="shelf" id="analyses"><h2>Analyses<span class="count">10</span></h2><div class="grid"><a class="tile tile-wide" href="projects/patient-innovation-index.html">
   <div class="panel"><img src="assets/thumb/assets/fig/pii-v7/fig3-comparison-groups.webp" alt="the whole argument in one panel. the 553 papers with a detected report sit 28% above random PubMed papers after adjustment, and 8% below the 12,222 unflagged papers retrieved by the same search. the unflagged papers are themselves 52% above random. the advantage belongs to the involvement-vocabulary literature, not to reporting involvement." loading="lazy" decoding="async"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Is there a patient-involvement citation advantage?</h3><span class="status status-in-progress">in progress</span></div>
@@ -82,16 +82,16 @@
     <ul class="tags"><li>Python</li><li>pandas</li><li>AACT (PostgreSQL)</li><li>PharmGKB</li></ul>
   </div>
 </a><a class="tile" href="projects/sirna.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/sirna-2.webp" alt="feature weights from the trained model. read with the co-occurrence caveat above." loading="lazy" decoding="async"></div>
+  <div class="panel"><img src="assets/thumb/assets/fig/sirna-3.webp" alt="the seven sugar modifications in the training data, drawn in ChemDraw for the paper, each shown against the unmodified ribose position it replaces (grey marks the change). backbone modifications such as phosphorothioate are not part of this set." loading="lazy" decoding="async"></div>
   <div class="tile-body">
-    <div class="tile-top"><h3>Predicting activity of chemically modified siRNA</h3><span class="status status-in-progress">in progress</span></div>
+    <div class="tile-top"><h3>Predicting activity of chemically modified siRNA</h3><span class="status status-published">published</span></div>
     <p class="skills">supervised classification · sequence feature engineering · model comparison · imbalanced-data evaluation</p>
     <ul class="tags"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>seaborn</li></ul>
   </div>
 </a><a class="tile" href="projects/wakespace.html">
   <div class="panel"><img src="assets/thumb/gallery/drug-class-radar.webp" alt="one radar per compound, spokes are percentiles within the set. the xanthines share a shape. the weight-loss row shares none." loading="lazy" decoding="async"></div>
   <div class="tile-body">
-    <div class="tile-top"><h3>Drug classes against the chemistry</h3><span class="status status-finished">finished</span></div>
+    <div class="tile-top"><h3>Drugs that act on the reward pathway, and the classes we file them under</h3><span class="status status-finished">finished</span></div>
     <p class="skills">cheminformatics · molecular descriptor analysis · API data collection · figure design</p>
     <ul class="tags"><li>Python</li><li>PubChem PUG REST</li><li>pandas</li><li>matplotlib</li></ul>
   </div>
@@ -129,6 +129,13 @@
     <div class="tile-top"><h3>A pediatric growth benchmark: stratified results</h3><span class="status status-in-progress">in progress</span></div>
     <p class="skills">benchmark design · LLM evaluation · annotation schema design · provenance auditing</p>
     <ul class="tags"><li>Python</li><li>DSPy</li><li>Hugging Face datasets</li><li>OpenRouter</li></ul>
+  </div>
+</a><a class="tile" href="projects/wegovy-teardown.html">
+  <div class="panel"><img src="assets/fig/wegovy/specialty-mix-slope.png" alt="the hero. Wegovy&#x27;s share of physician payment dollars by specialty, 2022 to 2024. endocrinology 66.6% to 33.8%, cardiovascular disease 5.3% to 28.7%. the SELECT cardiovascular indication landed in March 2024 and the detailing budget followed it." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Wegovy vs. Zepbound: a commercial teardown</h3><span class="status status-finished">finished</span></div>
+    <p class="skills">competitive positioning · payer and pricing analysis · lifecycle and exclusivity mapping · reading a label as a commercial asset</p>
+    <ul class="tags"><li>CMS Open Payments</li><li>FDA Orange Book</li><li>Medicare pricing files</li><li>matplotlib</li></ul>
   </div>
 </a></div></section><section class="shelf" id="tools"><h2>Tools you can use<span class="count">5</span></h2><div class="grid"><div class="tile tile-wide">
   <div class="panel panel-live"><a href="https://huggingface.co/spaces/dmartinelli/medical-benchmark-disease-index"><img src="assets/thumb/assets/fig/icd-index-1.webp" alt="the pipeline: collect 14,088 items, label each condition and its role with a local model, map names to ICD-10-CM through the official Alphabetic Index, check with two other models, then publish a searchable explorer." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>

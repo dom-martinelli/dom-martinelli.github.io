@@ -2,7 +2,7 @@
  "slug": "sirna",
  "tab": "molecules",
  "title": "Predicting activity of chemically modified siRNA",
- "status": "in progress",
+ "status": "published",
  "tools": [
   "Python",
   "scikit-learn",
@@ -10,15 +10,20 @@
   "seaborn",
   "Jupyter"
  ],
- "links": [],
- "figures": [
+ "links": [
   {
-   "file": "assets/fig/sirna-2.png",
-   "note": "feature weights from the trained model. read with the co-occurrence caveat above."
-  },
+   "label": "Read the paper (Genomics 2024)",
+   "url": "https://doi.org/10.1016/j.ygeno.2024.110815"
+  }
+ ],
+ "figures": [
   {
    "file": "assets/fig/sirna-3.png",
    "note": "the seven sugar modifications in the training data, drawn in ChemDraw for the paper, each shown against the unmodified ribose position it replaces (grey marks the change). backbone modifications such as phosphorothioate are not part of this set."
+  },
+  {
+   "file": "assets/fig/sirna-2.png",
+   "note": "feature weights from the trained model. read with the co-occurrence caveat above."
   },
   {
    "file": "assets/fig/sirna-1.png",
@@ -39,7 +44,7 @@
   "validation set hand-extracted from primary literature"
  ],
  "calls": [
-  "three model families side by side rather than tuning one architecture. on a task nobody had modelled, which family fits is itself the finding.",
+  "three model families side by side rather than tuning one architecture. on a task nobody had modelled, which family fits is the result worth reporting.",
   "ROC and precision-recall AUC, not accuracy. classes are unbalanced at every threshold, and a falsely optimistic call is the expensive mistake here.",
   "the whole experiment repeated at three inhibition cutoffs. published definitions of an effective siRNA disagree with each other.",
   "one-hot encoding of base and modification at each position, not cheminformatics descriptors of each modification. enough for a proof of concept, at the cost that a new chemistry cannot be scored without retraining."

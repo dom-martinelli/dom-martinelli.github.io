@@ -1,0 +1,80 @@
+{
+ "slug": "wegovy-teardown",
+ "tab": "trials",
+ "title": "Wegovy vs. Zepbound: a commercial teardown",
+ "status": "finished",
+ "public": true,
+ "line": "where a brand spends to defend share when a better-performing rival launches: Wegovy moved 28.7% of its physician spend to cardiologists in one year",
+ "question": "Zepbound beats Wegovy on the headline endpoint and costs less. Wegovy grew anyway. What was Novo actually selling, and where did the money go?",
+ "tools": [
+  "CMS Open Payments",
+  "FDA Orange Book",
+  "Medicare pricing files",
+  "matplotlib"
+ ],
+ "skills": [
+  "competitive positioning",
+  "payer and pricing analysis",
+  "lifecycle and exclusivity mapping",
+  "reading a label as a commercial asset"
+ ],
+ "data": [
+  "CMS Open Payments general payments, 2022 to 2024, three GLP-1 brands",
+  "FDA Orange Book patents and exclusivity for semaglutide",
+  "2025 wholesale acquisition cost and Medicare pricing",
+  "SURMOUNT-5, SELECT and STEP 8 trial results"
+ ],
+ "did": [
+  "pulled every Open Payments record for Wegovy, Zepbound and Saxenda across 2022 to 2024 and split it by recipient specialty, so the question became where the money moved, not how big the total was.",
+  "traced the composition-of-matter patent through the Orange Book, the Hatch-Waxman extension and the Paragraph IV challenge to get the real selling window rather than the nominal patent term.",
+  "built the price stack from list down to what the patient actually pays each month, for both brands.",
+  "read the three head-to-head trials against each label to work out which claims each brand is allowed to make."
+ ],
+ "found": [
+  "Wegovy's physician spend shifted from endocrinology to cardiology inside one year. Endocrinology fell from 66.6% of payment dollars to 33.8%; cardiovascular disease rose from 5.3% to 28.7%, with interventional cardiology taking another 8.4%. The SELECT indication landed in March 2024.",
+  "Novo raised its spend instead of ceding the ground. Wegovy's physician spend went from $0.29M to $4.54M to $6.86M across 2022 to 2024, still climbing in the year Zepbound scaled to $4.84M.",
+  "Saxenda was left to decline. Its spend collapsed from $4.42M to $0.13M as Novo moved behind the newer molecule.",
+  "Wegovy costs more and works less on the headline number: $1,349 list against Zepbound's $1,086, and 15 kg of weight loss at 72 weeks against 22.8 kg. The premium is not buying weight loss.",
+  "the patient pays about $135 a month, roughly $1,620 a year, for as long as they stay on it, and both labels imply that is indefinitely.",
+  "fifteen years ran between filing and approval. A 1,040-day Hatch-Waxman extension pushes expiry to December 2031, leaving about ten and a half years of selling, and Mylan's 2025 Delaware win shortens it again."
+ ],
+ "so_what": [
+  "a label expansion is a salesforce retargeting event. The SELECT indication moved roughly a third of the detailing budget into a specialty that had been a rounding error two years earlier. Anyone modelling the return on an outcomes trial should be costing the channel shift, not only the script lift.",
+  "being second on efficacy is survivable if you own a claim the other brand cannot make. Wegovy holds a price premium while losing the weight-loss comparison, because cardiovascular risk reduction is the only claim a cardiologist can act on.",
+  "the spending pattern shows the defence. An incumbent that raises physician investment in the year a superior rival scales is buying time on the exclusivity clock, and that clock is about ten years, not twenty.",
+  "chronic dosing with no defined endpoint turns a monthly copay into an adherence problem. The commercial risk here is discontinuation."
+ ],
+ "calls": [
+  "specialty share of payment dollars rather than payment counts. Counts are dominated by food and beverage items, which run about 97% of all records and say nothing about where the strategy went.",
+  "effective patent life measured from approval, not from filing, because the filing-to-approval gap is the part a commercial reader cannot get back.",
+  "list, net and patient-pay shown as one stack, since the gap between them is the actual negotiation and a single price hides it.",
+  "the positioning map is qualitative on both axes. The trade between the two brands is real; precise distances on a drawn chart would not be."
+ ],
+ "not_shown": [
+  "net prices after confidential rebates are not public; the discount here is a stated assumption, not an observed figure",
+  "coursework from PUBPOL 3110, Fall 2025, built from public sources only"
+ ],
+ "host_file": "",
+ "figures": [
+  {
+   "file": "assets/fig/wegovy/specialty-mix-slope.png",
+   "note": "the hero. Wegovy's share of physician payment dollars by specialty, 2022 to 2024. endocrinology 66.6% to 33.8%, cardiovascular disease 5.3% to 28.7%. the SELECT cardiovascular indication landed in March 2024 and the detailing budget followed it."
+  },
+  {
+   "file": "assets/fig/wegovy/payments-by-drug.png",
+   "note": "physician payments by brand. Novo raised Wegovy's spend in the same year Zepbound scaled, and let Saxenda go from $4.42M to $0.13M. defence of the new molecule, abandonment of the old one."
+  },
+  {
+   "file": "assets/fig/wegovy/price-waterfall.png",
+   "note": "a month of Wegovy from list price to what the patient pays. $1,349 list, $675 net on a 50% assumed discount, $135 to the patient at 20% coinsurance. Zepbound is lower at every step."
+  },
+  {
+   "file": "assets/fig/wegovy/positioning-map.png",
+   "note": "Zepbound wins the weight-loss comparison and costs less. Wegovy holds the premium on cardiovascular risk reduction and lean-mass preservation, the claims Zepbound's label cannot make."
+  },
+  {
+   "file": "assets/fig/wegovy/lifecycle-timeline.png",
+   "note": "filed March 2006, approved June 2021, expiring December 2031 after a 1,040-day Hatch-Waxman extension. about ten and a half years of selling, cut short again by Mylan's 2025 Delaware win and its 180-day exclusivity."
+  }
+ ]
+}

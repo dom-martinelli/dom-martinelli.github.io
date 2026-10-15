@@ -11,7 +11,7 @@
   "ClinicalTrials.gov API v2",
   "RDKit",
   "scikit-learn",
-  "matplotlib"
+  "figstyle.py"
  ],
  "skills": [
   "competitive mechanism analysis",
@@ -46,7 +46,7 @@
   "approved drugs per target rather than prescription volume. Prescription data is proprietary; the mechanism landscape is public and is what a development decision actually faces.",
   "trial counts as the proxy for commercial attention, since they are the public record of where sponsors spent. They undercount marketing and overcount academic interest, and that is stated rather than corrected for.",
   "condition text buckets rather than MeSH terms. The registry's free-text conditions are messy but they are what sponsors actually wrote.",
-  "Morgan fingerprints with a permutation test rather than a picture of a cluster. ten points can look grouped in any projection, so the claim rests on the similarity statistic, not on the layout."
+  "Morgan fingerprints with a permutation test rather than a picture of a cluster. ten points can look grouped in any projection, so the claim rests on the similarity statistic. the same map is drawn in all three panels so the classes can be compared rather than each one being re-scaled to flatter itself."
  ],
  "not_shown": [
   "revenue, prescription share and the internal case for the original programme are not public, so the commercial story here is reconstructed from the mechanism and trial record only",
@@ -60,7 +60,7 @@
   },
   {
    "file": "assets/fig/bupropion/chemical-space.png",
-   "note": "the same ten drugs in chemical space. left, Morgan fingerprints projected to two components: they are more similar to each other than any random ten of the 57, mean Tanimoto 0.25 against 0.14, permutation p below 0.001. right, they are smaller (median MW 219 against 275) and less lipophilic (cLogP 1.9 against 3.3). polarity does not separate them, p = 0.60."
+   "note": "the same map three times, one panel per mechanism, with all 57 approved drugs in grey and the labelled class contoured. the serotonin classes sprawl across the whole space; the ten that take dopamine and norepinephrine without serotonin sit in one corner of it. mean Tanimoto within those ten is 0.25 against 0.14 elsewhere, and no draw of ten in 5,000 reached that, p below 0.001."
   },
   {
    "file": "assets/fig/bupropion/indication-expansion.png",

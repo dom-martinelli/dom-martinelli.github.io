@@ -2,7 +2,7 @@
  "slug": "patient-innovation-index",
  "tab": "trials",
  "title": "Is there a patient-involvement citation advantage?",
- "status": "in progress",
+ "status": "preprint",
  "tools": [
   "Python",
   "statsmodels",
@@ -14,20 +14,20 @@
  "links": [],
  "figures": [
   {
+   "file": "assets/fig/pii-v7/fig1-study-design.png",
+   "note": "the study in one figure. 23,584 PubMed papers scored for 13 text signals; a language model and a human coder validate 169 and 50 of them; 553 papers keep a report of partnership or organization support. right panel: +70% against random PubMed papers, +28% adjusted, +8% matched; -2% against the 12,222 unflagged papers from the same search, -8% adjusted; +34% within open access for papers naming a patient organization in full text."
+  },
+  {
    "file": "assets/fig/pii-v7/fig3-comparison-groups.png",
-   "note": "the whole argument in one panel. the 553 papers with a detected report sit 28% above random PubMed papers after adjustment, and 8% below the 12,222 unflagged papers retrieved by the same search. the unflagged papers are themselves 52% above random. the advantage belongs to the involvement-vocabulary literature, not to reporting involvement."
+   "note": "the whole argument in one panel. the 553 papers with a detected report sit 28% above random PubMed papers after adjustment and 8% below the 12,222 unflagged papers retrieved by the same search. the unflagged papers are themselves 52% above random. the advantage belongs to the involvement-vocabulary literature as a whole."
   },
   {
    "file": "assets/fig/pii-v7/fig4-citation-difference.png",
-   "note": "the citation difference by comparison group and estimator. +70% unadjusted, +54% year-reweighted, +28% in median regression, +8% under coarsened exact matching with an interval crossing zero. against the unflagged corpus it is -8%. the number you report is a choice about the control group."
+   "note": "the citation difference by comparison group and estimator. +70% unadjusted, +54% year-reweighted, +28% in median regression, +8% under coarsened exact matching with an interval crossing zero. against the unflagged corpus it is -2% unadjusted and -8% adjusted. the number you report is a choice about the control group."
   },
   {
    "file": "assets/fig/pii-v7/fig2-signal-precision.png",
    "note": "six of thirteen signals survive. precision against hand coding with Wilson intervals, 9 or 10 sampled papers each. patient author, organization as funder, organization as affiliation and collective author all reach 9 of 10 or better; self-report instruments, self-experimentation and patient-controlled data never once identified real involvement."
-  },
-  {
-   "file": "assets/fig/pii-v7/fig1-study-design.png",
-   "note": "study design. what is scanned in each paper, the 2,770-name patient-organization list, and the three control sets. 23,584 PubMed papers, 553 with a validated report, 289 partnership and 269 organization support."
   }
  ],
  "line": "thirteen text signals of patient involvement, and what happens to the citation effect once the comparison group is right",
@@ -49,7 +49,7 @@
   "the comparison group is the whole finding. a single random control confounds the involvement with the literature it sits in, which is what produced the earlier and much larger estimate.",
   "signals were kept or dropped on measured precision against hand coding, not on whether they sounded like involvement. seven of thirteen were dropped.",
   "relative citation ratio as the outcome, not raw counts, so each paper is normalised to its own co-citation field.",
-  "both the regression and the matching estimate are reported rather than the more favourable one, because they disagree and the disagreement is the result.",
+  "both the regression and the matching estimate are reported, because they disagree and the disagreement is the result.",
   "full text of the 7,969 open-access papers read as a robustness check, since titles and abstracts miss involvement reported in acknowledgements."
  ],
  "broke": [
@@ -70,6 +70,6 @@
  ],
  "public": true,
  "not_shown": [
-  "preprint under revision; these are v7 numbers and they supersede the larger effect sizes reported in earlier drafts"
+  "posted to bioRxiv on 24 Oct 2026 (CC BY); the DOI goes here once screening finishes. these are the v7 numbers and they supersede the larger effect sizes in earlier drafts."
  ]
 }

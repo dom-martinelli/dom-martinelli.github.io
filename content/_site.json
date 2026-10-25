@@ -4,12 +4,20 @@
  "footer": "figures made with matplotlib and deck.gl \u00b7 site built from json by build.py",
  "elsewhere": [
   {
+   "label": "LinkedIn",
+   "url": "https://www.linkedin.com/in/dominic-d-martinelli"
+  },
+  {
    "label": "GitHub",
    "url": "https://github.com/dom-martinelli"
   },
   {
    "label": "Hugging Face",
    "url": "https://huggingface.co/dmartinelli"
+  },
+  {
+   "label": "Email",
+   "url": "mailto:ddm94@cornell.edu"
   }
  ],
  "tabs": [

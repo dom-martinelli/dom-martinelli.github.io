@@ -31,15 +31,15 @@
   "read the three head-to-head trials against each label to work out which claims each brand is allowed to make."
  ],
  "found": [
-  "Wegovy's physician spend shifted from endocrinology to cardiology inside one year. Endocrinology fell from 66.6% of payment dollars to 33.8%; cardiovascular disease rose from 5.3% to 28.7%, with interventional cardiology taking another 8.4%. The SELECT indication landed in March 2024.",
+  "Wegovy's recorded physician payments moved from endocrinology to cardiology inside one year. Endocrinology fell from 66.6% of payment dollars to 33.8%; cardiovascular disease rose from 5.3% to 28.7%, with interventional cardiology taking another 8.4%. The SELECT indication landed in March 2024. Open Payments records payments and transfers of value, so this is the promotional spend that must be reported, not the whole detailing budget, and the pattern is consistent with a shift toward cardiology rather than proof of one.",
   "Novo raised its spend instead of ceding the ground. Wegovy's physician spend went from $0.29M to $4.54M to $6.86M across 2022 to 2024, still climbing in the year Zepbound scaled to $4.84M.",
   "Saxenda was left to decline. Its spend collapsed from $4.42M to $0.13M as Novo moved behind the newer molecule.",
   "Wegovy costs more and works less on the headline number: $1,349 list against Zepbound's $1,086, and 15 kg of weight loss at 72 weeks against 22.8 kg. The premium is not buying weight loss.",
-  "the patient pays about $135 a month, roughly $1,620 a year, for as long as they stay on it, and both labels imply that is indefinitely.",
+  "an illustrative patient cost, built from assumptions rather than measured: about $135 a month, roughly $1,620 a year, if a 50% rebate and 20% coinsurance are assumed. Both labels imply the patient stays on the drug indefinitely, so the annual figure recurs. Real net prices are confidential and the true out-of-pocket cost varies by plan.",
   "fifteen years ran between filing and approval. A 1,040-day Hatch-Waxman extension pushes expiry to December 2031, leaving about ten and a half years of selling, and Mylan's 2025 Delaware win shortens it again."
  ],
  "so_what": [
-  "a label expansion is a salesforce retargeting event. The SELECT indication moved roughly a third of the detailing budget into a specialty that had been a rounding error two years earlier. Anyone modelling the return on an outcomes trial should be costing the channel shift, not only the script lift.",
+  "a label expansion looks like a salesforce retargeting event. Roughly a third of Wegovy's reportable payment dollars moved into a specialty that had been a rounding error two years earlier. Anyone modelling the return on an outcomes trial should be costing the channel shift, not only the script lift. What the data can carry is the change in reported payments; the budget behind it is not public.",
   "being second on efficacy is survivable if you own a claim the other brand cannot make. Wegovy holds a price premium while losing the weight-loss comparison, because cardiovascular risk reduction is the only claim a cardiologist can act on.",
   "the spending pattern shows the defence. An incumbent that raises physician investment in the year a superior rival scales is buying time on the exclusivity clock, and that clock is about ten years, not twenty.",
   "chronic dosing with no defined endpoint turns a monthly copay into an adherence problem. The commercial risk here is discontinuation."
@@ -48,17 +48,19 @@
   "specialty share of payment dollars rather than payment counts. Counts are dominated by food and beverage items, which run about 97% of all records and say nothing about where the strategy went.",
   "effective patent life measured from approval, not from filing, because the filing-to-approval gap is the part a commercial reader cannot get back.",
   "list, net and patient-pay shown as one stack, since the gap between them is the actual negotiation and a single price hides it.",
-  "the positioning map is qualitative on both axes. The trade between the two brands is real; precise distances on a drawn chart would not be."
+  "the positioning map is qualitative on both axes. The trade between the two brands is real; precise distances on a drawn chart would not be.",
+  "reporting the payment mix as a share rather than naming it a detailing budget. the share is what the records support; the budget is inferred and would not survive a reader who knows what Open Payments collects."
  ],
  "not_shown": [
-  "net prices after confidential rebates are not public; the discount here is a stated assumption, not an observed figure",
-  "coursework from PUBPOL 3110, Fall 2025, built from public sources only"
+  "coursework from PUBPOL 3110, Fall 2025, built from public sources only",
+  "net prices after confidential rebates are not public. the 50% rebate and 20% coinsurance behind the $135 are stated assumptions, so that number is a scenario and is labelled as one wherever it appears",
+  "Open Payments captures reportable payments and transfers of value, not total promotional or salesforce spend, so a change in its mix is evidence of redirection and not a measurement of a budget"
  ],
  "host_file": "",
  "figures": [
   {
    "file": "assets/fig/wegovy/specialty-mix-slope.png",
-   "note": "the hero. Wegovy's share of physician payment dollars by specialty, 2022 to 2024. endocrinology 66.6% to 33.8%, cardiovascular disease 5.3% to 28.7%. the SELECT cardiovascular indication landed in March 2024 and the detailing budget followed it."
+   "note": "the hero. Wegovy's share of reportable physician payment dollars by specialty, 2022 to 2024. endocrinology 66.6% to 33.8%, cardiovascular disease 5.3% to 28.7%. the SELECT cardiovascular indication landed in March 2024 and the recorded payment mix moved with it."
   },
   {
    "file": "assets/fig/wegovy/payments-by-drug.png",
@@ -66,7 +68,7 @@
   },
   {
    "file": "assets/fig/wegovy/price-waterfall.png",
-   "note": "a month of Wegovy from list price to what the patient pays. $1,349 list, $675 net on a 50% assumed discount, $135 to the patient at 20% coinsurance. Zepbound is lower at every step."
+   "note": "an illustrative walk from list price to patient cost, not an observed one. $1,349 list, then $675 net on an assumed 50% rebate, then $135 to the patient on assumed 20% coinsurance. Zepbound is lower at every step. Confidential rebates mean the middle and final numbers are scenario, not measurement."
   },
   {
    "file": "assets/fig/wegovy/positioning-map.png",

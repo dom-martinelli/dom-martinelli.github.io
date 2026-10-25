@@ -61,5 +61,6 @@
   "percentiles come from a small embedded boys-only table, interpolated, not a validated LMS engine"
  ],
  "interactive": "https://dom-martinelli.github.io/growthradar-lite/",
- "public": true
+ "public": true,
+ "featured": true
 }

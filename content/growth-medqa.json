@@ -210,5 +210,6 @@
  "not_shown": [
   "manuscript under review, so no scores or model rankings here"
  ],
- "public": true
+ "public": true,
+ "featured": true
 }

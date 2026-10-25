@@ -193,8 +193,9 @@ def papers_section(live=frozenset()) -> str:
             + '</section>')
 
 
-GROUPS = [("analyses", "Analyses"), ("tools", "Tools you can use"),
-          ("planned", "Planned"), ("earlier", "Earlier work")]
+GROUPS = [("featured", "Selected work"), ("analyses", "Analyses"),
+          ("tools", "Tools you can use"), ("planned", "Planned"),
+          ("earlier", "Earlier work")]
 
 
 def group(p) -> str:
@@ -205,6 +206,10 @@ def group(p) -> str:
     # shelf links to it) and drops the duplicate tile from the grid below.
     if p.get("paper_only"):
         return "paper_only"
+    # Current work goes above the papers shelf. Someone hiring reads the top of
+    # the page, and the papers below are older than the work that matches the job.
+    if p.get("featured"):
+        return "featured"
     if p.get("interactive"):
         return "tools"
     return "planned" if p.get("status") == "planned" else "analyses"
@@ -212,16 +217,20 @@ def group(p) -> str:
 
 def build_index(site, projects):
     tabs = [{"id": g, "label": label} for g, label in GROUPS if any(group(p) == g for p in projects)]
-    jump = " · ".join(['<a href="#papers">Papers</a>']
-                      + [f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in tabs])
-    sections = []
+    ordered = ([t for t in tabs if t["id"] == "featured"]
+               + [{"id": "papers", "label": "Papers"}]
+               + [t for t in tabs if t["id"] != "featured"])
+    jump = " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in ordered)
+    sections = {}
     for t in tabs:
         # projects with a figure first, so every section opens on an image
         items = sorted((p for p in projects if group(p) == t["id"]), key=lambda p: not p.get("figures"))
         tiles = "".join(tile(p, wide=(i == 0)) for i, p in enumerate(items))
-        sections.append(
+        sections[t["id"]] = (
             f'<section class="shelf" id="{esc(t["id"])}"><h2>{esc(t["label"])}'
             f'<span class="count">{len(items)}</span></h2><div class="grid">{tiles}</div></section>')
+    featured_html = sections.pop("featured", "")
+    rest_html = list(sections.values())
     works = "".join(f"<li>{esc(w)}</li>" for w in site.get("works_with", []))
     body = f"""{site_header(site, 0)}
 <main class="wrap">
@@ -232,8 +241,9 @@ def build_index(site, projects):
     <p class="hero-archive"><a href="#papers">six first-author papers &rarr;</a></p>
   </section>
   <nav class="jump" aria-label="Subjects">{jump}</nav>
+  {featured_html}
   {papers_section({p["slug"] for p in projects})}
-  {''.join(sections)}
+  {''.join(rest_html)}
 </main>
 <footer class="wrap foot">{esc(site.get('footer', ''))}</footer>
 </body>

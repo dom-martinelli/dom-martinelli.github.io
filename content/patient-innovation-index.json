@@ -71,5 +71,6 @@
  "public": true,
  "not_shown": [
   "posted to bioRxiv on 24 Oct 2026 (CC BY); the DOI goes here once screening finishes. these are the v7 numbers and they supersede the larger effect sizes in earlier drafts."
- ]
+ ],
+ "featured": true
 }

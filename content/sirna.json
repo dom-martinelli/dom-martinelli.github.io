@@ -58,5 +58,6 @@
  "not_shown": [
   "manuscript under review, so no performance figures here"
  ],
- "public": true
+ "public": true,
+ "paper_only": true
 }

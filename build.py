@@ -200,6 +200,11 @@ GROUPS = [("analyses", "Analyses"), ("tools", "Tools you can use"),
 def group(p) -> str:
     if p["tab"] == "earlier":
         return "earlier"
+    # A card whose paper is already on the Papers shelf would otherwise appear
+    # twice on the homepage. "paper_only" keeps the project page (the Papers
+    # shelf links to it) and drops the duplicate tile from the grid below.
+    if p.get("paper_only"):
+        return "paper_only"
     if p.get("interactive"):
         return "tools"
     return "planned" if p.get("status") == "planned" else "analyses"
@@ -419,7 +424,7 @@ def main():
     # build_archive(site)  # held back: lists local paths for 248 notebooks
     build_gallery(site)
     for p in projects:
-        build_project(site, p, dict(GROUPS)[group(p)])
+        build_project(site, p, dict(GROUPS).get(group(p), "Papers"))
 
     # Prune orphans. A card held back in the Studio must not keep serving
     # the page from the last build it was in: the file has to leave the

@@ -14,6 +14,10 @@
  ],
  "links": [
   {
+   "label": "Explore the items (Hugging Face Space)",
+   "url": "https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer"
+  },
+  {
    "label": "Code on GitHub",
    "url": "https://github.com/dom-martinelli/Growth-MedQA"
   },
@@ -89,5 +93,5 @@
   "the 22-model results exist and are held until the paper is out."
  ],
  "public": true,
- "featured": true
+ "featured": 2
 }

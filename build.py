@@ -224,7 +224,14 @@ def build_index(site, projects):
     sections = {}
     for t in tabs:
         # projects with a figure first, so every section opens on an image
-        items = sorted((p for p in projects if group(p) == t["id"]), key=lambda p: not p.get("figures"))
+        # "featured" is a deliberate running order, so it sorts on the number the
+        # card carries. Every other shelf still opens on something with a figure.
+        if t["id"] == "featured":
+            items = sorted((p for p in projects if group(p) == t["id"]),
+                           key=lambda p: p.get("featured", 99))
+        else:
+            items = sorted((p for p in projects if group(p) == t["id"]),
+                           key=lambda p: not p.get("figures"))
         tiles = "".join(tile(p, wide=(i == 0)) for i, p in enumerate(items))
         sections[t["id"]] = (
             f'<section class="shelf" id="{esc(t["id"])}"><h2>{esc(t["label"])}'

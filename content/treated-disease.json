@@ -1,0 +1,50 @@
+{
+ "slug": "treated-disease",
+ "tab": "pgx",
+ "title": "The disease or the prescription?",
+ "status": "finished",
+ "public": false,
+ "line": "why a proteomic study of a treated disease needs the medication list, for anyone reading an omics paper: 100 hits became 9 when the drug went into the model",
+ "question": "Diabetes and Alzheimer's disease travel together, and plasma proteomics should say something about why. But in any real clinic cohort the people with diabetes are also the people on diabetes drugs. How much of a disease signature is the treatment?",
+ "tools": ["Python", "pandas", "statsmodels", "UniProt REST", "matplotlib"],
+ "skills": ["confounding by indication", "multiple-testing correction", "proteomic differential testing", "reading free-text medication records"],
+ "data": ["DiCAD cohort: 196 adults, Olink plasma proteomics, 13 panels, 1,197 proteins", "clinical assessment and free-text medication list from the same cohort"],
+ "did": [
+  "tested every one of the 1,197 proteins for a difference between the 46 diabetic and 149 non-diabetic participants, correcting across all of them with Benjamini-Hochberg.",
+  "added the confounders a reviewer asks for first, body mass index, age and sex, and ran it again.",
+  "read metformin out of the free-text medication columns, put it in the model, and ran it a third time.",
+  "looked the surviving proteins up in UniProt to see what they had in common."
+ ],
+ "found": [
+  "100 proteins separated diabetic from non-diabetic participants. Adding body mass index, age and sex did not shrink that, it grew to 123, which is what happens when confounders were suppressing a real difference.",
+  "adding one binary column for metformin cut it to 9.",
+  "GDF15 was the strongest signal in the unadjusted test, with a standardised difference above one. Metformin is independently known to raise GDF15. With metformin in the model GDF15 falls to q = 0.08 and stops being significant at all.",
+  "36 of the 46 diabetic participants take metformin, so in this cohort having diabetes and taking metformin are very nearly the same variable. A model cannot be asked to separate them.",
+  "the nine that survive lean toward adhesion and immune proteins, MRC2, GPNMB, ICAM2, CD79B, DPP6 and PDCD1LG2, rather than the metabolic ones that led the unadjusted list."
+ ],
+ "so_what": [
+  "a proteomic study of a treated disease that does not model medication is partly measuring the pharmacy. The direction of the error is not conservative: it inflates the number of hits and promotes the drug-responsive proteins to the top of the list.",
+  "the usual confounder set makes this worse rather than better. Body mass index, age and sex are what gets reported, and here they moved the count the wrong way while the variable that mattered was sitting unused in a free-text column.",
+  "for anyone screening an omics paper: ask what fraction of the cases are on treatment before reading the hit list. Above about three quarters, as here, the disease and the drug are not separable and the paper can only report an association with being a treated patient."
+ ],
+ "calls": [
+  "metformin as a single binary column rather than a full medication model. It is the drug most of this cohort takes and the one with a documented effect on the top hit, so it is the sharpest single test of whether treatment explains the result.",
+  "Benjamini-Hochberg across all 1,197 proteins at every stage, so the three counts are comparable. An earlier pass had the correction implemented backwards and returned all 1,196 proteins as significant, which is how that bug announces itself.",
+  "reporting the collapse rather than the nine survivors. Nine proteins from one cohort is a weak finding; the collapse is a strong one about method."
+ ],
+ "broke": [
+  "the first Benjamini-Hochberg pass ran its cumulative minimum from the smallest p-value upward instead of from the largest downward, and returned every protein as significant. An all-pass result is the signature of that error, not a discovery."
+ ],
+ "not_shown": [
+  "cognitive outcomes. The cohort carries them and the obvious next question is whether the nine survivors track cognition, but that is a separate analysis and is not done.",
+  "insulin and the other diabetes drugs. Only metformin is modelled here.",
+  "this is a reanalysis of a cohort Dominic worked with, not a new study, and the result is a methodological one rather than a claim about Alzheimer's biology."
+ ],
+ "tried": "the first run was the interesting one: 100 proteins, GDF15 at the top, and a clean story about metabolic stress in diabetic Alzheimer's. The medication list was in the same folder the whole time. Checking it was what turned a finding into a caveat, and the caveat is the better result.",
+ "figures": [
+  {
+   "file": "assets/fig/dicad/medication-collapse.png",
+   "note": "top, how many proteins separate diabetic from non-diabetic participants under three models. the usual confounders leave the count alone; one column for metformin removes nine tenths of it. bottom, GDF15, the strongest unadjusted hit, crossing back below the significance threshold once the drug it responds to is accounted for."
+  }
+ ]
+}

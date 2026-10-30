@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What a dose actually does, with two sliders · Dom Martinelli</title>
+<meta name="description" content="a teaching demo of the one-compartment model, for anyone who has seen the equation and not the curve: drag dose and clearance, watch which one changes the shape">
+<meta property="og:title" content="What a dose actually does, with two sliders · Dom Martinelli">
+<meta property="og:description" content="a teaching demo of the one-compartment model, for anyone who has seen the equation and not the curve: drag dose and clearance, watch which one changes the shape">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="https://www.linkedin.com/in/dominic-d-martinelli">LinkedIn</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a><a href="mailto:ddm94@cornell.edu">Email</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#analyses">&larr; Analyses</a>
+  <h1>What a dose actually does, with two sliders</h1>
+  <p class="line">a teaching demo of the one-compartment model, for anyone who has seen the equation and not the curve: drag dose and clearance, watch which one changes the shape</p>
+  <dl class="spec"><div><dt>skills</dt><dd>pharmacokinetic modelling · interactive UI design · explaining a model by letting someone break it</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>Streamlit</li><li>NumPy</li><li>matplotlib</li></ul></dd></div><div><dt>data</dt><dd>no dataset. acetaminophen-like literature parameters as the starting point: 1000 mg, F = 0.86, CL = 21 L/h, Vd = 50 L</dd></div><div><dt>status</dt><dd><span class="status status-finished">finished</span></dd></div></dl>
+  
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>Everyone meets C(t) = (F x Dose / Vd) e^(-kt) as an equation. What does each parameter actually do to the curve a patient lives with?</p></div></div>
+  <div class="figs"><figure class="fig"><div class="panel"><a class="zoom" href="../assets/fig/pkpd/pk-sliders.png"><img src="../assets/fig/pkpd/pk-sliders.png" alt="the model run at the notebook&#x27;s own defaults. left, dose moves the curve up and down without changing when the drug leaves. right, clearance changes the half-life from 3.3 hours to 0.8 across the slider&#x27;s range. the Streamlit version lets you drag both." loading="lazy" decoding="async"></a></div><figcaption class="margin-note">the model run at the notebook&#x27;s own defaults. left, dose moves the curve up and down without changing when the drug leaves. right, clearance changes the half-life from 3.3 hours to 0.8 across the slider&#x27;s range. the Streamlit version lets you drag both.</figcaption></figure></div>
+  <div class="row"><div class="margin-note">what i did</div><div class="row-body"><ul><li>built a one-compartment model with instant distribution in Streamlit, with sliders for dose, bioavailability, clearance and volume of distribution.</li><li>wrote the page as a walkthrough rather than a tool: each slider arrives with the part of the equation it controls.</li><li>plotted the two parameters side by side to show that they do different kinds of thing to the curve.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">planned</div><div class="row-body"><ul><li>a one- or two-compartment model in the browser: pick a drug and a metabolizer phenotype, drag the dose and interval, and watch the concentration curve move against the therapeutic window.</li><li>the PharmGKB pathway for the same drug drawn beside it, so the enzyme the slider changes is visible in the metabolic route.</li><li>starting pair: amitriptyline and CYP2D6/CYP2C19, where CPIC gives explicit dose adjustments.</li></ul></div></div>
+  <div class="row"><div class="margin-note">what came out</div><div class="row-body"><ul><li>dose scales the curve and leaves its shape alone. Doubling it doubles every concentration and changes no timing.</li><li>clearance changes the shape. At the acetaminophen-like default the half-life is 1.7 hours; halving clearance stretches it to 3.3 and doubling it compresses it to 0.8.</li><li>that difference is the whole intuition behind why a metabolizer phenotype matters more than a dose adjustment in some cases, and it is visible in one drag.</li></ul></div></div>
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>one compartment with instant absorption rather than a two-compartment model with an absorption phase. The point is which parameter does what, and a second compartment adds terms without adding that insight.</li><li>literature-ish acetaminophen parameters rather than a fitted dataset. Nothing here is a claim about a real patient.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>this card used to describe a pharmacogenomic simulator with phenotype sliders and PharmGKB pathways drawn beside the curve. That was a plan, not a thing, and the notebook behind it is a Streamlit teaching demo from April. Rewritten to describe what exists. The plan is still a good one and is listed as not shown.</p></div></div>
+  <div class="row"><div class="margin-note">so what</div><div class="row-body"><ul><li>a slider teaches an exponential better than an equation does, because the reader supplies the counterfactual themselves.</li><li>this is the scaffold the pharmacogenomic version would sit on. Swap the clearance slider for a CYP2D6 phenotype and the same curve becomes a clinical argument.</li></ul></div></div>
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>metabolizer phenotypes. The CYP2D6 and CYP2C19 version described in the earlier plan for this card was never built, and the 271 PharmGKB pathway files sit unused.</li><li>any real patient data. This is a model with typed-in parameters.</li></ul></div></div>
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

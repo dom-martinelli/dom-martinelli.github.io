@@ -3,12 +3,26 @@
  "tab": "pgx",
  "title": "The disease or the prescription?",
  "status": "finished",
- "public": false,
+ "public": true,
  "line": "why a proteomic study of a treated disease needs the medication list, for anyone reading an omics paper: 100 hits became 9 when the drug went into the model",
  "question": "Diabetes and Alzheimer's disease travel together, and plasma proteomics should say something about why. But in any real clinic cohort the people with diabetes are also the people on diabetes drugs. How much of a disease signature is the treatment?",
- "tools": ["Python", "pandas", "statsmodels", "UniProt REST", "matplotlib"],
- "skills": ["confounding by indication", "multiple-testing correction", "proteomic differential testing", "reading free-text medication records"],
- "data": ["DiCAD cohort: 196 adults, Olink plasma proteomics, 13 panels, 1,197 proteins", "clinical assessment and free-text medication list from the same cohort"],
+ "tools": [
+  "Python",
+  "pandas",
+  "statsmodels",
+  "UniProt REST",
+  "matplotlib"
+ ],
+ "skills": [
+  "confounding by indication",
+  "multiple-testing correction",
+  "proteomic differential testing",
+  "reading free-text medication records"
+ ],
+ "data": [
+  "DiCAD cohort via the AD Knowledge Portal (Synapse syn9944859): 196 adults, Olink plasma proteomics, 13 panels, 1,197 proteins",
+  "clinical assessment and free-text medication list from the same cohort"
+ ],
  "did": [
   "tested every one of the 1,197 proteins for a difference between the 46 diabetic and 149 non-diabetic participants, correcting across all of them with Benjamini-Hochberg.",
   "added the confounders a reviewer asks for first, body mass index, age and sex, and ran it again.",
@@ -38,7 +52,8 @@
  "not_shown": [
   "cognitive outcomes. The cohort carries them and the obvious next question is whether the nine survivors track cognition, but that is a separate analysis and is not done.",
   "insulin and the other diabetes drugs. Only metformin is modelled here.",
-  "this is a reanalysis of a cohort Dominic worked with, not a new study, and the result is a methodological one rather than a claim about Alzheimer's biology."
+  "no participant-level data, here or anywhere outside the analysis environment. Every number on this page is an aggregate model output.",
+  "data accessed through the AD Knowledge Portal under its Data Use Certificate. Acknowledgement below as the portal's terms require."
  ],
  "tried": "the first run was the interesting one: 100 proteins, GDF15 at the top, and a clean story about metabolic stress in diabetic Alzheimer's. The medication list was in the same folder the whole time. Checking it was what turned a finding into a caveat, and the caveat is the better result.",
  "figures": [
@@ -46,5 +61,6 @@
    "file": "assets/fig/dicad/medication-collapse.png",
    "note": "top, how many proteins separate diabetic from non-diabetic participants under three models. the usual confounders leave the count alone; one column for metformin removes nine tenths of it. bottom, GDF15, the strongest unadjusted hit, crossing back below the significance threshold once the drug it responds to is accounted for."
   }
- ]
+ ],
+ "acknowledgement": "Data used here were obtained from the AD Knowledge Portal (adknowledgeportal.synapse.org), DiCAD study, syn9944859. The results published here are in whole or in part based on data obtained from the AD Knowledge Portal. The author thanks the DiCAD study investigators and participants."
 }

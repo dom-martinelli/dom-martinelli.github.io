@@ -217,8 +217,8 @@ def group(p) -> str:
 
 def build_index(site, projects):
     tabs = [{"id": g, "label": label} for g, label in GROUPS if any(group(p) == g for p in projects)]
-    ordered = ([t for t in tabs if t["id"] == "featured"]
-               + [{"id": "papers", "label": "Papers"}]
+    ordered = ([{"id": "papers", "label": "Papers"}]
+               + [t for t in tabs if t["id"] == "featured"]
                + [t for t in tabs if t["id"] != "featured"])
     jump = " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in ordered)
     sections = {}
@@ -248,8 +248,8 @@ def build_index(site, projects):
     <p class="hero-archive"><a href="#papers">six first-author papers &rarr;</a></p>
   </section>
   <nav class="jump" aria-label="Subjects">{jump}</nav>
-  {featured_html}
   {papers_section({p["slug"] for p in projects})}
+  {featured_html}
   {''.join(rest_html)}
 </main>
 <footer class="wrap foot">{esc(site.get('footer', ''))}</footer>
@@ -257,6 +257,14 @@ def build_index(site, projects):
 </html>
 """
     (ROOT / "index.html").write_text(head(site["title"], site["affiliation"], 0) + body)
+
+
+def ack_block(text) -> str:
+    """Data-use acknowledgement. Some sources require this in anything published
+    from them, so it renders as its own block rather than a line in a list."""
+    if not text:
+        return ""
+    return f'<section class="ack"><span class="margin-note">data use</span><p>{esc(text)}</p></section>'
 
 
 def row(label, inner):
@@ -310,6 +318,7 @@ def build_project(site, p, tab_label):
   {row('what i tried', f"<p>{esc(p['tried'])}</p>" if p.get('tried') else '')}
   {row('so what', ul(p.get('so_what')))}
   {row('not shown', ul(p.get('not_shown')))}
+  {ack_block(p.get('acknowledgement'))}
 </main>
 <footer class="wrap foot">{esc(site.get('footer', ''))}</footer>
 </body>

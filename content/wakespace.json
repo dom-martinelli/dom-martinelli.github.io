@@ -4,18 +4,24 @@
  "title": "Drugs that act on the reward pathway, and the classes we file them under",
  "status": "finished",
  "tools": [
-  "Python",
   "PubChem PUG REST",
-  "pandas",
-  "matplotlib"
+  "Python",
+  "STRING v12",
+  "matplotlib",
+  "networkx",
+  "pandas"
  ],
  "links": [
   {
-   "label": "The commercial side of this: the audacity of bupropion",
+   "label": "The commercial side of this: the antidepressant with no antidepressant neighbours",
    "url": "projects/bupropion-market.html"
   }
  ],
  "figures": [
+  {
+   "file": "assets/fig/reward/glp1r-periphery.png",
+   "note": "left, the reward network with node size and line width scaled by STRING confidence; GLP1R sits off the cluster on a single link to tyrosine hydroxylase. right, every gene ranked by the summed confidence of its links, with GLP1R at 0.41 against 9.84 for DRD2."
+  },
   {
    "file": "gallery/drug-class-radar.png",
    "note": "one radar per compound, spokes are percentiles within the set. the xanthines share a shape. the weight-loss row shares none."
@@ -39,14 +45,16 @@
  ],
  "data": [
   "PubChem computed properties",
-  "hand-assigned use classes"
+  "hand-assigned use classes",
+  "STRING v12 functional associations, Homo sapiens, 15 reward-pathway genes"
  ],
  "calls": [
   "sampled by what each drug is licensed for, not by scaffold. sampling on structure would presuppose the answer.",
   "percentile rank on the radar spokes, not min-max. one peptide is twenty times the mass of everything else.",
   "XLogP against TPSA rather than a fingerprint embedding. both axes can be checked by a reader; an embedding only looks impressive.",
   "semaglutide kept, on a log axis. a small amine and a peptide inside one licensed class is the whole observation.",
-  "withdrawn drugs kept in. keeping only the survivors removes the contrast."
+  "withdrawn drugs kept in. keeping only the survivors removes the contrast.",
+  "summed confidence rather than a plain edge count, so one strong association is not treated the same as one weak one. GLP1R is the sparsest node on either measure."
  ],
  "broke": [
   "enantiomer pairs return identical 2D descriptors from PubChem and land on one point. merged into single markers, so the clinical difference between them is invisible here."
@@ -56,18 +64,22 @@
  "did": [
   "sampled 24 compounds by what they are licensed for, across xanthines, stimulants, wakefulness agents, non-stimulant ADHD drugs and weight-loss drugs, rather than by scaffold.",
   "pulled computed molecular properties for each from PubChem and plotted the licensed classes against the chemistry.",
-  "checked which classes hold together in property space and which scatter."
+  "checked which classes hold together in property space and which scatter.",
+  "pulled the STRING functional association network for fifteen reward-pathway genes and summed each gene's link confidence, to ask where the GLP-1 receptor sits in the machinery its drugs are supposed to act on."
  ],
  "found": [
   "the xanthines share a shape on the radar. Caffeine, theophylline and theobromine behave as one family on every spoke.",
   "the weight-loss row shares none. Phentermine, orlistat and semaglutide are licensed for the same thing and have nothing chemical in common, which is the clearest sign that the licence is not a chemical category.",
-  "bupropion sits with the non-stimulant ADHD drugs by licence while being the molecule that also carries smoking and weight indications. The class it is filed under does not predict where it gets used."
+  "bupropion sits with the non-stimulant ADHD drugs by licence while being the molecule that also carries smoking and weight indications. The class it is filed under does not predict where it gets used.",
+  "the GLP-1 receptor is barely in the reward network at all. across 66 associations between fifteen reward genes, GLP1R has one, to tyrosine hydroxylase, with summed confidence 0.41 against 2.73 for the next sparsest gene and 9.84 for the dopamine D2 receptor."
  ],
  "so_what": [
   "a licensed class is a regulatory artifact, not a mechanism. Screening repurposing candidates by indication will miss the compounds that cross classes, which are exactly the interesting ones.",
-  "the compounds that scatter in property space while sharing a behavioural effect are the ones worth a mechanistic look. That is the shortlist this chart produces."
+  "the compounds that scatter in property space while sharing a behavioural effect are the ones worth a mechanistic look. That is the shortlist this chart produces.",
+  "GLP-1 drugs demonstrably blunt addictive and compulsive behaviour, so whatever carries that effect is not described by the known reward interactions. Either the route is indirect, through appetite and energy signalling rather than dopamine, or the interaction databases have not caught up with the pharmacology. Both are worth knowing before building a mechanistic story on a network that does not contain the link."
  ],
  "not_shown": [
-  "the reward-pathway target network behind this framing is not built yet; this card currently shows the chemistry, not the mechanism"
+  "STRING confidence is evidence that two proteins act together, drawn from experiments, databases, co-expression and text mining. It is not a measurement of binding, and a sparse node can mean an understudied protein rather than an unconnected one.",
+  "no GLP-1 drug is in the chemical panel. the receptor is in the network, the drugs are not in the scatter."
  ]
 }

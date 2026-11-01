@@ -240,3 +240,8 @@ a.zoom { display: block; cursor: zoom-in; }
 .paper-nofig span { color: #2b5b66; font-style: normal; max-width: 80%; }
 .status-planned { color: #7CCBA2; border-style: dashed; border-color: #46AEA0; }
 .status-exploratory { color: #B7E6A5; border-color: #089099; }
+
+/* Data-use acknowledgement: required by some sources, so it must be visible
+   on the page rather than buried in a list. */
+.ack{margin-top:2.4rem;padding-top:1.1rem;border-top:1px solid var(--line)}
+.ack p{margin:.2rem 0 0;font-size:.86rem;color:var(--muted);max-width:68ch;line-height:1.6}

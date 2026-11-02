@@ -1,7 +1,7 @@
 {
  "slug": "wakespace",
  "tab": "molecules",
- "title": "Network map of reward-pathway drug targets (STRING)",
+ "title": "Reward-pathway drugs by shared chemistry and target network",
  "status": "finished",
  "tools": [
   "PubChem PUG REST",

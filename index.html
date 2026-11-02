@@ -23,7 +23,7 @@
     <div class="works"><span class="margin-note">works with</span><ul><li>Python</li><li>SMART on FHIR</li><li>RDKit</li><li>scikit-learn</li><li>GeoPandas</li><li>matched designs</li><li>LLM evaluation</li><li>ClinicalTrials.gov / AACT</li><li>PubMed / iCite</li><li>matplotlib</li></ul></div>
     <p class="hero-archive"><a href="#papers">six first-author papers &rarr;</a></p>
   </section>
-  <nav class="jump" aria-label="Subjects"><a href="#papers">Papers</a> · <a href="#featured">Selected work</a> · <a href="#analyses">Analyses</a> · <a href="#tools">Tools you can use</a></nav>
+  <nav class="jump" aria-label="Subjects"><a href="#papers">Papers</a> · <a href="#analyses">Analyses</a> · <a href="#featured">Selected work</a> · <a href="#tools">Tools you can use</a></nav>
   <section class="shelf" id="papers"><h2>Papers<span class="count">6</span></h2><p class="papers-lede">first-author, peer-reviewed. figures are the papers' own, shown under their open licences.</p><div class="papers"><article class="paper">
   <a class="paper-link" href="https://doi.org/10.1016/j.ygeno.2024.110815"><div class="panel"><img src="assets/thumb/assets/fig/pubs/sirna-genomics-2024.webp" alt="Fig. 3: bases and modifications one-hot encoded, labelled against an efficacy threshold, five-fold cross-validated, then tested on external data." loading="lazy" decoding="async"></div></a>
   <div class="paper-body">
@@ -67,6 +67,70 @@
     <p class="paper-note">an adversarial autoencoder, one of the six generative model families the review covers.</p>
   </div>
 </article></div><div class="drafts"><span class="margin-note">in progress</span><ul><li><b>Evaluating large language models on pediatric growth assessment</b> &middot; with J. Lee, I. Kohane, C. Soto Rivera, J. Hatoun, L. Vernacchio, E. C. Trudell and N. Rabbani. Submitted to AMIA 2027 Amplify Informatics, under review</li><li><b>An ICD-10 index of medical question-answering benchmark items</b> &middot; with J. Lee and colleagues. In preparation</li><li><b>Is there a patient-involvement citation advantage? Evidence from biomedical publications</b> &middot; manuscript complete, October 2026; preprint and Scientometrics submission in progress</li><li><b>Patient-led findings and shifts in research attention: Long COVID and ME/CFS</b> &middot; with Y. Yin. In preparation</li><li><b>Dietary methyl donors and the epigenetic hypothesis of Alzheimer&#x27;s disease</b> &middot; review, drafted 2022: folate, B6 and B12 through one-carbon metabolism to DNA methylation in AD</li><li><b>Semax at the melanocortin-4 receptor: a molecular dynamics study</b> &middot; draft, 2022: docking and GROMACS simulations against the 7PIU structure</li></ul></div></section>
+  <section class="shelf" id="analyses"><h2>Analyses<span class="count">9</span></h2><div class="grid"><a class="tile tile-wide" href="projects/pgx-trials.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/pgx-trials-1.webp" alt="share of trial sites in the United States, by start year, for trials cited as evidence in PharmGKB gene–drug relationships. colour is the number of trials that year. the US share falls from around half in the late 2000s to a fifth or less after 2016." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Countries behind PharmGKB gene–drug evidence, over time</h3><span class="status status-exploratory">exploratory</span></div>
+    <p class="skills">evidence linkage across databases · schema-aware ETL · pharmacogenomics · trial registry analysis</p>
+    <ul class="tags"><li>Python</li><li>pandas</li><li>AACT (PostgreSQL)</li><li>PharmGKB</li></ul>
+  </div>
+</a><a class="tile" href="projects/wakespace.html">
+  <div class="panel"><img src="assets/fig/reward/glp1r-periphery.png" alt="left, the reward network with node size and line width scaled by STRING confidence; GLP1R sits off the cluster on a single link to tyrosine hydroxylase. right, every gene ranked by the summed confidence of its links, with GLP1R at 0.41 against 9.84 for DRD2." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Reward-pathway drugs by shared chemistry and target network</h3><span class="status status-finished">finished</span></div>
+    <p class="skills">cheminformatics · molecular descriptor analysis · API data collection · figure design</p>
+    <ul class="tags"><li>PubChem PUG REST</li><li>Python</li><li>STRING v12</li><li>matplotlib</li></ul>
+  </div>
+</a><a class="tile" href="projects/sweetspace.html">
+  <div class="panel"><img src="assets/thumb/gallery/odor-structure-topography.webp" alt="each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Odor and sweetness across 3,522 flavor molecules</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">cheminformatics · molecular fingerprints · dimensionality reduction · baseline-controlled modelling</p>
+    <ul class="tags"><li>Python</li><li>RDKit</li><li>scikit-learn</li><li>SHAP</li></ul>
+  </div>
+</a><a class="tile" href="projects/over-referral.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/sibmi/bedside-explodes-apart.webp" alt="at the bedside the field explodes apart. the same 16 models triaging healthy children range from every child right to almost none." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>How 16 LLMs triage healthy children</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">deployment-behaviour benchmark design · prompt condition and ablation design · LLM evaluation at scale · clinical cost and PPV modelling</p>
+    <ul class="tags"><li>Python</li><li>OpenRouter</li><li>open and frontier model APIs</li><li>pandas</li></ul>
+  </div>
+</a><a class="tile" href="projects/stroke-belt.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/stroke-belt-2.webp" alt="insurance coverage among older adults, same geography." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Hypertension treatment and insurance coverage in the Stroke Belt</h3><span class="status status-finished">finished</span></div>
+    <p class="skills">geospatial joins · choropleth mapping · area-level regression · permutation testing of preregistered hypotheses</p>
+    <ul class="tags"><li>Python</li><li>GeoPandas</li><li>scikit-learn</li><li>folium</li></ul>
+  </div>
+</a><a class="tile" href="projects/evidence-lag.html">
+  <div class="panel"><img src="assets/thumb/gallery/glp1-signal-vs-approval.webp" alt="first FAERS report mentioning weight, first approval, and the weight indication, per GLP-1 drug." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Lag from new evidence to guidelines, labels and papers, in four cases</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">bibliometric trend analysis · pharmacovigilance signal analysis · rate-limited API pipelines · denominator normalisation</p>
+    <ul class="tags"><li>Python</li><li>NCBI E-utilities</li><li>openFDA</li><li>pandas</li></ul>
+  </div>
+</a><a class="tile" href="projects/pkpd-simulator.html">
+  <div class="panel"><img src="assets/fig/pkpd/pk-sliders.png" alt="the model run at the notebook&#x27;s own defaults. left, dose moves the curve up and down without changing when the drug leaves. right, clearance changes the half-life from 3.3 hours to 0.8 across the slider&#x27;s range. the Streamlit version lets you drag both." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Interactive pharmacokinetic model: dose, clearance and half-life</h3><span class="status status-finished">finished</span></div>
+    <p class="skills">pharmacokinetic modelling · interactive UI design · explaining a model by letting someone break it</p>
+    <ul class="tags"><li>Python</li><li>Streamlit</li><li>NumPy</li><li>matplotlib</li></ul>
+  </div>
+</a><a class="tile" href="projects/bupropion-market.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/bupropion/transporter-classes.webp" alt="every approved drug on the three monoamine transporters, grouped by which it hits. the highlighted row is the ten that take dopamine and norepinephrine while leaving serotonin alone: bupropion, and otherwise the ADHD stimulant class and the appetite suppressants. the drug filed as an antidepressant has no antidepressant neighbours. counts are present-day, so they describe the era bupropion survived, not the one it entered in 1985." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Grouping antidepressants by monoamine transporter activity</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">competitive mechanism analysis · indication lifecycle analysis · reading a target landscape commercially</p>
+    <ul class="tags"><li>openFDA Drugs@FDA</li><li>ChEMBL mechanism-of-action</li><li>ClinicalTrials.gov API v2</li><li>RDKit</li></ul>
+  </div>
+</a><a class="tile" href="projects/treated-disease.html">
+  <div class="panel"><img src="assets/fig/dicad/medication-collapse.png" alt="top, how many proteins separate diabetic from non-diabetic participants under three models. the usual confounders leave the count alone; one column for metformin removes nine tenths of it. bottom, GDF15, the strongest unadjusted hit, crossing back below the significance threshold once the drug it responds to is accounted for." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Separating diabetes from metformin effects in blood proteins</h3><span class="status status-finished">finished</span></div>
+    <p class="skills">confounding by indication · multiple-testing correction · proteomic differential testing · reading free-text medication records</p>
+    <ul class="tags"><li>Python</li><li>pandas</li><li>statsmodels</li><li>UniProt REST</li></ul>
+  </div>
+</a></div></section>
   <section class="shelf" id="featured"><h2>Selected work<span class="count">4</span></h2><div class="grid"><a class="tile tile-wide" href="projects/patient-innovation-index.html">
   <div class="panel"><img src="assets/thumb/assets/fig/pii-v7/fig1-study-design.webp" alt="the study in one figure. 23,584 PubMed papers scored for 13 text signals; a language model and a human coder validate 169 and 50 of them; 553 papers keep a report of partnership or organization support. right panel: +70% against random PubMed papers, +28% adjusted, +8% matched; -2% against the 12,222 unflagged papers from the same search, -8% adjusted; +34% within open access for papers naming a patient organization in full text." loading="lazy" decoding="async"></div>
   <div class="tile-body">
@@ -96,70 +160,7 @@
     <ul class="tags"><li>JavaScript (no build step)</li><li>Chart.js</li><li>Web Crypto</li><li>Epic FHIR R4</li></ul>
   </a>
 </div></div></section>
-  <section class="shelf" id="analyses"><h2>Analyses<span class="count">9</span></h2><div class="grid"><a class="tile tile-wide" href="projects/pgx-trials.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/pgx-trials-1.webp" alt="share of trial sites in the United States, by start year, for trials cited as evidence in PharmGKB gene–drug relationships. colour is the number of trials that year. the US share falls from around half in the late 2000s to a fifth or less after 2016." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Countries behind PharmGKB gene–drug evidence, over time</h3><span class="status status-exploratory">exploratory</span></div>
-    <p class="skills">evidence linkage across databases · schema-aware ETL · pharmacogenomics · trial registry analysis</p>
-    <ul class="tags"><li>Python</li><li>pandas</li><li>AACT (PostgreSQL)</li><li>PharmGKB</li></ul>
-  </div>
-</a><a class="tile" href="projects/wakespace.html">
-  <div class="panel"><img src="assets/fig/reward/glp1r-periphery.png" alt="left, the reward network with node size and line width scaled by STRING confidence; GLP1R sits off the cluster on a single link to tyrosine hydroxylase. right, every gene ranked by the summed confidence of its links, with GLP1R at 0.41 against 9.84 for DRD2." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Network map of reward-pathway drug targets (STRING)</h3><span class="status status-finished">finished</span></div>
-    <p class="skills">cheminformatics · molecular descriptor analysis · API data collection · figure design</p>
-    <ul class="tags"><li>PubChem PUG REST</li><li>Python</li><li>STRING v12</li><li>matplotlib</li></ul>
-  </div>
-</a><a class="tile" href="projects/sweetspace.html">
-  <div class="panel"><img src="assets/thumb/gallery/odor-structure-topography.webp" alt="each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Odor and sweetness across 3,522 flavor molecules</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">cheminformatics · molecular fingerprints · dimensionality reduction · baseline-controlled modelling</p>
-    <ul class="tags"><li>Python</li><li>RDKit</li><li>scikit-learn</li><li>SHAP</li></ul>
-  </div>
-</a><a class="tile" href="projects/over-referral.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/sibmi/bedside-explodes-apart.webp" alt="at the bedside the field explodes apart. the same 16 models triaging healthy children range from every child right to almost none." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>How 16 LLMs triage healthy children</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">deployment-behaviour benchmark design · prompt condition and ablation design · LLM evaluation at scale · clinical cost and PPV modelling</p>
-    <ul class="tags"><li>Python</li><li>OpenRouter</li><li>open and frontier model APIs</li><li>pandas</li></ul>
-  </div>
-</a><a class="tile" href="projects/stroke-belt.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/stroke-belt-2.webp" alt="insurance coverage among older adults, same geography." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Hypertension treatment and insurance coverage in the Stroke Belt</h3><span class="status status-finished">finished</span></div>
-    <p class="skills">geospatial joins · choropleth mapping · area-level regression · permutation testing of preregistered hypotheses</p>
-    <ul class="tags"><li>Python</li><li>GeoPandas</li><li>scikit-learn</li><li>folium</li></ul>
-  </div>
-</a><a class="tile" href="projects/evidence-lag.html">
-  <div class="panel"><img src="assets/thumb/gallery/glp1-signal-vs-approval.webp" alt="first FAERS report mentioning weight, first approval, and the weight indication, per GLP-1 drug." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Lag from GLP-1 weight-loss papers to first adverse-event reports</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">bibliometric trend analysis · pharmacovigilance signal analysis · rate-limited API pipelines · denominator normalisation</p>
-    <ul class="tags"><li>Python</li><li>NCBI E-utilities</li><li>openFDA</li><li>pandas</li></ul>
-  </div>
-</a><a class="tile" href="projects/pkpd-simulator.html">
-  <div class="panel"><img src="assets/fig/pkpd/pk-sliders.png" alt="the model run at the notebook&#x27;s own defaults. left, dose moves the curve up and down without changing when the drug leaves. right, clearance changes the half-life from 3.3 hours to 0.8 across the slider&#x27;s range. the Streamlit version lets you drag both." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Interactive pharmacokinetic model: dose, clearance and half-life</h3><span class="status status-finished">finished</span></div>
-    <p class="skills">pharmacokinetic modelling · interactive UI design · explaining a model by letting someone break it</p>
-    <ul class="tags"><li>Python</li><li>Streamlit</li><li>NumPy</li><li>matplotlib</li></ul>
-  </div>
-</a><a class="tile" href="projects/bupropion-market.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/bupropion/transporter-classes.webp" alt="every approved drug on the three monoamine transporters, grouped by which it hits. the highlighted row is the ten that take dopamine and norepinephrine while leaving serotonin alone: bupropion, and otherwise the ADHD stimulant class and the appetite suppressants. the drug filed as an antidepressant has no antidepressant neighbours. counts are present-day, so they describe the era bupropion survived, not the one it entered in 1985." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Grouping antidepressants by monoamine transporter activity</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">competitive mechanism analysis · indication lifecycle analysis · reading a target landscape commercially</p>
-    <ul class="tags"><li>openFDA Drugs@FDA</li><li>ChEMBL mechanism-of-action</li><li>ClinicalTrials.gov API v2</li><li>RDKit</li></ul>
-  </div>
-</a><a class="tile" href="projects/treated-disease.html">
-  <div class="panel"><img src="assets/fig/dicad/medication-collapse.png" alt="top, how many proteins separate diabetic from non-diabetic participants under three models. the usual confounders leave the count alone; one column for metformin removes nine tenths of it. bottom, GDF15, the strongest unadjusted hit, crossing back below the significance threshold once the drug it responds to is accounted for." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Separating diabetes from metformin effects in blood proteins</h3><span class="status status-finished">finished</span></div>
-    <p class="skills">confounding by indication · multiple-testing correction · proteomic differential testing · reading free-text medication records</p>
-    <ul class="tags"><li>Python</li><li>pandas</li><li>statsmodels</li><li>UniProt REST</li></ul>
-  </div>
-</a></div></section><section class="shelf" id="tools"><h2>Tools you can use<span class="count">4</span></h2><div class="grid"><div class="tile tile-wide">
+  <section class="shelf" id="tools"><h2>Tools you can use<span class="count">4</span></h2><div class="grid"><div class="tile tile-wide">
   <div class="panel panel-live"><a href="https://huggingface.co/spaces/dmartinelli/medical-benchmark-disease-index"><img src="assets/thumb/assets/fig/icd-index-1.webp" alt="the pipeline: collect 14,088 items, label each condition and its role with a local model, map names to ICD-10-CM through the official Alphabetic Index, check with two other models, then publish a searchable explorer." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>
   <a class="tile-body" href="projects/icd-index.html">
     <div class="tile-top"><h3>Which diseases medical AI benchmarks actually test</h3><span class="status status-in-progress">in progress</span></div>

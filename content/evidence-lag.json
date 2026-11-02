@@ -1,7 +1,7 @@
 {
  "slug": "evidence-lag",
  "tab": "trials",
- "title": "Lag from GLP-1 weight-loss papers to first adverse-event reports",
+ "title": "Lag from new evidence to guidelines, labels and papers, in four cases",
  "status": "in progress",
  "tools": [
   "Python",

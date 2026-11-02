@@ -218,8 +218,9 @@ def group(p) -> str:
 def build_index(site, projects):
     tabs = [{"id": g, "label": label} for g, label in GROUPS if any(group(p) == g for p in projects)]
     ordered = ([{"id": "papers", "label": "Papers"}]
+               + [t for t in tabs if t["id"] == "analyses"]
                + [t for t in tabs if t["id"] == "featured"]
-               + [t for t in tabs if t["id"] != "featured"])
+               + [t for t in tabs if t["id"] not in ("analyses", "featured")])
     jump = " · ".join(f'<a href="#{esc(t["id"])}">{esc(t["label"])}</a>' for t in ordered)
     sections = {}
     for t in tabs:
@@ -236,6 +237,7 @@ def build_index(site, projects):
         sections[t["id"]] = (
             f'<section class="shelf" id="{esc(t["id"])}"><h2>{esc(t["label"])}'
             f'<span class="count">{len(items)}</span></h2><div class="grid">{tiles}</div></section>')
+    analyses_html = sections.pop("analyses", "")
     featured_html = sections.pop("featured", "")
     rest_html = list(sections.values())
     works = "".join(f"<li>{esc(w)}</li>" for w in site.get("works_with", []))
@@ -249,6 +251,7 @@ def build_index(site, projects):
   </section>
   <nav class="jump" aria-label="Subjects">{jump}</nav>
   {papers_section({p["slug"] for p in projects})}
+  {analyses_html}
   {featured_html}
   {''.join(rest_html)}
 </main>

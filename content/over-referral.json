@@ -2,7 +2,7 @@
  "slug": "over-referral",
  "tab": "medical-ai",
  "status": "in progress",
- "title": "Over-referral as a representation failure",
+ "title": "How 16 LLMs triage healthy children",
  "line": "deployment-behaviour benchmark on healthy short children",
  "question": "Deployed as a screener on healthy short children, does a language model refer everyone, and what changes that?",
  "skills": [

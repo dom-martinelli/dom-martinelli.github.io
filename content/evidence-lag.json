@@ -1,7 +1,7 @@
 {
  "slug": "evidence-lag",
  "tab": "trials",
- "title": "How long evidence takes to reach practice",
+ "title": "Lag from GLP-1 weight-loss papers to first adverse-event reports",
  "status": "in progress",
  "tools": [
   "Python",

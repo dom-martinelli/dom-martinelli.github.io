@@ -1,7 +1,7 @@
 {
  "slug": "pkpd-simulator",
  "tab": "pgx",
- "title": "What a dose actually does, with two sliders",
+ "title": "Interactive pharmacokinetic model: dose, clearance and half-life",
  "status": "finished",
  "line": "a teaching demo of the one-compartment model, for anyone who has seen the equation and not the curve: drag dose and clearance, watch which one changes the shape",
  "question": "Everyone meets C(t) = (F x Dose / Vd) e^(-kt) as an equation. What does each parameter actually do to the curve a patient lives with?",

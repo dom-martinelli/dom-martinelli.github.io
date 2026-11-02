@@ -1,7 +1,7 @@
 {
  "slug": "pgx-trials",
  "tab": "pgx",
- "title": "Where pharmacogenomic evidence comes from",
+ "title": "Countries behind PharmGKB gene–drug evidence, over time",
  "status": "exploratory",
  "line": "PharmGKB's gene\u2013drug evidence traced back to the trials behind it, and where those trials ran",
  "question": "When PharmGKB says a gene changes how a drug works, which clinical trials is that claim resting on, and whose bodies were in them?",

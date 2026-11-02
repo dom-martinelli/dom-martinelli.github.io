@@ -1,7 +1,7 @@
 {
  "slug": "treated-disease",
  "tab": "pgx",
- "title": "The disease or the prescription?",
+ "title": "Separating diabetes from metformin effects in blood proteins",
  "status": "finished",
  "public": true,
  "line": "why a proteomic study of a treated disease needs the medication list, for anyone reading an omics paper: 100 hits became 9 when the drug went into the model",

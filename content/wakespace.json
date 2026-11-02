@@ -1,7 +1,7 @@
 {
  "slug": "wakespace",
  "tab": "molecules",
- "title": "Drugs that act on the reward pathway, and the classes we file them under",
+ "title": "Network map of reward-pathway drug targets (STRING)",
  "status": "finished",
  "tools": [
   "PubChem PUG REST",
@@ -13,7 +13,7 @@
  ],
  "links": [
   {
-   "label": "The commercial side of this: the antidepressant with no antidepressant neighbours",
+   "label": "The commercial side of this: grouping antidepressants by monoamine transporter activity",
    "url": "projects/bupropion-market.html"
   }
  ],

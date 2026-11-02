@@ -1,7 +1,7 @@
 {
  "slug": "stroke-belt",
  "tab": "population",
- "title": "Hypertension and treatment across the Stroke Belt",
+ "title": "Hypertension treatment and insurance coverage in the Stroke Belt",
  "status": "finished",
  "tools": [
   "Python",

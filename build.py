@@ -193,8 +193,7 @@ def papers_section(live=frozenset()) -> str:
             + '</section>')
 
 
-GROUPS = [("analyses", "Analyses"),
-          ("tools", "Tools you can use"), ("planned", "Planned"),
+GROUPS = [("analyses", "Projects"), ("planned", "Planned"),
           ("earlier", "Earlier work")]
 
 
@@ -206,8 +205,10 @@ def group(p) -> str:
     # shelf links to it) and drops the duplicate tile from the grid below.
     if p.get("paper_only"):
         return "paper_only"
-    if p.get("interactive"):
-        return "tools"
+    # A live tool and a written analysis are both work, and the card already says
+    # which it is: the status pill reads "live" and the picture carries an
+    # open-the-interactive-version badge. Splitting them into two shelves added a
+    # division without adding information. Asked for three times; removed 10 Nov.
     return "planned" if p.get("status") == "planned" else "analyses"
 
 

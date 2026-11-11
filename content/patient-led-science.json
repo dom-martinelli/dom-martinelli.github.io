@@ -3,33 +3,81 @@
  "tab": "trials",
  "title": "Do patients' ideas reach the research?",
  "status": "in progress",
- "line": "Long COVID, where patients named and studied the illness before most researchers did",
- "question": "Long COVID patients ran their own surveys and named symptoms like post-exertional malaise before most of the literature did. Do the ideas patients introduced show up in the research that engages their work, and how long do they take to arrive?",
+ "line": "Long COVID patients documented the crash after effort months before researchers did; the field followed their paper, NIH adopted it, exercise trials mostly did not",
+ "question": "When patients document an illness before researchers do, does the research and policy that follows take up what they found?",
  "skills": [
   "science-of-science methods",
-  "bibliometrics",
-  "patient-centred research"
+  "citation analysis",
+  "pre-registered comparison design",
+  "hand-checked text matching",
+  "clinical trial registry analysis"
  ],
  "tools": [
   "Python",
+  "pandas",
+  "matplotlib",
   "PubMed E-utilities",
-  "iCite"
+  "NIH iCite",
+  "Europe PMC",
+  "ClinicalTrials.gov API v2"
  ],
  "data": [
-  "Patient-Led Research Collaborative survey reports (2020 onward)",
-  "PubMed and iCite citation data",
-  "a rule-based comparison pool of papers that do not engage patient-led work"
- ],
- "planned": [
-  "dating each symptom in the patient-led reports against the first PubMed paper to describe it.",
-  "comparing how the papers that cite patient-led work frame those symptoms against a matched comparison pool.",
-  "ME/CFS as the historical contrast: graded exercise versus pacing, and the 2021 NICE guideline reversal."
+  "Patient-Led Research Collaborative Report 1 (May 2020) and dated patient blogs",
+  "11,776 PubMed Long COVID papers, 2020 to 2025, with iCite reference lists",
+  "7,435 open-access full texts",
+  "NIH RECOVER Long COVID index (JAMA 2023)",
+  "182 registered Long COVID exercise and rehabilitation trials"
  ],
  "not_shown": [
-  "results are held until my advisor has reviewed them"
+  "the manuscript is in draft with my advisor; numbers may change before submission"
  ],
- "figures": [],
+ "figures": [
+  {
+   "file": "assets/fig/long-covid/who-said-first.png",
+   "note": "who said it first: days between the first patient record and the first scientific record, per symptom, 2020."
+  },
+  {
+   "file": "assets/fig/long-covid/pool-counts.png",
+   "note": "every dot is an early Long COVID symptom paper. x: later papers citing it; y: how many of those mention PEM. the dashed line is no effect. the patients' survey sits far above papers with the same audience."
+  },
+  {
+   "file": "assets/fig/long-covid/catch-up.png",
+   "note": "the field catching up: share of papers mentioning PEM, citers of the patients' survey against everyone else, 2021 to 2025."
+  },
+  {
+   "file": "assets/fig/long-covid/recover.png",
+   "note": "what NIH adopted: symptom points in the RECOVER definition, and the PEM lean of papers that cite it."
+  },
+  {
+   "file": "assets/fig/long-covid/trials-pem.png",
+   "note": "registered Long COVID exercise and rehabilitation trials that mention, screen for or exclude PEM, by year."
+  }
+ ],
  "links": [],
  "host_file": "",
- "public": false
+ "public": false,
+ "did": [
+  "dated the first patient record and the first scientific record of 17 lingering symptoms, counting only records of symptoms lasting 4+ weeks, every earliest hit read by hand.",
+  "split 10,923 Long COVID papers by whether they cite the patients' survey and tested PEM mentions with a year-stratified Mantel-Haenszel odds ratio, in abstracts and in full text.",
+  "benchmarked the patients' survey against 67 early papers chosen by a rule written before any result was computed.",
+  "checked PEM's weight in NIH's RECOVER definition and whether that definition now carries PEM without the patients' paper.",
+  "tagged 182 exercise and rehabilitation trial registrations for whether they mention, screen for or exclude PEM."
+ ],
+ "found": [
+  "patients documented 13 of 17 lingering symptoms first; post-exertional malaise (PEM) by 159 days, brain fog by 47.",
+  "papers citing the patients' survey mention PEM about 2.8 times as often. among 67 comparable early papers it ranks 2nd: papers with a similar audience passed PEM to 13 to 20 later papers, the patients' survey to 63.",
+  "NIH's RECOVER index gives PEM 7 points toward a threshold of 12, and papers citing that definition lean toward PEM even without citing the patients (odds ratio 4.15).",
+  "only 15 of 182 exercise trials screen for PEM, the symptom that makes exercise risky for these patients."
+ ],
+ "so_what": "the patients' knowledge reached the research definition faster than it reached the clinic. a trial designer or reviewer can check PEM screening as a concrete gap.",
+ "calls": [
+  "the comparison pool by a rule written in advance, not hand-picked rivals. a hand-picked rival can always be argued away.",
+  "shrunk estimates over raw odds ratios for the ranking. a small paper can top a raw ranking by chance.",
+  "a 4-week rule for what counts as lingering, set after a first pass and labelled as such, with the loose dates kept as a check.",
+  "full text alongside abstracts. abstracts carry about one in seven PEM mentions."
+ ],
+ "broke": [
+  "the patients' survey is the only pool paper whose own abstract names PEM, so part of its lead is topical. reported as part of the finding, not hidden.",
+  "a credit analysis (were patients' published hypotheses cited?) was pulled: its definition of 'studied' was too loose and three of the studies began before the patients wrote anything."
+ ]
 }

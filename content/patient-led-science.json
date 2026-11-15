@@ -55,7 +55,7 @@
  ],
  "links": [],
  "host_file": "",
- "public": false,
+ "public": true,
  "did": [
   "dated the first patient record and the first scientific record of 17 lingering symptoms, counting only records of symptoms lasting 4+ weeks, every earliest hit read by hand.",
   "split 10,923 Long COVID papers by whether they cite the patients' survey and tested PEM mentions with a year-stratified Mantel-Haenszel odds ratio, in abstracts and in full text.",

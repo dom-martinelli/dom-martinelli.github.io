@@ -1,0 +1,94 @@
+{
+  "slug": "emory-vascular",
+  "tab": "pgx",
+  "title": "What a blood signature of diabetes medication is actually made of",
+  "status": "finished",
+  "public": true,
+  "line": "six genes separated people on diabetes medication from people not on it. Five of the six are neutrophil genes, so the signature is a count of which white cells were in the tube",
+  "question": "Vascular disease, diabetes and Alzheimer's run together, and whole-blood RNA is the cheapest place to look for the thread. If the people on diabetes medication have a different blood transcriptome, is that vascular biology, or is it something duller?",
+  "tools": [
+    "Python",
+    "PyDESeq2",
+    "scipy hierarchical clustering",
+    "scanpy",
+    "gseapy",
+    "UniProt REST",
+    "matplotlib"
+  ],
+  "skills": [
+    "differential expression on a clinical cohort",
+    "hierarchical clustering and how to read a dendrogram",
+    "circular analysis",
+    "cell-composition confounding in bulk RNA",
+    "annotating a hit list back to cell type"
+  ],
+  "data": [
+    "Emory vascular ageing cohort via the AD Knowledge Portal: 200 adults with whole-blood RNA-seq, clinical assessment and a medication list",
+    "a public eight-sample senescence experiment, four control and four replicatively senescent, run through the same pipeline as a reference"
+  ],
+  "did": [
+    "ran PyDESeq2 across the cohort with one design factor, whether the participant is on a diabetes medication, and kept the genes past padj < 0.05 and |log2 fold change| > 0.5. Six survived.",
+    "clustered those six genes and all 200 participants hierarchically, which is where the two blocks everyone remembers come from.",
+    "cut the participant tree in two and asked, with a Fisher exact test, whether the split sorts people by medication.",
+    "looked all six genes up in UniProt and asked which cell makes each one.",
+    "ran the same differential-expression, volcano and gene-set pipeline on a small public senescence experiment, as a reference for what a clean two-group separation looks like."
+  ],
+  "found": [
+    "the gene tree does split in two, but not the way the story wanted. One arm is a single B-cell immunoglobulin gene, IGHV3-15, going down. The other arm is five genes going up: SLPI, ANXA3, MCEMP1, PROK2 and CYSTM1.",
+    "every one of those five is a neutrophil or myeloid gene. SLPI and ANXA3 are neutrophil granule proteins, MCEMP1 is a myeloid activation marker, PROK2 is the neutrophil-derived factor also called Bv8. Up on the myeloid side, down on the B-cell side, is what a shift in blood cell proportions looks like, not what a tissue disease process looks like.",
+    "cutting the participant tree in two gives a 37-person cluster and a 163-person cluster. The small one is 32 percent on medication against 14 percent in the large one, a 2.3-fold enrichment at Fisher p = 0.015.",
+    "that significance is worth almost nothing. The cluster catches 12 of the 35 people on medication and 25 of its own 37 members are on nothing. As a classifier it is close to useless.",
+    "worse, the test is circular. The six genes were chosen because they differ by medication status, so clustering on them and then testing medication status is asking the data to confirm the selection. The honest version of this p-value needs a held-out gene set or a held-out cohort, and neither exists here.",
+    "the eight-sample senescence experiment, through the identical pipeline, splits its four control and four senescent samples perfectly on nine senescence genes. That contrast is the finding: the controlled experiment separates, the clinic cohort does not."
+  ],
+  "so_what": [
+    "a bulk-blood signature is a weighted average over cell types before it is anything else. Whenever a hit list reads as neutrophil granule proteins, the first hypothesis is that the groups differ in neutrophil fraction, and the differential expression is a complete blood count in an expensive disguise.",
+    "that is not a nuisance to be removed here, it is a real and known association: raised neutrophil-to-lymphocyte ratio tracks with diabetes and vascular disease. The error is only in calling it a transcriptional programme.",
+    "the methodological trap is sharper than the biology. Selecting features on a label and then testing that label with clustering will produce a significant result on data with no signal at all, and it produced one here. Any clustering p-value needs to say what was held out.",
+    "and a dendrogram will always draw two clusters. Whether they mean anything is a separate question with a separate test, which is the one step this analysis did not originally take."
+  ],
+  "calls": [
+    "diabetes medication rather than a diabetes diagnosis as the design factor, because the medication column was complete and the diagnosis column was not. It also makes the result directly comparable with the DiCAD proteomics on this site, which asks the mirror-image question.",
+    "Ward linkage for the participant tree. Average linkage, which is what the notebook used and what seaborn defaults to, puts 199 of the 200 participants in one cluster and leaves a single person alone, which is a true answer to a useless question.",
+    "reporting the classifier numbers next to the p-value. The enrichment is real and the p-value is correct arithmetic; both are misleading on their own.",
+    "leaving the senescence half in as a reference rather than dropping it. It is the only thing in the notebook that shows what a clean separation looks like, which is what makes the human result legible."
+  ],
+  "broke": [
+    "the original clustering was run on genes selected by the same variable it was then read against, and no test was run on the split at all, only a look at the picture. Reading cluster structure off a heatmap built from pre-selected features is how an analysis convinces itself.",
+    "a second notebook called `emory_heatmaps_updated` was supposed to carry the figures forward. Its outputs are byte-identical copies of the first notebook's, and the two medication-annotated clustermaps that mattered are missing from it entirely. The update dropped the only figures with the clinical annotation on them."
+  ],
+  "not_shown": [
+    "cell-type deconvolution. The right next step is to estimate neutrophil and lymphocyte fractions from the same bulk counts and put them in the model, which would turn the hypothesis above into a measurement. Not done.",
+    "the senescence half cannot be re-run. Its count table and the senescence gene list it used are both gone from disk, so those three figures are the saved notebook outputs as they were, not regenerated.",
+    "cognitive and vascular outcomes. The cohort carries them. Nothing here is linked to them yet.",
+    "no participant-level data. The heatmap rows carry no identifiers and every other number on this page is an aggregate."
+  ],
+  "tried": "the point of the analysis was to find a vascular thread between diabetes and Alzheimer's biology, and for a while the two blocks in the heatmap looked like it. Annotating the six genes was what ended that reading: once five of them turn out to be neutrophil genes, the signature has a much more boring and much more likely explanation, and the interesting question moves to why nobody checks that first.",
+  "figures": [
+    {
+      "file": "assets/fig/emory/clusters.png",
+      "note": "the clustering, remade. the tree across the top splits the six genes into two blocks, one B-cell gene against five myeloid ones. the 200 participant rows underneath, ordered by their own tree, show no matching block. the stripe on the left marks who is on a diabetes medication."
+    },
+    {
+      "file": "assets/fig/emory/separation.png",
+      "note": "what that participant split is worth. cutting the tree in two does enrich for medication, 2.3-fold at Fisher p = 0.015, and still misses two thirds of the people on medication while two thirds of the enriched cluster is on nothing."
+    },
+    {
+      "file": "assets/fig/emory/genes.png",
+      "note": "the six genes with what each one is. five neutrophil and myeloid genes up, one B-cell immunoglobulin gene down, which is the shape of a change in blood cell proportions rather than a disease programme."
+    },
+    {
+      "file": "assets/fig/emory/senescence-panel.png",
+      "note": "the reference, from the notebook as saved. nine senescence genes across four control and four replicatively senescent samples, and the sample tree splits them perfectly. this is a different, public, eight-sample dataset, not the Emory cohort."
+    },
+    {
+      "file": "assets/fig/emory/volcano.png",
+      "note": "the volcano from that same reference dataset, with the senescence markers labelled: SERPINE1, CDKN2A, LMNB1 down, GDF15 and CCL5 up. saved notebook output."
+    },
+    {
+      "file": "assets/fig/emory/waterfall.png",
+      "note": "gene-set enrichment on the reference dataset. the green curve is the running score for mitotic spindle organisation, strongly down in senescent cells at NES -3.18, and the grey waterfall underneath is every gene ranked by its test statistic. saved notebook output."
+    }
+  ],
+  "acknowledgement": "Data used here were obtained from the AD Knowledge Portal (adknowledgeportal.synapse.org). The results published here are in whole or in part based on data obtained from the AD Knowledge Portal. The author thanks the study investigators and participants."
+}

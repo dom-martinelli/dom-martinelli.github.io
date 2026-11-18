@@ -1,0 +1,35 @@
+{
+  "average_linkage_sizes": [
+    199,
+    1
+  ],
+  "average_linkage_p": 0.17500000000000002,
+  "n_subjects": 200,
+  "n_diabetic": 35,
+  "gene_clusters": {
+    "1": [
+      "CYSTM1",
+      "SLPI",
+      "ANXA3",
+      "PROK2",
+      "MCEMP1"
+    ],
+    "2": [
+      "IGHV3-15"
+    ]
+  },
+  "subject_cluster_sizes": [
+    37,
+    163
+  ],
+  "subject_cluster_diabetic_rate": [
+    0.32432432432432434,
+    0.1411042944785276
+  ],
+  "fisher_p": 0.014712887008238232,
+  "fisher_or": 0.34226190476190477,
+  "sensitivity": 0.34285714285714286,
+  "ppv": 0.32432432432432434,
+  "n_c1": 37,
+  "n_c1_diabetic": 12
+}

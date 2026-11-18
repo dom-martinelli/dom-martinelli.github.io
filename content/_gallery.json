@@ -1,6 +1,6 @@
 {
  "version": "2026-09-21 pastel-classes",
- "synced": "2026-09-29",
+ "synced": "2026-11-18",
  "figures": [
   {
    "file": "gallery/odor-structure-topography.png",
@@ -143,6 +143,69 @@
    "rebuilt": "2026-09-20"
   },
   {
+   "file": "assets/fig/bupropion/transporter-classes.png",
+   "slug": "bupropion-market",
+   "note": "every approved drug on the three monoamine transporters, grouped by which it hits. the highlighted row is the ten that take dopamine and norepinephrine while leaving serotonin alone: bupropion, and otherwise the ADHD stimulant class and the appetite suppressants. the drug filed as an antidepressant has no antidepressant neighbours. counts are present-day, so they describe the era bupropion survived, not the one it entered in 1985.",
+   "source": "assets/fig/bupropion/transporter-classes.png",
+   "rebuilt": "2026-10-14"
+  },
+  {
+   "file": "assets/fig/bupropion/chemical-space.png",
+   "slug": "bupropion-market",
+   "note": "the same map three times, one panel per mechanism, with all 57 approved drugs in grey and the labelled class contoured. the serotonin classes sprawl across the whole space; the ten that take dopamine and norepinephrine without serotonin sit in one corner of it. mean Tanimoto within those ten is 0.25 against 0.14 elsewhere, and no draw of ten in 5,000 reached that, p below 0.001.",
+   "source": "assets/fig/bupropion/chemical-space.png",
+   "rebuilt": "2026-10-14"
+  },
+  {
+   "file": "assets/fig/bupropion/indication-expansion.png",
+   "slug": "bupropion-market",
+   "note": "cumulative registered trials by indication family. smoking passes depression in 1999 and stays ahead, 164 to 138 across the dated record, with obesity and weight arriving in 2005. the atypical mechanism is what made the second and third lives available.",
+   "source": "assets/fig/bupropion/indication-expansion.png",
+   "rebuilt": "2026-10-14"
+  },
+  {
+   "file": "assets/fig/emory/clusters.png",
+   "slug": "emory-vascular",
+   "note": "the clustering, remade. the tree across the top splits the six genes into two blocks, one B-cell gene against five myeloid ones. the 200 participant rows underneath, ordered by their own tree, show no matching block. the stripe on the left marks who is on a diabetes medication.",
+   "source": "assets/fig/emory/clusters.png",
+   "rebuilt": "2026-11-18"
+  },
+  {
+   "file": "assets/fig/emory/separation.png",
+   "slug": "emory-vascular",
+   "note": "what that participant split is worth. cutting the tree in two does enrich for medication, 2.3-fold at Fisher p = 0.015, and still misses two thirds of the people on medication while two thirds of the enriched cluster is on nothing.",
+   "source": "assets/fig/emory/separation.png",
+   "rebuilt": "2026-11-18"
+  },
+  {
+   "file": "assets/fig/emory/genes.png",
+   "slug": "emory-vascular",
+   "note": "the six genes with what each one is. five neutrophil and myeloid genes up, one B-cell immunoglobulin gene down, which is the shape of a change in blood cell proportions rather than a disease programme.",
+   "source": "assets/fig/emory/genes.png",
+   "rebuilt": "2026-11-18"
+  },
+  {
+   "file": "assets/fig/emory/senescence-panel.png",
+   "slug": "emory-vascular",
+   "note": "the reference, from the notebook as saved. nine senescence genes across four control and four replicatively senescent samples, and the sample tree splits them perfectly. this is a different, public, eight-sample dataset, not the Emory cohort.",
+   "source": "assets/fig/emory/senescence-panel.png",
+   "rebuilt": "2026-11-18"
+  },
+  {
+   "file": "assets/fig/emory/volcano.png",
+   "slug": "emory-vascular",
+   "note": "the volcano from that same reference dataset, with the senescence markers labelled: SERPINE1, CDKN2A, LMNB1 down, GDF15 and CCL5 up. saved notebook output.",
+   "source": "assets/fig/emory/volcano.png",
+   "rebuilt": "2026-11-18"
+  },
+  {
+   "file": "assets/fig/emory/waterfall.png",
+   "slug": "emory-vascular",
+   "note": "gene-set enrichment on the reference dataset. the green curve is the running score for mitotic spindle organisation, strongly down in senescent cells at NES -3.18, and the grey waterfall underneath is every gene ranked by its test statistic. saved notebook output.",
+   "source": "assets/fig/emory/waterfall.png",
+   "rebuilt": "2026-11-18"
+  },
+  {
    "file": "assets/fig/fda-ai-devices-1.png",
    "slug": "fda-ai-devices",
    "note": "the registry as it runs: filters across the top, authorisations per year, every device linked to its FDA record",
@@ -150,11 +213,123 @@
    "rebuilt": "2026-09-20"
   },
   {
-   "file": "assets/fig/growth-medqa-1.png",
+   "file": "assets/fig/generative-design-aae.webp",
+   "slug": "generative-design",
+   "note": "an adversarial autoencoder, one of the six model families the review covers. a discriminator pushes the encoder's latent codes toward a chosen prior, so sampling that prior gives the decoder valid starting points.",
+   "source": "assets/fig/generative-design-aae.webp",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/explorer/leaderboard.png",
+   "slug": "growth-medqa-explorer",
+   "note": "leaderboard: accuracy on whatever slice you have filtered to, next to the same model's accuracy on all items, with the delta and a Wilson interval. narrow the filter to a growth-specific slice and watch the order change.",
+   "source": "assets/fig/explorer/leaderboard.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/explorer/item-browser.png",
+   "slug": "growth-medqa-explorer",
+   "note": "item browser: every question in the benchmark, with the full stem, all options, the correct answer marked, and the reason the item was included. paginated, with selectable columns and a detail inspector that shows identifier provenance.",
+   "source": "assets/fig/explorer/item-browser.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/explorer/contribute.png",
+   "slug": "growth-medqa-explorer",
+   "note": "contribute tab: three submission routes for clinicians, from a one-line scenario suggestion up to a full MCQ or a longitudinal vignette. everything lands in a review queue; nothing writes to the canonical dataset live.",
+   "source": "assets/fig/explorer/contribute.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/deck/medqa-saturation.png",
    "slug": "growth-medqa",
-   "note": "what the benchmark is made of: source datasets and how many items each contributes.",
-   "source": "assets/fig/growth-medqa-1.png",
-   "rebuilt": "2026-09-17"
+   "note": "MedQA is saturated: the exam no longer separates models. top score by year, from a 37 per cent retriever-reader in 2020 to the whole frontier above 90 per cent by 2026.",
+   "source": "assets/fig/deck/medqa-saturation.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/sibmi/pediatrics-is-a-minority.png",
+   "slug": "growth-medqa",
+   "note": "pediatrics is a minority in every general medical-QA benchmark; the median share is 10.4%.",
+   "source": "assets/fig/sibmi/pediatrics-is-a-minority.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/psb/benchmark-coverage-matrix.jpg",
+   "slug": "growth-medqa",
+   "note": "what existing medical benchmarks cover, and the growth-assessment axes none of them isolate.",
+   "source": "assets/fig/psb/benchmark-coverage-matrix.jpg",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/amia/benchmark-composition.png",
+   "slug": "growth-medqa",
+   "note": "what the 960 items are made of: nine public sources screened from 224,705 questions.",
+   "source": "assets/fig/amia/benchmark-composition.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/growth_medqa_fig1_construction.png",
+   "slug": "growth-medqa",
+   "note": "how the 960-item set was built.",
+   "source": "assets/fig/growth/growth_medqa_fig1_construction.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/amia/study-workflow.png",
+   "slug": "growth-medqa",
+   "note": "the study workflow from source benchmarks to labelled corpus.",
+   "source": "assets/fig/amia/study-workflow.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth-ref/growth_chart_choice_behavior_by_model.png",
+   "slug": "growth-reference",
+   "note": "the same behaviour split by model: every model defaults, some more than others.",
+   "source": "assets/fig/growth-ref/growth_chart_choice_behavior_by_model.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth-ref/growth_chart_choice_behavior_by_descriptor.png",
+   "slug": "growth-reference",
+   "note": "what the model does when the child is described as Korean, South Asian, Indian or not described at all. the US default barely moves.",
+   "source": "assets/fig/growth-ref/growth_chart_choice_behavior_by_descriptor.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth-ref/growth_chart_choice_source_categories_by_descriptor.png",
+   "slug": "growth-reference",
+   "note": "which reference the model cites, by descriptor.",
+   "source": "assets/fig/growth-ref/growth_chart_choice_source_categories_by_descriptor.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth-ref/growth_chart_choice_source_categories_by_model.png",
+   "slug": "growth-reference",
+   "note": "which reference the model cites, by model.",
+   "source": "assets/fig/growth-ref/growth_chart_choice_source_categories_by_model.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth-ref/growth_chart_choice_decision_changing_behavior_by_descriptor.png",
+   "slug": "growth-reference",
+   "note": "only the cases where the chart choice changes the clinical call.",
+   "source": "assets/fig/growth-ref/growth_chart_choice_decision_changing_behavior_by_descriptor.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth-ref/korea_kcdc_girl_14y8m_minus2_cdc_short.png",
+   "slug": "growth-reference",
+   "note": "a worked case: a 14-year-8-month Korean girl who is normal on the KCDC chart and short on the CDC one.",
+   "source": "assets/fig/growth-ref/korea_kcdc_girl_14y8m_minus2_cdc_short.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth-ref/india_iap_girl_14y_p3_cdc_short.png",
+   "slug": "growth-reference",
+   "note": "the same split for a 14-year-old Indian girl, IAP against CDC.",
+   "source": "assets/fig/growth-ref/india_iap_girl_14y_p3_cdc_short.png",
+   "rebuilt": "2026-10-10"
   },
   {
    "file": "assets/fig/growth-zscore-1.png",
@@ -176,6 +351,34 @@
    "note": "green: asked for the CDC median height at an age, accurate to about a centimetre. red: asked to place a specific child with no reference given.",
    "source": "assets/fig/growth-zscore-2.png",
    "rebuilt": "2026-09-19"
+  },
+  {
+   "file": "assets/fig/growth/deck_zscore_heat.png",
+   "slug": "growth-zscore",
+   "note": "can they place the child on the growth chart at all? z-score accuracy, six models.",
+   "source": "assets/fig/growth/deck_zscore_heat.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/deck_recite.png",
+   "slug": "growth-zscore",
+   "note": "they can recite the chart but cannot use it. green: recite the median height for an age, accurate to about a centimetre. red: place a specific child with no reference given.",
+   "source": "assets/fig/growth/deck_recite.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/deck_recite_frontier.png",
+   "slug": "growth-zscore",
+   "note": "the same recite-against-place split, frontier models only.",
+   "source": "assets/fig/growth/deck_recite_frontier.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/deck_data_error.png",
+   "slug": "growth-zscore",
+   "note": "data errors: one extra output field flips the model from fooled to correct.",
+   "source": "assets/fig/growth/deck_data_error.png",
+   "rebuilt": "2026-10-10"
   },
   {
    "file": "assets/fig/growthbridge-1.png",
@@ -206,6 +409,55 @@
    "rebuilt": "2026-09-29"
   },
   {
+   "file": "assets/fig/sibmi/bedside-explodes-apart.png",
+   "slug": "over-referral",
+   "note": "at the bedside the field explodes apart. the same 16 models triaging healthy children range from every child right to almost none.",
+   "source": "assets/fig/sibmi/bedside-explodes-apart.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/deck_two_velocity.png",
+   "slug": "over-referral",
+   "note": "a real disorder against a healthy child measured too often. the velocity looks the same; only the trajectory over a real interval separates them.",
+   "source": "assets/fig/growth/deck_two_velocity.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/deck/reassurance-18models.png",
+   "slug": "over-referral",
+   "note": "healthy short children correctly reassured, 18 models. seven reassure almost everyone; four reassure none.",
+   "source": "assets/fig/deck/reassurance-18models.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/deck/sens-spec-7model.png",
+   "slug": "over-referral",
+   "note": "a zero false-alarm rate is not restraint if the model also misses the disease. only Gemini 2.5 Pro clears 0.75 on both axes.",
+   "source": "assets/fig/deck/sens-spec-7model.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/deck/overreferral-slope.png",
+   "slug": "over-referral",
+   "note": "the over-referral rate as a slope, before and after the clinical sentence.",
+   "source": "assets/fig/deck/overreferral-slope.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/deck/exam-vs-reassure.png",
+   "slug": "over-referral",
+   "note": "exam accuracy against reassurance: the two do not move together.",
+   "source": "assets/fig/deck/exam-vs-reassure.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/deck/overreferral-7model.png",
+   "slug": "over-referral",
+   "note": "the seven-model panel the sensitivity-specificity figure is drawn from.",
+   "source": "assets/fig/deck/overreferral-7model.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
    "file": "assets/fig/over-referral-1.png",
    "slug": "over-referral",
    "note": "share of healthy short children each model refers. same children, same question, opposite behaviour.",
@@ -234,6 +486,55 @@
    "rebuilt": "2026-09-20"
   },
   {
+   "file": "assets/fig/growth/deck_f1_over_referral_5.png",
+   "slug": "over-referral",
+   "note": "over-referral splits the panel: proprietary and open models side by side, GPT-4o near the top, Opus at the bottom.",
+   "source": "assets/fig/growth/deck_f1_over_referral_5.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/deck_f2_varied5.png",
+   "slug": "over-referral",
+   "note": "each model flags at its own percentile. there is no shared threshold.",
+   "source": "assets/fig/growth/deck_f2_varied5.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/deck_f3_instruction_delta.png",
+   "slug": "over-referral",
+   "note": "one clinical sentence collapses the over-referral for most models. Mistral and DeepSeek resist.",
+   "source": "assets/fig/growth/deck_f3_instruction_delta.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/deck_cost_overreferral.png",
+   "slug": "over-referral",
+   "note": "the sourced cost of the flood: positive predictive value of 1 to 5 per cent, $2-4k per workup, $0.5-1.1B a year.",
+   "source": "assets/fig/growth/deck_cost_overreferral.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/deck_burden_hero.png",
+   "slug": "over-referral",
+   "note": "the same point in one glance: how many healthy children get worked up to catch the one who needs help.",
+   "source": "assets/fig/growth/deck_burden_hero.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/deck_measurement_error.png",
+   "slug": "over-referral",
+   "note": "measurement error is large enough that velocity alone cannot screen (Voss 1990).",
+   "source": "assets/fig/growth/deck_measurement_error.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
+   "file": "assets/fig/growth/deck_roles_contrast.png",
+   "slug": "over-referral",
+   "note": "role and persona prompts: the most role-sensitive models.",
+   "source": "assets/fig/growth/deck_roles_contrast.png",
+   "rebuilt": "2026-10-10"
+  },
+  {
    "file": "assets/fig/patient-flows-1.png",
    "slug": "patient-flows",
    "note": "Medicare inpatient stays in eight Stroke Belt states, drawn from the patient's home county to the hospital's county. Arcs run light at home to deep at the hospital, so each starburst is a hub the surrounding counties depend on. Rings are the 47 rural hospitals here that closed since 2010 and could be placed on the map. Open it to tilt the map, hover any arc, county or closure, and filter out small flows.",
@@ -241,95 +542,81 @@
    "rebuilt": "2026-09-28"
   },
   {
-   "file": "assets/fig/pii-dose-response.png",
+   "file": "assets/fig/pii-v7/fig1-study-design.png",
    "slug": "patient-innovation-index",
-   "note": "citation impact climbs with each added involvement signal. left: impact by index score, medians marked on a log scale. right: the same papers as NIH citation percentiles.",
-   "source": "assets/fig/pii-dose-response.png",
-   "rebuilt": "2026-09-27"
+   "note": "the study in one figure. 23,584 PubMed papers scored for 13 text signals; a language model and a human coder validate 169 and 50 of them; 553 papers keep a report of partnership or organization support. right panel: +70% against random PubMed papers, +28% adjusted, +8% matched; -2% against the 12,222 unflagged papers from the same search, -8% adjusted; +34% within open access for papers naming a patient organization in full text.",
+   "source": "assets/fig/pii-v7/fig1-study-design.png",
+   "rebuilt": "2026-10-24"
   },
   {
-   "file": "assets/fig/pii-umap-pii.png",
+   "file": "assets/fig/pii-v7/fig3-comparison-groups.png",
    "slug": "patient-innovation-index",
-   "note": "a sample of abstracts laid out by topic, coloured by index score. involved papers bunch on one side of the map, so topic is a confounder the control sets have to absorb.",
-   "source": "assets/fig/pii-umap-pii.png",
-   "rebuilt": "2026-09-27"
+   "note": "the whole argument in one panel. the 553 papers with a detected report sit 28% above random PubMed papers after adjustment and 8% below the 12,222 unflagged papers retrieved by the same search. the unflagged papers are themselves 52% above random. the advantage belongs to the involvement-vocabulary literature as a whole.",
+   "source": "assets/fig/pii-v7/fig3-comparison-groups.png",
+   "rebuilt": "2026-10-24"
   },
   {
-   "file": "assets/fig/pii-survival.png",
+   "file": "assets/fig/pii-v7/fig4-citation-difference.png",
    "slug": "patient-innovation-index",
-   "note": "share of papers above each citation level, log scale. half of the papers with two or more signals beat the field average (RCR 1.0), against 37% of controls.",
-   "source": "assets/fig/pii-survival.png",
-   "rebuilt": "2026-09-27"
+   "note": "the citation difference by comparison group and estimator. +70% unadjusted, +54% year-reweighted, +28% in median regression, +8% under coarsened exact matching with an interval crossing zero. against the unflagged corpus it is -2% unadjusted and -8% adjusted. the number you report is a choice about the control group.",
+   "source": "assets/fig/pii-v7/fig4-citation-difference.png",
+   "rebuilt": "2026-10-24"
   },
   {
-   "file": "assets/fig/pii-signal-vs-population.png",
+   "file": "assets/fig/pii-v7/fig2-signal-precision.png",
    "slug": "patient-innovation-index",
-   "note": "each signal alone against the population baseline. red signals are structural and predict impact; the grey ones are framing and predict nothing.",
-   "source": "assets/fig/pii-signal-vs-population.png",
-   "rebuilt": "2026-09-27"
+   "note": "six of thirteen signals survive. precision against hand coding with Wilson intervals, 9 or 10 sampled papers each. patient author, organization as funder, organization as affiliation and collective author all reach 9 of 10 or better; self-report instruments, self-experimentation and patient-controlled data never once identified real involvement.",
+   "source": "assets/fig/pii-v7/fig2-signal-precision.png",
+   "rebuilt": "2026-10-24"
   },
   {
-   "file": "assets/fig/pii-signal-decomposition.png",
-   "slug": "patient-innovation-index",
-   "note": "the same breakdown against controls matched on disease heading. the structural signals stay on top.",
-   "source": "assets/fig/pii-signal-decomposition.png",
-   "rebuilt": "2026-09-27"
+   "file": "assets/fig/long-covid/who-said-first.png",
+   "slug": "patient-led-science",
+   "note": "who said it first: days between the first patient record and the first scientific record, per symptom, 2020.",
+   "source": "assets/fig/long-covid/who-said-first.png",
+   "rebuilt": "2026-11-11"
   },
   {
-   "file": "assets/fig/pii-cem.png",
-   "slug": "patient-innovation-index",
-   "note": "after matching on year and team size. the dashed lines are each group's median; the involved group's sits to the right.",
-   "source": "assets/fig/pii-cem.png",
-   "rebuilt": "2026-09-27"
+   "file": "assets/fig/long-covid/pool-counts.png",
+   "slug": "patient-led-science",
+   "note": "every dot is an early Long COVID symptom paper. x: later papers citing it; y: how many of those mention PEM. the dashed line is no effect. the patients' survey sits far above papers with the same audience.",
+   "source": "assets/fig/long-covid/pool-counts.png",
+   "rebuilt": "2026-11-11"
   },
   {
-   "file": "assets/fig/pii-matched-rcr.png",
-   "slug": "patient-innovation-index",
-   "note": "a second matched comparison: involved papers against matched papers from the same search that scored zero, so both groups come out of one retrieval.",
-   "source": "assets/fig/pii-matched-rcr.png",
-   "rebuilt": "2026-09-27"
+   "file": "assets/fig/long-covid/catch-up.png",
+   "slug": "patient-led-science",
+   "note": "the field catching up: share of papers mentioning PEM, citers of the patients' survey against everyone else, 2021 to 2025.",
+   "source": "assets/fig/long-covid/catch-up.png",
+   "rebuilt": "2026-11-11"
   },
   {
-   "file": "assets/fig/pii-emb-matched-rcr.png",
-   "slug": "patient-innovation-index",
-   "note": "the tightest topic control: each involved paper paired with the zero-score paper whose abstract embedding sits closest. a much smaller sample.",
-   "source": "assets/fig/pii-emb-matched-rcr.png",
-   "rebuilt": "2026-09-27"
+   "file": "assets/fig/long-covid/recover.png",
+   "slug": "patient-led-science",
+   "note": "what NIH adopted: symptom points in the RECOVER definition, and the PEM lean of papers that cite it.",
+   "source": "assets/fig/long-covid/recover.png",
+   "rebuilt": "2026-11-11"
   },
   {
-   "file": "assets/fig/pii-within-journal.png",
-   "slug": "patient-innovation-index",
-   "note": "the comparison repeated inside each of 18 journals. 13 point the same way.",
-   "source": "assets/fig/pii-within-journal.png",
-   "rebuilt": "2026-09-27"
+   "file": "assets/fig/long-covid/trials-pem.png",
+   "slug": "patient-led-science",
+   "note": "registered Long COVID exercise and rehabilitation trials that mention, screen for or exclude PEM, by year.",
+   "source": "assets/fig/long-covid/trials-pem.png",
+   "rebuilt": "2026-11-11"
   },
   {
-   "file": "assets/fig/pii-within-disease.png",
-   "slug": "patient-innovation-index",
-   "note": "within broad disease groups against disease-matched controls. most groups favour involved papers; mental and metabolic disorders do not.",
-   "source": "assets/fig/pii-within-disease.png",
-   "rebuilt": "2026-09-27"
+   "file": "assets/fig/peds-filter/funnel.png",
+   "slug": "pediatric-index-filter",
+   "note": "the two-stage cascade. a deterministic high-recall keyword and source-scope screen cuts 212,983 rows to 22,834, then a structured classifier that names the primary clinical subject takes that to 12,324. the orange step is the one that would have been the whole method if keywords were enough.",
+   "source": "assets/fig/peds-filter/funnel.png",
+   "rebuilt": "2026-10-10"
   },
   {
-   "file": "assets/fig/pii-bucket-significance-mesh-ctrl.png",
-   "slug": "patient-innovation-index",
-   "note": "the same question with a stricter control pool, heading-matched controls pooled per disease group. the gains shrink and three groups hold.",
-   "source": "assets/fig/pii-bucket-significance-mesh-ctrl.png",
-   "rebuilt": "2026-09-27"
-  },
-  {
-   "file": "assets/fig/pii-heading-significance-50ctrl.png",
-   "slug": "patient-innovation-index",
-   "note": "specific disease headings with at least 50 controls, top 15 by effect. COVID-19, HIV and pain survive false-discovery correction.",
-   "source": "assets/fig/pii-heading-significance-50ctrl.png",
-   "rebuilt": "2026-09-27"
-  },
-  {
-   "file": "assets/fig/pii-citation-velocity.png",
-   "slug": "patient-innovation-index",
-   "note": "one thing the index does not predict: early citation speed. involved papers are cited more slowly in their first two years until three or more signals.",
-   "source": "assets/fig/pii-citation-velocity.png",
-   "rebuilt": "2026-09-27"
+   "file": "assets/fig/peds-filter/neonate-gap.png",
+   "slug": "pediatric-index-filter",
+   "note": "recall is not uniform by age band. the adult-pregnancy gate drops newborns delivered to an adult mother, so neonate recall sits at 75.4%. a validated fix exists and is shipped opt-in rather than on by default, with the gap documented and covered by a test.",
+   "source": "assets/fig/peds-filter/neonate-gap.png",
+   "rebuilt": "2026-10-10"
   },
   {
    "file": "assets/fig/pgx-trials-1.png",
@@ -339,17 +626,17 @@
    "rebuilt": "2026-09-29"
   },
   {
+   "file": "assets/fig/pkpd/pk-sliders.png",
+   "slug": "pkpd-simulator",
+   "note": "the model run at the notebook's own defaults. left, dose moves the curve up and down without changing when the drug leaves. right, clearance changes the half-life from 3.3 hours to 0.8 across the slider's range. the Streamlit version lets you drag both.",
+   "source": "assets/fig/pkpd/pk-sliders.png",
+   "rebuilt": "2026-10-30"
+  },
+  {
    "file": "assets/fig/sirna-3.png",
    "slug": "sirna",
    "note": "the seven sugar modifications in the training data, drawn in ChemDraw for the paper, each shown against the unmodified ribose position it replaces (grey marks the change). backbone modifications such as phosphorothioate are not part of this set.",
    "source": "assets/fig/sirna-3.png",
-   "rebuilt": "2026-09-28"
-  },
-  {
-   "file": "assets/fig/sirna-1.png",
-   "slug": "sirna",
-   "note": "how often each modification appears across the training siRNAs, in the same order as the structures above. 2\u2032-O-methyl and 2\u2032-fluoro dominate; the rarer chemistries give the model very few examples to learn from.",
-   "source": "assets/fig/sirna-1.png",
    "rebuilt": "2026-09-28"
   },
   {
@@ -360,17 +647,24 @@
    "rebuilt": "2026-09-17"
   },
   {
-   "file": "assets/fig/stroke-belt-1.png",
-   "slug": "stroke-belt",
-   "note": "stroke prevalence by county. the belt is visible without any statistics.",
-   "source": "assets/fig/stroke-belt-1.png",
-   "rebuilt": "2026-09-17"
+   "file": "assets/fig/sirna-1.png",
+   "slug": "sirna",
+   "note": "how often each modification appears across the training siRNAs, in the same order as the structures above. 2\u2032-O-methyl and 2\u2032-fluoro dominate; the rarer chemistries give the model very few examples to learn from.",
+   "source": "assets/fig/sirna-1.png",
+   "rebuilt": "2026-09-28"
   },
   {
    "file": "assets/fig/stroke-belt-2.png",
    "slug": "stroke-belt",
    "note": "insurance coverage among older adults, same geography.",
    "source": "assets/fig/stroke-belt-2.png",
+   "rebuilt": "2026-09-17"
+  },
+  {
+   "file": "assets/fig/stroke-belt-1.png",
+   "slug": "stroke-belt",
+   "note": "stroke prevalence by county. the belt is visible without any statistics.",
+   "source": "assets/fig/stroke-belt-1.png",
    "rebuilt": "2026-09-17"
   },
   {
@@ -386,6 +680,62 @@
    "note": "food insecurity, county level.",
    "source": "assets/fig/stroke-belt-4.png",
    "rebuilt": "2026-09-17"
+  },
+  {
+   "file": "assets/fig/stroke-belt-redlining.png",
+   "slug": "stroke-belt",
+   "note": "the version that did not ship. Chicago tracts, 1930s HOLC redlining grade beside present-day blood-pressure medication rates. the two maps line up, which is the whole reason the question was worth asking, but too few tracts survived cleaning to support a claim, so the project moved to Stroke Belt states and dropped the layer. kept here because the abandoned approach is the part most readers would want to see.",
+   "source": "assets/fig/stroke-belt-redlining.png",
+   "rebuilt": "2026-10-14"
+  },
+  {
+   "file": "assets/fig/dicad/medication-collapse.png",
+   "slug": "treated-disease",
+   "note": "top, how many proteins separate diabetic from non-diabetic participants under three models. the usual confounders leave the count alone; one column for metformin removes nine tenths of it. bottom, GDF15, the strongest unadjusted hit, crossing back below the significance threshold once the drug it responds to is accounted for.",
+   "source": "assets/fig/dicad/medication-collapse.png",
+   "rebuilt": "2026-10-26"
+  },
+  {
+   "file": "assets/fig/reward/glp1r-periphery.png",
+   "slug": "wakespace",
+   "note": "left, the reward network with node size and line width scaled by STRING confidence; GLP1R sits off the cluster on a single link to tyrosine hydroxylase. right, every gene ranked by the summed confidence of its links, with GLP1R at 0.41 against 9.84 for DRD2.",
+   "source": "assets/fig/reward/glp1r-periphery.png",
+   "rebuilt": "2026-11-01"
+  },
+  {
+   "file": "assets/fig/wegovy/specialty-mix-slope.png",
+   "slug": "wegovy-teardown",
+   "note": "the hero. Wegovy's share of reportable physician payment dollars by specialty, 2022 to 2024. endocrinology 66.6% to 33.8%, cardiovascular disease 5.3% to 28.7%. the SELECT cardiovascular indication landed in March 2024 and the recorded payment mix moved with it.",
+   "source": "assets/fig/wegovy/specialty-mix-slope.png",
+   "rebuilt": "2026-10-14"
+  },
+  {
+   "file": "assets/fig/wegovy/payments-by-drug.png",
+   "slug": "wegovy-teardown",
+   "note": "physician payments by brand. Novo raised Wegovy's spend in the same year Zepbound scaled, and let Saxenda go from $4.42M to $0.13M. defence of the new molecule, abandonment of the old one.",
+   "source": "assets/fig/wegovy/payments-by-drug.png",
+   "rebuilt": "2026-10-14"
+  },
+  {
+   "file": "assets/fig/wegovy/price-waterfall.png",
+   "slug": "wegovy-teardown",
+   "note": "an illustrative walk from list price to patient cost, not an observed one. $1,349 list, then $675 net on an assumed 50% rebate, then $135 to the patient on assumed 20% coinsurance. Zepbound is lower at every step. Confidential rebates mean the middle and final numbers are scenario, not measurement.",
+   "source": "assets/fig/wegovy/price-waterfall.png",
+   "rebuilt": "2026-10-25"
+  },
+  {
+   "file": "assets/fig/wegovy/positioning-map.png",
+   "slug": "wegovy-teardown",
+   "note": "Zepbound wins the weight-loss comparison and costs less. Wegovy holds the premium on cardiovascular risk reduction and lean-mass preservation, the claims Zepbound's label cannot make.",
+   "source": "assets/fig/wegovy/positioning-map.png",
+   "rebuilt": "2026-10-14"
+  },
+  {
+   "file": "assets/fig/wegovy/lifecycle-timeline.png",
+   "slug": "wegovy-teardown",
+   "note": "filed March 2006, approved June 2021, expiring December 2031 after a 1,040-day Hatch-Waxman extension. about ten and a half years of selling, cut short again by Mylan's 2025 Delaware win and its 180-day exclusivity.",
+   "source": "assets/fig/wegovy/lifecycle-timeline.png",
+   "rebuilt": "2026-10-14"
   }
  ]
 }

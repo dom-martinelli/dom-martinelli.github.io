@@ -26,6 +26,12 @@ ICLOUD = HOME / "Library/Mobile Documents/com~apple~CloudDocs/Figure Gallery"
 
 # gallery name, source path, project slug, one-line note
 FIGURES = [
+    ("emory-gene-clusters.png", SITE / "assets/fig/emory/clusters.png",
+     "emory-vascular", "six genes split in two; the 200 people underneath do not"),
+    ("emory-cluster-worth.png", SITE / "assets/fig/emory/separation.png",
+     "emory-vascular", "a significant cluster split that is near useless as a classifier"),
+    ("emory-gene-identities.png", SITE / "assets/fig/emory/genes.png",
+     "emory-vascular", "five neutrophil genes up, one B-cell gene down"),
     ("odor-structure-topography.png", GH / "sweetspace/figures/fig-odor-structure-topography.png",
      "sweetspace", "three odour words on the same map of 3,522 molecules"),
     ("odor-descriptor-cooccurrence.png", GH / "sweetspace/figures/fig-odor-descriptor-cooccurrence.png",

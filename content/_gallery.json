@@ -3,6 +3,27 @@
  "synced": "2026-11-18",
  "figures": [
   {
+   "file": "gallery/emory-gene-clusters.png",
+   "slug": "emory-vascular",
+   "note": "six genes split in two; the 200 people underneath do not",
+   "source": "~/Documents/GitHub/dom-martinelli.github.io/assets/fig/emory/clusters.png",
+   "rebuilt": "2026-11-18"
+  },
+  {
+   "file": "gallery/emory-cluster-worth.png",
+   "slug": "emory-vascular",
+   "note": "a significant cluster split that is near useless as a classifier",
+   "source": "~/Documents/GitHub/dom-martinelli.github.io/assets/fig/emory/separation.png",
+   "rebuilt": "2026-11-18"
+  },
+  {
+   "file": "gallery/emory-gene-identities.png",
+   "slug": "emory-vascular",
+   "note": "five neutrophil genes up, one B-cell gene down",
+   "source": "~/Documents/GitHub/dom-martinelli.github.io/assets/fig/emory/genes.png",
+   "rebuilt": "2026-11-18"
+  },
+  {
    "file": "gallery/odor-structure-topography.png",
    "slug": "sweetspace",
    "note": "three odour words on the same map of 3,522 molecules",

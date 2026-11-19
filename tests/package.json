@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-tests",
+  "private": true,
+  "type": "module",
+  "description": "Browser tests for dom-martinelli.github.io. Nothing here is published; the site itself has no build dependencies.",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "contract": "python3 -m pytest checks -q"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
+}

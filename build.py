@@ -264,6 +264,11 @@ def row(label, inner):
 
 
 def ul(items):
+    # a bare string is iterable, so a field written as "text" instead of
+    # ["text"] used to render one bullet per character. tests/checks catches it
+    # at authoring time; this line keeps it off the page either way.
+    if isinstance(items, str):
+        items = [items]
     items = [i for i in (items or []) if i]
     return "<ul>" + "".join(f"<li>{esc(i)}</li>" for i in items) + "</ul>" if items else ""
 

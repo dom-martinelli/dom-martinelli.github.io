@@ -1,1 +1,10 @@
 .DS_Store
+
+# test harness, not part of the site
+tests/node_modules/
+tests/.venv/
+tests/test-results/
+tests/playwright-report/
+tests/blob-report/
+__pycache__/
+.pytest_cache/

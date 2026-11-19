@@ -69,7 +69,9 @@
   "NIH's RECOVER index gives PEM 7 points toward a threshold of 12, and papers citing that definition lean toward PEM even without citing the patients (odds ratio 4.15).",
   "only 15 of 182 exercise trials screen for PEM, the symptom that makes exercise risky for these patients."
  ],
- "so_what": "the patients' knowledge reached the research definition faster than it reached the clinic. a trial designer or reviewer can check PEM screening as a concrete gap.",
+ "so_what": [
+  "the patients' knowledge reached the research definition faster than it reached the clinic. a trial designer or reviewer can check PEM screening as a concrete gap."
+ ],
  "calls": [
   "the comparison pool by a rule written in advance, not hand-picked rivals. a hand-picked rival can always be argued away.",
   "shrunk estimates over raw odds ratios for the ranking. a small paper can top a raw ranking by chance.",

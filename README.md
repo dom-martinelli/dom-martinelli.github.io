@@ -12,3 +12,16 @@ Edit a JSON file, then:
 
 Commit the generated HTML along with the content change; GitHub Pages serves the
 files as they are.
+
+## Tests
+
+`tests/` holds two layers: contract checks over the content JSON and the
+generated HTML (pytest, no browser, under a second) and browser tests
+(Playwright, Chrome and mobile Safari). Both run on every push via
+`.github/workflows/tests.yml`. The plan, including what is deliberately not
+tested and what the first run found, is in [tests/TEST-PLAN.md](tests/TEST-PLAN.md).
+
+    cd tests
+    python3 -m pytest checks -q      # 227 contract checks
+    npm ci && npx playwright install
+    npx playwright test              # 203 browser cases

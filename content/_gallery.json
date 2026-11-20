@@ -1,7 +1,21 @@
 {
  "version": "2026-09-21 pastel-classes",
- "synced": "2026-11-18",
+ "synced": "2026-11-19",
  "figures": [
+  {
+   "file": "gallery/emory-immune-axis.png",
+   "slug": "emory-vascular",
+   "note": "whole-transcriptome enrichment finds the same myeloid-up, B-cell-down axis",
+   "source": "~/Documents/GitHub/dom-martinelli.github.io/assets/fig/emory/immune-axis.png",
+   "rebuilt": "2026-11-19"
+  },
+  {
+   "file": "gallery/emory-gsea-waterfall.png",
+   "slug": "emory-vascular",
+   "note": "one gene set bunched at one end of 13,994 ranked genes",
+   "source": "~/Documents/GitHub/dom-martinelli.github.io/assets/fig/emory/waterfall-emory.png",
+   "rebuilt": "2026-11-19"
+  },
   {
    "file": "gallery/emory-gene-clusters.png",
    "slug": "emory-vascular",
@@ -206,6 +220,27 @@
    "rebuilt": "2026-11-18"
   },
   {
+   "file": "assets/fig/emory/immune-axis.png",
+   "slug": "emory-vascular",
+   "note": "the check that matters. the six significant genes were five myeloid up and one B-cell down; running enrichment over all 13,994 genes, with nothing selected in advance, puts neutrophil granule products up and the B-cell compartment down.",
+   "source": "assets/fig/emory/immune-axis.png",
+   "rebuilt": "2026-11-19"
+  },
+  {
+   "file": "assets/fig/emory/pathways.png",
+   "slug": "emory-vascular",
+   "note": "the whole enrichment result, which is dominated by something else: protein synthesis up and nuclear RNA export down. in bulk blood that pattern usually reflects library composition or RNA quality, so it is read as a caution about the samples. the two antimicrobial sets are the part that speaks to the gene-level story.",
+   "source": "assets/fig/emory/pathways.png",
+   "rebuilt": "2026-11-19"
+  },
+  {
+   "file": "assets/fig/emory/waterfall-emory.png",
+   "slug": "emory-vascular",
+   "note": "the strongest single set, drawn so the one comparison it is making is visible. top, the running enrichment score with the leading edge shaded and the peak marked. bottom, every gene ranked by its test statistic, filled red where it is higher on medication and blue where it is lower, with each set member as a tick above. the ticks bunch at the left, which is what enrichment means.",
+   "source": "assets/fig/emory/waterfall-emory.png",
+   "rebuilt": "2026-11-19"
+  },
+  {
    "file": "assets/fig/emory/senescence-panel.png",
    "slug": "emory-vascular",
    "note": "the reference, from the notebook as saved. nine senescence genes across four control and four replicatively senescent samples, and the sample tree splits them perfectly. this is a different, public, eight-sample dataset, not the Emory cohort.",
@@ -222,7 +257,7 @@
   {
    "file": "assets/fig/emory/waterfall.png",
    "slug": "emory-vascular",
-   "note": "gene-set enrichment on the reference dataset. the green curve is the running score for mitotic spindle organisation, strongly down in senescent cells at NES -3.18, and the grey waterfall underneath is every gene ranked by its test statistic. saved notebook output.",
+   "note": "the notebook's original waterfall, kept as saved output. it is the same kind of plot as the one above but computed on the eight-sample reference dataset, not on Emory: gene-set enrichment for mitotic spindle organisation, strongly down in senescent cells at NES -3.18. shown because it is what the notebook actually had.",
    "source": "assets/fig/emory/waterfall.png",
    "rebuilt": "2026-11-18"
   },

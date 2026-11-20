@@ -26,6 +26,10 @@ ICLOUD = HOME / "Library/Mobile Documents/com~apple~CloudDocs/Figure Gallery"
 
 # gallery name, source path, project slug, one-line note
 FIGURES = [
+    ("emory-immune-axis.png", SITE / "assets/fig/emory/immune-axis.png",
+     "emory-vascular", "whole-transcriptome enrichment finds the same myeloid-up, B-cell-down axis"),
+    ("emory-gsea-waterfall.png", SITE / "assets/fig/emory/waterfall-emory.png",
+     "emory-vascular", "one gene set bunched at one end of 13,994 ranked genes"),
     ("emory-gene-clusters.png", SITE / "assets/fig/emory/clusters.png",
      "emory-vascular", "six genes split in two; the 200 people underneath do not"),
     ("emory-cluster-worth.png", SITE / "assets/fig/emory/separation.png",

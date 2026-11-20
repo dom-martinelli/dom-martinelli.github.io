@@ -32,7 +32,8 @@
     "cut the participant tree in two and asked, with a Fisher exact test, whether the split sorts people by medication.",
     "looked all six genes up in UniProt and asked which cell makes each one.",
     "ran the same differential-expression, volcano and gene-set pipeline on a small public senescence experiment, as a reference for what a clean two-group separation looks like.",
-    "ranked all 13,994 expressed genes by their DESeq2 statistic and ran gene-set enrichment over 2,245 GO biological processes, which the original notebook only ever did on the other, eight-sample dataset."
+    "ranked all 13,994 expressed genes by their DESeq2 statistic and ran gene-set enrichment over 2,245 GO biological processes, which the original notebook only ever did on the other, eight-sample dataset.",
+    "tested the clustering workflow itself on data with nothing in it: 400 runs of pure noise, 200 fake participants, a label assigned by coin flip, then the same select-cluster-cut-test sequence."
   ],
   "found": [
     "the gene tree does split in two, but not the way the story wanted. One arm is a single B-cell immunoglobulin gene, IGHV3-15, going down. The other arm is five genes going up: SLPI, ANXA3, MCEMP1, PROK2 and CYSTM1.",
@@ -42,13 +43,14 @@
     "worse, the test is circular. The six genes were chosen because they differ by medication status, so clustering on them and then testing medication status is asking the data to confirm the selection. The honest version of this p-value needs a held-out gene set or a held-out cohort, and neither exists here.",
     "the eight-sample senescence experiment, through the identical pipeline, splits its four control and four senescent samples perfectly on nine senescence genes. That contrast is the finding: the controlled experiment separates, the clinic cohort does not.",
     "gene-set enrichment reproduces the cell-composition reading without being told to. Antimicrobial peptide response and antibacterial humoral response, which are neutrophil granule products, come out positively enriched at FDR 0.002 and 0.004. B cell activation and lymphocyte differentiation come out negatively enriched at FDR 0.031 and 0.044. That is the same myeloid-up, B-cell-down axis as the six genes, found a second way across the whole transcriptome with no gene selection in between.",
-    "it is not the strongest axis though. 116 of the 2,245 processes pass FDR < 0.05, and the largest scores belong to protein synthesis going up, led by cytoplasmic translation at NES 2.88, against nuclear RNA export going down at NES -2.60. Ribosomal and RNA-handling genes are the first thing to move whenever bulk libraries differ in composition or RNA quality, so that axis is a caution about the samples rather than a finding about diabetes."
+    "it is not the strongest axis though. 116 of the 2,245 processes pass FDR < 0.05, and the largest scores belong to protein synthesis going up, led by cytoplasmic translation at NES 2.88, against nuclear RNA export going down at NES -2.60. Ribosomal and RNA-handling genes are the first thing to move whenever bulk libraries differ in composition or RNA quality, so that axis is a caution about the samples rather than a finding about diabetes.",
+    "the workflow manufactures significance. On pure noise, where the true association is zero by construction, picking six genes on the label and then testing that label against the cluster split returns p < 0.05 in 80 percent of runs, and reaches Emory's own p of 0.015 in 70 percent. Picking the six genes at random instead returns 3 percent, which is what a correct test looks like. The clustering p-value from this cohort carries no information at all; a coin flip would have produced it."
   ],
   "so_what": [
     "a bulk-blood signature is a weighted average over cell types before it is anything else. Whenever a hit list reads as neutrophil granule proteins, the first hypothesis is that the groups differ in neutrophil fraction, and the differential expression is a complete blood count in an expensive disguise.",
     "that is not a nuisance to be removed here, it is a real and known association: raised neutrophil-to-lymphocyte ratio tracks with diabetes and vascular disease. The error is only in calling it a transcriptional programme.",
     "the cell-composition hypothesis earns its keep here because two independent routes agree. Six hand-picked genes and an unsupervised scan of 13,994 say the same thing about which cells are present. A hypothesis that only one of those supports is a guess.",
-    "the methodological trap is sharper than the biology. Selecting features on a label and then testing that label with clustering will produce a significant result on data with no signal at all, and it produced one here. Any clustering p-value needs to say what was held out.",
+    "and a dendrogram will always draw two clusters. Whether they mean anything is a separate question with a separate test, and the obvious test is the wrong one: 400 runs of noise show the select-then-test sequence calling nothing significant four times in five. Any clustering p-value needs to say what was held out, and if the answer is nothing, the number should not be reported.",
     "and a dendrogram will always draw two clusters. Whether they mean anything is a separate question with a separate test, which is the one step this analysis did not originally take."
   ],
   "calls": [
@@ -72,11 +74,15 @@
   "figures": [
     {
       "file": "assets/fig/emory/clusters.png",
-      "note": "the clustering, remade. the tree across the top splits the six genes into two blocks, one B-cell gene against five myeloid ones. the 200 participant rows underneath, ordered by their own tree, show no matching block. the stripe on the left marks who is on a diabetes medication."
+      "note": "the clustering, rebuilt with the two participant blocks drawn apart. cluster 1 really is warmer across the myeloid genes, but it was defined by those genes, so it could not have come out otherwise. the open question was whether the medication stripe down the left would follow the split, and it is scattered through both blocks."
     },
     {
       "file": "assets/fig/emory/separation.png",
       "note": "what that participant split is worth. cutting the tree in two does enrich for medication, 2.3-fold at Fisher p = 0.015, and still misses two thirds of the people on medication while two thirds of the enriched cluster is on nothing."
+    },
+    {
+      "file": "assets/fig/emory/circularity.png",
+      "note": "the same workflow run on data with nothing in it. 400 rounds of pure noise with a coin-flip label: select six genes on that label, cluster, cut the tree in two, test the same label. 80 percent of rounds come out significant. picking the six genes at random instead gives 3 percent, which is roughly what a correct test should give."
     },
     {
       "file": "assets/fig/emory/genes.png",

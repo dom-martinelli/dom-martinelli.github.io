@@ -1,0 +1,89 @@
+{
+ "slug": "benchmark-item-audit",
+ "tab": "medical-ai",
+ "title": "Are the questions sound enough to grade a model on?",
+ "status": "finished",
+ "public": true,
+ "line": "a leaderboard is only as good as its answer keys. 1,451 of 7,457 MedMCQA rows have letters deleted inside words, 21 offer the same answer twice and accept only one copy, and 92 of the 960 items in my own benchmark carry a defect",
+ "question": "Every medical AI paper reports accuracy to one decimal place against question sets nobody re-reads. If an item is corrupted, duplicated, or keyed to an answer it never offers, no amount of model skill fixes it. How much of that is in the questions we are already scoring on?",
+ "skills": [
+  "data-quality checks as a pipeline gate, not a one-off script",
+  "writing detectors with positive and negative controls",
+  "deterministic text matching and its limits",
+  "regression baselines over third-party data",
+  "automated testing in CI"
+ ],
+ "tools": [
+  "Python (standard library only)",
+  "pytest",
+  "Playwright",
+  "GitHub Actions"
+ ],
+ "data": [
+  "the pediatric slices of six public question sets: MedMCQA (7,457 rows), PediatricsMQA (3,417), MedQA (2,847), AfriMed-QA (1,590), MedXpertQA (491), Medbullets (74)",
+  "the 960 curated items and 22-model prediction grid from the Growth-MedQA release"
+ ],
+ "figures": [
+  {
+   "file": "assets/fig/benchmark-audit/audit-overview.png",
+   "note": "left: the 960 items the models were graded on, with the 92 that carry a defect picked out. 74 have letters deleted inside words, 19 are padded out to five choices with a literal 'n/a', and one offers three copies of an empty image tag as its options. right: the 144 MedMCQA questions that appear twice with different answer keys, split by why they differ. Reporting 144 as the number of contradictions would have overstated it threefold."
+  }
+ ],
+ "did": [
+  "wrote nine checks over the raw question sets: text corruption, answer keys that name no offered option, duplicate stems, repeated ids, duplicate options, filler options, options that are markup with no text, select-all keys, and identical questions whose keys disagree.",
+  "tested every detector against hand-written fixtures before pointing it at real data: a clean file it must call clean, seeded with near misses, and corrupt files where every planted defect is known. A report of zero findings reads the same whether the data is clean or the pattern is broken.",
+  "recorded what each question set contained as a committed baseline, so a test fails when the upstream data changes rather than when it is merely imperfect.",
+  "joined the checks against the 960 scored items to ask how much of the damage reached the grading, and asserted that the join covered all 960 rather than assuming it.",
+  "recomputed every published confidence interval in the benchmark's own supplementary table from its own counts, and checked that the prediction file, the table and the reproduce script describe one set of results.",
+  "put the whole thing in GitHub Actions, standard library only, so it runs in seconds on every push."
+ ],
+ "found": [
+  "1,451 of 7,457 pediatric MedMCQA rows (19.5%) have the letters 'rt' deleted inside words: heart becomes hea, birth becomes bih, artery becomes aery, mortality becomes moality. It is in the source rows, and it defeats keyword curation because the corrupt spelling is sometimes commoner than the correct one. No other question set shows it, which is now measured rather than assumed.",
+  "21 MedMCQA items offer two options that are word for word identical and accept only one of them. A model that gives the right answer loses the point for picking the wrong copy of it. 13 more items in AfriMed-QA, 5 in PediatricsMQA, 1 in MedQA.",
+  "144 MedMCQA questions appear twice with different answer keys. That is not 144 contradictions: 32 differ only in spacing, 25 are typos, 16 are one copy corrupted, 9 are one answer truncating the other, and 62 are a genuinely different answer. Reporting the raw count would have overstated it threefold.",
+  "AfriMed-QA keys 35 of its 412 pediatric multiple-choice items as a list, like 'option2,option3'. They are select-all questions rather than broken ones, and a single-answer scorer either marks them wrong, costing a model accuracy for a question nobody asked it, or drops them silently and moves the denominator. 192 of the 412 are padded out to five choices with a literal 'n/a'.",
+  "92 of the 960 items in my own benchmark (9.6%) carry at least one of these defects: 74 have corrupted text, 19 are padded with a filler choice, and one is unanswerable. medmcqa::36109 offers options A, B and C as three copies of an image tag with an empty source, keyed A. The figure never reached the dataset. The item is not difficult, it is unanswerable, and it was being scored.",
+  "the benchmark's own published statistics held up: all 160 confidence intervals in the supplementary table are exactly the Wilson interval for their own numerator and denominator, every accuracy matches its counts, and the prediction file and the table agree."
+ ],
+ "so_what": [
+  "a benchmark score carries two numbers that get conflated: how well the model answered, and how well the questions were written. Nine of every hundred items here were damaged, so the second number is not negligible and nobody was reporting it.",
+  "the cheap checks are the ones worth having. Every finding above comes from the csv and re modules, runs in under a second, and needs no model calls, which is what lets it gate a pipeline instead of being a study of its own.",
+  "an exclusion is only legitimate if it is stated with its size and its cause. The check that matters most is not any single defect but the assertion that the number of items reported equals the number of items scored."
+ ],
+ "calls": [
+  "decomposing the key conflicts instead of reporting the total. 144 is the headline number and 62 is the true one. A count that flatters the finding is worse than no finding, because the first reviewer who reads ten of them will find the typos.",
+  "never letting a numeric answer be excused as a typo. '350 g' and '350 mg' are one character apart and a thousandfold apart; '14' against '4jan' is a spreadsheet eating a fraction.",
+  "testing the pair rather than consulting a word list. Asking whether one string is the other with an 'rt' removed catches the pattern in words nobody thought to list, including words that were already misspelled. The hand-built list missed two of them.",
+  "baselines that fail on change, not on imperfection. These defects are upstream and permanent, so asserting zero would fail by design; what must never happen is a question set changing quietly under numbers already computed from it.",
+  "asserting the join. A script that joins two sets of identifiers reports how many matched and warns when it is short, because a broken join is indistinguishable from a clean result."
+ ],
+ "broke": [
+  "the corruption detector matched 'abo' as a corruption of 'abort' and 'pas' as a corruption of 'parts'. Both are real medical abbreviations, ABO incompatibility and the PAS stain, and every match was correctly spelled text. Reading the matched sentences rather than the counts is what exposed it.",
+  "the first attempt to ask how much damage reached the scored items returned zero defects on every check, which read as a clean benchmark. The curated items are identified by row index and the raw question sets by UUID or hash, so the two share no identifier at all and every lookup missed. A dead join looks exactly like good news.",
+  "the select-all detector reported 94 such items in MedQA, which is a single-answer exam. The comma it was keying on sat inside the answer text, in phrases like 'Non-enveloped with linear, double-stranded DNA'.",
+  "all three were caught by asking whether a number was plausible, not by the test suite. A suite confirms what you thought to check."
+ ],
+ "items": [
+  "nine checks in `qa/dataset_checks.py`, each with its own controls, plus a report that joins them against the scored items",
+  "committed baselines for six question sets, so a change upstream fails a test",
+  "a test suite on this website: 227 checks over the content files and the generated html, and 203 browser tests on Chrome and mobile Safari, both running on every push. The first run found three bugs that were live: two project links resolving to a path that did not exist, and a page rendering one bullet per character because a field was written as text where a list belonged.",
+  "a one-page test plan, including what is deliberately not tested and why"
+ ],
+ "not_shown": [
+  "the question text itself. These are redistributions of other people's datasets, so the defect counts and the item identifiers are here and the items are not."
+ ],
+ "links": [
+  {
+   "label": "the checks and what they found",
+   "url": "https://github.com/dom-martinelli/Growth-MedQA#checks"
+  },
+  {
+   "label": "test plan for this site",
+   "url": "https://github.com/dom-martinelli/dom-martinelli.github.io/blob/main/tests/TEST-PLAN.md"
+  },
+  {
+   "label": "the test suite",
+   "url": "https://github.com/dom-martinelli/dom-martinelli.github.io/tree/main/tests"
+  }
+ ]
+}

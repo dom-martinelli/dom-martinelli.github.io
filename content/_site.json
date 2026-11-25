@@ -1,7 +1,7 @@
 {
  "name": "Dom Martinelli",
- "title": "Dom Martinelli \u00b7 Biomedical informatics",
- "footer": "figures made with matplotlib and deck.gl \u00b7 site built from json by build.py",
+ "title": "Dom Martinelli · Biomedical informatics",
+ "footer": "figures made with matplotlib and deck.gl · site built from json by build.py",
  "elsewhere": [
   {
    "label": "LinkedIn",
@@ -53,6 +53,7 @@
  "order": [
   "patient-innovation-index",
   "pgx-trials",
+  "benchmark-item-audit",
   "healthbench-rubrics",
   "advocacy-accrual",
   "icd-index",
@@ -89,7 +90,7 @@
   "earlier-work",
   "wegovy-teardown"
  ],
- "affiliation": "biomedical informatics \u00b7 Cornell \u00b7 Yin lab \u00b7 Kohane lab, Harvard DBMI",
+ "affiliation": "biomedical informatics · Cornell · Yin lab · Kohane lab, Harvard DBMI",
  "works_with": [
   "Python",
   "SMART on FHIR",

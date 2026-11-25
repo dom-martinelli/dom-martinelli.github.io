@@ -73,29 +73,36 @@ for (const file of pages) {
 
     test("every image actually decodes", async ({ page }) => {
       await visit(page, `/projects/${file}`);
-      // scroll once: the images are loading="lazy", so a check at the top of a
-      // long page would pass on images the browser has not fetched yet
-      await page.evaluate(async () => {
-        for (let y = 0; y < document.body.scrollHeight; y += 600) {
-          window.scrollTo(0, y);
-          await new Promise((r) => setTimeout(r, 30));
-        }
-      });
-      const imgs = page.locator("main img");
-      const n = await imgs.count();
-      for (let i = 0; i < n; i++) {
-        const img = imgs.nth(i);
-        const src = await img.getAttribute("src");
-        // naturalWidth 0 means the browser asked and got nothing usable back:
-        // a 404, or a file that exists but is not a decodable image. A link
-        // check cannot see the second case.
-        await expect
-          .poll(async () => img.evaluate((el) => el.naturalWidth), {
-            message: `image never decoded: ${src}`,
-            timeout: 5_000,
+
+      // Ask the browser to decode every image and wait for it, rather than
+      // scrolling and then polling naturalWidth on a timer.
+      //
+      // The first version did the latter and was flaky: on a page carrying
+      // eight large lazy-loaded PNGs it failed on a valid 1900x847 file that
+      // the server returns 200 for, simply because the poll window closed
+      // before the decode finished. A test that fails on a good file teaches
+      // you to ignore it, which is worse than not having it. decode() resolves
+      // when the image is usable and rejects when it is not, so the wait is as
+      // long as the work takes and no longer.
+      const broken = await page.evaluate(async () => {
+        const imgs = [...document.querySelectorAll("main img")];
+        imgs.forEach((i) => {
+          i.loading = "eager";
+        });
+        const results = await Promise.all(
+          imgs.map(async (i) => {
+            try {
+              await i.decode();
+            } catch {
+              return `${i.getAttribute("src")} (decode rejected)`;
+            }
+            return i.naturalWidth > 0 ? null : `${i.getAttribute("src")} (zero width)`;
           })
-          .toBeGreaterThan(0);
-      }
+        );
+        return results.filter(Boolean);
+      });
+
+      expect(broken, `images that did not decode:\n  ${broken.join("\n  ")}`).toEqual([]);
     });
   });
 }

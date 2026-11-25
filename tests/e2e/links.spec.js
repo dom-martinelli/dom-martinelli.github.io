@@ -56,10 +56,35 @@ test.describe("internal links", () => {
   test.skip(({ browserName }) => browserName !== "chromium");
 
   test("no internal link or asset 404s anywhere on the site", async ({ request, baseURL }) => {
+    // A whole-site crawl is not a 15-second test, and it gets slower every time
+    // a project is added. It first failed by timing out mid-walk on a request
+    // that had returned 200, which reads exactly like a broken link.
+    //
+    // So: its own budget, and the fetches run in parallel. Raising the timeout
+    // alone would only move the same failure a few projects down the road.
+    test.setTimeout(90_000);
+    const CONCURRENCY = 12;
+
     const seen = new Set();
     const queue = [...ENTRY];
     const broken = [];
     const statuses = new Map();
+
+    /** fetch many references at once, recording each status exactly once */
+    async function check(refs) {
+      const fresh = refs.filter(({ abs }) => !statuses.has(abs));
+      for (let i = 0; i < fresh.length; i += CONCURRENCY) {
+        const batch = fresh.slice(i, i + CONCURRENCY);
+        await Promise.all(
+          batch.map(async ({ abs }) => {
+            if (statuses.has(abs)) return;
+            statuses.set(abs, null); // claim it, so a duplicate in the batch is not refetched
+            const r = await request.get(abs);
+            statuses.set(abs, r.status());
+          })
+        );
+      }
+    }
 
     while (queue.length) {
       const path = queue.shift();
@@ -67,20 +92,16 @@ test.describe("internal links", () => {
       seen.add(path);
 
       const { status, refs } = await refsOn(request, baseURL, path);
-      statuses.set(path, status);
+      if (!statuses.get(path)) statuses.set(path, status);
       // archive.html is optional; a missing entry point is not a broken link
       if (!ENTRY.includes(path) && status >= 400) continue;
 
+      await check(refs);
       for (const { raw, abs } of refs) {
-        if (statuses.has(abs)) {
-          if (statuses.get(abs) >= 400) broken.push(`${path} -> ${raw}`);
-          continue;
-        }
-        const r = await request.get(abs);
-        statuses.set(abs, r.status());
-        if (r.status() >= 400) {
-          broken.push(`${path} -> ${raw}  (${r.status()} at ${abs})`);
-        } else if (abs.endsWith(".html")) {
+        const code = statuses.get(abs);
+        if (code >= 400) {
+          broken.push(`${path} -> ${raw}  (${code} at ${abs})`);
+        } else if (abs.endsWith(".html") && !seen.has(abs)) {
           queue.push(abs);
         }
       }

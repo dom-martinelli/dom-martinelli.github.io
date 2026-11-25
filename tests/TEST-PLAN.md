@@ -38,14 +38,14 @@ Everything below exists because of one of those three.
 
 **Layer 1, contract checks** (`tests/checks`, pytest, no browser, ~0.2 s).
 Questions about files and JSON: does this field have the right type, does this
-path exist, does the committed HTML match a fresh build. 227 cases, mostly
+path exist, does the committed HTML match a fresh build. 233 cases, mostly
 generated one-per-content-file so a new project is covered without editing a
 test.
 
 **Layer 2, browser tests** (`tests/e2e`, Playwright, ~25 s).
 Questions that need a browser: does the image decode, does the dialog trap
 focus, does the page fit a 375px viewport, does the back link land where it
-says. 203 cases across Desktop Chrome and iPhone 13 Safari.
+says. 211 cases across Desktop Chrome and iPhone 13 Safari.
 
 CI runs layer 1 first and only starts layer 2 if it passes. A wrong field type
 should fail in twenty seconds naming the file, not in two minutes naming a CSS
@@ -55,7 +55,7 @@ selector.
 
 ```bash
 cd tests
-python3 -m pytest checks -q          # layer 1
+python3 -m pytest checks -q          # layer 1, 233 cases
 npm ci && npx playwright install     # once
 npx playwright test                  # layer 2
 npx playwright test --headed         # watch it
@@ -102,6 +102,22 @@ the content files":
 
 Fixed in the content, with `ul()` in `build.py` made to coerce a string so the
 class cannot reach a reader again.
+
+Two more surfaced later, both **flaws in the tests rather than the site**, and
+both the kind this plan says are unacceptable:
+
+- `every image actually decodes` failed on a valid 1900x847 PNG that the server
+  returns 200 for. It scrolled the page and then polled `naturalWidth` on a
+  timer, and on a page with eight large lazy-loaded images the poll window
+  closed first. It now sets `loading="eager"` and awaits `decode()` on each
+  image, so the wait is as long as the work takes.
+- the link crawler hit its own 15-second limit mid-walk, on a request that had
+  returned 200. It fetched one reference at a time, and the site had grown. It
+  now fetches in parallel with its own 90-second budget. Raising the timeout
+  alone would have moved the same failure a few projects down the road.
+
+A test that fails on good input is worse than no test, because the next red run
+gets waved through.
 
 Two findings that turned out to be **bugs in the tests, not the site**, which is
 the other half of an honest report:

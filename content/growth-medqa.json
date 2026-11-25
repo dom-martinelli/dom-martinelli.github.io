@@ -3,6 +3,7 @@
  "tab": "medical-ai",
  "title": "A pediatric growth benchmark: how it was built",
  "status": "in progress",
+ "featured": 3,
  "tools": [
   "Python",
   "DSPy",
@@ -92,6 +93,5 @@
   "no model scores, rankings or per-model panels, on this card or anywhere on this site. the manuscript is under review and the agreed scope with the clinical collaborator is item-level labelling, not a model evaluation. what is shown is how the benchmark was built.",
   "the 22-model results exist and are held until the paper is out."
  ],
- "public": true,
- "featured": 2
+ "public": true
 }

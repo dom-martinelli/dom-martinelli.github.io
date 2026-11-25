@@ -3,6 +3,7 @@
  "tab": "trials",
  "title": "Is there a patient-involvement citation advantage?",
  "status": "in progress",
+ "featured": 1,
  "tools": [
   "Python",
   "statsmodels",
@@ -71,6 +72,5 @@
  "public": true,
  "not_shown": [
   "manuscript complete; preprint posting and journal submission in progress. these are the v7 numbers and they supersede the larger effect sizes in earlier drafts."
- ],
- "featured": 1
+ ]
 }

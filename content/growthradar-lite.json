@@ -3,6 +3,7 @@
  "tab": "clinical-tools",
  "title": "Growth monitoring from the health record",
  "status": "live",
+ "featured": 5,
  "tools": [
   "JavaScript (no build step)",
   "Chart.js",
@@ -61,6 +62,5 @@
   "percentiles come from a small embedded boys-only table, interpolated, not a validated LMS engine"
  ],
  "interactive": "https://dom-martinelli.github.io/growthradar-lite/",
- "public": true,
- "featured": 4
+ "public": true
 }

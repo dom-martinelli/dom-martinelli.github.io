@@ -74,6 +74,13 @@
     <p class="skills">composite index construction · control-set design · coarsened exact matching · field-normalised citation analysis</p>
     <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li></ul>
   </div>
+</a><a class="tile" href="projects/benchmark-item-audit.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/benchmark-audit/audit-overview.webp" alt="left: the 960 items the models were graded on, with the 92 that carry a defect picked out. 74 have letters deleted inside words, 19 are padded out to five choices with a literal &#x27;n/a&#x27;, and one offers three copies of an empty image tag as its options. right: the 144 MedMCQA questions that appear twice with different answer keys, split by why they differ. Reporting 144 as the number of contradictions would have overstated it threefold." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Are the questions sound enough to grade a model on?</h3><span class="status status-finished">finished</span></div>
+    <p class="skills">data-quality checks as a pipeline gate, not a one-off script · writing detectors with positive and negative controls · deterministic text matching and its limits · regression baselines over third-party data</p>
+    <ul class="tags"><li>Python (standard library only)</li><li>pytest</li><li>Playwright</li><li>GitHub Actions</li></ul>
+  </div>
 </a><a class="tile" href="projects/growth-medqa.html">
   <div class="panel"><img src="assets/thumb/assets/fig/deck/medqa-saturation.webp" alt="MedQA is saturated: the exam no longer separates models. top score by year, from a 37 per cent retriever-reader in 2020 to the whole frontier above 90 per cent by 2026." loading="lazy" decoding="async"></div>
   <div class="tile-body">
@@ -101,13 +108,6 @@
     <div class="tile-top"><h3>Countries behind PharmGKB gene–drug evidence, over time</h3><span class="status status-exploratory">exploratory</span></div>
     <p class="skills">evidence linkage across databases · schema-aware ETL · pharmacogenomics · trial registry analysis</p>
     <ul class="tags"><li>Python</li><li>pandas</li><li>AACT (PostgreSQL)</li><li>PharmGKB</li></ul>
-  </div>
-</a><a class="tile" href="projects/benchmark-item-audit.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/benchmark-audit/audit-overview.webp" alt="left: the 960 items the models were graded on, with the 92 that carry a defect picked out. 74 have letters deleted inside words, 19 are padded out to five choices with a literal &#x27;n/a&#x27;, and one offers three copies of an empty image tag as its options. right: the 144 MedMCQA questions that appear twice with different answer keys, split by why they differ. Reporting 144 as the number of contradictions would have overstated it threefold." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Are the questions sound enough to grade a model on?</h3><span class="status status-finished">finished</span></div>
-    <p class="skills">data-quality checks as a pipeline gate, not a one-off script · writing detectors with positive and negative controls · deterministic text matching and its limits · regression baselines over third-party data</p>
-    <ul class="tags"><li>Python (standard library only)</li><li>pytest</li><li>Playwright</li><li>GitHub Actions</li></ul>
   </div>
 </a><div class="tile">
   <div class="panel panel-live"><a href="https://huggingface.co/spaces/dmartinelli/medical-benchmark-disease-index"><img src="assets/thumb/assets/fig/icd-index-1.webp" alt="the pipeline: collect 14,088 items, label each condition and its role with a local model, map names to ICD-10-CM through the official Alphabetic Index, check with two other models, then publish a searchable explorer." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>

@@ -3,6 +3,7 @@
  "tab": "medical-ai",
  "title": "Are the questions sound enough to grade a model on?",
  "status": "finished",
+ "featured": 2,
  "public": true,
  "line": "a leaderboard is only as good as its answer keys. 1,451 of 7,457 MedMCQA rows have letters deleted inside words, 21 offer the same answer twice and accept only one copy, and 92 of the 960 items in my own benchmark carry a defect",
  "question": "Every medical AI paper reports accuracy to one decimal place against question sets nobody re-reads. If an item is corrupted, duplicated, or keyed to an answer it never offers, no amount of model skill fixes it. How much of that is in the questions we are already scoring on?",

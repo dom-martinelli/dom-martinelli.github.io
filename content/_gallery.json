@@ -1,7 +1,35 @@
 {
  "version": "2026-09-21 pastel-classes",
- "synced": "2026-11-19",
+ "synced": "2026-11-25",
  "figures": [
+  {
+   "file": "gallery/emory-pca-two-dots.png",
+   "slug": "emory-vascular",
+   "note": "the original PCA: every participant a dot, coloured by diabetes medication",
+   "source": "~/Documents/GitHub/dom-martinelli.github.io/assets/fig/emory/orig-pca-diabetic.png",
+   "rebuilt": "2026-11-25"
+  },
+  {
+   "file": "gallery/emory-heatmap-original.png",
+   "slug": "emory-vascular",
+   "note": "the first clustermap, seaborn defaults, before any of the rebuilding",
+   "source": "~/Documents/GitHub/dom-martinelli.github.io/assets/fig/emory/orig-heatmap-rdylbu.png",
+   "rebuilt": "2026-11-25"
+  },
+  {
+   "file": "gallery/emory-heatmap-annotated.png",
+   "slug": "emory-vascular",
+   "note": "same six genes with the diabetes stripe and both dendrograms",
+   "source": "~/Documents/GitHub/dom-martinelli.github.io/assets/fig/emory/orig-heatmap-rowtree.png",
+   "rebuilt": "2026-11-25"
+  },
+  {
+   "file": "gallery/emory-heatmap-grouped.png",
+   "slug": "emory-vascular",
+   "note": "rows sorted by diabetes status instead of clustered",
+   "source": "~/Documents/GitHub/dom-martinelli.github.io/assets/fig/emory/orig-heatmap-sorted.png",
+   "rebuilt": "2026-11-25"
+  },
   {
    "file": "gallery/emory-immune-axis.png",
    "slug": "emory-vascular",
@@ -21,7 +49,7 @@
    "slug": "emory-vascular",
    "note": "six genes split in two; the 200 people underneath do not",
    "source": "~/Documents/GitHub/dom-martinelli.github.io/assets/fig/emory/clusters.png",
-   "rebuilt": "2026-11-18"
+   "rebuilt": "2026-11-20"
   },
   {
    "file": "gallery/emory-cluster-worth.png",
@@ -178,6 +206,13 @@
    "rebuilt": "2026-09-20"
   },
   {
+   "file": "assets/fig/benchmark-audit/audit-overview.png",
+   "slug": "benchmark-item-audit",
+   "note": "left: the 960 items the models were graded on, with the 92 that carry a defect picked out. 74 have letters deleted inside words, 19 are padded out to five choices with a literal 'n/a', and one offers three copies of an empty image tag as its options. right: the 144 MedMCQA questions that appear twice with different answer keys, split by why they differ. Reporting 144 as the number of contradictions would have overstated it threefold.",
+   "source": "assets/fig/benchmark-audit/audit-overview.png",
+   "rebuilt": "2026-11-25"
+  },
+  {
    "file": "assets/fig/bupropion/transporter-classes.png",
    "slug": "bupropion-market",
    "note": "every approved drug on the three monoamine transporters, grouped by which it hits. the highlighted row is the ten that take dopamine and norepinephrine while leaving serotonin alone: bupropion, and otherwise the ADHD stimulant class and the appetite suppressants. the drug filed as an antidepressant has no antidepressant neighbours. counts are present-day, so they describe the era bupropion survived, not the one it entered in 1985.",
@@ -201,9 +236,9 @@
   {
    "file": "assets/fig/emory/clusters.png",
    "slug": "emory-vascular",
-   "note": "the clustering, remade. the tree across the top splits the six genes into two blocks, one B-cell gene against five myeloid ones. the 200 participant rows underneath, ordered by their own tree, show no matching block. the stripe on the left marks who is on a diabetes medication.",
+   "note": "the clustering, rebuilt with the two participant blocks drawn apart. cluster 1 really is warmer across the myeloid genes, but it was defined by those genes, so it could not have come out otherwise. the open question was whether the medication stripe down the left would follow the split, and it is scattered through both blocks.",
    "source": "assets/fig/emory/clusters.png",
-   "rebuilt": "2026-11-18"
+   "rebuilt": "2026-11-20"
   },
   {
    "file": "assets/fig/emory/separation.png",
@@ -211,6 +246,13 @@
    "note": "what that participant split is worth. cutting the tree in two does enrich for medication, 2.3-fold at Fisher p = 0.015, and still misses two thirds of the people on medication while two thirds of the enriched cluster is on nothing.",
    "source": "assets/fig/emory/separation.png",
    "rebuilt": "2026-11-18"
+  },
+  {
+   "file": "assets/fig/emory/circularity.png",
+   "slug": "emory-vascular",
+   "note": "the same workflow run on data with nothing in it. 400 rounds of pure noise with a coin-flip label: select six genes on that label, cluster, cut the tree in two, test the same label. 80 percent of rounds come out significant. picking the six genes at random instead gives 3 percent, which is roughly what a correct test should give.",
+   "source": "assets/fig/emory/circularity.png",
+   "rebuilt": "2026-11-20"
   },
   {
    "file": "assets/fig/emory/genes.png",

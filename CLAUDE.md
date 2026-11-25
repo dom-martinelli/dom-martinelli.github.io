@@ -36,6 +36,17 @@ It writes one HTML file with every stylesheet and image inlined. Publish that
 file as an Artifact and give him the link. It shows unpushed work, which the
 live site by definition cannot.
 
+To decide the ORDER rather than read the site, use the compact view instead:
+
+```bash
+uv run --no-project --with pillow python scripts/reorder.py
+```
+
+Small tiles, shrunk thumbnails, up/down arrows as well as drag, because drag
+does not fire on a touch screen and he reads these on a phone. He presses Copy
+and pastes a line like `analyses = slug-a, slug-b, ...` back into the chat;
+rewrite the `featured` numbers to match and rebuild. The page stores nothing.
+
 The old **Portfolio Studio** artifact
 (`claude.ai/artifact/3d71BCJuszU9bFKcdGU7g4`) is **retired**. It was a snapshot,
 it went fifteen days stale, and it showed him a card order from two weeks

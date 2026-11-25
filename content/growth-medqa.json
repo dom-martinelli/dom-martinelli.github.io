@@ -1,7 +1,7 @@
 {
   "slug": "growth-medqa",
   "tab": "medical-ai",
-  "title": "A pediatric endocrinology benchmark: how it was built",
+  "title": "Can an LLM read a child's growth chart? A benchmark",
   "status": "in progress",
   "featured": 12,
   "tools": [
@@ -28,6 +28,14 @@
     }
   ],
   "figures": [
+    {
+      "file": "assets/fig/sibmi/one-number-is-an-average.png",
+      "note": "the way a benchmark result is normally reported: one bar per model. Kimi K2 at 92 down to Claude Sonnet 4.5 at 78, and nothing else."
+    },
+    {
+      "file": "assets/fig/sibmi/same-score-by-topic.png",
+      "note": "the same eight models, same 871 items, split by growth topic. Each grey dot is one topic and the navy dot is the overall score from the bar chart above. Sonnet averages 78 and has a topic at 54. The average is the one number that describes none of them."
+    },
     {
       "file": "assets/fig/deck/medqa-saturation.png",
       "note": "MedQA is saturated: the exam no longer separates models. top score by year, from a 37 per cent retriever-reader in 2020 to the whole frontier above 90 per cent by 2026."

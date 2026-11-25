@@ -59,6 +59,19 @@ def main() -> None:
         if items:
             shelves.append((gid, label, items))
 
+    # Hidden cards never reach build.load()'s output, so read them straight off disk.
+    # Without this there is no way to see, let alone unhide, a card that is off.
+    import glob
+    live = {p["slug"] for p in projects}
+    hidden = []
+    for f in sorted(glob.glob(str(ROOT / "content" / "*.json"))):
+        c = json.load(open(f))
+        if isinstance(c, dict) and c.get("slug") and c["slug"] not in live:
+            hidden.append(c)
+    hidden.sort(key=lambda c: (c.get("status", "zz"), c["slug"]))
+    if hidden:
+        shelves.append(("hidden", "Hidden (not on the site)", hidden))
+
     data = []
     for gid, label, items in shelves:
         cards = []
@@ -73,6 +86,7 @@ def main() -> None:
                 "featured": p.get("featured"),
                 "nfig": len(figs),
                 "thumb": thumb(figs[0]["file"]) if figs else None,
+                "hidden": gid == "hidden",
             })
         data.append({"id": gid, "label": label, "cards": cards})
 
@@ -141,6 +155,9 @@ TEMPLATE = r"""<!doctype html>
   .nudge button:disabled{opacity:.25}
   .c.live{color:var(--live);border-color:var(--live)}
   .c.hidden{color:var(--accent);border-color:var(--accent)}
+  .c.off{cursor:pointer;color:var(--faint);border-style:dashed;padding:2px 8px}
+  .c.off[data-show="1"]{color:var(--live);border-color:var(--live);border-style:solid}
+  li.willshow{border-color:var(--live)}
   .bar{position:fixed;left:0;right:0;bottom:0;background:var(--panel);
     border-top:1px solid var(--line);padding:11px 16px;display:flex;gap:10px;
     align-items:center;justify-content:center;flex-wrap:wrap}
@@ -188,6 +205,7 @@ function render(){
       const chips = [];
       if (c.status) chips.push(`<span class="c${c.status==='live'?' live':''}">${c.status}</span>`);
       if (!c.public) chips.push('<span class="c hidden">not public</span>');
+      if (c.hidden) chips.push('<span class="c off" data-show="0">off &#183; tap to turn on</span>');
       chips.push(`<span class="c">${c.nfig} fig${c.nfig===1?'':'s'}</span>`);
       li.innerHTML =
         `<div class="pos"></div>` +
@@ -207,6 +225,15 @@ function render(){
 // Arrows, because HTML5 drag does not fire on a touch screen and this page is
 // meant to be usable on a phone.
 root.addEventListener('click', e => {
+  const tog = e.target.closest('.c.off');
+  if (tog){
+    const on = tog.dataset.show === '1';
+    tog.dataset.show = on ? '0' : '1';
+    tog.innerHTML = on ? 'off &#183; tap to turn on' : 'turn ON &#183; tap to undo';
+    tog.closest('li').classList.toggle('willshow', !on);
+    said.textContent = 'press Copy to send the change.';
+    return;
+  }
   const btn = e.target.closest('.up, .down'); if (!btn) return;
   const li = btn.closest('li'), ol = li.parentElement;
   if (btn.classList.contains('up')) { const prev = li.previousElementSibling;
@@ -257,15 +284,18 @@ function currentOrder(){
 document.getElementById('copy').onclick = async () => {
   const cur = currentOrder();
   const same = JSON.stringify(cur.map(s => s.slugs)) === original;
-  const text = same
-    ? 'card order unchanged'
-    : 'set the card order to: ' + cur.map(s =>
-        `${s.shelf} = ${s.slugs.join(', ')}`).join('  |  ');
+  const turnOn = [...root.querySelectorAll('.c.off[data-show="1"]')]
+                   .map(t => t.closest('li').dataset.slug);
+  const parts = [];
+  if (!same) parts.push('set the card order to: ' + cur.filter(s => s.shelf !== 'hidden')
+      .map(s => `${s.shelf} = ${s.slugs.join(', ')}`).join('  |  '));
+  if (turnOn.length) parts.push('turn these cards ON: ' + turnOn.join(', '));
+  const text = parts.length ? parts.join('\n') : 'nothing changed';
   try { await navigator.clipboard.writeText(text); }
   catch { const t = document.getElementById('sink');
           t.value = text; t.select(); document.execCommand('copy'); }
-  said.textContent = same ? 'nothing moved, so nothing to send.'
-                          : 'copied. paste it into the chat.';
+  said.textContent = (same && !turnOn.length) ? 'nothing changed, so nothing to send.'
+                                              : 'copied. paste it into the chat.';
 };
 document.getElementById('reset').onclick = () => {
   render(); said.textContent = 'back to the order on disk.';

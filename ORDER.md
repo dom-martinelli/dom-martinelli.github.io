@@ -11,7 +11,7 @@ To move a card, change its `featured` number and run `python3 build.py`.
    <sub>featured 1 · in progress · 2 figures</sub>
 2. **over-referral** — How 16 LLMs triage healthy children  
    <sub>featured 2 · in progress · 18 figures</sub>
-3. **growthradar-lite** — Auxology at the point of care, with and without the record  
+3. **growthradar-lite** — A growth chart you can run on your own EHR data  
    <sub>featured 3 · live · 1 figure</sub>
 4. **patient-led-science** — Do patients' ideas reach the research?  
    <sub>featured 4 · in progress · 5 figures</sub>
@@ -25,12 +25,12 @@ To move a card, change its `featured` number and run `python3 build.py`.
    <sub>featured 8 · finished · 5 figures</sub>
 9. **wakespace** — Reward-pathway drugs by shared chemistry and target network  
    <sub>featured 9 · finished · 4 figures</sub>
-10. **growth-medqa-explorer** — A browser for the pediatric endocrinology benchmark  
+10. **growth-medqa-explorer** — Browse the growth-chart benchmark and compare LLMs on it  
    <sub>featured 10 · live · 3 figures</sub>
 11. **benchmark-item-audit** — Are the questions sound enough to grade a model on?  
    <sub>featured 11 · finished · 1 figure</sub>
-12. **growth-medqa** — A pediatric endocrinology benchmark: how it was built  
-   <sub>featured 12 · in progress · 6 figures</sub>
+12. **growth-medqa** — Can an LLM read a child's growth chart? A benchmark  
+   <sub>featured 12 · in progress · 8 figures</sub>
 13. **wegovy-teardown** — Wegovy vs. Zepbound: a commercial teardown  
    <sub>featured 13 · finished · 5 figures</sub>
 14. **sweetspace** — Odor and sweetness across 3,522 flavor molecules  

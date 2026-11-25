@@ -1,29 +1,31 @@
 {
   "slug": "growthradar-lite",
   "tab": "clinical-tools",
-  "title": "Auxology at the point of care, with and without the record",
+  "title": "A growth chart you can run on your own EHR data",
   "status": "live",
   "featured": 3,
   "tools": [
-    "JavaScript (no build step)",
-    "Chart.js",
-    "Web Crypto",
-    "Epic FHIR R4",
-    "LOINC",
+    "JavaScript",
+    "TypeScript",
+    "SMART on FHIR",
+    "Epic FHIR R4 sandbox",
     "HAPI FHIR",
-    "Docker"
+    "OAuth 2.0 / PKCE",
+    "Chart.js",
+    "OpenRouter",
+    "GitHub Pages"
   ],
   "links": [
     {
-      "label": "Try it now, no account of any kind (loads public FHIR demo patients)",
+      "label": "1. Open it now, nothing to sign in to",
       "url": "https://dom-martinelli.github.io/growthradar-lite-codex/"
     },
     {
-      "label": "The clinician view, synthetic patient or a real Epic launch",
+      "label": "2. The clinician view: synthetic patient, or launch against a real Epic record",
       "url": "https://dom-martinelli.github.io/growthradar-lite/"
     },
     {
-      "label": "The family-facing version of the same chart",
+      "label": "3. The same chart written for a parent",
       "url": "https://dom-martinelli.github.io/growthbridge-demo/"
     },
     {
@@ -39,14 +41,16 @@
     }
   ],
   "host_file": "",
-  "line": "three ways into the same growth history: a public FHIR server anyone can open, a synthetic patient, and a live SMART on FHIR launch against a real record, with implausible jumps flagged before anyone acts on them",
+  "line": "the same growth chart three ways: open it right now with demo patients, load your own synthetic data, or connect it live to a real Epic record",
   "question": "Can a browser app read a child's growth history straight from a health record and surface faltering a short visit would miss?",
   "skills": [
     "SMART on FHIR integration",
-    "OAuth 2.0 / PKCE",
-    "FHIR querying and parsing",
-    "clinical rule design",
-    "LLM prompt design"
+    "OAuth 2.0 / PKCE authorisation",
+    "FHIR R4 querying and parsing",
+    "HAPI FHIR demo hosting",
+    "clinical plausibility rule design",
+    "growth percentile and velocity logic",
+    "LLM prompt design with browser-side key handling"
   ],
   "data": [
     "Epic FHIR sandbox",

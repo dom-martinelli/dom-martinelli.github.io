@@ -1,7 +1,7 @@
 {
   "slug": "growth-medqa-explorer",
   "tab": "medical-ai",
-  "title": "A browser for the pediatric endocrinology benchmark",
+  "title": "Browse the growth-chart benchmark and compare LLMs on it",
   "status": "live",
   "line": "a browser for the benchmark: filter to a slice, compare models on it, read the actual items, and submit your own",
   "question": "If a benchmark's headline finding is that one number hides the weak slices, can a reader check that for themselves instead of taking my word for it?",

@@ -26,6 +26,14 @@ ICLOUD = HOME / "Library/Mobile Documents/com~apple~CloudDocs/Figure Gallery"
 
 # gallery name, source path, project slug, one-line note
 FIGURES = [
+    ("emory-pca-two-dots.png", SITE / "assets/fig/emory/orig-pca-diabetic.png",
+     "emory-vascular", "the original PCA: every participant a dot, coloured by diabetes medication"),
+    ("emory-heatmap-original.png", SITE / "assets/fig/emory/orig-heatmap-rdylbu.png",
+     "emory-vascular", "the first clustermap, seaborn defaults, before any of the rebuilding"),
+    ("emory-heatmap-annotated.png", SITE / "assets/fig/emory/orig-heatmap-rowtree.png",
+     "emory-vascular", "same six genes with the diabetes stripe and both dendrograms"),
+    ("emory-heatmap-grouped.png", SITE / "assets/fig/emory/orig-heatmap-sorted.png",
+     "emory-vascular", "rows sorted by diabetes status instead of clustered"),
     ("emory-immune-axis.png", SITE / "assets/fig/emory/immune-axis.png",
      "emory-vascular", "whole-transcriptome enrichment finds the same myeloid-up, B-cell-down axis"),
     ("emory-gsea-waterfall.png", SITE / "assets/fig/emory/waterfall-emory.png",

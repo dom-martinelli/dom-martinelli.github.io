@@ -8,3 +8,4 @@ tests/playwright-report/
 tests/blob-report/
 __pycache__/
 .pytest_cache/
+_preview/

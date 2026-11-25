@@ -1,76 +1,77 @@
 {
- "slug": "patient-innovation-index",
- "tab": "trials",
- "title": "Is there a patient-involvement citation advantage?",
- "status": "in progress",
- "featured": 1,
- "tools": [
-  "Python",
-  "statsmodels",
-  "scikit-learn",
-  "sentence-transformers",
-  "UMAP",
-  "Streamlit"
- ],
- "links": [],
- "figures": [
-  {
-   "file": "assets/fig/pii-v7/fig1-study-design.png",
-   "note": "the study in one figure. 23,584 PubMed papers scored for 13 text signals; a language model and a human coder validate 169 and 50 of them; 553 papers keep a report of partnership or organization support. right panel: +70% against random PubMed papers, +28% adjusted, +8% matched; -2% against the 12,222 unflagged papers from the same search, -8% adjusted; +34% within open access for papers naming a patient organization in full text."
-  },
-  {
-   "file": "assets/fig/pii-v7/fig3-comparison-groups.png",
-   "note": "the whole argument in one panel. the 553 papers with a detected report sit 28% above random PubMed papers after adjustment and 8% below the 12,222 unflagged papers retrieved by the same search. the unflagged papers are themselves 52% above random. the advantage belongs to the involvement-vocabulary literature as a whole."
-  },
-  {
-   "file": "assets/fig/pii-v7/fig4-citation-difference.png",
-   "note": "the citation difference by comparison group and estimator. +70% unadjusted, +54% year-reweighted, +28% in median regression, +8% under coarsened exact matching with an interval crossing zero. against the unflagged corpus it is -2% unadjusted and -8% adjusted. the number you report is a choice about the control group."
-  },
-  {
-   "file": "assets/fig/pii-v7/fig2-signal-precision.png",
-   "note": "six of thirteen signals survive. precision against hand coding with Wilson intervals, 9 or 10 sampled papers each. patient author, organization as funder, organization as affiliation and collective author all reach 9 of 10 or better; self-report instruments, self-experimentation and patient-controlled data never once identified real involvement."
-  }
- ],
- "line": "thirteen text signals of patient involvement, and what happens to the citation effect once the comparison group is right",
- "question": "Papers that report patients as partners are cited more than random PubMed papers. Is that because of the involvement, or because of the kind of literature those papers live in?",
- "skills": [
-  "composite index construction",
-  "control-set design",
-  "coarsened exact matching",
-  "field-normalised citation analysis",
-  "embedding-based topic clustering"
- ],
- "data": [
-  "PubMed / E-utilities",
-  "NIH iCite",
-  "OpenAlex",
-  "MeSH headings"
- ],
- "calls": [
-  "the comparison group is the whole finding. a single random control confounds the involvement with the literature it sits in, which is what produced the earlier and much larger estimate.",
-  "signals were kept or dropped on measured precision against hand coding, not on whether they sounded like involvement. seven of thirteen were dropped.",
-  "relative citation ratio as the outcome, not raw counts, so each paper is normalised to its own co-citation field.",
-  "both the regression and the matching estimate are reported, because they disagree and the disagreement is the result.",
-  "full text of the 7,969 open-access papers read as a robustness check, since titles and abstracts miss involvement reported in acknowledgements."
- ],
- "broke": [
-  "case-folding bug: the scorer lowercased the text but kept capitalised patterns, so every acronym signal could never fire.",
-  "substring matching on organisation names produced false hits on unrelated institutions.",
-  "the collective-author signal was tagging research consortia as patient collectives, which mislabeled a headline signal in the draft.",
-  "once patterns went case-insensitive, a bare sample-size notation started matching results-section text.",
-  "a figure and its signal table disagree because they came from different pipeline runs. reconciling to one canonical run is open."
- ],
- "tried": "wanted involvement scored from each paper's funding-statement text. the corpus carries PubMed grant lists only, so OpenAlex funder metadata stood in.",
- "found": [
-  "against 16,161 random PubMed papers the 553 papers with a detected report are cited 70% higher unadjusted (median RCR 1.113 against 0.655), 54% reweighted to their years, and 28% in median regression with year, log team size, article type and open access.",
-  "against the right control group the effect disappears. the 12,222 unflagged papers retrieved by the same search have a median RCR of 1.141, slightly above the flagged ones; adjusted, the papers reporting involvement sit 8% below them, interval -19 to 3.",
-  "the unflagged corpus is itself 52% above random PubMed papers. so the advantage belongs to the involvement-vocabulary literature as a whole, not to reporting partnership or organization support.",
-  "the adjusted estimate depends on the estimator: 28% in median regression, 8% under coarsened exact matching with an interval from -6 to 24. open access alone moves the year-adjusted estimate from 56% to 37%; 73% of the flagged papers are open access against 25% of random ones.",
-  "only six of thirteen signals identify real involvement against hand coding. patient author reached 9 of 9; self-report instruments, self-experimentation and patient-controlled data reached 0 of 10.",
-  "the draft index that summed all 13 signals flagged 9,442 papers and gave 6% in both regression and matching. the validated set is one seventeenth of that size, and it is the one the claim rests on."
- ],
- "public": true,
- "not_shown": [
-  "manuscript complete; preprint posting and journal submission in progress. these are the v7 numbers and they supersede the larger effect sizes in earlier drafts."
- ]
+  "slug": "patient-innovation-index",
+  "tab": "trials",
+  "title": "Is there a patient-involvement citation advantage?",
+  "status": "in progress",
+  "featured": 7,
+  "tools": [
+    "Python",
+    "statsmodels",
+    "scikit-learn",
+    "sentence-transformers",
+    "UMAP",
+    "Streamlit"
+  ],
+  "links": [],
+  "figures": [
+    {
+      "file": "assets/fig/pii-v7/fig1-study-design.png",
+      "note": "the study in one figure. 23,584 PubMed papers scored for 13 text signals; a language model and a human coder validate 169 and 50 of them; 553 papers keep a report of partnership or organization support. right panel: +70% against random PubMed papers, +28% adjusted, +8% matched; -2% against the 12,222 unflagged papers from the same search, -8% adjusted; +34% within open access for papers naming a patient organization in full text."
+    },
+    {
+      "file": "assets/fig/pii-v7/fig3-comparison-groups.png",
+      "note": "the whole argument in one panel. the 553 papers with a detected report sit 28% above random PubMed papers after adjustment and 8% below the 12,222 unflagged papers retrieved by the same search. the unflagged papers are themselves 52% above random. the advantage belongs to the involvement-vocabulary literature as a whole."
+    },
+    {
+      "file": "assets/fig/pii-v7/fig4-citation-difference.png",
+      "note": "the citation difference by comparison group and estimator. +70% unadjusted, +54% year-reweighted, +28% in median regression, +8% under coarsened exact matching with an interval crossing zero. against the unflagged corpus it is -2% unadjusted and -8% adjusted. the number you report is a choice about the control group."
+    },
+    {
+      "file": "assets/fig/pii-v7/fig2-signal-precision.png",
+      "note": "six of thirteen signals survive. precision against hand coding with Wilson intervals, 9 or 10 sampled papers each. patient author, organization as funder, organization as affiliation and collective author all reach 9 of 10 or better; self-report instruments, self-experimentation and patient-controlled data never once identified real involvement."
+    }
+  ],
+  "line": "thirteen text signals of patient involvement, and what happens to the citation effect once the comparison group is right",
+  "question": "Papers that report patients as partners are cited more than random PubMed papers. Is that because of the involvement, or because of the kind of literature those papers live in?",
+  "skills": [
+    "composite index construction",
+    "control-set design",
+    "LLM-as-judge: rubric design, agreement against hand labels",
+    "coarsened exact matching",
+    "field-normalised citation analysis",
+    "embedding-based topic clustering"
+  ],
+  "data": [
+    "PubMed / E-utilities",
+    "NIH iCite",
+    "OpenAlex",
+    "MeSH headings"
+  ],
+  "calls": [
+    "the comparison group is the whole finding. a single random control confounds the involvement with the literature it sits in, which is what produced the earlier and much larger estimate.",
+    "signals were kept or dropped on measured precision against hand coding, not on whether they sounded like involvement. seven of thirteen were dropped.",
+    "relative citation ratio as the outcome, not raw counts, so each paper is normalised to its own co-citation field.",
+    "both the regression and the matching estimate are reported, because they disagree and the disagreement is the result.",
+    "full text of the 7,969 open-access papers read as a robustness check, since titles and abstracts miss involvement reported in acknowledgements."
+  ],
+  "broke": [
+    "case-folding bug: the scorer lowercased the text but kept capitalised patterns, so every acronym signal could never fire.",
+    "substring matching on organisation names produced false hits on unrelated institutions.",
+    "the collective-author signal was tagging research consortia as patient collectives, which mislabeled a headline signal in the draft.",
+    "once patterns went case-insensitive, a bare sample-size notation started matching results-section text.",
+    "a figure and its signal table disagree because they came from different pipeline runs. reconciling to one canonical run is open."
+  ],
+  "tried": "wanted involvement scored from each paper's funding-statement text. the corpus carries PubMed grant lists only, so OpenAlex funder metadata stood in.",
+  "found": [
+    "against 16,161 random PubMed papers the 553 papers with a detected report are cited 70% higher unadjusted (median RCR 1.113 against 0.655), 54% reweighted to their years, and 28% in median regression with year, log team size, article type and open access.",
+    "against the right control group the effect disappears. the 12,222 unflagged papers retrieved by the same search have a median RCR of 1.141, slightly above the flagged ones; adjusted, the papers reporting involvement sit 8% below them, interval -19 to 3.",
+    "the unflagged corpus is itself 52% above random PubMed papers. so the advantage belongs to the involvement-vocabulary literature as a whole, not to reporting partnership or organization support.",
+    "the adjusted estimate depends on the estimator: 28% in median regression, 8% under coarsened exact matching with an interval from -6 to 24. open access alone moves the year-adjusted estimate from 56% to 37%; 73% of the flagged papers are open access against 25% of random ones.",
+    "only six of thirteen signals identify real involvement against hand coding. patient author reached 9 of 9; self-report instruments, self-experimentation and patient-controlled data reached 0 of 10.",
+    "the draft index that summed all 13 signals flagged 9,442 papers and gave 6% in both regression and matching. the validated set is one seventeenth of that size, and it is the one the claim rests on."
+  ],
+  "public": true,
+  "not_shown": [
+    "manuscript complete; preprint posting and journal submission in progress. these are the v7 numbers and they supersede the larger effect sizes in earlier drafts."
+  ]
 }

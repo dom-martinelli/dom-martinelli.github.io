@@ -1,97 +1,97 @@
 {
- "slug": "growth-medqa",
- "tab": "medical-ai",
- "title": "A pediatric growth benchmark: how it was built",
- "status": "in progress",
- "featured": 3,
- "tools": [
-  "Python",
-  "DSPy",
-  "Hugging Face datasets",
-  "OpenRouter",
-  "Slurm / vLLM",
-  "pandas",
-  "LaTeX"
- ],
- "links": [
-  {
-   "label": "Explore the items (Hugging Face Space)",
-   "url": "https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer"
-  },
-  {
-   "label": "Code on GitHub",
-   "url": "https://github.com/dom-martinelli/Growth-MedQA"
-  },
-  {
-   "label": "Dataset on Hugging Face",
-   "url": "https://huggingface.co/datasets/dmartinelli/growth-medqa"
-  }
- ],
- "figures": [
-  {
-   "file": "assets/fig/deck/medqa-saturation.png",
-   "note": "MedQA is saturated: the exam no longer separates models. top score by year, from a 37 per cent retriever-reader in 2020 to the whole frontier above 90 per cent by 2026."
-  },
-  {
-   "file": "assets/fig/sibmi/pediatrics-is-a-minority.png",
-   "note": "pediatrics is a minority in every general medical-QA benchmark; the median share is 10.4%."
-  },
-  {
-   "file": "assets/fig/psb/benchmark-coverage-matrix.jpg",
-   "note": "what existing medical benchmarks cover, and the growth-assessment axes none of them isolate."
-  },
-  {
-   "file": "assets/fig/amia/benchmark-composition.png",
-   "note": "what the 960 items are made of: nine public sources screened from 224,705 questions."
-  },
-  {
-   "file": "assets/fig/growth/growth_medqa_fig1_construction.png",
-   "note": "how the 960-item set was built."
-  },
-  {
-   "file": "assets/fig/amia/study-workflow.png",
-   "note": "the study workflow from source benchmarks to labelled corpus."
-  }
- ],
- "host_file": "",
- "line": "whether a model that passes medical exams can be trusted on a clinical task, for anyone evaluating one: 960 pediatric growth items screened from 224,705, labelled against two published clinical rubrics",
- "question": "When a model scores well on medical exams, is it competent at the growth-assessment tasks a clinician would lean on it for?",
- "skills": [
-  "benchmark design",
-  "LLM evaluation",
-  "annotation schema design",
-  "provenance auditing",
-  "clinical taxonomy crosswalking"
- ],
- "data": [
-  "MedQA",
-  "MedMCQA",
-  "MedXpertQA",
-  "MMLU medicine",
-  "PubMedQA",
-  "MedBullets",
-  "PediatricsMQA",
-  "ICPED / HPO",
-  "USMLE competencies"
- ],
- "calls": [
-  "growth relevance defined by whether the answer depends on the growth data, not by whether a height or weight appears in the stem.",
-  "one frozen labeling run over the whole corpus with a blinded stratified human audit, rather than routing only prefilter-positive rows to the stronger classifier. every row gets the same measurement process.",
-  "classifier instructions rewritten around primary subject and question target instead of adding few-shot examples. the failure mode was keyword surface matching, not a shortage of examples.",
-  "labels and item ids released for one source dataset rather than its question text. that source states no license; the others are MIT, Apache or CC BY-SA.",
-  "rare-disease corpora held out of the registry. they pull the benchmark away from the primary-care pediatric setting it is meant to describe.",
-  "construction figures over result figures while the paper is under review. a reader can judge whether a benchmark is well made without seeing who won on it, and that is the only claim currently safe to make."
- ],
- "broke": [
-  "an early version of the vignette trajectories was described as built from the official LMS pipeline but had hand-entered approximations, and some reconstructed curves were not physiologically possible. caught in a claim-by-claim audit of my own design docs.",
-  "the case registry meant to guarantee item provenance was nearly empty, so it never protected the evaluated items.",
-  "a full-corpus batch labeling run failed for a billing reason and had to be replanned around a cheaper route; an earlier queue was built on a corpus that got superseded and could not be resumed.",
-  "one table generator overwrites another table's source file with no warning, so build order still has to be repaired by hand."
- ],
- "tried": "this card carried 37 figures while its own text said it showed no scores. sixteen of them were score or ranking panels, and they disagreed with each other: panels of eight, ten, sixteen and twenty-two models sat side by side, and three figures still used a growth-role label axis the project dropped. they came from four different eras of the analysis and were never reconciled. cut to the six that describe construction, which is the part that is settled and the part the scope covers.",
- "not_shown": [
-  "no model scores, rankings or per-model panels, on this card or anywhere on this site. the manuscript is under review and the agreed scope with the clinical collaborator is item-level labelling, not a model evaluation. what is shown is how the benchmark was built.",
-  "the 22-model results exist and are held until the paper is out."
- ],
- "public": true
+  "slug": "growth-medqa",
+  "tab": "medical-ai",
+  "title": "A pediatric endocrinology benchmark: how it was built",
+  "status": "in progress",
+  "featured": 12,
+  "tools": [
+    "Python",
+    "DSPy",
+    "Hugging Face datasets",
+    "OpenRouter",
+    "Slurm / vLLM",
+    "pandas",
+    "LaTeX"
+  ],
+  "links": [
+    {
+      "label": "Explore the items (Hugging Face Space)",
+      "url": "https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer"
+    },
+    {
+      "label": "Code on GitHub",
+      "url": "https://github.com/dom-martinelli/Growth-MedQA"
+    },
+    {
+      "label": "Dataset on Hugging Face",
+      "url": "https://huggingface.co/datasets/dmartinelli/growth-medqa"
+    }
+  ],
+  "figures": [
+    {
+      "file": "assets/fig/deck/medqa-saturation.png",
+      "note": "MedQA is saturated: the exam no longer separates models. top score by year, from a 37 per cent retriever-reader in 2020 to the whole frontier above 90 per cent by 2026."
+    },
+    {
+      "file": "assets/fig/sibmi/pediatrics-is-a-minority.png",
+      "note": "pediatrics is a minority in every general medical-QA benchmark; the median share is 10.4%."
+    },
+    {
+      "file": "assets/fig/psb/benchmark-coverage-matrix.jpg",
+      "note": "what existing medical benchmarks cover, and the growth-assessment axes none of them isolate."
+    },
+    {
+      "file": "assets/fig/amia/benchmark-composition.png",
+      "note": "what the 960 items are made of: nine public sources screened from 224,705 questions."
+    },
+    {
+      "file": "assets/fig/growth/growth_medqa_fig1_construction.png",
+      "note": "how the 960-item set was built."
+    },
+    {
+      "file": "assets/fig/amia/study-workflow.png",
+      "note": "the study workflow from source benchmarks to labelled corpus."
+    }
+  ],
+  "host_file": "",
+  "line": "whether a model that passes medical exams can be trusted on a clinical task, for anyone evaluating one: 960 pediatric growth items screened from 224,705, labelled against two published clinical rubrics",
+  "question": "When a model scores well on medical exams, is it competent at the growth-assessment tasks a clinician would lean on it for?",
+  "skills": [
+    "benchmark design",
+    "LLM evaluation",
+    "annotation schema design",
+    "provenance auditing",
+    "clinical taxonomy crosswalking"
+  ],
+  "data": [
+    "MedQA",
+    "MedMCQA",
+    "MedXpertQA",
+    "MMLU medicine",
+    "PubMedQA",
+    "MedBullets",
+    "PediatricsMQA",
+    "ICPED / HPO",
+    "USMLE competencies"
+  ],
+  "calls": [
+    "growth relevance defined by whether the answer depends on the growth data, not by whether a height or weight appears in the stem.",
+    "one frozen labeling run over the whole corpus with a blinded stratified human audit, rather than routing only prefilter-positive rows to the stronger classifier. every row gets the same measurement process.",
+    "classifier instructions rewritten around primary subject and question target instead of adding few-shot examples. the failure mode was keyword surface matching, not a shortage of examples.",
+    "labels and item ids released for one source dataset rather than its question text. that source states no license; the others are MIT, Apache or CC BY-SA.",
+    "rare-disease corpora held out of the registry. they pull the benchmark away from the primary-care pediatric setting it is meant to describe.",
+    "construction figures over result figures while the paper is under review. a reader can judge whether a benchmark is well made without seeing who won on it, and that is the only claim currently safe to make."
+  ],
+  "broke": [
+    "an early version of the vignette trajectories was described as built from the official LMS pipeline but had hand-entered approximations, and some reconstructed curves were not physiologically possible. caught in a claim-by-claim audit of my own design docs.",
+    "the case registry meant to guarantee item provenance was nearly empty, so it never protected the evaluated items.",
+    "a full-corpus batch labeling run failed for a billing reason and had to be replanned around a cheaper route; an earlier queue was built on a corpus that got superseded and could not be resumed.",
+    "one table generator overwrites another table's source file with no warning, so build order still has to be repaired by hand."
+  ],
+  "tried": "this card carried 37 figures while its own text said it showed no scores. sixteen of them were score or ranking panels, and they disagreed with each other: panels of eight, ten, sixteen and twenty-two models sat side by side, and three figures still used a growth-role label axis the project dropped. they came from four different eras of the analysis and were never reconciled. cut to the six that describe construction, which is the part that is settled and the part the scope covers.",
+  "not_shown": [
+    "no model scores, rankings or per-model panels, on this card or anywhere on this site. the manuscript is under review and the agreed scope with the clinical collaborator is item-level labelling, not a model evaluation. what is shown is how the benchmark was built.",
+    "the 22-model results exist and are held until the paper is out."
+  ],
+  "public": true
 }

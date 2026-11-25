@@ -67,98 +67,28 @@
     <p class="paper-note">an adversarial autoencoder, one of the six generative model families the review covers.</p>
   </div>
 </article></div><div class="drafts"><span class="margin-note">in progress</span><ul><li><b>Evaluating large language models on pediatric growth assessment</b> &middot; with J. Lee, I. Kohane, C. Soto Rivera, J. Hatoun, L. Vernacchio, E. C. Trudell and N. Rabbani. Submitted to AMIA 2027 Amplify Informatics, under review</li><li><b>An ICD-10 index of medical question-answering benchmark items</b> &middot; with J. Lee and colleagues. In preparation</li><li><b>Is there a patient-involvement citation advantage? Evidence from biomedical publications</b> &middot; manuscript complete, October 2026; preprint and Scientometrics submission in progress</li><li><b>Patient-led findings and shifts in research attention: Long COVID and ME/CFS</b> &middot; with Y. Yin. In preparation</li><li><b>Dietary methyl donors and the epigenetic hypothesis of Alzheimer&#x27;s disease</b> &middot; review, drafted 2022: folate, B6 and B12 through one-carbon metabolism to DNA methylation in AD</li><li><b>Semax at the melanocortin-4 receptor: a molecular dynamics study</b> &middot; draft, 2022: docking and GROMACS simulations against the 7PIU structure</li></ul></div></section>
-  <section class="shelf" id="analyses"><h2>Projects<span class="count">20</span></h2><div class="grid"><a class="tile tile-wide" href="projects/patient-innovation-index.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/pii-v7/fig1-study-design.webp" alt="the study in one figure. 23,584 PubMed papers scored for 13 text signals; a language model and a human coder validate 169 and 50 of them; 553 papers keep a report of partnership or organization support. right panel: +70% against random PubMed papers, +28% adjusted, +8% matched; -2% against the 12,222 unflagged papers from the same search, -8% adjusted; +34% within open access for papers naming a patient organization in full text." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Is there a patient-involvement citation advantage?</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">composite index construction · control-set design · coarsened exact matching · field-normalised citation analysis</p>
-    <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li></ul>
-  </div>
-</a><a class="tile" href="projects/benchmark-item-audit.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/benchmark-audit/audit-overview.webp" alt="left: the 960 items the models were graded on, with the 92 that carry a defect picked out. 74 have letters deleted inside words, 19 are padded out to five choices with a literal &#x27;n/a&#x27;, and one offers three copies of an empty image tag as its options. right: the 144 MedMCQA questions that appear twice with different answer keys, split by why they differ. Reporting 144 as the number of contradictions would have overstated it threefold." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Are the questions sound enough to grade a model on?</h3><span class="status status-finished">finished</span></div>
-    <p class="skills">data-quality checks as a pipeline gate, not a one-off script · writing detectors with positive and negative controls · deterministic text matching and its limits · regression baselines over third-party data</p>
-    <ul class="tags"><li>Python (standard library only)</li><li>pytest</li><li>Playwright</li><li>GitHub Actions</li></ul>
-  </div>
-</a><a class="tile" href="projects/growth-medqa.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/deck/medqa-saturation.webp" alt="MedQA is saturated: the exam no longer separates models. top score by year, from a 37 per cent retriever-reader in 2020 to the whole frontier above 90 per cent by 2026." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>A pediatric growth benchmark: how it was built</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">benchmark design · LLM evaluation · annotation schema design · provenance auditing</p>
-    <ul class="tags"><li>Python</li><li>DSPy</li><li>Hugging Face datasets</li><li>OpenRouter</li></ul>
-  </div>
-</a><a class="tile" href="projects/wegovy-teardown.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/wegovy/specialty-mix-slope.webp" alt="the hero. Wegovy&#x27;s share of reportable physician payment dollars by specialty, 2022 to 2024. endocrinology 66.6% to 33.8%, cardiovascular disease 5.3% to 28.7%. the SELECT cardiovascular indication landed in March 2024 and the recorded payment mix moved with it." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Wegovy vs. Zepbound: a commercial teardown</h3><span class="status status-finished">finished</span></div>
-    <p class="skills">competitive positioning · payer and pricing analysis · lifecycle and exclusivity mapping · reading a label as a commercial asset</p>
-    <ul class="tags"><li>CMS Open Payments</li><li>FDA Orange Book</li><li>Medicare pricing files</li><li>matplotlib</li></ul>
-  </div>
-</a><div class="tile">
-  <div class="panel panel-dark panel-live"><a href="https://dom-martinelli.github.io/growthradar-lite/"><img src="assets/thumb/assets/fig/growthradar-lite-1.webp" alt="the sample patient&#x27;s height and weight from the record, with flagged points marked. below, height velocity between visits: the early jumps of 48 and 23 cm a year are flagged as likely measurement artifacts, so a bad entry is caught before it reads as a growth problem." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>
-  <a class="tile-body" href="projects/growthradar-lite.html">
-    <div class="tile-top"><h3>Growth monitoring from the health record</h3><span class="status status-live">live</span></div>
-    <p class="skills">SMART on FHIR integration · OAuth 2.0 / PKCE · FHIR querying and parsing · clinical rule design</p>
-    <ul class="tags"><li>JavaScript (no build step)</li><li>Chart.js</li><li>Web Crypto</li><li>Epic FHIR R4</li></ul>
-  </a>
-</div><a class="tile" href="projects/pgx-trials.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/pgx-trials-1.webp" alt="share of trial sites in the United States, by start year, for trials cited as evidence in PharmGKB gene–drug relationships. colour is the number of trials that year. the US share falls from around half in the late 2000s to a fifth or less after 2016." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Countries behind PharmGKB gene–drug evidence, over time</h3><span class="status status-exploratory">exploratory</span></div>
-    <p class="skills">evidence linkage across databases · schema-aware ETL · pharmacogenomics · trial registry analysis</p>
-    <ul class="tags"><li>Python</li><li>pandas</li><li>AACT (PostgreSQL)</li><li>PharmGKB</li></ul>
-  </div>
-</a><div class="tile">
+  <section class="shelf" id="analyses"><h2>Projects<span class="count">20</span></h2><div class="grid"><div class="tile tile-wide">
   <div class="panel panel-live"><a href="https://huggingface.co/spaces/dmartinelli/medical-benchmark-disease-index"><img src="assets/thumb/assets/fig/icd-index-1.webp" alt="the pipeline: collect 14,088 items, label each condition and its role with a local model, map names to ICD-10-CM through the official Alphabetic Index, check with two other models, then publish a searchable explorer." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>
   <a class="tile-body" href="projects/icd-index.html">
     <div class="tile-top"><h3>Which diseases medical AI benchmarks actually test</h3><span class="status status-in-progress">in progress</span></div>
     <p class="skills">benchmark auditing · clinical coding (ICD-10-CM, CCSR) · LLM labelling with validation · reproducible pipelines</p>
     <ul class="tags"><li>Python</li><li>Ollama (local models)</li><li>rapidfuzz</li><li>sentence-transformers</li></ul>
   </a>
-</div><div class="tile">
-  <div class="panel panel-live"><a href="https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer"><img src="assets/thumb/assets/fig/explorer/leaderboard.webp" alt="leaderboard: accuracy on whatever slice you have filtered to, next to the same model&#x27;s accuracy on all items, with the delta and a Wilson interval. narrow the filter to a growth-specific slice and watch the order change." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>
-  <a class="tile-body" href="projects/growth-medqa-explorer.html">
-    <div class="tile-top"><h3>Growth-MedQA Explorer</h3><span class="status status-live">live</span></div>
-    <p class="skills">interactive dashboards · making an evaluation auditable · designing a contribution path for clinicians</p>
-    <ul class="tags"><li>Streamlit</li><li>pandas</li><li>Plotly</li><li>pyarrow</li></ul>
-  </a>
-</div><a class="tile" href="projects/wakespace.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/reward/glp1r-periphery.webp" alt="left, the reward network with node size and line width scaled by STRING confidence; GLP1R sits off the cluster on a single link to tyrosine hydroxylase. right, every gene ranked by the summed confidence of its links, with GLP1R at 0.41 against 9.84 for DRD2." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Reward-pathway drugs by shared chemistry and target network</h3><span class="status status-finished">finished</span></div>
-    <p class="skills">cheminformatics · molecular descriptor analysis · API data collection · figure design</p>
-    <ul class="tags"><li>PubChem PUG REST</li><li>Python</li><li>STRING v12</li><li>matplotlib</li></ul>
-  </div>
-</a><a class="tile" href="projects/sweetspace.html">
-  <div class="panel"><img src="assets/thumb/gallery/odor-structure-topography.webp" alt="each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Odor and sweetness across 3,522 flavor molecules</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">cheminformatics · molecular fingerprints · dimensionality reduction · baseline-controlled modelling</p>
-    <ul class="tags"><li>Python</li><li>RDKit</li><li>scikit-learn</li><li>SHAP</li></ul>
-  </div>
-</a><a class="tile" href="projects/over-referral.html">
+</div><a class="tile" href="projects/over-referral.html">
   <div class="panel"><img src="assets/thumb/assets/fig/sibmi/bedside-explodes-apart.webp" alt="at the bedside the field explodes apart. the same 16 models triaging healthy children range from every child right to almost none." loading="lazy" decoding="async"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>How 16 LLMs triage healthy children</h3><span class="status status-in-progress">in progress</span></div>
     <p class="skills">deployment-behaviour benchmark design · prompt condition and ablation design · LLM evaluation at scale · clinical cost and PPV modelling</p>
     <ul class="tags"><li>Python</li><li>OpenRouter</li><li>open and frontier model APIs</li><li>pandas</li></ul>
   </div>
-</a><a class="tile" href="projects/stroke-belt.html">
-  <div class="panel"><img src="assets/thumb/assets/fig/stroke-belt-2.webp" alt="insurance coverage among older adults, same geography." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Hypertension treatment and insurance coverage in the Stroke Belt</h3><span class="status status-finished">finished</span></div>
-    <p class="skills">geospatial joins · choropleth mapping · area-level regression · permutation testing of preregistered hypotheses</p>
-    <ul class="tags"><li>Python</li><li>GeoPandas</li><li>scikit-learn</li><li>folium</li></ul>
-  </div>
-</a><a class="tile" href="projects/evidence-lag.html">
-  <div class="panel"><img src="assets/thumb/gallery/glp1-signal-vs-approval.webp" alt="first FAERS report mentioning weight, first approval, and the weight indication, per GLP-1 drug." loading="lazy" decoding="async"></div>
-  <div class="tile-body">
-    <div class="tile-top"><h3>Lag from new evidence to guidelines, labels and papers, in four cases</h3><span class="status status-in-progress">in progress</span></div>
-    <p class="skills">bibliometric trend analysis · pharmacovigilance signal analysis · rate-limited API pipelines · denominator normalisation</p>
-    <ul class="tags"><li>Python</li><li>NCBI E-utilities</li><li>openFDA</li><li>pandas</li></ul>
-  </div>
-</a><a class="tile" href="projects/patient-led-science.html">
+</a><div class="tile">
+  <div class="panel panel-dark panel-live"><a href="https://dom-martinelli.github.io/growthradar-lite/"><img src="assets/thumb/assets/fig/growthradar-lite-1.webp" alt="the sample patient&#x27;s height and weight from the record, with flagged points marked. below, height velocity between visits: the early jumps of 48 and 23 cm a year are flagged as likely measurement artifacts, so a bad entry is caught before it reads as a growth problem." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>
+  <a class="tile-body" href="projects/growthradar-lite.html">
+    <div class="tile-top"><h3>Auxology at the point of care, with and without the record</h3><span class="status status-live">live</span></div>
+    <p class="skills">SMART on FHIR integration · OAuth 2.0 / PKCE · FHIR querying and parsing · clinical rule design</p>
+    <ul class="tags"><li>JavaScript (no build step)</li><li>Chart.js</li><li>Web Crypto</li><li>Epic FHIR R4</li></ul>
+  </a>
+</div><a class="tile" href="projects/patient-led-science.html">
   <div class="panel"><img src="assets/thumb/assets/fig/long-covid/who-said-first.webp" alt="who said it first: days between the first patient record and the first scientific record, per symptom, 2020." loading="lazy" decoding="async"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Do patients&#x27; ideas reach the research?</h3><span class="status status-in-progress">in progress</span></div>
@@ -172,7 +102,77 @@
     <p class="skills">public-data reporting · interactive data visualisation · regulatory literature review</p>
     <ul class="tags"><li>HTML</li><li>CSS</li><li>vanilla JavaScript</li><li>CSV pipeline</li></ul>
   </a>
-</div><a class="tile" href="projects/pkpd-simulator.html">
+</div><a class="tile" href="projects/pgx-trials.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/pgx-trials-1.webp" alt="share of trial sites in the United States, by start year, for trials cited as evidence in PharmGKB gene–drug relationships. colour is the number of trials that year. the US share falls from around half in the late 2000s to a fifth or less after 2016." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Countries behind PharmGKB gene–drug evidence, over time</h3><span class="status status-exploratory">exploratory</span></div>
+    <p class="skills">evidence linkage across databases · schema-aware ETL · pharmacogenomics · trial registry analysis</p>
+    <ul class="tags"><li>Python</li><li>pandas</li><li>AACT (PostgreSQL)</li><li>PharmGKB</li></ul>
+  </div>
+</a><a class="tile" href="projects/patient-innovation-index.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/pii-v7/fig1-study-design.webp" alt="the study in one figure. 23,584 PubMed papers scored for 13 text signals; a language model and a human coder validate 169 and 50 of them; 553 papers keep a report of partnership or organization support. right panel: +70% against random PubMed papers, +28% adjusted, +8% matched; -2% against the 12,222 unflagged papers from the same search, -8% adjusted; +34% within open access for papers naming a patient organization in full text." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Is there a patient-involvement citation advantage?</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">composite index construction · control-set design · LLM-as-judge: rubric design, agreement against hand labels · coarsened exact matching</p>
+    <ul class="tags"><li>Python</li><li>statsmodels</li><li>scikit-learn</li><li>sentence-transformers</li></ul>
+  </div>
+</a><a class="tile" href="projects/stroke-belt.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/stroke-belt-2.webp" alt="insurance coverage among older adults, same geography." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Hypertension treatment and insurance coverage in the Stroke Belt</h3><span class="status status-finished">finished</span></div>
+    <p class="skills">geospatial joins · choropleth mapping · area-level regression · standardised multivariable regression, reported with its fit</p>
+    <ul class="tags"><li>Python</li><li>GeoPandas</li><li>scikit-learn</li><li>folium</li></ul>
+  </div>
+</a><a class="tile" href="projects/wakespace.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/reward/glp1r-periphery.webp" alt="left, the reward network with node size and line width scaled by STRING confidence; GLP1R sits off the cluster on a single link to tyrosine hydroxylase. right, every gene ranked by the summed confidence of its links, with GLP1R at 0.41 against 9.84 for DRD2." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Reward-pathway drugs by shared chemistry and target network</h3><span class="status status-finished">finished</span></div>
+    <p class="skills">cheminformatics · molecular descriptor analysis · API data collection · figure design</p>
+    <ul class="tags"><li>PubChem PUG REST</li><li>Python</li><li>STRING v12</li><li>matplotlib</li></ul>
+  </div>
+</a><div class="tile">
+  <div class="panel panel-live"><a href="https://huggingface.co/spaces/dmartinelli/growth-medqa-explorer"><img src="assets/thumb/assets/fig/explorer/leaderboard.webp" alt="leaderboard: accuracy on whatever slice you have filtered to, next to the same model&#x27;s accuracy on all items, with the delta and a Wilson interval. narrow the filter to a growth-specific slice and watch the order change." loading="lazy" decoding="async"><span class="live-badge">&#9654; open the interactive version</span></a></div>
+  <a class="tile-body" href="projects/growth-medqa-explorer.html">
+    <div class="tile-top"><h3>A browser for the pediatric endocrinology benchmark</h3><span class="status status-live">live</span></div>
+    <p class="skills">interactive dashboards · making an evaluation auditable · designing a contribution path for clinicians</p>
+    <ul class="tags"><li>Streamlit</li><li>pandas</li><li>Plotly</li><li>pyarrow</li></ul>
+  </a>
+</div><a class="tile" href="projects/benchmark-item-audit.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/benchmark-audit/audit-overview.webp" alt="left: the 960 items the models were graded on, with the 92 that carry a defect picked out. 74 have letters deleted inside words, 19 are padded out to five choices with a literal &#x27;n/a&#x27;, and one offers three copies of an empty image tag as its options. right: the 144 MedMCQA questions that appear twice with different answer keys, split by why they differ. Reporting 144 as the number of contradictions would have overstated it threefold." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Are the questions sound enough to grade a model on?</h3><span class="status status-finished">finished</span></div>
+    <p class="skills">data-quality checks as a pipeline gate, not a one-off script · writing detectors with positive and negative controls · deterministic text matching and its limits · regression baselines over third-party data</p>
+    <ul class="tags"><li>Python (standard library only)</li><li>pytest</li><li>Playwright</li><li>GitHub Actions</li></ul>
+  </div>
+</a><a class="tile" href="projects/growth-medqa.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/deck/medqa-saturation.webp" alt="MedQA is saturated: the exam no longer separates models. top score by year, from a 37 per cent retriever-reader in 2020 to the whole frontier above 90 per cent by 2026." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>A pediatric endocrinology benchmark: how it was built</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">benchmark design · LLM evaluation · annotation schema design · provenance auditing</p>
+    <ul class="tags"><li>Python</li><li>DSPy</li><li>Hugging Face datasets</li><li>OpenRouter</li></ul>
+  </div>
+</a><a class="tile" href="projects/wegovy-teardown.html">
+  <div class="panel"><img src="assets/thumb/assets/fig/wegovy/specialty-mix-slope.webp" alt="the hero. Wegovy&#x27;s share of reportable physician payment dollars by specialty, 2022 to 2024. endocrinology 66.6% to 33.8%, cardiovascular disease 5.3% to 28.7%. the SELECT cardiovascular indication landed in March 2024 and the recorded payment mix moved with it." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Wegovy vs. Zepbound: a commercial teardown</h3><span class="status status-finished">finished</span></div>
+    <p class="skills">competitive positioning · payer and pricing analysis · lifecycle and exclusivity mapping · reading a label as a commercial asset</p>
+    <ul class="tags"><li>CMS Open Payments</li><li>FDA Orange Book</li><li>Medicare pricing files</li><li>matplotlib</li></ul>
+  </div>
+</a><a class="tile" href="projects/sweetspace.html">
+  <div class="panel"><img src="assets/thumb/gallery/odor-structure-topography.webp" alt="each panel: one odour word on the same map of 3,522 molecules. garlic and vanilla sit in tight structural clumps. sweet is spread across the whole space." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Odor and sweetness across 3,522 flavor molecules</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">cheminformatics · molecular fingerprints · dimensionality reduction · baseline-controlled modelling</p>
+    <ul class="tags"><li>Python</li><li>RDKit</li><li>scikit-learn</li><li>SHAP</li></ul>
+  </div>
+</a><a class="tile" href="projects/evidence-lag.html">
+  <div class="panel"><img src="assets/thumb/gallery/glp1-signal-vs-approval.webp" alt="first FAERS report mentioning weight, first approval, and the weight indication, per GLP-1 drug." loading="lazy" decoding="async"></div>
+  <div class="tile-body">
+    <div class="tile-top"><h3>Lag from new evidence to guidelines, labels and papers, in four cases</h3><span class="status status-in-progress">in progress</span></div>
+    <p class="skills">bibliometric trend analysis · pharmacovigilance signal analysis · rate-limited API pipelines · denominator normalisation</p>
+    <ul class="tags"><li>Python</li><li>NCBI E-utilities</li><li>openFDA</li><li>pandas</li></ul>
+  </div>
+</a><a class="tile" href="projects/pkpd-simulator.html">
   <div class="panel"><img src="assets/thumb/assets/fig/pkpd/pk-sliders.webp" alt="the model run at the notebook&#x27;s own defaults. left, dose moves the curve up and down without changing when the drug leaves. right, clearance changes the half-life from 3.3 hours to 0.8 across the slider&#x27;s range. the Streamlit version lets you drag both." loading="lazy" decoding="async"></div>
   <div class="tile-body">
     <div class="tile-top"><h3>Interactive pharmacokinetic model: dose, clearance and half-life</h3><span class="status status-finished">finished</span></div>

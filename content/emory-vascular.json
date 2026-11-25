@@ -113,5 +113,6 @@
       "note": "the notebook's original waterfall, kept as saved output. it is the same kind of plot as the one above but computed on the eight-sample reference dataset, not on Emory: gene-set enrichment for mitotic spindle organisation, strongly down in senescent cells at NES -3.18. shown because it is what the notebook actually had."
     }
   ],
-  "acknowledgement": "Data used here were obtained from the AD Knowledge Portal (adknowledgeportal.synapse.org). The results published here are in whole or in part based on data obtained from the AD Knowledge Portal. The author thanks the study investigators and participants."
+  "acknowledgement": "Data used here were obtained from the AD Knowledge Portal (adknowledgeportal.synapse.org). The results published here are in whole or in part based on data obtained from the AD Knowledge Portal. The author thanks the study investigators and participants.",
+  "featured": 20
 }

@@ -7,43 +7,43 @@ To move a card, change its `featured` number and run `python3 build.py`.
 
 ## Projects
 
-1. **patient-innovation-index** — Is there a patient-involvement citation advantage?  
-   <sub>featured 1 · in progress · 4 figures</sub>
-2. **benchmark-item-audit** — Are the questions sound enough to grade a model on?  
-   <sub>featured 2 · finished · 1 figure</sub>
-3. **growth-medqa** — A pediatric growth benchmark: how it was built  
-   <sub>featured 3 · in progress · 6 figures</sub>
-4. **wegovy-teardown** — Wegovy vs. Zepbound: a commercial teardown  
-   <sub>featured 4 · finished · 5 figures</sub>
-5. **growthradar-lite** — Growth monitoring from the health record  
+1. **icd-index** — Which diseases medical AI benchmarks actually test  
+   <sub>featured 1 · in progress · 2 figures</sub>
+2. **over-referral** — How 16 LLMs triage healthy children  
+   <sub>featured 2 · in progress · 18 figures</sub>
+3. **growthradar-lite** — Auxology at the point of care, with and without the record  
+   <sub>featured 3 · live · 1 figure</sub>
+4. **patient-led-science** — Do patients' ideas reach the research?  
+   <sub>featured 4 · in progress · 5 figures</sub>
+5. **fda-ai-devices** — FDA-authorized AI devices  
    <sub>featured 5 · live · 1 figure</sub>
 6. **pgx-trials** — Countries behind PharmGKB gene–drug evidence, over time  
-   <sub>unpinned · exploratory · 1 figure</sub>
-7. **icd-index** — Which diseases medical AI benchmarks actually test  
-   <sub>unpinned · in progress · 2 figures</sub>
-8. **growth-medqa-explorer** — Growth-MedQA Explorer  
-   <sub>unpinned · live · 3 figures</sub>
+   <sub>featured 6 · exploratory · 1 figure</sub>
+7. **patient-innovation-index** — Is there a patient-involvement citation advantage?  
+   <sub>featured 7 · in progress · 4 figures</sub>
+8. **stroke-belt** — Hypertension treatment and insurance coverage in the Stroke Belt  
+   <sub>featured 8 · finished · 5 figures</sub>
 9. **wakespace** — Reward-pathway drugs by shared chemistry and target network  
-   <sub>unpinned · finished · 4 figures</sub>
-10. **sweetspace** — Odor and sweetness across 3,522 flavor molecules  
-   <sub>unpinned · in progress · 3 figures</sub>
-11. **over-referral** — How 16 LLMs triage healthy children  
-   <sub>unpinned · in progress · 18 figures</sub>
-12. **stroke-belt** — Hypertension treatment and insurance coverage in the Stroke Belt  
-   <sub>unpinned · finished · 5 figures</sub>
-13. **evidence-lag** — Lag from new evidence to guidelines, labels and papers, in four cases  
-   <sub>unpinned · in progress · 4 figures</sub>
-14. **patient-led-science** — Do patients' ideas reach the research?  
-   <sub>unpinned · in progress · 5 figures</sub>
-15. **fda-ai-devices** — FDA-authorized AI devices  
-   <sub>unpinned · live · 1 figure</sub>
+   <sub>featured 9 · finished · 4 figures</sub>
+10. **growth-medqa-explorer** — A browser for the pediatric endocrinology benchmark  
+   <sub>featured 10 · live · 3 figures</sub>
+11. **benchmark-item-audit** — Are the questions sound enough to grade a model on?  
+   <sub>featured 11 · finished · 1 figure</sub>
+12. **growth-medqa** — A pediatric endocrinology benchmark: how it was built  
+   <sub>featured 12 · in progress · 6 figures</sub>
+13. **wegovy-teardown** — Wegovy vs. Zepbound: a commercial teardown  
+   <sub>featured 13 · finished · 5 figures</sub>
+14. **sweetspace** — Odor and sweetness across 3,522 flavor molecules  
+   <sub>featured 14 · in progress · 3 figures</sub>
+15. **evidence-lag** — Lag from new evidence to guidelines, labels and papers, in four cases  
+   <sub>featured 15 · in progress · 4 figures</sub>
 16. **pkpd-simulator** — Interactive pharmacokinetic model: dose, clearance and half-life  
-   <sub>unpinned · finished · 1 figure</sub>
+   <sub>featured 16 · finished · 1 figure</sub>
 17. **patient-flows** — Where Southern patients go for a hospital stay  
-   <sub>unpinned · done · 1 figure</sub>
+   <sub>featured 17 · done · 1 figure</sub>
 18. **bupropion-market** — Grouping antidepressants by monoamine transporter activity  
-   <sub>unpinned · in progress · 3 figures</sub>
+   <sub>featured 18 · in progress · 3 figures</sub>
 19. **treated-disease** — Separating diabetes from metformin effects in blood proteins  
-   <sub>unpinned · finished · 1 figure</sub>
+   <sub>featured 19 · finished · 1 figure</sub>
 20. **emory-vascular** — What a blood signature of diabetes medication is actually made of  
-   <sub>unpinned · finished · 10 figures</sub>
+   <sub>featured 20 · finished · 10 figures</sub>

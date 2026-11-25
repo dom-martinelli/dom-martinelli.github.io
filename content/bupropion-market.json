@@ -1,69 +1,70 @@
 {
- "slug": "bupropion-market",
- "tab": "molecules",
- "title": "Grouping antidepressants by monoamine transporter activity",
- "status": "in progress",
- "public": true,
- "line": "what a differentiated mechanism is actually worth, for anyone pricing an atypical asset: bupropion reached the market two years before Prozac and outlived the serotonin era it never joined",
- "question": "Bupropion was approved in December 1985, two years before Prozac, and does not touch serotonin. It was then withdrawn, brought back, and ended up carrying smoking cessation and obesity. What did the atypical mechanism actually buy, and when?",
- "tools": [
-  "openFDA Drugs@FDA",
-  "ChEMBL mechanism-of-action",
-  "ClinicalTrials.gov API v2",
-  "RDKit",
-  "scikit-learn"
- ],
- "skills": [
-  "competitive mechanism analysis",
-  "indication lifecycle analysis",
-  "reading a target landscape commercially"
- ],
- "data": [
-  "FDA Drugs@FDA approval records (NDA 018644, NDA 018936)",
-  "ChEMBL approved-drug mechanisms for the three monoamine transporters",
-  "all 508 registered trials with bupropion as an intervention, 1994 to 2025"
- ],
- "did": [
-  "counted every approved drug in ChEMBL acting on the serotonin, dopamine and norepinephrine transporters, to size the market bupropion chose not to enter.",
-  "pulled all 508 registered bupropion trials and bucketed them by condition text into indication families, then tracked each family cumulatively by start year.",
-  "read the mechanism records against the trial record to see whether the commercial life of the molecule followed its original indication or its pharmacology."
- ],
- "found": [
-  "bupropion was approved on 30 December 1985 (NDA 018644). Prozac followed on 29 December 1987 (NDA 018936). The drug did not enter a serotonin market. It arrived before there was one.",
-  "bupropion's mechanistic neighbours are not antidepressants. the ten approved drugs that hit dopamine and norepinephrine without serotonin are bupropion, methylphenidate, dexmethylphenidate, serdexmethylphenidate, amphetamine, dextroamphetamine, lisdexamfetamine, diethylpropion, phendimetrazine and phenmetrazine: the ADHD stimulant class and the anorectics.",
-  "the mechanistic class is a chemical class too. the ten are more structurally similar to each other than chance allows (mean Tanimoto 0.25 against 0.14 for the rest, permutation p below 0.001), and they are smaller and less lipophilic than the other 47. polarity does not distinguish them.",
-  "25 approved drugs now inhibit the serotonin transporter. almost all of them arrived after bupropion did, so that count measures the era bupropion survived rather than the one it entered.",
-  "smoking and nicotine trials passed depression trials in 1999 and never gave the lead back. across the dated record there are 164 smoking trials against 138 for depression, with obesity and weight arriving in 2005 and reaching 56."
- ],
- "so_what": [
-  "the value of an atypical mechanism showed up in indication count, decades after launch, not in the launch itself. anyone valuing a differentiated asset on its first label is pricing the wrong thing.",
-  "being early and being differentiated are separate advantages and bupropion had both. the serotonin wave it is usually contrasted with arrived afterwards and did not displace it, because a dopamine and norepinephrine drug could go where SSRIs could not.",
-  "this is the counterpart to the Wegovy teardown. there a brand defended a crowded class by buying a claim its rival could not make; here a molecule outlasted a class it was never part of."
- ],
- "calls": [
-  "approved drugs per target rather than prescription volume. Prescription data is proprietary; the mechanism landscape is public and is what a development decision actually faces.",
-  "trial counts as the proxy for commercial attention, since they are the public record of where sponsors spent. They undercount marketing and overcount academic interest, and that is stated rather than corrected for.",
-  "condition text buckets rather than MeSH terms. The registry's free-text conditions are messy but they are what sponsors actually wrote.",
-  "Morgan fingerprints with a permutation test rather than a picture of a cluster. ten points can look grouped in any projection, so the claim rests on the similarity statistic. the same map is drawn in all three panels so the classes can be compared rather than each one being re-scaled to flatter itself."
- ],
- "not_shown": [
-  "revenue, prescription share and the internal case for the original programme are not public, so the commercial story here is reconstructed from the approval, mechanism and trial record only",
-  "the 1986 withdrawal over seizure risk and the 1989 reintroduction are the pivot of this story and are not yet in any figure"
- ],
- "host_file": "",
- "figures": [
-  {
-   "file": "assets/fig/bupropion/transporter-classes.png",
-   "note": "every approved drug on the three monoamine transporters, grouped by which it hits. the highlighted row is the ten that take dopamine and norepinephrine while leaving serotonin alone: bupropion, and otherwise the ADHD stimulant class and the appetite suppressants. the drug filed as an antidepressant has no antidepressant neighbours. counts are present-day, so they describe the era bupropion survived, not the one it entered in 1985."
-  },
-  {
-   "file": "assets/fig/bupropion/chemical-space.png",
-   "note": "the same map three times, one panel per mechanism, with all 57 approved drugs in grey and the labelled class contoured. the serotonin classes sprawl across the whole space; the ten that take dopamine and norepinephrine without serotonin sit in one corner of it. mean Tanimoto within those ten is 0.25 against 0.14 elsewhere, and no draw of ten in 5,000 reached that, p below 0.001."
-  },
-  {
-   "file": "assets/fig/bupropion/indication-expansion.png",
-   "note": "cumulative registered trials by indication family. smoking passes depression in 1999 and stays ahead, 164 to 138 across the dated record, with obesity and weight arriving in 2005. the atypical mechanism is what made the second and third lives available."
-  }
- ],
- "tried": "first draft framed this as entering a market serotonin already dominated, and used the present-day count of 25 serotonin-transporter drugs as the thing bupropion was up against. the dates kill that reading: bupropion 1985, Prozac 1987. a present-day target landscape was being used to describe a 1985 decision. the surviving story is the one the record supports."
+  "slug": "bupropion-market",
+  "tab": "molecules",
+  "title": "Grouping antidepressants by monoamine transporter activity",
+  "status": "in progress",
+  "public": true,
+  "line": "what a differentiated mechanism is actually worth, for anyone pricing an atypical asset: bupropion reached the market two years before Prozac and outlived the serotonin era it never joined",
+  "question": "Bupropion was approved in December 1985, two years before Prozac, and does not touch serotonin. It was then withdrawn, brought back, and ended up carrying smoking cessation and obesity. What did the atypical mechanism actually buy, and when?",
+  "tools": [
+    "openFDA Drugs@FDA",
+    "ChEMBL mechanism-of-action",
+    "ClinicalTrials.gov API v2",
+    "RDKit",
+    "scikit-learn"
+  ],
+  "skills": [
+    "competitive mechanism analysis",
+    "indication lifecycle analysis",
+    "reading a target landscape commercially"
+  ],
+  "data": [
+    "FDA Drugs@FDA approval records (NDA 018644, NDA 018936)",
+    "ChEMBL approved-drug mechanisms for the three monoamine transporters",
+    "all 508 registered trials with bupropion as an intervention, 1994 to 2025"
+  ],
+  "did": [
+    "counted every approved drug in ChEMBL acting on the serotonin, dopamine and norepinephrine transporters, to size the market bupropion chose not to enter.",
+    "pulled all 508 registered bupropion trials and bucketed them by condition text into indication families, then tracked each family cumulatively by start year.",
+    "read the mechanism records against the trial record to see whether the commercial life of the molecule followed its original indication or its pharmacology."
+  ],
+  "found": [
+    "bupropion was approved on 30 December 1985 (NDA 018644). Prozac followed on 29 December 1987 (NDA 018936). The drug did not enter a serotonin market. It arrived before there was one.",
+    "bupropion's mechanistic neighbours are not antidepressants. the ten approved drugs that hit dopamine and norepinephrine without serotonin are bupropion, methylphenidate, dexmethylphenidate, serdexmethylphenidate, amphetamine, dextroamphetamine, lisdexamfetamine, diethylpropion, phendimetrazine and phenmetrazine: the ADHD stimulant class and the anorectics.",
+    "the mechanistic class is a chemical class too. the ten are more structurally similar to each other than chance allows (mean Tanimoto 0.25 against 0.14 for the rest, permutation p below 0.001), and they are smaller and less lipophilic than the other 47. polarity does not distinguish them.",
+    "25 approved drugs now inhibit the serotonin transporter. almost all of them arrived after bupropion did, so that count measures the era bupropion survived rather than the one it entered.",
+    "smoking and nicotine trials passed depression trials in 1999 and never gave the lead back. across the dated record there are 164 smoking trials against 138 for depression, with obesity and weight arriving in 2005 and reaching 56."
+  ],
+  "so_what": [
+    "the value of an atypical mechanism showed up in indication count, decades after launch, not in the launch itself. anyone valuing a differentiated asset on its first label is pricing the wrong thing.",
+    "being early and being differentiated are separate advantages and bupropion had both. the serotonin wave it is usually contrasted with arrived afterwards and did not displace it, because a dopamine and norepinephrine drug could go where SSRIs could not.",
+    "this is the counterpart to the Wegovy teardown. there a brand defended a crowded class by buying a claim its rival could not make; here a molecule outlasted a class it was never part of."
+  ],
+  "calls": [
+    "approved drugs per target rather than prescription volume. Prescription data is proprietary; the mechanism landscape is public and is what a development decision actually faces.",
+    "trial counts as the proxy for commercial attention, since they are the public record of where sponsors spent. They undercount marketing and overcount academic interest, and that is stated rather than corrected for.",
+    "condition text buckets rather than MeSH terms. The registry's free-text conditions are messy but they are what sponsors actually wrote.",
+    "Morgan fingerprints with a permutation test rather than a picture of a cluster. ten points can look grouped in any projection, so the claim rests on the similarity statistic. the same map is drawn in all three panels so the classes can be compared rather than each one being re-scaled to flatter itself."
+  ],
+  "not_shown": [
+    "revenue, prescription share and the internal case for the original programme are not public, so the commercial story here is reconstructed from the approval, mechanism and trial record only",
+    "the 1986 withdrawal over seizure risk and the 1989 reintroduction are the pivot of this story and are not yet in any figure"
+  ],
+  "host_file": "",
+  "figures": [
+    {
+      "file": "assets/fig/bupropion/transporter-classes.png",
+      "note": "every approved drug on the three monoamine transporters, grouped by which it hits. the highlighted row is the ten that take dopamine and norepinephrine while leaving serotonin alone: bupropion, and otherwise the ADHD stimulant class and the appetite suppressants. the drug filed as an antidepressant has no antidepressant neighbours. counts are present-day, so they describe the era bupropion survived, not the one it entered in 1985."
+    },
+    {
+      "file": "assets/fig/bupropion/chemical-space.png",
+      "note": "the same map three times, one panel per mechanism, with all 57 approved drugs in grey and the labelled class contoured. the serotonin classes sprawl across the whole space; the ten that take dopamine and norepinephrine without serotonin sit in one corner of it. mean Tanimoto within those ten is 0.25 against 0.14 elsewhere, and no draw of ten in 5,000 reached that, p below 0.001."
+    },
+    {
+      "file": "assets/fig/bupropion/indication-expansion.png",
+      "note": "cumulative registered trials by indication family. smoking passes depression in 1999 and stays ahead, 164 to 138 across the dated record, with obesity and weight arriving in 2005. the atypical mechanism is what made the second and third lives available."
+    }
+  ],
+  "tried": "first draft framed this as entering a market serotonin already dominated, and used the present-day count of 25 serotonin-transporter drugs as the thing bupropion was up against. the dates kill that reading: bupropion 1985, Prozac 1987. a present-day target landscape was being used to describe a 1985 decision. the surviving story is the one the record supports.",
+  "featured": 18
 }

@@ -15,7 +15,11 @@
   ],
   "links": [
     {
-      "label": "Try it with the synthetic patient (no Epic account needed)",
+      "label": "Try it now, no account of any kind (loads public FHIR demo patients)",
+      "url": "https://dom-martinelli.github.io/growthradar-lite-codex/"
+    },
+    {
+      "label": "The clinician view, synthetic patient or a real Epic launch",
       "url": "https://dom-martinelli.github.io/growthradar-lite/"
     },
     {
@@ -25,10 +29,6 @@
     {
       "label": "Code on GitHub",
       "url": "https://github.com/dom-martinelli/growthradar-lite"
-    },
-    {
-      "label": "Code for the family-facing version",
-      "url": "https://github.com/dom-martinelli/growthbridge-demo"
     }
   ],
   "figures": [
@@ -39,7 +39,7 @@
     }
   ],
   "host_file": "",
-  "line": "two ways into the same growth history: a synthetic patient anyone can open, and a live SMART on FHIR launch against a real record, with implausible jumps flagged before anyone acts on them",
+  "line": "three ways into the same growth history: a public FHIR server anyone can open, a synthetic patient, and a live SMART on FHIR launch against a real record, with implausible jumps flagged before anyone acts on them",
   "question": "Can a browser app read a child's growth history straight from a health record and surface faltering a short visit would miss?",
   "skills": [
     "SMART on FHIR integration",
@@ -67,12 +67,12 @@
   ],
   "tried": "dropped the Epic OAuth launch in the follow-on build for a HAPI server with a patient dropdown, because the teaching vignettes had to be ones I could author and load myself.",
   "not_shown": [
-    "percentiles come from a small embedded boys-only table, interpolated, not a validated LMS engine",
-    "the clinical summary is built but switched off in the deployed copy, behind a feature flag. The code path, the prompt and the key handling are all there; the button is not rendered."
+    "percentiles come from a small embedded boys-only table, interpolated, not a validated LMS engine"
   ],
-  "interactive": "https://dom-martinelli.github.io/growthradar-lite/",
+  "interactive": "https://dom-martinelli.github.io/growthradar-lite-codex/",
   "public": true,
   "did": [
+    "built a version that drops the OAuth flow entirely and reads three demo patients from the public HAPI FHIR server, so the tool can be opened and used by anyone with a browser. It carries the most interpretation of the three: corrected age for prematurity, a mid-parental target height band, a velocity chart with its own flags, reference switching by diagnosis, and CSV and PDF export.",
     "built the clinician view as a SMART on FHIR app: OAuth 2.0 with PKCE, pull Patient and the height, weight and head-circumference Observations, chart them against CDC references.",
     "added a synthetic patient so the tool opens and works with no Epic account and no token. A boy born in 2020 whose growth falters around 30 to 36 months, which is the case the flagging rules exist for.",
     "wrote the plausibility rules that flag an implausible jump before a clinician acts on it, because a mistyped height propagates into a percentile and then into a decision.",

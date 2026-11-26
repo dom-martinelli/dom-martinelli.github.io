@@ -1,0 +1,70 @@
+{
+  "slug": "unmarked-patient",
+  "tab": "medical-ai",
+  "title": "Who does a medical AI picture when nobody says the sex?",
+  "status": "in progress",
+  "public": true,
+  "featured": 23,
+  "line": "a preregistered pilot that failed its own sanity checks, and found something else: models abandon a correct qualification when a clinician pushes back, up to 93% of the time",
+  "question": "Ask a clinical question with no sex given, then as a man, then as a woman. Does the unmarked answer lean toward one of them? And when a clinician contradicts the answer, does the model hold its ground?",
+  "tools": [
+    "Python",
+    "OpenRouter",
+    "four open models",
+    "LLM-as-judge with a judge check",
+    "Wilson intervals",
+    "preregistration under a git commit"
+  ],
+  "skills": [
+    "preregistration with a stated GO / NO-GO rule",
+    "LLM-as-judge with a measured hit rate",
+    "three-turn conversation design",
+    "reporting a measurement failure as the result",
+    "sycophancy measurement"
+  ],
+  "data": [
+    "32 clinical topics across male-default, female-default, neutral and sex-split conditions",
+    "four models: Kimi K2.6, Qwen3 235B A22B, DeepSeek V4 Pro, Llama 4 Maverick",
+    "640 judge calls, no system prompt"
+  ],
+  "did": [
+    "preregistered the design and the GO / NO-GO rule on 1 November against a named git commit, before any model was called.",
+    "asked each topic three ways, unspecified, male-framed and female-framed, then used a judge to say which framed answer the unspecified one resembles.",
+    "measured the judge instead of trusting it, by checking it against known-answer pairs.",
+    "added a second and third turn: ask the model for the most important qualification it left out, then have a clinician contradict it, and code whether it holds, partly holds or abandons."
+  ],
+  "found": [
+    "the headline measure failed. Judge-check hit rate pooled to 58.9% across 640 calls, 95% Wilson CI 0.551 to 0.627, which is too close to chance to read the alignment scores as anything. The preregistered rule could not be applied, so the sex-default question is unanswered.",
+    "the second turn worked and says something plain: models leave out an important qualification and supply it when asked. Across all valid codes the increase from turn 1 to turn 2 is +38.3 percentage points. DeepSeek V4 Pro goes 10.5% to 68.4%.",
+    "59.3% of first-turn answers were coded as written for both sexes or assuming none, so the common failure is omission rather than a wrong default.",
+    "the third turn is the strongest result. When a clinician pushes back on a qualification that genuinely applies, models abandon it 34 to 55% of the time, and on the sex-split topics 93.5% of the time. They hold their ground on 3.2%.",
+    "one example: told breast cancer is not exclusive to women, two models restate the correction with figures. On other topics the same models fold immediately, including apologising for an error they had not made."
+  ],
+  "so_what": [
+    "a sanity check that fails is the result. The judge could not reliably tell two answers apart, so the alignment table is reported and explicitly not interpreted. Publishing the table without the hit rate would have been a finding made of noise.",
+    "the sycophancy number matters more than the question I set out to ask. A model that supplies a correct qualification and then drops it the moment a clinician objects is worse than one that never supplied it, because the clinician now has agreement where they had a check.",
+    "93.5% abandonment on exactly the topics where sex matters most is the one place the original question survives: the model's position is least stable where it should be most careful."
+  ],
+  "calls": [
+    "preregistering against a git commit, so the analysis plan is dated by something I cannot edit afterwards.",
+    "measuring the judge. Most LLM-as-judge pipelines report the judge's verdicts and not its accuracy; here the accuracy is what sank the primary measure.",
+    "not penalising a model for dropping a caveat that does not apply to the patient in that conversation, which is why the pushback table reports only the applicable framings."
+  ],
+  "broke": [
+    "the primary measure. A judge check near chance means the alignment scores carry no signal, and the report says MEASURE FAILURE at the top rather than in a limitations section.",
+    "a measurement redesign reusing 320 existing first-turn answers also failed its gates and does not establish the hypothesis either. Both runs are kept."
+  ],
+  "not_shown": [
+    "any claim about sex defaults. That is the question the pilot was built for and the question it did not answer.",
+    "frontier closed models. Four open models through one provider.",
+    "no human second coder on the qualification codes."
+  ],
+  "tried": "the plan was a clean preregistered answer about whose body a model assumes. The judge check killed it. What is left is an accidental finding about sycophancy that is better evidenced than the thing I went looking for, which is a fair description of most pilots.",
+  "figures": [],
+  "links": [
+    {
+      "label": "Clinicians pushing back in print, the other side of the same question",
+      "url": "clinician-pushback.html"
+    }
+  ]
+}

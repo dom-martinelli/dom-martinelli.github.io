@@ -1,0 +1,65 @@
+{
+  "slug": "clinician-pushback",
+  "tab": "medical-ai",
+  "title": "When clinicians push back on medical AI in print",
+  "status": "in progress",
+  "public": true,
+  "featured": 22,
+  "line": "4,526 PubMed letters and comments on medical AI, 30 read line by line: among confirmed clinician authors, 61% push back",
+  "question": "Medical AI papers are written mostly by people building medical AI. Letters and comments are where practising clinicians answer back. How often do they object, and is the objection the kind another clinician could reasonably dispute?",
+  "tools": [
+    "Python",
+    "PubMed E-utilities",
+    "PMC full text",
+    "hand labelling",
+    "exact binomial intervals"
+  ],
+  "skills": [
+    "literature sampling with a seeded draw",
+    "stance and authorship coding",
+    "reading every label in session rather than delegating it",
+    "exact confidence intervals on small samples",
+    "stopping a pilot at a defensible denominator"
+  ],
+  "data": [
+    "4,526 PubMed records: letters, comments and correspondence on medical AI",
+    "1,374 with an abstract or usable PMC full text, the eligible pool",
+    "a seeded random sample of 300, split 150 full text and 150 abstract"
+  ],
+  "did": [
+    "searched PubMed for letters, comments and correspondence about medical AI and kept the 1,374 records with text that could actually be read.",
+    "drew a seeded random sample of 300 so the selection is reproducible rather than convenient.",
+    "read and labelled the first batch of 30 by hand, coding each for whether an author is a clinician, the stance toward AI, and what kind of objection it makes.",
+    "stopped at 30 instead of estimating the rest, because the 300-record sample runs to 137,011 words and a label that was not read is not a label."
+  ],
+  "found": [
+    "among the 18 records with confirmed clinician authorship, 11 take a pushback or mixed stance. 61.1%, exact 95% CI 35.7 to 82.7%.",
+    "across all 30 records regardless of who wrote them, 18 are pushback or mixed, 60.0%, exact 95% CI 40.6 to 77.3%.",
+    "the stances split 11 supportive, 10 mixed, 8 pushback, 1 neutral. Mixed is the common case: clinicians rarely reject the tool outright, they accept it and name a condition.",
+    "of the 30, 17 make a pushback another clinician could reasonably dispute, and 2 describe a clinician holding their own judgment against an AI answer.",
+    "clinician authorship itself is not a given: 18 of 30 confirmed, 7 not clinicians, 5 unclear from affiliations and degrees alone."
+  ],
+  "so_what": [
+    "the objection is usually conditional, not refusal. A benchmark that scores a model against a checklist has no way to represent 'right, but not for this patient', which is what most of these letters actually say.",
+    "61% is a first-batch pilot number with a confidence interval spanning 36 to 83%. The direction is informative; the point estimate is not yet a finding.",
+    "the existence claim is the defensible one. Clinicians do push back in print, and their pushback is often contestable by another clinician. Prevalence needs the other 270 records."
+  ],
+  "calls": [
+    "reading every labelled record in session. The sample is 137,011 words and a model could have labelled all 300 in minutes, but then the denominator would describe a model's reading, not mine.",
+    "reporting 30 as the denominator everywhere rather than scaling to 300.",
+    "exact binomial intervals rather than normal approximations, because at n=18 the approximation is wrong in a way that flatters the result."
+  ],
+  "broke": [],
+  "not_shown": [
+    "the remaining 270 sampled records. Until they are read, every percentage here is a pilot.",
+    "no comparison against letters in other fields, so there is no baseline rate of disagreement in correspondence generally."
+  ],
+  "tried": "the obvious move was to have a model label all 300 and report a tight interval. The number would have looked better and meant less, because the thing being measured would have become the model's reading of the letters rather than what the letters say.",
+  "figures": [],
+  "links": [
+    {
+      "label": "The benchmark these letters are about",
+      "url": "icd-index.html"
+    }
+  ]
+}

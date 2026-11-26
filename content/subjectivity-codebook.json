@@ -1,0 +1,51 @@
+{
+  "slug": "subjectivity-codebook",
+  "tab": "medical-ai",
+  "title": "A codebook for what medical graders actually disagree about",
+  "status": "in progress",
+  "public": true,
+  "featured": 24,
+  "line": "not whether a checklist line is debatable, but what the disagreement is about: seven types, built from 79 hand-read lines",
+  "question": "A benchmark's checklist lines get scored by physicians who often disagree. A regex can say a line looks debatable. What it cannot say is what two clinicians would be arguing about, which is the thing that decides whether the disagreement is a flaw or the point.",
+  "tools": [
+    "Python",
+    "hand coding",
+    "HealthBench rubric corpus"
+  ],
+  "skills": [
+    "codebook design",
+    "inter-rater reliability planning",
+    "counterfactual tie-break rules",
+    "distinguishing a measurable construct from a vague one"
+  ],
+  "data": [
+    "79 example-level checklist lines across 56 conversations, every one hand-read",
+    "a pool of 1,186 candidate lines awaiting labelling"
+  ],
+  "did": [
+    "rejected the earlier framing. A 22 November run asked whether a line was debatable and answered with a regex, which measures wording rather than disagreement.",
+    "reframed the question so it can be read off a single line: when a reasonable clinician would score this line the other way, what is the disagreement about?",
+    "built seven types naming a kind of disagreement, plus an exit code and a residual, from 79 lines read by hand.",
+    "wrote a master tie-break, a counterfactual test, so a line that fits two types has a stated rule rather than a coder's preference."
+  ],
+  "found": [
+    "the useful question is not how much graders disagree but what about. Disagreement over a clinical fact, over how much to hedge, and over who the patient is are three different problems with three different fixes.",
+    "a property that can be read off a single line is labelable at scale. A property that needs the whole conversation is not, which is what makes the reframing the substantive move rather than a wording change."
+  ],
+  "so_what": [
+    "published medical AI benchmarks report agreement rates and not what the disagreements are made of, so a 44.6% disagreement rate on one category reads as noise when it may be a category that is genuinely contested.",
+    "a codebook with a stated tie-break is the difference between a label set another person can reproduce and one that encodes a single reader's intuition."
+  ],
+  "calls": [
+    "one line as the unit of analysis, because it is the unit the benchmark actually scores.",
+    "holding the codebook at draft until it is approved, rather than labelling 1,186 lines against a rule set that may still move."
+  ],
+  "broke": [],
+  "not_shown": [
+    "the labelling. 1,186 candidate lines are identified and none are labelled with this codebook yet.",
+    "no second coder and therefore no reliability statistic. Until there is one, the types are a proposal."
+  ],
+  "tried": "the first version asked whether a line was debatable, which a regex will happily answer and which tells you about adjectives rather than about medicine.",
+  "figures": [],
+  "links": []
+}

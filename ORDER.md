@@ -49,3 +49,9 @@ To move a card, change its `featured` number and run `python3 build.py`.
    <sub>featured 20 · finished · 10 figures</sub>
 21. **generative-design** — What a generative model for drug design actually hands you  
    <sub>featured 21 · finished · 2 figures</sub>
+22. **clinician-pushback** — When clinicians push back on medical AI in print  
+   <sub>featured 22 · in progress · 0 figures</sub>
+23. **unmarked-patient** — Who does a medical AI picture when nobody says the sex?  
+   <sub>featured 23 · in progress · 0 figures</sub>
+24. **subjectivity-codebook** — A codebook for what medical graders actually disagree about  
+   <sub>featured 24 · in progress · 0 figures</sub>

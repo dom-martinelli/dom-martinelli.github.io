@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When clinicians push back on medical AI in print · Dom Martinelli</title>
+<meta name="description" content="4,526 PubMed letters and comments on medical AI, 30 read line by line: among confirmed clinician authors, 61% push back">
+<meta property="og:title" content="When clinicians push back on medical AI in print · Dom Martinelli">
+<meta property="og:description" content="4,526 PubMed letters and comments on medical AI, 30 read line by line: among confirmed clinician authors, 61% push back">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="https://www.linkedin.com/in/dominic-d-martinelli">LinkedIn</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a><a href="mailto:ddm94@cornell.edu">Email</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#analyses">&larr; Projects</a>
+  <h1>When clinicians push back on medical AI in print</h1>
+  <p class="line">4,526 PubMed letters and comments on medical AI, 30 read line by line: among confirmed clinician authors, 61% push back</p>
+  <dl class="spec"><div><dt>skills</dt><dd>literature sampling with a seeded draw · stance and authorship coding · reading every label in session rather than delegating it · exact confidence intervals on small samples · stopping a pilot at a defensible denominator</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>PubMed E-utilities</li><li>PMC full text</li><li>hand labelling</li><li>exact binomial intervals</li></ul></dd></div><div><dt>data</dt><dd>4,526 PubMed records: letters, comments and correspondence on medical AI · 1,374 with an abstract or usable PMC full text, the eligible pool · a seeded random sample of 300, split 150 full text and 150 abstract</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
+  <div class="actions"><a class="btn btn-primary" href="icd-index.html">The benchmark these letters are about</a></div>
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>Medical AI papers are written mostly by people building medical AI. Letters and comments are where practising clinicians answer back. How often do they object, and is the objection the kind another clinician could reasonably dispute?</p></div></div>
+  
+  <div class="row"><div class="margin-note">what i did</div><div class="row-body"><ul><li>searched PubMed for letters, comments and correspondence about medical AI and kept the 1,374 records with text that could actually be read.</li><li>drew a seeded random sample of 300 so the selection is reproducible rather than convenient.</li><li>read and labelled the first batch of 30 by hand, coding each for whether an author is a clinician, the stance toward AI, and what kind of objection it makes.</li><li>stopped at 30 instead of estimating the rest, because the 300-record sample runs to 137,011 words and a label that was not read is not a label.</li></ul></div></div>
+  
+  
+  <div class="row"><div class="margin-note">what came out</div><div class="row-body"><ul><li>among the 18 records with confirmed clinician authorship, 11 take a pushback or mixed stance. 61.1%, exact 95% CI 35.7 to 82.7%.</li><li>across all 30 records regardless of who wrote them, 18 are pushback or mixed, 60.0%, exact 95% CI 40.6 to 77.3%.</li><li>the stances split 11 supportive, 10 mixed, 8 pushback, 1 neutral. Mixed is the common case: clinicians rarely reject the tool outright, they accept it and name a condition.</li><li>of the 30, 17 make a pushback another clinician could reasonably dispute, and 2 describe a clinician holding their own judgment against an AI answer.</li><li>clinician authorship itself is not a given: 18 of 30 confirmed, 7 not clinicians, 5 unclear from affiliations and degrees alone.</li></ul></div></div>
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>reading every labelled record in session. The sample is 137,011 words and a model could have labelled all 300 in minutes, but then the denominator would describe a model&#x27;s reading, not mine.</li><li>reporting 30 as the denominator everywhere rather than scaling to 300.</li><li>exact binomial intervals rather than normal approximations, because at n=18 the approximation is wrong in a way that flatters the result.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>the obvious move was to have a model label all 300 and report a tight interval. The number would have looked better and meant less, because the thing being measured would have become the model&#x27;s reading of the letters rather than what the letters say.</p></div></div>
+  <div class="row"><div class="margin-note">so what</div><div class="row-body"><ul><li>the objection is usually conditional, not refusal. A benchmark that scores a model against a checklist has no way to represent &#x27;right, but not for this patient&#x27;, which is what most of these letters actually say.</li><li>61% is a first-batch pilot number with a confidence interval spanning 36 to 83%. The direction is informative; the point estimate is not yet a finding.</li><li>the existence claim is the defensible one. Clinicians do push back in print, and their pushback is often contestable by another clinician. Prevalence needs the other 270 records.</li></ul></div></div>
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>the remaining 270 sampled records. Until they are read, every percentage here is a pilot.</li><li>no comparison against letters in other fields, so there is no baseline rate of disagreement in correspondence generally.</li></ul></div></div>
+  
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

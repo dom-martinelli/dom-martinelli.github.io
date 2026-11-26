@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A codebook for what medical graders actually disagree about · Dom Martinelli</title>
+<meta name="description" content="not whether a checklist line is debatable, but what the disagreement is about: seven types, built from 79 hand-read lines">
+<meta property="og:title" content="A codebook for what medical graders actually disagree about · Dom Martinelli">
+<meta property="og:description" content="not whether a checklist line is debatable, but what the disagreement is about: seven types, built from 79 hand-read lines">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/lightbox.js" defer></script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="name" href="../index.html">Dom Martinelli</a>
+  <nav class="elsewhere"><a href="../gallery.html">Figures</a><a href="https://www.linkedin.com/in/dominic-d-martinelli">LinkedIn</a><a href="https://github.com/dom-martinelli">GitHub</a><a href="https://huggingface.co/dmartinelli">Hugging Face</a><a href="mailto:ddm94@cornell.edu">Email</a></nav>
+</header>
+
+<main class="wrap article">
+  <a class="back" href="../index.html#analyses">&larr; Projects</a>
+  <h1>A codebook for what medical graders actually disagree about</h1>
+  <p class="line">not whether a checklist line is debatable, but what the disagreement is about: seven types, built from 79 hand-read lines</p>
+  <dl class="spec"><div><dt>skills</dt><dd>codebook design · inter-rater reliability planning · counterfactual tie-break rules · distinguishing a measurable construct from a vague one</dd></div><div><dt>tools</dt><dd><ul class="tags"><li>Python</li><li>hand coding</li><li>HealthBench rubric corpus</li></ul></dd></div><div><dt>data</dt><dd>79 example-level checklist lines across 56 conversations, every one hand-read · a pool of 1,186 candidate lines awaiting labelling</dd></div><div><dt>status</dt><dd><span class="status status-in-progress">in progress</span></dd></div></dl>
+  
+  <div class="row"><div class="margin-note">question</div><div class="row-body"><p>A benchmark&#x27;s checklist lines get scored by physicians who often disagree. A regex can say a line looks debatable. What it cannot say is what two clinicians would be arguing about, which is the thing that decides whether the disagreement is a flaw or the point.</p></div></div>
+  
+  <div class="row"><div class="margin-note">what i did</div><div class="row-body"><ul><li>rejected the earlier framing. A 22 November run asked whether a line was debatable and answered with a regex, which measures wording rather than disagreement.</li><li>reframed the question so it can be read off a single line: when a reasonable clinician would score this line the other way, what is the disagreement about?</li><li>built seven types naming a kind of disagreement, plus an exit code and a residual, from 79 lines read by hand.</li><li>wrote a master tie-break, a counterfactual test, so a line that fits two types has a stated rule rather than a coder&#x27;s preference.</li></ul></div></div>
+  
+  
+  <div class="row"><div class="margin-note">what came out</div><div class="row-body"><ul><li>the useful question is not how much graders disagree but what about. Disagreement over a clinical fact, over how much to hedge, and over who the patient is are three different problems with three different fixes.</li><li>a property that can be read off a single line is labelable at scale. A property that needs the whole conversation is not, which is what makes the reframing the substantive move rather than a wording change.</li></ul></div></div>
+  <div class="row"><div class="margin-note">calls made</div><div class="row-body"><ul><li>one line as the unit of analysis, because it is the unit the benchmark actually scores.</li><li>holding the codebook at draft until it is approved, rather than labelling 1,186 lines against a rule set that may still move.</li></ul></div></div>
+  
+  <div class="row"><div class="margin-note">what i tried</div><div class="row-body"><p>the first version asked whether a line was debatable, which a regex will happily answer and which tells you about adjectives rather than about medicine.</p></div></div>
+  <div class="row"><div class="margin-note">so what</div><div class="row-body"><ul><li>published medical AI benchmarks report agreement rates and not what the disagreements are made of, so a 44.6% disagreement rate on one category reads as noise when it may be a category that is genuinely contested.</li><li>a codebook with a stated tie-break is the difference between a label set another person can reproduce and one that encodes a single reader&#x27;s intuition.</li></ul></div></div>
+  <div class="row"><div class="margin-note">not shown</div><div class="row-body"><ul><li>the labelling. 1,186 candidate lines are identified and none are labelled with this codebook yet.</li><li>no second coder and therefore no reliability statistic. Until there is one, the types are a proposal.</li></ul></div></div>
+  
+</main>
+<footer class="wrap foot">figures made with matplotlib and deck.gl · site built from json by build.py</footer>
+</body>
+</html>

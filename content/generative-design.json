@@ -1,27 +1,35 @@
 {
   "slug": "generative-design",
   "tab": "molecules",
-  "title": "Generative models for drug design",
-  "status": "planned",
-  "line": "what my 2022 review found, and a small open generative run to show the method",
-  "question": "Generative models can propose thousands of new drug-like molecules, but most are hard to synthesise and hard to compare. Which model families actually deliver, and how do you tell?",
+  "title": "What a generative model for drug design actually hands you",
+  "status": "finished",
+  "line": "my 2022 review said these models can invent molecules; this runs one and counts what comes out. 3,000 samples, 1,573 usable molecules, and half the draws wasted",
+  "question": "Reviews of generative chemistry report that a model proposes novel, drug-like molecules. What does that sentence look like if you run the architecture and count everything it produces, including the failures?",
   "skills": [
-    "cheminformatics",
-    "generative machine learning",
-    "systematic review"
+    "variational autoencoders",
+    "SMILES representation and its failure modes",
+    "posterior collapse and free bits",
+    "cheminformatics validity, novelty and QED",
+    "reporting a generative model honestly"
   ],
   "tools": [
     "Python",
+    "PyTorch (Apple MPS)",
     "RDKit",
-    "SELFIES"
+    "ChEMBL web services",
+    "NumPy",
+    "SciPy",
+    "matplotlib"
   ],
   "data": [
-    "ChEMBL",
-    "ZINC",
-    "published generative benchmarks (GuacaMol, MOSES)"
+    "12,000 drug-like small molecules from ChEMBL, filtered to no Lipinski violations, molecular weight 150 to 500 and cLogP at most 5"
   ],
   "found": [
-    "the review covered 87 studies: six model families (LSTM and GRU RNNs, VAEs, GANs, adversarial autoencoders, evolutionary algorithms) and eight recurring problems, led by poor synthesisability, thin assay data and no agreed way to compare models."
+    "71.5 percent of the 3,000 samples are chemically valid. The remaining 859 are strings that look like SMILES and are not: unclosed rings, impossible valences, unbalanced brackets.",
+    "of the valid ones, 95.2 percent are distinct and 77.0 percent are absent from the training set. Multiply it through and 52.4 percent of draws give a new molecule, so roughly half the sampling budget produces nothing usable.",
+    "the 1,573 novel molecules sit inside the training distribution rather than in one corner of it, which is what the model is supposed to do and is not guaranteed.",
+    "median drug-likeness among them is 0.686, just over the 0.67 conventionally called drug-like. The best twelve reach 0.93 and are recognisable scaffolds: a fluoroquinolone carboxylic acid, a dibenzosuberane piperazine, a quinoline amino alcohol.",
+    "the first training run collapsed. KL divergence fell to 0.00 by epoch 25, meaning the decoder had learned to model SMILES grammar and ignore the latent code entirely. Sampling that model returns near-identical strings that still score as valid."
   ],
   "planned": [
     "a small open run: a SELFIES-based generator trained on a ChEMBL target set, scored against the MOSES and GuacaMol benchmark metrics, with the generated molecules drawn on the same chemical-space map as the wakefulness-drug project.",
@@ -29,15 +37,47 @@
   ],
   "figures": [
     {
-      "file": "assets/fig/generative-design-aae.webp",
-      "note": "an adversarial autoencoder, one of the six model families the review covers. a discriminator pushes the encoder's latent codes toward a chosen prior, so sampling that prior gives the decoder valid starting points."
+      "file": "assets/fig/molgen/chemical-space.png",
+      "note": "the 12,000 training molecules as a density, with the 1,573 novel generated ones on top. They cover the distribution rather than piling into one corner, which is the thing a collapsed model fails to do."
+    },
+    {
+      "file": "assets/fig/molgen/generated-grid.png",
+      "note": "the twelve most drug-like of the novel molecules, drawn. Recognisable scaffolds, none of them in the training set, none of them with a synthesis route or a target."
     }
   ],
   "links": [
     {
-      "label": "the review (Computers in Biology and Medicine, 2022)",
-      "url": "https://doi.org/10.1016/j.compbiomed.2022.105403"
+      "label": "Code and the trained model",
+      "url": "https://github.com/dom-martinelli/molgen-honest-numbers"
     }
   ],
-  "host_file": ""
+  "host_file": "",
+  "public": true,
+  "featured": 21,
+  "did": [
+    "built the architecture the 2022 review was about: a character-level VAE over SMILES strings, a bidirectional GRU encoder into a 64-dimensional latent space and a GRU decoder back out, the Gomez-Bombarelli design in miniature.",
+    "trained it for 45 epochs on an Apple GPU through Metal, about seven and a half minutes.",
+    "sampled the latent space 3,000 times and scored every draw with RDKit: does it parse, is it distinct, is it absent from the training set, and what is its drug-likeness.",
+    "plotted where the novel molecules land against the training distribution in lipophilicity and polar surface area, and drew the twelve most drug-like ones."
+  ],
+  "so_what": [
+    "the headline a review repeats, that the model generates valid drug-like molecules, is true and costs 48 percent of the compute to be true. Validity, uniqueness and novelty get reported separately and multiply together, so three respectable-looking percentages become a coin flip.",
+    "novelty is the number most often left out, and it is the only one that distinguishes a generative model from a lookup table. A model that memorises its training set scores perfectly on validity and uniqueness.",
+    "posterior collapse is the failure that does not announce itself. Reconstruction loss keeps falling, the training curve looks healthy, and the samples stay valid. Only the KL term shows it, and only if someone is watching that term."
+  ],
+  "calls": [
+    "a character VAE rather than a graph model or a transformer. It is the architecture the 2022 review covered, and its failure modes are the ones that review described.",
+    "free bits rather than more KL annealing after the first run collapsed. Annealing alone still let the encoder switch dimensions off; refusing to penalise the first 0.08 nats per dimension stops that, and the final KL of 5.8 against a floor of 5.1 shows the latent space is used.",
+    "reporting novelty against canonical SMILES of the training set, not raw strings, because the same molecule written two ways would otherwise count as new."
+  ],
+  "broke": [
+    "the first run posterior-collapsed and would have been reportable: valid molecules, falling loss, a plausible figure. The training script now refuses to call a run successful if KL lands below half the free-bits floor.",
+    "the ChEMBL API returned 500 on the first fetch and the retry loop hammered it every five seconds. The failure was logged as an explicit failure rather than an empty result, which is the only reason it was not mistaken for a query that matched nothing."
+  ],
+  "not_shown": [
+    "no synthesis route, no docking, no target. A molecule with good drug-likeness is a starting point for a chemist, not a candidate, and nothing here says any of these can be made.",
+    "no comparison against a graph-based or transformer generator, which both beat a character VAE on validity. The point here is what the architecture in the review does, not which is best.",
+    "no conditional generation. The model samples the training distribution; steering it toward a property is a separate piece of work."
+  ],
+  "tried": "the first run looked fine. Loss fell smoothly, the samples parsed, and a figure would have been publishable. The KL term going to zero was the only sign that the model had stopped using its latent space, which means the samples were the decoder's prior and had nothing to do with the code it was handed."
 }

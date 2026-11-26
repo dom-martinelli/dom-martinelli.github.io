@@ -47,3 +47,5 @@ To move a card, change its `featured` number and run `python3 build.py`.
    <sub>featured 19 · finished · 1 figure</sub>
 20. **emory-vascular** — What a blood signature of diabetes medication is actually made of  
    <sub>featured 20 · finished · 10 figures</sub>
+21. **generative-design** — What a generative model for drug design actually hands you  
+   <sub>featured 21 · finished · 2 figures</sub>

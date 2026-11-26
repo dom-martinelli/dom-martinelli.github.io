@@ -38,11 +38,11 @@
   "figures": [
     {
       "file": "assets/fig/molgen/chemical-space.png",
-      "note": "the 12,000 training molecules as a density, with the 1,573 novel generated ones on top. They cover the distribution rather than piling into one corner, which is the thing a collapsed model fails to do."
+      "note": "**The model learned the distribution, not one corner of it.** The 12,000 training molecules as a density, with all 1,573 novel generated ones on top, in lipophilicity and polar surface area. Covering the distribution is what a collapsed model fails to do."
     },
     {
       "file": "assets/fig/molgen/generated-grid.png",
-      "note": "the twelve most drug-like of the novel molecules, drawn. Recognisable scaffolds, none of them in the training set, none of them with a synthesis route or a target."
+      "note": "**Twelve molecules the model invented.** The most drug-like of the novel structures, with each one's QED, molecular weight and lipophilicity. None is in the training set, and none has a synthesis route or a target."
     }
   ],
   "links": [

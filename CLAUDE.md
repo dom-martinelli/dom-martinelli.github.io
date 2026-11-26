@@ -80,6 +80,16 @@ House style lives in `figstyle.py` in the `patient-innovation-index` repo.
 Saturated hues `#3D7BB8 #C4545C #00918A #B87C14 #7B62A8`, the shared `DIV` ramp
 for heatmaps, 11pt type floor, portrait by default so it survives a phone.
 
+**No title and no caption inside the PNG.** A figure is a figure: axes, marks,
+legend, units. The headline and the explanation go in the card's `figures[].note`
+and in the body text, never baked into the image. Baking them in means the figure
+cannot be reused in a slide, a manuscript or a poster without being regenerated,
+and it makes a thumbnail unreadable because the type is sized for a full-width
+page. Dominic asked for this on 26 Nov 2026.
+
+So: write the figure script to emit a bare image, and print the title and caption
+to stdout so they can be pasted into the card instead.
+
 Render every figure and look at it before committing. Matplotlib will happily
 overlap a title with an axis label and report no error.
 

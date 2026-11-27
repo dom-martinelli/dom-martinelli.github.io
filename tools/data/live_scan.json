@@ -1,0 +1,529 @@
+{
+ "generated": "2026-11-27T15:14:54+00:00",
+ "source": "https://datasets-server.huggingface.co",
+ "checks": [
+  {
+   "key": "corrupted_text",
+   "label": "letters deleted inside words"
+  },
+  {
+   "key": "duplicate_options",
+   "label": "the same answer offered twice"
+  },
+  {
+   "key": "placeholder_options",
+   "label": "padded with a filler choice"
+  },
+  {
+   "key": "unreadable_options",
+   "label": "options that are markup with no text"
+  },
+  {
+   "key": "key_not_offered",
+   "label": "the key names no offered option"
+  },
+  {
+   "key": "multi_answer_keys",
+   "label": "select-all items keyed as a list"
+  },
+  {
+   "key": "duplicate_questions",
+   "label": "the same question more than once"
+  },
+  {
+   "key": "key_conflicts",
+   "label": "identical questions whose keys disagree"
+  }
+ ],
+ "note": "Mechanical checks only: every finding is a property of the printed item and can be re-derived from the same rows. Counts apply to rows_read, which is not always the whole split.",
+ "splits": [
+  {
+   "split": "openlifescienceai/medmcqa/default/validation",
+   "rows_in_split": 4183,
+   "rows_read": 4183,
+   "complete": true,
+   "error": null,
+   "findings": {
+    "corrupted_text": {
+     "label": "letters deleted inside words",
+     "total": 373,
+     "detail": [
+      {
+       "detail": "rows with at least one deletion (of 4183)",
+       "count": 373,
+       "examples": []
+      },
+      {
+       "detail": "'hea' where 'heart' belongs",
+       "count": 68,
+       "examples": [
+        "18d5c4a1-cb81-41a8-9bfc-b6f7dec431d2: ... in large pericardial effusion in which hea is swinging. option c- n height in p wa...",
+        "d7a840fd-00b4-4980-a01a-4de04a73d18f: ...rlying co-morbidities (e.g., congestive hea failure).used only when volume is stabl...",
+        "da27e783-4c0b-4621-bc3d-938a109d8425: ...aly (malformation in tricuspid valve of hea) if given in pregnancy. other side effe..."
+       ]
+      },
+      {
+       "detail": "'aery' where 'artery' belongs",
+       "count": 43,
+       "examples": [
+        "ce49098b-cc48-4168-859e-936e3e0c7459: ...ng are not a branch of external carotid aery in kiesselbach's plexus.  sphenopalatin...",
+        "ae860b65-53a5-4547-b627-494174e15c3c: ...odified allen's test is negative radial aery is the preferred site   ans: a. before ...",
+        "b1cc4ab0-a82c-437a-88c2-00953f3618ff: ...lving:  aca mca pca posterior choroidal aery   ans. a. aca (ref: harrison 19/e p163,..."
+       ]
+      },
+      {
+       "detail": "'impoant' where 'important' belongs",
+       "count": 43,
+       "examples": [
+        "1e94a9ca-55e4-4e9a-bf7b-cb2dc4ba2ab5: ...are most likely to cause infection. the impoant non enveloped viruses are viruses belon...",
+        "35fb00cb-9acc-4177-8873-c3915a142c99: ...y temperature (37deg c). some medically impoant dimorphic fungi are: histoplasma capsul...",
+        "6bce210a-7174-4c76-b1f0-9bc3f5c835fc: ...as issued a warning about a potentially impoant adverse interaction between clopidogrel..."
+       ]
+      },
+      {
+       "detail": "'bih' where 'birth' belongs",
+       "count": 33,
+       "examples": [
+        "26a782ca-42b0-441b-a24f-3a368f66727c: ...on newborn with jaundice a newborn with bih weight 2300 grams   answer- b. a baby b...",
+        "6506849d-8885-4adf-88b7-4e010e026d6c: ... bihs total live bihs live bihs + still bih total number of newborns   ans: a. tota...",
+        "913d6913-f5de-41a9-8159-d7ac61d57c47: ...a neonate on routine examination at bih was found to have hepatomegaly. rest of..."
+       ]
+      },
+      {
+       "detail": "'sho' where 'short' belongs",
+       "count": 25,
+       "examples": [
+        "790947ee-b119-4f1f-ac07-8f0c5a701010: ...ife of albumin (12-14 days) rather than sho half-life of bilirubin (4 hours).due to...",
+        "86155521-ea6f-485e-b258-14c51d44578e: ...oman presented with primary amenorrhea, sho stature, webbed neck and widely spaced ...",
+        "a7a74ef5-0ff4-474c-b160-bd1c4fa24434: ...umber of samples can be dealt with in a sho time.. *hplc is used as a confirmatory ..."
+       ]
+      },
+      {
+       "detail": "'hypeension' where 'hypertension' belongs",
+       "count": 25,
+       "examples": [
+        "e37f2652-5ce3-4373-88b7-e78460690f57: ...n enalapril and hydrochlorothiazide for hypeension. on investigation, he had a serum sodiu...",
+        "b8621196-05ba-414e-a112-0b48be3fcd7c: ...uretic can be given in mild to moderate hypeension?  potassium sparing diuretic osmotic di...",
+        "14a9e3be-384f-4b56-99c5-dfd851243951: ...st history of fetal abnormality obesity hypeension macrosomia   answer- c. hypeensiona pre..."
+       ]
+      },
+      {
+       "detail": "'moality' where 'mortality' belongs",
+       "count": 22,
+       "examples": [
+        "6506849d-8885-4adf-88b7-4e010e026d6c: ...denominator in perinatal moality rate  total bihs total live bihs live b...",
+        "e45de5c9-41f3-4aed-a77a-9a1cc3ee63db: ...maternal moality ratio expressed in:-  maternal death pe...",
+        "9572a3f9-b8a0-4fc4-96a1-cc0409721155: ...ary tb, tubercular meningitis & reduces moality  ..."
+       ]
+      },
+      {
+       "detail": "'aerial' where 'arterial' belongs",
+       "count": 21,
+       "examples": [
+        "ae860b65-53a5-4547-b627-494174e15c3c: ...hen measuring blood gases to obtain the aerial blood sample without using excessive he...",
+        "9078aaca-bbfd-41cd-ad69-03057fca84ba: ...a | triphasic pattern normal peripheral aerial waveform triphasic waveform initial hig...",
+        "8b906077-3b73-4397-96bb-4e66e0dc9d20: ...or with combined as and ar, the carotid aerial pulse may be bisferiens, i.e., with two..."
+       ]
+      },
+      {
+       "detail": "'inseion' where 'insertion' belongs",
+       "count": 21,
+       "examples": [
+        "a6cc1419-094c-4675-b250-ba45e4569bd2: ...se - copper-containing iucd.copper iucd:inseion within maximum period of 5-7 days after...",
+        "8b91d707-6038-40de-8833-d865318f791e: ...tion seen in sickle cell anemia:  point inseion deletion frame shift   sickle-cell anem...",
+        "f6c37d84-4658-45dd-b75d-741f6f1bcff2: ...ceptor organ that is at the origins and inseion of skeletal muscle fibers into the tend..."
+       ]
+      },
+      {
+       "detail": "'suppo' where 'support' belongs",
+       "count": 18,
+       "examples": [
+        "a9eb877d-bc11-4923-88b2-97193a8d52eb: ...ds goes upstairs and downstairs without suppo kicks ball forward throws b all overhan...",
+        "1338302d-2d9f-4d48-ac86-48f3c680594c: ... career screening family members social suppo   who developed mental health action ga...",
+        "96d449da-7560-45e2-aa9b-2b5a74296f25: ... cytokines induce b cell ige synthesis* suppo th2 inflammatory response* oligoclonal ..."
+       ]
+      },
+      {
+       "detail": "'staed' where 'started' belongs",
+       "count": 17,
+       "examples": [
+        "62fa6f78-1964-4249-974b-6fcbbd7fc9ba: ... pregnant woman with sore throat can be staed immediately on oseltamivir without diag...",
+        "086cd30e-0ed9-4b7b-9346-38529b1445b8: ...ilation should the paograph plotting be staed?  4 cm 5 cm 6 cm 8 cm   answer- a. 4 cm...",
+        "c97369ec-b7b9-405c-ba9c-35cfdae8ce24: ...trial cavity to stop bleeding.initially staed by rapidly infusing at least 150 ml fol..."
+       ]
+      },
+      {
+       "detail": "'aeries' where 'arteries' belongs",
+       "count": 14,
+       "examples": [
+        "ce49098b-cc48-4168-859e-936e3e0c7459: ...plied by anterior & posterior ethmoidal aeries which are branches of ophthalmic aery, ...",
+        "9078aaca-bbfd-41cd-ad69-03057fca84ba: ...45o-60o (never 90o) spectral doppler of aeries low resistance high resistance example:...",
+        "0b81f878-0e23-4c6b-9fcd-697e8ea660c3: ... suprascapular and superficial cervical aeries.  ..."
+       ]
+      },
+      {
+       "detail": "'infeility' where 'infertility' belongs",
+       "count": 13,
+       "examples": [
+        "890982b8-3906-44be-aff1-437a7c6c373d: ...in a couple for treatment of infeility from the last four years, female paner ...",
+        "aa32b0f3-dd63-455c-8de0-9fd429edfd20: ...ref: clinical gynecologic endocrinoktgt infeility, 8\" ed.gonadal dysgenesis (swyer syndro...",
+        "cda9b8dd-1c5b-4b7d-b08c-8e959ab72415: ...owing conditions except-  endometriosis infeility precocious pubey prostate cancer   ans...."
+       ]
+      },
+      {
+       "detail": "'coical' where 'cortical' belongs",
+       "count": 13,
+       "examples": [
+        "71803632-1b88-4332-88f5-be3ac2515b85: ...s) mutalion causes dominant progressive coical cataract in humans.  ...",
+        "c6f6754f-21ac-49d0-b8cd-8bf25049d813: ...of hyperparathyroidism is subperiosteal coical resorption of middle phalanges on radia...",
+        "07c14e46-ad2b-4fde-8652-bd47b36e69ab: ...voluted tubule distal convoluted tubule coical collecting tubule medullary collecting ..."
+       ]
+      },
+      {
+       "detail": "'veebral' where 'vertebral' belongs",
+       "count": 12,
+       "examples": [
+        "d7f6905a-377d-4fa0-a5a5-d7f5c8d8ac4f: ...:  arachnoiditis tethered cord syndrome veebral osteomyelitis discitis   * arachnoiditi...",
+        "1a9cdc6b-3c9c-44a2-95d1-68461bf113fc: ... the back during a rally at level of t8 veebral immediately after the shot he loses all...",
+        "d810c51c-b15e-40e7-9d7c-2eff29038877: ...provide a constant smooth lining to the veebral canal, which is never overstretched in ..."
+       ]
+      },
+      {
+       "detail": "'stas' where 'starts' belongs",
+       "count": 12,
+       "examples": [
+        "422e1a54-04f3-4193-ac55-61c4ae8b23a9: ...cle and an oxygen supply.heme synthesis stas in mitochondria with the condensation o...",
+        "5444cae2-aeab-4a04-8501-e91fe8ce794a: ...the action of proparacaine stas within?  2 minutes 5 minutes 15 minutes...",
+        "d9956986-de2a-4427-9987-e59d7b1f4fb3: ...if the cycle stas with ' a ' wave of jvp . arrange the fo..."
+       ]
+      },
+      {
+       "detail": "'coicosteroids' where 'corticosteroids' belongs",
+       "count": 10,
+       "examples": [
+        "59ade17d-2139-4c4b-b0b5-ec6d6cf3c073: ...ies include propranolol (b-blocker) and coicosteroids, whose effectiveness is countered by a ...",
+        "f6bb3faa-6ccb-4838-a2d9-1ae2f2d63e7d: ...occurs on dorsum of tongue in long-term coicosteroids or antibiotic patient.but occasionally ...",
+        "8788091c-a8ef-4155-a7a3-8e85d643f856: ...ndition of the patient. so, intravenous coicosteroids and aminophylline were added and the co..."
+       ]
+      },
+      {
+       "detail": "'coex' where 'cortex' belongs",
+       "count": 10,
+       "examples": [
+        "f990288f-3d8a-48a3-a4bf-ea3e1a20bf96: ...a (dehydroepiandrosterone) from adrenal coex, especially during fetal life. it also ...",
+        "8af82f86-f0fe-46f3-8e14-58a77ec931bb: ...  scurvy x-ray - pencil thin outline of coex subperiosteal hemorrhage wimberger sign...",
+        "460d8722-fe72-444c-a927-0be1b24de884: ...thetic chain to supply adrenals adrenal coex doesn't have nerve supply as it has end..."
+       ]
+      },
+      {
+       "detail": "'bihs' where 'births' belongs",
+       "count": 9,
+       "examples": [
+        "6506849d-8885-4adf-88b7-4e010e026d6c: ...inator in perinatal moality rate  total bihs total live bihs live bihs + still bih t...",
+        "1badc5bb-d61a-48ea-9288-3754612f74a5: ...egnancies per year expected no. of live-bihs (y)/year= bih rate (per 1000 population...",
+        "23d97589-5dbe-4c51-b3ff-3d102f13d781: ...0 mid-year population therefore, no. of bihs= 20/1000 x 5000=100 pregnancy wastage f..."
+       ]
+      },
+      {
+       "detail": "'inseed' where 'inserted' belongs",
+       "count": 8,
+       "examples": [
+        "c97369ec-b7b9-405c-ba9c-35cfdae8ce24: ... 1000 m l   ans: c. 500 mlbakri balloon:inseed & inflated to tamponade endometrial cav...",
+        "543b341f-7350-4a9b-9bc6-63a1a2cee1e8: ... of genetic engineering in which dna is inseed, deleted or replaced in the genome of a...",
+        "0ec4a50e-3eb2-44e9-97c5-527a8c6fdd68: ...which of the following muscle is not inseed to the greater tubercle of humerus?  su..."
+       ]
+      },
+      {
+       "detail": "'repoed' where 'reported' belongs",
+       "count": 7,
+       "examples": [
+        "7c6fe266-845b-4f4b-8ddb-ca5d016e0396: ... under 15 years the number of afp cases repoed each year is used as an indicator of a ...",
+        "c6513329-2d6b-4919-9b30-3b5ae5977f52: ...of liver enzymes, and fatigue have been repoed.* the risk of anemia may be additive in...",
+        "7801e0bc-129a-47f5-a8f2-5c78981b28d8: ...y crime of child sexual abuse should be repoed. if a person who has information about ..."
+       ]
+      },
+      {
+       "detail": "'veebra' where 'vertebra' belongs",
+       "count": 6,
+       "examples": [
+        "864ebcb5-85f5-45eb-a209-5d14ef53e787: ... usually at the level of c2-c3 or c3-c4 veebra & rupture of brain stem between pons & ...",
+        "ccca9015-2ce5-40cf-bed4-187f9428d984: ... paget's disease. image shows- a) ivory veebra, b) picture frame veebra osteoporosis- ...",
+        "294f261f-83db-483c-ab08-7ada6462f72b: ...e third of the body of the first lumbar veebra which corresponds approximately to the ..."
+       ]
+      },
+      {
+       "detail": "'aoa' where 'aorta' belongs",
+       "count": 6,
+       "examples": [
+        "f20f293f-58fc-4b88-ba1d-d37764178ff4: ...ravalvular aoic stenosis coarctation of aoa takayasu aeritis aoic dissection   supr...",
+        "efa89b57-bec6-4dd6-a969-0a6f61ce5c8d: ...ured?  liver spleen mesentery abdominal aoa   answer- c (mesentry)most common organ...",
+        "f5cd69ed-816c-4f6b-99cf-4cb41bce9f55: ...s   tennis ball appearance of ascending aoa is feature of aoic dissection. - type a..."
+       ]
+      },
+      {
+       "detail": "'shoness' where 'shortness' belongs",
+       "count": 5,
+       "examples": [
+        "ad195e5d-7f52-42cc-a183-b05e3181d0ab: ...s old female presented with acute onset shoness of breath. she has a history of nephrot...",
+        "83190d93-147b-4abc-a5fc-500371388fd5: ...s of respiratory insufficiency:fatigue, shoness of breath, heavy breathing, rapid breat...",
+        "3e2e85ff-abd6-4b35-bab8-b5fe0b78bdd9: ...morrhagic mediastinitishigh feversevere shoness of breathtachypneacyanosisprofuse diaph..."
+       ]
+      },
+      {
+       "detail": "'poal' where 'portal' belongs",
+       "count": 4,
+       "examples": [
+        "4f95b3a2-a4bd-4bbd-978c-4a560a17d67d: ... of increase iap) decreases phdecreased poal and hepatic flow leads to elevation of ...",
+        "fda4a6bd-3eb5-4641-88da-513b72c1d320: ...n, venous thrombosis, and intramural or poal venous gasdilation of an ischemic bowel...",
+        "744e4dce-b8f1-447f-a964-bea1bbe98edf: ...'s classification based upon  bile duct poal vein hepatic vein hepatic aery   segmen..."
+       ]
+      },
+      {
+       "detail": "'glucocoicoids' where 'glucocorticoids' belongs",
+       "count": 4,
+       "examples": [
+        "da70d380-7647-4452-8dbb-ade1663b6d5b: ...e is not needed?  l-thyroxine estradiol glucocoicoids mineralocoicoids   aldosterone is major...",
+        "3e2eed94-4bdb-4c13-9cfa-f267716b34d4: ...ice.treatment:cornerstone of treatment: glucocoicoids & nebulized epinephrinedegglucocoicoids...",
+        "db481d43-eaa9-45e9-8e23-4416d4894eb4: ...mone will not be given to the patient?  glucocoicoids mineralocoicoids levothyroxine estradio..."
+       ]
+      },
+      {
+       "detail": "'quaer' where 'quarter' belongs",
+       "count": 1,
+       "examples": [
+        "fe1ce20a-009c-45a2-8279-bff1d2e4abcf: ...four equal groups.each group comprising quaer of data.1stquaile (q1):25' percentile (..."
+       ]
+      }
+     ]
+    },
+    "duplicate_options": {
+     "label": "the same answer offered twice",
+     "total": 23,
+     "detail": [
+      {
+       "detail": "items offering the same answer twice (of 4183)",
+       "count": 23,
+       "examples": [
+        "98ae0eca-84e2-4b3c-95e3-2920fafef1e8: 'not recalled' appears 2x",
+        "820b79a8-3eef-494b-a007-995db6b5258c: 'fibers' appears 2x",
+        "8ba2ca7c-9ae4-4771-9e9c-0e44250ca6b5: 'ventral part of 3rd pouch.' appears 2x",
+        "73818dbb-2bd3-4c46-a06a-b18b6ddb5450: '4.6' appears 2x",
+        "965fa6a2-969e-4b51-bdb7-934a02c809f6: 'hematogenous dissemination' appears 2x"
+       ]
+      },
+      {
+       "detail": "items where two options are both the keyed answer",
+       "count": 4,
+       "examples": [
+        "0190dc62-5b1a-48f7-b0c2-f91fb0fd66e7: key D points at text offered twice",
+        "0447b9a2-22ec-449c-8a23-a52c28ac6b34: key A points at text offered twice",
+        "6946c04c-eee9-4b9d-ad2d-dbf5ccd40b94: key B points at text offered twice",
+        "47e35777-f1d7-4291-81e6-6a1d1360a75c: key D points at text offered twice"
+       ]
+      }
+     ]
+    },
+    "placeholder_options": {
+     "label": "padded with a filler choice",
+     "total": 42,
+     "detail": [
+      {
+       "detail": "items padded with a filler option",
+       "count": 42,
+       "examples": [
+        "c6365cce-507c-40f6-90a2-46b867f47b6e: ['D']",
+        "76ba3417-012e-4bf8-840c-13bb7bc60dcc: ['D']",
+        "58d38c9d-0440-4077-a581-e86b63ec4ecd: ['D']",
+        "1359605e-c8e4-4847-b8b6-eb1500b5356f: ['D']",
+        "34f8fb1a-a365-40d0-a804-6b061a9a04f5: ['D']"
+       ]
+      }
+     ]
+    },
+    "unreadable_options": {
+     "label": "options that are markup with no text",
+     "total": 0,
+     "detail": []
+    },
+    "key_not_offered": {
+     "label": "the key names no offered option",
+     "total": 0,
+     "detail": []
+    },
+    "multi_answer_keys": {
+     "label": "select-all items keyed as a list",
+     "total": 0,
+     "detail": []
+    },
+    "duplicate_questions": {
+     "label": "the same question more than once",
+     "total": 0,
+     "detail": []
+    },
+    "key_conflicts": {
+     "label": "identical questions whose keys disagree",
+     "total": 5,
+     "detail": [
+      {
+       "detail": "identical stems whose keys disagree",
+       "count": 5,
+       "examples": []
+      },
+      {
+       "detail": "  spacing or punctuation only",
+       "count": 2,
+       "examples": []
+      },
+      {
+       "detail": "  different answer",
+       "count": 2,
+       "examples": [
+        "['ee904a2e-7494-46ef-b976-22be596ed44f', 'f4ea9cd2-e0a7-41e2-ab75-fe54a8bee24e']: ['20 mg doxycycline', '60 mg doxycycline'] -- subantimicrobial dose of doxycycline is...",
+        "['7719be4d-bbfc-4cdc-a70a-a543b0f5403b', 'c1ad828e-687d-4f0b-b014-9b0b5555548e']: ['image is sharper than cause by halogen halide', 'image is sharper than caused by silver halide'] -- all are true about rvg except..."
+       ]
+      },
+      {
+       "detail": "  typo twin",
+       "count": 1,
+       "examples": []
+      }
+     ]
+    }
+   },
+   "keys_published": true
+  },
+  {
+   "split": "openlifescienceai/medmcqa/default/test",
+   "rows_in_split": 6150,
+   "rows_read": 0,
+   "complete": false,
+   "error": "https://datasets-server.huggingface.co/rows?dataset=openlifescienceai%2Fmedmcqa&config=default&split=test&offset=2000&length=100: gave up after 5 tries (HTTP 429)",
+   "findings": {}
+  },
+  {
+   "split": "openlifescienceai/medmcqa/default/train",
+   "rows_in_split": 182822,
+   "rows_read": 0,
+   "complete": false,
+   "error": "https://datasets-server.huggingface.co/rows?dataset=openlifescienceai%2Fmedmcqa&config=default&split=train&offset=0&length=100: gave up after 5 tries (HTTP 429)",
+   "findings": {}
+  },
+  {
+   "split": "GBaker/MedQA-USMLE-4-options/default/test",
+   "rows_in_split": 1273,
+   "rows_read": 1273,
+   "complete": true,
+   "error": null,
+   "findings": {
+    "corrupted_text": {
+     "label": "letters deleted inside words",
+     "total": 0,
+     "detail": []
+    },
+    "duplicate_options": {
+     "label": "the same answer offered twice",
+     "total": 0,
+     "detail": []
+    },
+    "placeholder_options": {
+     "label": "padded with a filler choice",
+     "total": 0,
+     "detail": []
+    },
+    "unreadable_options": {
+     "label": "options that are markup with no text",
+     "total": 0,
+     "detail": []
+    },
+    "key_not_offered": {
+     "label": "the key names no offered option",
+     "total": 0,
+     "detail": []
+    },
+    "multi_answer_keys": {
+     "label": "select-all items keyed as a list",
+     "total": 0,
+     "detail": []
+    },
+    "duplicate_questions": {
+     "label": "the same question more than once",
+     "total": 0,
+     "detail": []
+    },
+    "key_conflicts": {
+     "label": "identical questions whose keys disagree",
+     "total": 0,
+     "detail": []
+    }
+   },
+   "keys_published": true
+  },
+  {
+   "split": "TsinghuaC3I/MedXpertQA/Text/test",
+   "rows_in_split": 2450,
+   "rows_read": 2450,
+   "complete": true,
+   "error": null,
+   "findings": {
+    "corrupted_text": {
+     "label": "letters deleted inside words",
+     "total": 0,
+     "detail": []
+    },
+    "duplicate_options": {
+     "label": "the same answer offered twice",
+     "total": 2,
+     "detail": [
+      {
+       "detail": "items offering the same answer twice (of 2450)",
+       "count": 2,
+       "examples": [
+        "Text-345: 'standard deviation' appears 2x",
+        "Text-1978: 'somato-somatic reflex' appears 2x"
+       ]
+      }
+     ]
+    },
+    "placeholder_options": {
+     "label": "padded with a filler choice",
+     "total": 0,
+     "detail": []
+    },
+    "unreadable_options": {
+     "label": "options that are markup with no text",
+     "total": 0,
+     "detail": []
+    },
+    "key_not_offered": {
+     "label": "the key names no offered option",
+     "total": 0,
+     "detail": []
+    },
+    "multi_answer_keys": {
+     "label": "select-all items keyed as a list",
+     "total": 0,
+     "detail": []
+    },
+    "duplicate_questions": {
+     "label": "the same question more than once",
+     "total": 0,
+     "detail": []
+    },
+    "key_conflicts": {
+     "label": "identical questions whose keys disagree",
+     "total": 0,
+     "detail": []
+    }
+   },
+   "keys_published": true
+  },
+  {
+   "split": "adlbh/PediatricsMQA/tqa/test",
+   "rows_in_split": 3417,
+   "rows_read": 0,
+   "complete": false,
+   "error": "https://datasets-server.huggingface.co/rows?dataset=adlbh%2FPediatricsMQA&config=tqa&split=test&offset=1600&length=100: gave up after 5 tries (HTTP 429)",
+   "findings": {}
+  }
+ ]
+}

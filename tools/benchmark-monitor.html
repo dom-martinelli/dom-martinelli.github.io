@@ -1,0 +1,281 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmark item monitor</title>
+<style>
+  /* ================================================================
+     Benchmark item monitor — defects in published medical QA benchmarks,
+     re-checked against Hugging Face on a schedule.
+     Cool neutrals · slate for structure · rust for anything flagged.
+     ================================================================ */
+  :root {
+    --paper:#edf0f1; --surface:#fbfcfc; --surface-2:#f4f6f6; --surface-3:#eef1f2;
+    --ink:#14181b; --ink-soft:#55606a; --ink-faint:#8a949b;
+    --rule:#d2d8db; --rule-soft:#e3e7e9;
+    --slate:#2d4f63; --slate-2:#44718b; --slate-soft:rgba(45,79,99,.10);
+    --rust:#a8452a; --rust-soft:rgba(168,69,42,.10); --rust-line:rgba(168,69,42,.30);
+    --ok:#3d6b4a;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    --mono:"SF Mono",SFMono-Regular,ui-monospace,"DejaVu Sans Mono","Roboto Mono",Menlo,Consolas,monospace;
+    --maxw:1120px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:#0e1316; --surface:#161d21; --surface-2:#1b2327; --surface-3:#202a2f;
+      --ink:#e7ecee; --ink-soft:#a1acb2; --ink-faint:#6b767c;
+      --rule:#2a3439; --rule-soft:#222b30;
+      --slate:#7fb0c8; --slate-2:#9ac4d8; --slate-soft:rgba(127,176,200,.14);
+      --rust:#e4836b; --rust-soft:rgba(228,131,107,.14); --rust-line:rgba(228,131,107,.38);
+      --ok:#7fc08f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#0e1316; --surface:#161d21; --surface-2:#1b2327; --surface-3:#202a2f;
+    --ink:#e7ecee; --ink-soft:#a1acb2; --ink-faint:#6b767c;
+    --rule:#2a3439; --rule-soft:#222b30;
+    --slate:#7fb0c8; --slate-2:#9ac4d8; --slate-soft:rgba(127,176,200,.14);
+    --rust:#e4836b; --rust-soft:rgba(228,131,107,.14); --rust-line:rgba(228,131,107,.38);
+    --ok:#7fc08f;
+  }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans);
+         font-size:16px; line-height:1.5; -webkit-text-size-adjust:100%; }
+  .wrap { max-width:var(--maxw); margin:0 auto; padding:30px 16px 70px; }
+
+  header h1 { font-family:var(--serif); font-size:1.85rem; margin:0 0 6px; font-weight:600; letter-spacing:-.01em; }
+  header .lede { color:var(--ink-soft); margin:0 0 4px; max-width:70ch; }
+  .stamp { font-family:var(--mono); font-size:.78rem; color:var(--ink-faint); margin-top:10px; }
+
+  .scope { background:var(--surface-2); border:1px solid var(--rule); border-left:4px solid var(--slate);
+           border-radius:4px; padding:12px 14px; margin:20px 0 6px; color:var(--ink-soft); font-size:.92rem; max-width:80ch; }
+  .scope b { color:var(--ink); }
+
+  .controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:22px 0 6px; }
+  .controls label { font-size:.82rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.06em; margin-right:2px; }
+  select, button { font:inherit; font-size:.9rem; color:var(--ink); background:var(--surface);
+                   border:1px solid var(--rule); border-radius:4px; padding:6px 10px; cursor:pointer; }
+  button.on { background:var(--slate-soft); border-color:var(--slate); color:var(--slate); }
+
+  .totals { display:flex; flex-wrap:wrap; gap:14px; margin:18px 0 0; }
+  .tot { background:var(--surface); border:1px solid var(--rule); border-radius:5px; padding:12px 16px; min-width:150px; }
+  .tot .n { font-family:var(--mono); font-size:1.5rem; font-weight:600; display:block; }
+  .tot .k { font-size:.82rem; color:var(--ink-soft); }
+  .tot.flag .n { color:var(--rust); }
+
+  .split { background:var(--surface); border:1px solid var(--rule); border-radius:6px; margin:18px 0; overflow:hidden; }
+  .split > h2 { margin:0; padding:13px 16px; font-size:1rem; font-family:var(--mono); font-weight:600;
+                background:var(--surface-3); border-bottom:1px solid var(--rule); display:flex;
+                flex-wrap:wrap; gap:10px; align-items:baseline; }
+  .split > h2 .cov { font-family:var(--sans); font-weight:400; font-size:.84rem; color:var(--ink-soft); margin-left:auto; }
+  .warn { display:inline-block; font-family:var(--sans); font-weight:600; font-size:.74rem; letter-spacing:.04em;
+          text-transform:uppercase; color:var(--rust); background:var(--rust-soft);
+          border:1px solid var(--rust-line); border-radius:3px; padding:1px 7px; }
+  .quiet { display:inline-block; font-family:var(--sans); font-weight:600; font-size:.74rem; letter-spacing:.04em;
+           text-transform:uppercase; color:var(--ink-faint); background:var(--surface-2);
+           border:1px solid var(--rule); border-radius:3px; padding:1px 7px; }
+
+  table { border-collapse:collapse; width:100%; font-size:.93rem; }
+  th, td { text-align:left; padding:9px 16px; border-bottom:1px solid var(--rule-soft); vertical-align:top; }
+  th { font-size:.76rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint); font-weight:600; }
+  td.n { font-family:var(--mono); text-align:right; width:5.5rem; white-space:nowrap; }
+  td.n.hit { color:var(--rust); font-weight:600; }
+  td.n.zero { color:var(--ink-faint); }
+  td.na { color:var(--ink-faint); font-style:italic; }
+  tr.row { cursor:pointer; }
+  tr.row:hover td { background:var(--surface-2); }
+  tr.row td:first-child::before { content:"▸ "; color:var(--ink-faint); }
+  tr.row.open td:first-child::before { content:"▾ "; color:var(--slate); }
+  tr.ex td { background:var(--surface-2); font-family:var(--mono); font-size:.82rem; color:var(--ink-soft); }
+  tr.ex ul { margin:4px 0; padding-left:18px; }
+  tr.ex li { margin:3px 0; word-break:break-word; }
+  tr.ex .sub { color:var(--ink); font-family:var(--sans); font-size:.9rem; margin:8px 0 2px; }
+
+  .msg { padding:40px 16px; text-align:center; color:var(--ink-soft); }
+  .err { border-left:4px solid var(--rust); background:var(--rust-soft); padding:12px 14px; border-radius:4px; margin:12px 0; }
+  footer { margin-top:40px; padding-top:14px; border-top:1px solid var(--rule); color:var(--ink-faint); font-size:.85rem; }
+  a { color:var(--slate); }
+  @media (max-width:640px) {
+    .wrap { padding:20px 14px 50px; }
+    th, td { padding:8px 10px; }
+    .split > h2 { font-size:.86rem; }
+    .split > h2 .cov { margin-left:0; width:100%; }
+  }
+</style>
+
+<div class="wrap">
+<header>
+  <h1>Benchmark item monitor</h1>
+  <p class="lede">Medical AI models are scored on published multiple-choice benchmarks. This re-reads those
+  benchmarks where they actually live, on Hugging Face, and counts the items that are broken as printed:
+  text with letters missing, the same answer offered twice, a key naming an option that was never offered.</p>
+  <p class="lede">Every check is mechanical. Same rows in, same answer out, no model and no judgement, so
+  anyone can re-derive any number here from the same rows.</p>
+  <div class="stamp" id="stamp">loading…</div>
+</header>
+
+<div class="scope">
+  <b>Read this before quoting a number.</b> Counts apply to the rows actually read, which is shown for every
+  split and is not always the whole thing. A split marked <span class="warn">sample</span> was capped because
+  it is too large to re-read on a schedule. A split marked <span class="quiet">no keys published</span> withholds
+  its answers, as held-out test splits often do, so the key checks cannot run and are reported as not applicable
+  rather than as zero.
+</div>
+
+<div class="controls">
+  <label for="ds">Dataset</label>
+  <select id="ds"><option value="">all</option></select>
+  <label for="ck">Check</label>
+  <select id="ck"><option value="">all</option></select>
+  <button id="only" type="button">only splits with findings</button>
+</div>
+
+<div class="totals" id="totals"></div>
+<div id="out"><div class="msg">Loading the latest scan…</div></div>
+
+<footer>
+  Scanned from the <a href="https://huggingface.co/docs/datasets-server">Hugging Face datasets-server</a>.
+  Checks and the scheduled job: <a href="https://github.com/dom-martinelli/Growth-MedQA">dom-martinelli/Growth-MedQA</a>
+  (<code>qa/dataset_checks.py</code>, <code>scripts/scan_live.py</code>).
+  Findings are defects in other people's published datasets, reported so they can be fixed; nothing here is a
+  claim about anyone's conduct.
+</footer>
+</div>
+
+<script>
+// The live report, and a copy committed next to this page.
+//
+// The live one is the point: the scheduled job writes it, so this page shows
+// today's scan without being redeployed. The fallback means the page still
+// works when that fetch fails, and it says which one it is showing, because a
+// stale snapshot presented as live is worse than an error.
+const LIVE = "https://raw.githubusercontent.com/dom-martinelli/Growth-MedQA/main/docs/live_scan.json";
+const FALLBACK = "data/live_scan.json";
+const state = { data:null, ds:"", ck:"", onlyHits:false, stale:false };
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const num = n => n == null ? "—" : n.toLocaleString();
+
+function datasetOf(split) { return String(split).split("/").slice(0, -2).join("/"); }
+
+async function load() {
+  let why = "";
+  try {
+    const r = await fetch(LIVE, { cache: "no-cache" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    state.data = await r.json();
+  } catch (e) {
+    why = e.message;
+    try {
+      const r2 = await fetch(FALLBACK, { cache: "no-cache" });
+      if (!r2.ok) throw new Error("HTTP " + r2.status);
+      state.data = await r2.json();
+      state.stale = true;
+    } catch (e2) {
+      document.getElementById("out").innerHTML =
+        '<div class="err">Could not load the scan (live: ' + esc(why) + '; copy: ' + esc(e2.message) + ').' +
+        ' The report lives at <a href="' + LIVE + '">live_scan.json</a>.</div>';
+      document.getElementById("stamp").textContent = "";
+      return;
+    }
+  }
+  const d = state.data;
+  document.getElementById("stamp").textContent =
+    "last scan " + (d.generated || "?").replace("T", " ") + "  ·  " + d.splits.length + " splits" +
+    (state.stale ? "  ·  showing the committed copy, the live report could not be reached" : "");
+
+  const dsSel = document.getElementById("ds");
+  [...new Set(d.splits.map(s => datasetOf(s.split)))].sort().forEach(x => {
+    const o = document.createElement("option"); o.value = x; o.textContent = x; dsSel.append(o);
+  });
+  const ckSel = document.getElementById("ck");
+  (d.checks || []).forEach(c => {
+    const o = document.createElement("option"); o.value = c.key; o.textContent = c.label; ckSel.append(o);
+  });
+  dsSel.onchange = e => { state.ds = e.target.value; render(); };
+  ckSel.onchange = e => { state.ck = e.target.value; render(); };
+  const btn = document.getElementById("only");
+  btn.onclick = () => { state.onlyHits = !state.onlyHits; btn.classList.toggle("on", state.onlyHits); render(); };
+  render();
+}
+
+function visibleChecks(split) {
+  return (state.data.checks || [])
+    .filter(c => !state.ck || c.key === state.ck)
+    .map(c => [c, split.findings ? split.findings[c.key] : null])
+    .filter(([, f]) => f);
+}
+
+function render() {
+  const d = state.data;
+  let splits = d.splits.filter(s => !state.ds || datasetOf(s.split) === state.ds);
+  if (state.onlyHits) {
+    splits = splits.filter(s => visibleChecks(s).some(([, f]) => f.total > 0));
+  }
+
+  // totals, counted over exactly what is on screen so the header cannot
+  // disagree with the table under it
+  let rows = 0, flagged = 0, sampled = 0;
+  splits.forEach(s => {
+    rows += s.rows_read || 0;
+    if (s.complete === false && !s.error) sampled++;
+    visibleChecks(s).forEach(([, f]) => { flagged += (f.total || 0); });
+  });
+  document.getElementById("totals").innerHTML = [
+    ['<span class="n">' + num(splits.length) + "</span><span class='k'>splits shown</span>", ""],
+    ['<span class="n">' + num(rows) + "</span><span class='k'>rows read</span>", ""],
+    ['<span class="n">' + num(flagged) + "</span><span class='k'>findings (overlapping)</span>", "flag"],
+    ['<span class="n">' + num(sampled) + "</span><span class='k'>splits only sampled</span>", ""],
+  ].map(([h, cls]) => '<div class="tot ' + cls + '">' + h + "</div>").join("");
+
+  const out = document.getElementById("out");
+  if (!splits.length) { out.innerHTML = '<div class="msg">Nothing matches those filters.</div>'; return; }
+
+  out.innerHTML = splits.map(s => {
+    if (s.error) {
+      return '<section class="split"><h2>' + esc(s.split) + "</h2>" +
+             '<div class="err" style="margin:14px">Could not be read: ' + esc(s.error) +
+             ". A failed read is not a clean result, so nothing is reported for this split.</div></section>";
+    }
+    const tags = [];
+    if (s.complete === false) tags.push('<span class="warn">sample</span>');
+    if (s.keys_published === false) tags.push('<span class="quiet">no keys published</span>');
+
+    const body = visibleChecks(s).map(([c, f], i) => {
+      const id = s.split.replace(/[^a-z0-9]/gi, "") + "-" + i;
+      if (f.not_applicable) {
+        return '<tr><td>' + esc(c.label) + '</td><td class="na" colspan="2">' + esc(f.not_applicable) + "</td></tr>";
+      }
+      const hit = f.total > 0;
+      const detail = (f.detail || []).map(dd =>
+        '<div class="sub">' + esc(dd.detail) + " — " + num(dd.count) + "</div>" +
+        (dd.examples && dd.examples.length
+          ? "<ul>" + dd.examples.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul>"
+          : "")).join("");
+      return '<tr class="row' + (hit ? "" : " nohit") + '" data-x="' + id + '"><td>' + esc(c.label) +
+             '</td><td class="n ' + (hit ? "hit" : "zero") + '">' + num(f.total) + "</td><td></td></tr>" +
+             (hit && detail ? '<tr class="ex" id="' + id + '" hidden><td colspan="3">' + detail + "</td></tr>" : "");
+    }).join("");
+
+    const cov = s.rows_in_split
+      ? num(s.rows_read) + " of " + num(s.rows_in_split) + " rows read"
+      : num(s.rows_read) + " rows read";
+
+    return '<section class="split"><h2>' + esc(s.split) + " " + tags.join(" ") +
+           '<span class="cov">' + cov + "</span></h2>" +
+           "<table><thead><tr><th>check</th><th class='n'>items</th><th></th></tr></thead><tbody>" +
+           body + "</tbody></table></section>";
+  }).join("");
+
+  out.querySelectorAll("tr.row").forEach(tr => {
+    tr.onclick = () => {
+      const ex = document.getElementById(tr.dataset.x);
+      if (!ex) return;
+      ex.hidden = !ex.hidden;
+      tr.classList.toggle("open", !ex.hidden);
+    };
+  });
+}
+
+load();
+</script>
